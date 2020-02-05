@@ -98,9 +98,7 @@ updated: 2019-08-16 22:59:48
 	<tr>
 </table>
 
-#### 2、vim
-
-　　-bash: vim: 未找到命令
+#### 2、-bash: vim: 未找到命令
 
 ##### 2.1、查看 vim 数据包
 ``` shell
