@@ -69,10 +69,16 @@ updated: 2019-08-16 22:59:48
     ![](/images/posts/MacOS-VMware-Linux/17.png)
     {% endgp %}
     
-　　2、如果 ifconfig 报错，在 root 用户下执行：
+    
+### 四、基础配置
+
+#### 1、ifconfig
+
+　　如果 ifconfig 报错，在 root 用户下执行：
     ``` shell
     yum install net-tools -y
     ```
+    
 　　参考：[Cent OS 7 最小安装完成后，ifconfig 命令用不了](https://www.cnblogs.com/cy60/p/9287856.html)
 
 <table>
@@ -88,6 +94,44 @@ updated: 2019-08-16 22:59:48
 	<tr>
 	<tr>
 		<td>IP</td>
-		<td colspan="2">192.168.131.137</td>
+		<td colspan="2">192.168.131.137（变化的）</td>
 	<tr>
 </table>
+
+#### 2、vim
+
+　　-bash: vim: 未找到命令
+
+##### 2.1、查看 vim 数据包
+``` shell
+rpm -qa |grep vim
+```
+
+##### 2.2、安装 vim 相关文件
+``` shell
+yum -y install vim-minimal
+yum -y install vim-common
+yum -y install vim-enhanced
+```
+
+##### 2.3、绝招
+
+　　如果还是不生效，执行：
+``` shell
+yum -y install vim*
+```
+
+　　参考：[【linux】-bash: vim: 未找到命令](https://blog.csdn.net/oqqHun123/article/details/93742893)
+
+#### 3、将 liuxy 加入 sudo 权限
+
+``` shell
+vim /etc/sudoers
+```
+
+　　像如下配置 sudoers
+```
+# User privilege specification  
+root        ALL=(ALL:ALL) ALL  
+liuxy    ALL=(ALL:ALL) ALL 
+```
