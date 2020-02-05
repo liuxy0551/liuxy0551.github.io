@@ -526,11 +526,11 @@ gitment:
 # Demo: https://gitalk.github.io
 # Reference: https://asdfv1929.github.io/2018/01/20/gitalk/, https://liujunzhou.top/2018/8/10/gitalk-error/
 gitalk:
-  enable: true
+  enable: false
   github_id: liuxy0551  # Github repo owner
   repo: liuxy0551.github.io # Repository name to store issues
-  client_id: 7aa601678ee03ed5bcfc #ee225c7b65db41a1b788 # Github Application Client ID
-  client_secret: 5a67d137ef819c0c7bc514d2a6fd0fb8663ae447 #f10a884c103d89748d0f05e44ab219c3633dd05f # Github Application Client Secret
+  client_id: 836ae597a7239b9f6ed6 #ee225c7b65db41a1b788 # Github Application Client ID
+  client_secret: 7a7c77e4419bf26ffe7dfb6c06b83d2c33db499c #f10a884c103d89748d0f05e44ab219c3633dd05f # Github Application Client Secret
   admin_user: liuxy0551 # GitHub repo owner and collaborators, only these guys can initialize github issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # Gitalk's display language depends on user's browser or system environment
