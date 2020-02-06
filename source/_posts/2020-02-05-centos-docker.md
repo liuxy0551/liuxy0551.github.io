@@ -51,10 +51,10 @@ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 　　选择其中一个：中央仓库、阿里仓库
 
 ``` shell 中央仓库
-yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo
 ```
 ``` shell 阿里仓库
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
 
