@@ -70,11 +70,13 @@ yum list docker-ce --showduplicates | sort -r
 　　我选的是 18.03.1.ce，命令如下：
 
 ``` shell
-yum install docker-ce-18.03.1.ce
+sudo yum install -y docker-ce-18.03.1.ce
 ```
 
 
 ### 六、启动 Docker
+
+　　root 用户操作：
 
 ``` shell 启动 Docker
 systemctl start docker
