@@ -208,4 +208,8 @@ ssh-keygen -t rsa -b 4096 -C "liuxy0551@qq.com"
 
 　　因为是第一次在服务器上操作，很多操作都是尝试着进行的，而我这个人又有点强迫症，所以在很多不太合适的操作过后我都会重置一下服务器。
 操作步骤为：阿里云控制台 -> 云服务器 ECS -> 选择实例 -> 实例详情 -> 右上角 停止实例 -> 左侧 本实例磁盘 -> 重新初始化磁盘。
-但是下次再连接服务器的时候就会报错了`WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`，根据提示编辑`known_hosts`文件，删除服务器的记录即可。
+但是下次再连接服务器的时候就会报错了`WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`，根据提示编辑`~/.ssh/known_hosts`文件，删除服务器的记录即可。
+
+```shell 
+vim ~/.ssh/known_hosts
+```
