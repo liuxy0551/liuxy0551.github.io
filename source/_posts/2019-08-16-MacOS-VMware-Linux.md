@@ -107,16 +107,16 @@ rpm -qa |grep vim
 
 ##### 2.2、安装 vim 相关文件
 ``` shell
-yum -y install vim-minimal
-yum -y install vim-common
-yum -y install vim-enhanced
+yum install -y vim-minimal
+yum install -y vim-common
+yum install -y vim-enhanced
 ```
 
 ##### 2.3、绝招
 
 　　如果还是不生效，执行：
 ``` shell
-yum -y install vim*
+yum install -y vim*
 ```
 
 　　参考：[【linux】-bash: vim: 未找到命令](https://blog.csdn.net/oqqHun123/article/details/93742893)
