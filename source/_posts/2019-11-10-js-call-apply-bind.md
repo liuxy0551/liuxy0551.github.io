@@ -11,7 +11,6 @@ date: 2019-11-10 20:10:42
 updated: 2019-11-10 20:10:42
 ---
 
-## 介绍
 
 　　最近在加强 JavaScript 基础的学习，这里整理一下 call、apply、bind。
 <!--more-->

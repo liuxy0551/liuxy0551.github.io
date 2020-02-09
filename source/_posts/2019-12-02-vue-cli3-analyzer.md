@@ -13,7 +13,6 @@ date: 2019-12-02 13:06:10
 updated: 2019-12-02 13:06:10
 ---
 
-## 介绍
 
 　　上个月有好几个项目需要部署上线，其中有一个项目需要在钉钉第三方应用市场上线，而钉钉对于页面性能、白屏率等有硬性要求，所以对这个项目做了很多打包优化。
 `前端项目优化之旅`将以基于 Vue CLI 3 新写的 [vue-cli3-build-optimization](https://github.com/liuxy0551/vue-cli3-build-optimization) 作为记录对象，记录一些优化方法：

@@ -12,7 +12,6 @@ date: 2018-08-22 20:29:30
 updated: 2018-08-22 20:29:30
 ---
 
-## 介绍
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近花了两周时间在微信小游戏里踩坑，觉得挺有意思的，在这里分享一下开发的过程，点此可查看项目 [RedHat](https://github.com/liuxy0551/RedHat/tree/master/gameDemo)。首先介绍一下基础：小游戏 [官网教程](https://developers.weixin.qq.com/minigame/dev/) 、腾讯课堂的课程： [白鹭教育 - 成语大挑战小游戏开发](https://ke.qq.com/course/287266)（视频中的资料链接：[https://pan.baidu.com/s/1kkrCUwn0hikPLVg11PPFAA](https://pan.baidu.com/s/1kkrCUwn0hikPLVg11PPFAA) 密码：`3gtt`）、B站的教程：[使用白鹭引擎快速开发微信小游戏最全指南](https://www.bilibili.com/video/av18131669?from=search&seid=12272566927635524397)。这个小游戏是一个跳跃类游戏，基于白鹭（Egret）引擎开发，选用该引擎的原因是目前其对小游戏的开发支持较好，可以少踩些坑。上张图展示一下，下图为首页：
 ![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Egret_Red_Hat/1.png)

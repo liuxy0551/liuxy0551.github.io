@@ -13,7 +13,6 @@ date: 2019-10-02 16:48:19
 updated: 2019-10-02 16:48:19
 ---
 
-## 介绍
 
 　　记录一下使用 JavaScript 实现的冒泡排序算法，实际操作可查看 [https://liuxy0551.github.io/my-vue/#/bubble](https://liuxy0551.github.io/my-vue/#/bubble)。
 <!--more-->

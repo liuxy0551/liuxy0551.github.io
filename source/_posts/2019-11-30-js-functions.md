@@ -11,7 +11,6 @@ date: 2019-11-30 13:43:38
 updated: 2019-11-30 13:43:38
 ---
 
-## 介绍
 
 　　最近在加强 JavaScript 基础的学习，这里整理了一下 JavaScript 中 String 对象和 Array 对象常见的一些方法。
 <!--more-->

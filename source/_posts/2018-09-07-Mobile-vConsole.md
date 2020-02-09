@@ -12,7 +12,6 @@ date: 2018-09-07 10:31:05
 updated: 2018-09-07 10:31:05
 ---
 
-## 介绍
 
 　　移动端进行真机调试时，可以使用`vConsole`查看部分调试信息，功能基本够用。记录一下使用方法。
 [https://github.com/Tencent/vConsole](https://github.com/Tencent/vConsole)

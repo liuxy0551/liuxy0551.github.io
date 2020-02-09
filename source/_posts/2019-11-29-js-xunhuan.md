@@ -11,7 +11,6 @@ date: 2019-11-29 15:26:39
 updated: 2019-11-29 15:26:39
 ---
 
-## 介绍
 
 　　最近在加强 JavaScript 基础的学习，这里整理了一下 JavaScript 中的循环，包括：`for`、`while`、`do while`三种循环和`continue`、`break`两个关键字。
 <!--more-->

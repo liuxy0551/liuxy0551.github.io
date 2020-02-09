@@ -12,7 +12,6 @@ date: 2018-07-27 18:29:43
 updated: 2018-07-27 18:29:43
 ---
 
-## 介绍
 
 　　最近公司的一个项目中使用 Vue 2.0 + element UI 实现一个后台管理系统的前端部分，属于商城类型。其中我负责的部分有一项需要跳转页面，由于跳转前的页面是多个组件构成的，所以在跳转页面的时候，并不适合用传统的 href，于是使用路由进行传值。在这里分享一下开发的过程。
 如何引入路由，可查看官方文档：[https://router.vuejs.org/zh/installation.html](https://router.vuejs.org/zh/installation.html)，也可自行搜索。

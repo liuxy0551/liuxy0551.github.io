@@ -14,7 +14,6 @@ date: 2019-08-16 22:59:48
 updated: 2019-08-16 22:59:48
 ---
 
-## 介绍
 
 今天突然想在 Mac OS 上感受一下虚拟机的乐趣。尝试了 VirtualBox（安装夜神模拟器时不知道怎么就同时安装了）、Parallels Desktop、VMware Fusion 之后，发现还是 VMware Fusion 更有以前在 Windows 上使用虚拟机的熟悉感，所以以下内容基于 VMware Fusion。
 <!--more-->

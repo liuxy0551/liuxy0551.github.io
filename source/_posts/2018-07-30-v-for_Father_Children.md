@@ -13,7 +13,6 @@ date: 2018-07-30 18:12:22
 updated: 2018-07-30 18:12:22
 ---
 
-## 介绍
 
 　　最近公司的一个项目中使用 Vue 2.x + Element UI 实现一个后台管理系统的前端部分，属于商城类型。
 　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/v-for_father_children/jdfw.gif)

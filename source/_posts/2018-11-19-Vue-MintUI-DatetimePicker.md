@@ -14,7 +14,6 @@ date: 2018-11-19 20:29:30
 updated: 2018-11-19 20:29:30
 ---
 
-## 介绍
 
 　　最近公司项目中用到出生日期的功能，使用了 [Mint UI 中的 Datetime picker](https://mint-ui.github.io/docs/#/zh-cn2/datetime-picker)，遇到的问题记录一下。
 <!--more-->
