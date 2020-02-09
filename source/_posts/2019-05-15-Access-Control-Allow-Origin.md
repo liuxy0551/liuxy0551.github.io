@@ -4,6 +4,7 @@ urlname: access-control-allow-origin
 tags:
   - 跨域
 categories:
+  - 前端
   - 跨域
 author: liuxy0551
 copyright: true

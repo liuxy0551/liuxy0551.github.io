@@ -5,6 +5,7 @@ tags:
   - Vue
   - ECharts
 categories:
+  - 前端
   - Vue
   - ECharts
 author: liuxy0551

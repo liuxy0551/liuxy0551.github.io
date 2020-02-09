@@ -2,11 +2,11 @@
 title: 将 Hexo 个人空间放到服务器上
 urlname: hexo-server
 tags:
-  - 服务器
+  - Blog
   - Linux
 categories:
-  - 服务器
   - Linux
+  - Cent OS
 author: liuxy0551
 hide: false
 copyright: true

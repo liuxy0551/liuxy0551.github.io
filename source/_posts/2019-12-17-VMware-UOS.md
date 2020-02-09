@@ -5,7 +5,7 @@ tags:
   - VMware
   - UOS
 categories:
-  - VMware
+  - Linux
   - UOS
 author: liuxy0551
 copyright: true

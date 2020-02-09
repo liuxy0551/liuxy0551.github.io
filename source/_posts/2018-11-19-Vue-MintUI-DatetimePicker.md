@@ -5,6 +5,7 @@ tags:
   - Vue
   - Mint UI
 categories:
+  - 前端
   - Vue
   - Mint UI
 author: liuxy0551

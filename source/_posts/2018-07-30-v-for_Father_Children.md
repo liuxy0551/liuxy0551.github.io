@@ -5,8 +5,8 @@ tags:
   - Vue
   - 父子组件
 categories:
+  - 前端
   - Vue
-  - 父子组件
 author: liuxy0551
 copyright: true
 date: 2018-07-30 18:12:22

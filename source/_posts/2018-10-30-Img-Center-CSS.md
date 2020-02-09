@@ -4,6 +4,7 @@ urlname: image-center-css
 tags:
   - CSS
 categories:
+  - 前端
   - CSS
 author: liuxy0551
 copyright: true

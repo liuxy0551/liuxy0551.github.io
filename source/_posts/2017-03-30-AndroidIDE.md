@@ -4,6 +4,7 @@ urlname: Android-IDE
 tags:
   - Android
 categories:
+  - 大学
   - Android
 author: liuxy0551
 copyright: true

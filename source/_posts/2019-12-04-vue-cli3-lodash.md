@@ -4,7 +4,9 @@ urlname: vue-cli3-lodash
 tags:
   - Vue
   - Lodash
+  - 项目优化
 categories:
+  - 前端
   - Vue
   - Lodash
 author: liuxy0551

@@ -6,8 +6,8 @@ tags:
   - wepy
   - filter
 categories:
-  - Vue
-  - wepy
+  - 前端
+  - 微信小程序
   - filter
 author: liuxy0551
 copyright: true
@@ -37,3 +37,8 @@ updated: 2019-04-10 20:29:30
 　　在 template 中引入 [money.wxs](https://github.com/liuxy0551/liuxy0551.github.io/blob/develop/source/images/posts/Vue-WePY-filter/money.wxs) 文件，并传入数据进行转换，页面代码可参考 [detail.wpy](https://github.com/liuxy0551/liuxy0551.github.io/blob/develop/source/images/posts/Vue-WePY-filter/detail.wpy)
 
 　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_WePY_filter/4.png)
+
+
+可参考：
+
+* [官方文档 - WXS 语法参考](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)

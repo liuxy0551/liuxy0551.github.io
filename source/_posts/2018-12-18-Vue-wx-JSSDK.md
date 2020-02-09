@@ -3,10 +3,10 @@ title: Vue 项目实现微信自定义分享
 urlname: vue-wx-share
 tags:
   - Vue
-  - 微信自定义分享
+  - 微信公众号
 categories:
-  - Vue
-  - 微信自定义分享
+  - 前端
+  - 微信公众号
 author: liuxy0551
 copyright: true
 date: 2018-12-18 20:29:30

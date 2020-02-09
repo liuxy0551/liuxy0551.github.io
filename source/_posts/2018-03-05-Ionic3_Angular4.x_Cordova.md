@@ -1,14 +1,11 @@
 ---
 title: Ionic 3 + AngularJS 4.x + Cordova 混合开发项目小战
-urlname: Ionic3-Angular4.x-Cordova
+urlname: ionic3-angular4.x-cordova
 tags:
-  - Ionic 3
   - Angular
-  - Cordova
 categories:
-  - Ionic 3
+  - 前端
   - Angular
-  - Cordova
 author: liuxy0551
 copyright: true
 date: 2018-03-05 20:29:30

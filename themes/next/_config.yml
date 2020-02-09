@@ -114,7 +114,6 @@ menu:
   #photos: /photos/ || camera  #摄影相册
   #book: /book/ || book #书籍
   about: /about/ || user #关于
-  #love: https://love.enjoytoshare.club/ || heart #告白
   #love: https://liuxy0556.github.io/love/ || heart #告白
   links: /links/ || paper-plane #友链
   laboratory: /laboratory/ || anchor #实验室
@@ -1098,7 +1097,8 @@ mylinks:
 
   - nickname: 青果先生  #友链名称
     avatar: https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/003.jpg  #友链头像
-    site: https://blog.enjoytoshare.club  #友链地址
+    # site: https://blog.enjoytoshare.club  #友链地址
+    site: https://wugenqiang.gitee.io  #友链地址
     info: Sometimes your whole life boils down to one insame move.  #友链说明
 
   - nickname: wuyuedefeng  #友链名称

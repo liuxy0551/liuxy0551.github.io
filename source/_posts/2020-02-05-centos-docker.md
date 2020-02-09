@@ -4,6 +4,7 @@ urlname: cent-os-docker
 tags:
   - Cent OS
 categories:
+  - Linux
   - Cent OS
 author: liuxy0551
 copyright: true

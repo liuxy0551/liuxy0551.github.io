@@ -4,7 +4,9 @@ urlname: vue-cli3-vant-load-on-demand
 tags:
   - Vue
   - Vant
+  - 项目优化
 categories:
+  - 前端
   - Vue
   - Vant
 author: liuxy0551

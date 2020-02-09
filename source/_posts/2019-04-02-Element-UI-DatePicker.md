@@ -4,6 +4,8 @@ urlname: element-ui-date-picker
 tags:
   - Element UI
 categories:
+  - 前端
+  - Vue
   - Element UI
 author: liuxy0551
 copyright: true

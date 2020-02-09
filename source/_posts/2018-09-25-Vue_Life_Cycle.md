@@ -5,6 +5,7 @@ tags:
   - Vue
   - 生命周期
 categories:
+  - 前端
   - Vue
   - 生命周期
 author: liuxy0551

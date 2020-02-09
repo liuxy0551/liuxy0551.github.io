@@ -1,9 +1,10 @@
 ---
 title: 如何快速开启和关闭 Oracle 所需的服务
-urlname: Oracle-Service
+urlname: oracle-service
 tags:
   - Oracle
 categories:
+  - 数据库
   - Oracle
 author: liuxy0551
 copyright: true

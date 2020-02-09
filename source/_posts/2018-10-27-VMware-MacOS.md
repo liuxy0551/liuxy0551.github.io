@@ -3,10 +3,8 @@ title: 在 VMware 中安装 MacOS High Sierra 10.13
 urlname: vmware-macos
 tags:
   - VMware
-  - Mac OS
 categories:
   - VMware
-  - Mac OS
 author: liuxy0551
 copyright: true
 date: 2018-10-27 20:29:30

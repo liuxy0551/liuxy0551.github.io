@@ -4,7 +4,7 @@ urlname: lesuobingdu
 tags:
   - 勒索病毒
 categories:
-  - 勒索病毒
+  - 大学
 author: liuxy0551
 copyright: true
 date: 2017-05-13 12:10:54

@@ -5,6 +5,7 @@ tags:
   - Vue
   - 父子组件
 categories:
+  - 前端
   - Vue
   - 父子组件
 author: liuxy0551

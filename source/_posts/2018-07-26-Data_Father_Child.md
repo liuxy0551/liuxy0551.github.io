@@ -4,11 +4,9 @@ urlname: data-father-child
 tags:
   - Vue
   - 父子组件
-  - 数据传递
 categories:
+  - 前端
   - Vue
-  - 父子组件
-  - 数据传递
 author: liuxy0551
 copyright: true
 date: 2018-07-26 20:29:30

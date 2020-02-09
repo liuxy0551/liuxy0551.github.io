@@ -3,10 +3,11 @@ title: Vue 项目中生成类似 GitHub 的随机头像
 urlname: random-avatar-md5
 tags:
   - 随机头像
-  - Vue
+  - MD5
 categories:
-  - 随机头像
+  - 前端
   - Vue
+  - 随机头像
 author: liuxy0551
 copyright: true
 date: 2019-09-16 15:42:39

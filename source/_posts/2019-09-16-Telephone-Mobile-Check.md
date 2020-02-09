@@ -4,6 +4,7 @@ urlname: telephone-mobile-check
 tags:
   - 正则表达式
 categories:
+  - 前端
   - 正则表达式
 author: liuxy0551
 copyright: true

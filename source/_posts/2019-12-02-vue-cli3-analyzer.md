@@ -3,7 +3,9 @@ title: 前端项目优化之旅（一）—— 分析插件
 urlname: vue-cli3-analyzer
 tags:
   - Vue
+  - 项目优化
 categories:
+  - 前端
   - Vue
 author: liuxy0551
 copyright: true

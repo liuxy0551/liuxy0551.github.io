@@ -1,9 +1,10 @@
 ---
 title: Vue 编程之路（二）——跳转页面传值
-urlname: Transmit-Value
+urlname: transmit-value
 tags:
   - Vue
 categories:
+  - 前端
   - Vue
 author: liuxy0551
 copyright: true

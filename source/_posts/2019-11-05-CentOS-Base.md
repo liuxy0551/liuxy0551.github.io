@@ -2,13 +2,11 @@
 title: Cent OS 基础环境搭建
 urlname: cent-os-base
 tags:
-  - Cent OS
   - Linux
-  - 服务器
+  - Cent OS
 categories:
-  - Cent OS
   - Linux
-  - 服务器
+  - Cent OS
 author: liuxy0551
 hide: false
 copyright: true
