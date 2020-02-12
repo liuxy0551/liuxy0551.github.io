@@ -2,6 +2,7 @@
 title: Vue 和 WePY 中过滤器写法
 urlname: vue-wepy-filter
 tags:
+  - 微信小程序
   - Vue
   - wepy
   - filter
