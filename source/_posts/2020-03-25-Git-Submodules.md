@@ -71,7 +71,7 @@ git submodule foreach git pull origin master
 &ensp;&ensp;&ensp;&ensp;按照正常的 git 项目更新提交代码，其他开发成员获取参照`3.1、获取子模块代码`
 
 ##### 3.2.2、在主项目中更新子模块的代码
-&ensp;&ensp;&ensp;&ensp;`在子模块路径下`按照正常的 git 项目更新提交代码，其他开发成员获取参照`3.1、获取子模块代码`
+&ensp;&ensp;&ensp;&ensp;`在子模块路径下`按照正常的 git 项目更新提交代码，其他开发成员获取参照`3.1、获取子模块代码`。主项目的代码应在子模块的代码提交后再提交，否则主项目检测不到子模块具体的变动。
 
 
 ### 四、删除 git submodules
