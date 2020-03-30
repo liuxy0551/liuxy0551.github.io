@@ -53,17 +53,18 @@ export default {
 ``` javascript
 // vConsole.js
 export default {
+  vConsole: null,
   // 打开 vConsole
   open () {
     let ids = [148, 488] // 书明，刘易
     let userInfo = JSON.parse(localStorage.getItem('userInfo'))
     let isPC = localStorage.getItem('isPC') === 'true'
-
+  
     // PC 端打开页面时不需要打开 vConsole
     if (isPC) {
       return
     }
-
+  
     if (process.env.NODE_ENV === 'production') {
       if (!/test/.test(process.env.VUE_APP_BASE_URL)) { // 正式服
         if (!ids.includes(userInfo && userInfo.id)) { // 正式服不包含测试和开发则不打开
@@ -71,9 +72,9 @@ export default {
         }
       }
     }
-
+  
     let VConsole = require('vconsole/dist/vconsole.min.js')
-    new VConsole()
+    this.vConsole = new VConsole()
   }
 }
 ```
