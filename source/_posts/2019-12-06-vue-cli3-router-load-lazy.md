@@ -32,7 +32,7 @@ updated: 2019-12-06 11:34:19
 
 ``` javascript
 { path: '/element', name: 'Element', component: () => import('../src/pages/element') }                          // 未使用懒加载
-{ path: '/element', name: 'Element', component: (resolve) => { require(['../src/pages/element'], resolve) }}    // 使用懒加载
+{ path: '/element', name: 'Element', component: resolve => { require(['../src/pages/element'], resolve) }}    // 使用懒加载
 ```
 
 　　在 Vue CLI 3 中我们还需要多做一步。因为 Vue CLI 3 默认开始了`prefetch`（预加载模块），用来告诉浏览器在页面加载完成后，利用空闲时间提前获取用户未来可能会访问的内容。所以要关闭这个功能，在`vue.config.js`中设置：
