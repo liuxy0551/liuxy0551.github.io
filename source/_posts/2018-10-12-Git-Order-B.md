@@ -17,7 +17,7 @@ updated: 2019-12-13 11:30:07
 
 
 
-###  clone 项目到本地
+### 一、clone 项目到本地
 
 　　1、两种 clone 操作
 
@@ -40,3 +40,13 @@ updated: 2019-12-13 11:30:07
     git branch -a | 查看所有分支列表，包括本地仓库和远程仓库
     git checkout dev | 切换分支 dev
     git checkout -b dev | 本地仓库创建 dev 分支，同时切换到 dev 分支。只有提交的时候才会在远程仓库创建一个分支
+
+
+### 二、切换到指定远程分支
+``` shell
+ git checkout -t origin/develop
+```
+等同于
+``` shell
+ git checkout -b develop origin/develop
+```
