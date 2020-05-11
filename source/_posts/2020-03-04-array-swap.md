@@ -18,7 +18,7 @@ updated: 2020-03-04 14:03:00
 
 ### 一、实现效果
 
-![](/images/posts/array-swap/1.png)
+![](http://media.liuxianyu.cn/array-swap-1.png)
 
 ### 二、实现原理
 

@@ -33,7 +33,7 @@ console.log(stuB.name) // Simon
 ```
 　　函数的 prototype 属性指向调用该构造函数而创建的实例的原型，也就是上述代码中 stuA 和 stuB 的原型，如下图：
 
-![](/images/posts/js-prototype/1.png)
+![](http://media.liuxianyu.cn/js-prototype-1.png)
 
 
 #### 2、`__proto__`
@@ -48,7 +48,7 @@ console.log(stu.__proto__ === Student.prototype) // true
 ```
 　　实例对象和构造函数都可以指向原型，如下图：
 
-![](/images/posts/js-prototype/2.png)
+![](http://media.liuxianyu.cn/js-prototype-2.png)
 
 
 #### 3、constructor
@@ -62,7 +62,7 @@ console.log(Student === Student.prototype.constructor) // true
 ```
 　　每个原型都有一个 constructor 属性指向关联的构造函数，如下图所示构造函数、实例原型和实例之间的关系：
 
-![](/images/posts/js-prototype/3.png)
+![](http://media.liuxianyu.cn/js-prototype-3.png)
 
 
 >**综上可以得出：**
@@ -100,7 +100,7 @@ console.log(stu.name) // zhangsan
 
 前面有提到原型也是对象，其实原型对象就是通过 Object 构造函数创建的，实例的 __proto__ 指向构造函数的 prototype，如下图：
 
-![](/images/posts/js-prototype/4.png)
+![](http://media.liuxianyu.cn/js-prototype-4.png)
 
 
 ### 原型链
@@ -111,6 +111,6 @@ console.log(Object.prototype.__proto__) // null
 ```
 　　Object.prototype 的原型是 null，即 Object.prototype 没有原型。意味着查找属性的时候查到 Object.prototype 就可以停止查找了。
 
-![](/images/posts/js-prototype/5.png)
+![](http://media.liuxianyu.cn/js-prototype-5.png)
 
 　　上图中相互关联的原型组成的链状结构就是原型链，也就是上图中蓝色的线。

@@ -22,7 +22,7 @@ updated: 2019-08-16 22:59:48
 ### 一、 下载 Linux 镜像
 
 　　1、Cent OS：[https://www.centos.org](https://www.centos.org) [下载页面](https://www.centos.org/download/) 在下载页面选择 DVD  进入镜像选择页面，第一个是华为云上的镜像，我在杭州，所以我选择了第二个浙大的镜像。其实华为云的更快点：[http://mirrors.huaweicloud.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso](http://mirrors.huaweicloud.com/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso)
-    ![](/images/posts/VMware-Linux/1.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-1.png)
 
 　　2、Ubuntu：[https://ubuntu.com](https://ubuntu.com) 华为云上的多版本镜像地址[http://mirrors.huaweicloud.com/repository/ubuntu-releases/16.04/](http://mirrors.huaweicloud.com/repository/ubuntu-releases/16.04/) 也可以在 [下载页面](https://launchpad.net/ubuntu/+cdmirrors?_ga=2.223681115.1514728070.1565962868-1880279007.1565962868) 滚动到 China 的部分，选择合适的镜像地址
 
@@ -43,24 +43,24 @@ updated: 2019-08-16 22:59:48
 
 　　1、安装 GNOME 版本，多图
     {% gp 8-4 %}
-    ![](/images/posts/VMware-Linux/2.png)
-    ![](/images/posts/VMware-Linux/3.png)
-    ![](/images/posts/VMware-Linux/4.png)
-    ![](/images/posts/VMware-Linux/5.png)
-    ![](/images/posts/VMware-Linux/6.png)
-    ![](/images/posts/VMware-Linux/7.png)
-    ![](/images/posts/VMware-Linux/8.png)
-    ![](/images/posts/VMware-Linux/9.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-2.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-3.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-4.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-5.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-6.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-7.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-8.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-9.png)
     {% endgp %}
     {% gp 8-4 %}
-    ![](/images/posts/VMware-Linux/10.png)
-    ![](/images/posts/VMware-Linux/11.png)
-    ![](/images/posts/VMware-Linux/12.png)
-    ![](/images/posts/VMware-Linux/13.png)
-    ![](/images/posts/VMware-Linux/14.png)
-    ![](/images/posts/VMware-Linux/15.png)
-    ![](/images/posts/VMware-Linux/16.png)
-    ![](/images/posts/VMware-Linux/17.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-10.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-11.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-12.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-13.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-14.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-15.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-16.png)
+    ![](http://media.liuxianyu.cn/vmware-linux-17.png)
     {% endgp %}
     
     

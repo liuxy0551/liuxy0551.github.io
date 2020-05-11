@@ -75,7 +75,7 @@ ionic 3 新建组件的命令：ionic g page 组件名，如：
 
 　　这里只介绍我比较熟悉的 Android 打包，需要安装 Android SDK（可参考 [轻松搞定 Android 开发环境的搭建](http://liuxy0551.github.io/article/AndroidIDE.html) 中安装 Android SDK 的部分），我安装的是 Android 8.0.0（API 26），与下文中的 gradle 4.1 版本相对应。点此下载 [gradle-4.1-all.zip](https://pan.baidu.com/s/1uvbvk2UBmsDHBHFckjq1ag) 密码：`yt35`。将这个压缩包解压，添加 bin 文件夹路径至环境变量 Path。
 
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/path.png)
+<br>![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-path.png)
 
 添加打包平台（Android）的命令：
 
@@ -92,8 +92,8 @@ ionic 3 新建组件的命令：ionic g page 组件名，如：
     ionic cordova build android  --prod
     ```
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/building.png)
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/success.png)
+![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-building.png)
+<br>![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-success.png)
 
 打包成 apk 文件的命令（比上一个打包出来的占用空间大）：
 
@@ -109,6 +109,6 @@ ionic 3 新建组件的命令：ionic g page 组件名，如：
 
 以下为部分真机测试时的截图
 
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/1.png)
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/2.png)
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Ionic3_Angular4.x_Cordova/3.png)
+<br>![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-1.png)
+<br>![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-2.png)
+<br>![](http://media.liuxianyu.cn/ionic3-angular4.x-cordova-3.png)

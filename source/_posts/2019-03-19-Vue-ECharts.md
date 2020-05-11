@@ -21,8 +21,8 @@ updated: 2019-03-19 20:29:30
 
 ### 一、实现效果
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/ECharts/world.png)
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/ECharts/China.png)
+![](http://media.liuxianyu.cn/echarts-world.png)
+![](http://media.liuxianyu.cn/echarts-china.png)
 
 ### 二、引入组件及说明
 　　1、v-charts：基于 Vue2.0 和 ECharts 封装的图表组件 [官方文档](https://v-charts.js.org)   [Github](https://github.com/ElemeFE/v-charts)

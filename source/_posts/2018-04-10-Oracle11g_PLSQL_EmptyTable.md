@@ -60,11 +60,11 @@ updated: 2018-04-10 21:39:30
     SELECT 'ALTER TABLE '||TABLE_NAME||' ALLOCATE EXTENT;' FROM USER_TABLES WHERE SEGMENT_CREATED='NO';
     ```
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Oracle_PLSQL/result.png)<br>
+![](http://media.liuxianyu.cn/oracle-plsql-result.png)<br>
 
 可以通过语句导出查询结果，执行导出的语句即可（表数量少的话可以复制粘贴执行查询结果）。
 
-<br>![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Oracle_PLSQL/yuju.png)
+<br>![](http://media.liuxianyu.cn/oracle-plsql-yuju.png)
 
 　　``` 
     set heading off;

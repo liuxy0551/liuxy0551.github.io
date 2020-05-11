@@ -20,27 +20,27 @@ updated: 2018-07-27 18:29:43
 
 ### 一、我采用的实现方法
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/1.png)
+　　![](http://media.liuxianyu.cn/transmit-value-1.png)
 
 　　上图，跳转前的页面。给每一行的按钮绑定点击事件，并将每一行的数据携带上。
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/5.png)
+　　![](http://media.liuxianyu.cn/transmit-value-5.png)
 
 　　上图，按钮的点击事件。首先创建 props ，然后在 props 中创建对应的属性名，之后即可在 template 中使用接收到的对象。
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/3.png)
+　　![](http://media.liuxianyu.cn/transmit-value-3.png)
 
 　　上图，跳转前的页面所对应的响应事件。其中 path 所对应的 '/order/orderDetails' 我已经在 src/router/index.js 中注册声明，如下图：
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/4.png)
+　　![](http://media.liuxianyu.cn/transmit-value-4.png)
 
 　　上图，在 src/router/index.js 中注册声明。
 
 　　点击“订单详情”按钮后，页面跳转，此时的 URL 为：
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/2.png)
+　　![](http://media.liuxianyu.cn/transmit-value-2.png)
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Transmit_Value/6.png)
+　　![](http://media.liuxianyu.cn/transmit-value-6.png)
 
 　　上图，接收页接收数据。此时刷新页面，数据依然存在，因为 URL 没有改变，接收页直接从 URL 截取参数去接口中拿数据，故刷新页面不会影响接收页的数据。可以看到，这边是把需要的参数写入 URL 了，然后在接收页接收数据：
 

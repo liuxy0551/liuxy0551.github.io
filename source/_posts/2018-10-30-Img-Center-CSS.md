@@ -20,7 +20,7 @@ updated: 2018-10-30 20:29:30
 ### 一、实现效果
 
 <center>
-    <iframe width="500" height="400" src="/images/posts/Img-Center-CSS/3.mp4" allowfullscreen></iframe>
+    <iframe width="500" height="400" src="http://media.liuxianyu.cn/img-center-css-1.mp4" allowfullscreen></iframe>
 </center>
 <br>
 
@@ -30,7 +30,7 @@ updated: 2018-10-30 20:29:30
 
 #### 1、HTML 部分
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Img_Center_CSS/1.png)
+　　![](http://media.liuxianyu.cn/img-center-css-2.png)
 ```
     <mt-swipe :auto="0">
       <mt-swipe-item class="product-swipe" v-for="item in product_info.images" :key="item.piid">
@@ -41,7 +41,7 @@ updated: 2018-10-30 20:29:30
 
 #### 2、CSS 部分
 
-　　![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Img_Center_CSS/2.png)
+　　![](http://media.liuxianyu.cn/img-center-css-2.png)
 ```
       .product-swipe {
         width: 750px;

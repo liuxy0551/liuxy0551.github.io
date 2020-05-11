@@ -81,4 +81,5 @@ module.exports = {
 
 　　接下运行`npm run serve`即可，会自动打开浏览器并访问 [http://127.0.0.1:8888](http://127.0.0.1:8888/)
 
-![](/images/posts/vue-cli3-analyzer/2.png)
+![](http://media.liuxianyu.cn/vue-cli3-analyzer-1.png)
+![](http://media.liuxianyu.cn/vue-cli3-analyzer-2.png)

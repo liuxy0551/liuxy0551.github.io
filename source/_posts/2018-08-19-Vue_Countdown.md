@@ -20,14 +20,14 @@ updated: 2018-08-19 20:29:30
 
 ### 实现效果
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_Countdown/1.gif)
+![](http://media.liuxianyu.cn/vue-countdown-1.gif)
 
 
 ### 具体实现
 
 #### 1、HTML 部分
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_Countdown/2.png)
+![](http://media.liuxianyu.cn/vue-countdown-2.png)
 ```
     <li>
       <div>
@@ -51,7 +51,7 @@ updated: 2018-08-19 20:29:30
 
 #### 2、JS 部分
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_Countdown/3.png)
+![](http://media.liuxianyu.cn/vue-countdown-3.png)
 
 ```
     data() {
@@ -64,7 +64,7 @@ updated: 2018-08-19 20:29:30
     }
 ```
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_Countdown/4.png)
+![](http://media.liuxianyu.cn/vue-countdown-4.png)
 ```
   // 获取验证码
   getInforcode() {
@@ -95,7 +95,7 @@ updated: 2018-08-19 20:29:30
       
 #### 3、CSS 部分
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/Vue_Countdown/5.png)
+![](http://media.liuxianyu.cn/vue-countdown-5.png)
 ```
 .m-get-code{
   display: inline-block;

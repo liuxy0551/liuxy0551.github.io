@@ -19,7 +19,7 @@ updated: 2019-09-16 13:36:30
 
 ### 一、实现效果
 
-![](/images/posts/CSS-concentric-circles/1.png)
+![](http://media.liuxianyu.cn/css-concentric-circles-1.png)
 
 
 ### 二、HTML

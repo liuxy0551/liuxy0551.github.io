@@ -18,7 +18,7 @@ updated: 2019-01-14 20:29:30
 
 ### 一、简单理解
 
-![](https://raw.githubusercontent.com/liuxy0551/liuxy0551.github.io.jekyll/master/images/posts/double_equal/1.png)
+![](http://media.liuxianyu.cn/double-equal-1.png)
 
 　　== 代表相同，=== 代表严格相同。  
 

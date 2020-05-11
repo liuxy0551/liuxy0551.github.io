@@ -21,7 +21,7 @@ updated: 2019-09-16 15:42:39
 
 ### 一、实现效果
 
-![](/images/posts/Random-Avatar-MD5/1.png)
+![](http://media.liuxianyu.cn/random-avatar-md5-1.png)
 
 
 ### 二、封装组件 - avatar.vue
