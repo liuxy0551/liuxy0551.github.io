@@ -28,7 +28,7 @@ updated: 2019-12-02 13:06:10
 　　安装`webpack-bundle-analyzer`：
 
 ``` shell
-npm i webpack-bundle-analyzer -D
+npm i webpack-bundle-analyzer
 ```
 
 　　有以下两种配置方案，推荐第一种
