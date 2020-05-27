@@ -19,7 +19,7 @@ updated: 2019-04-27 16:46:26
 
 ### 一、配置文件
 
-链接: [https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg](https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg)  密码:uibc
+链接: [https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg](https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg)  密码:`uibc`
 
 
 ### 二、插件列表
@@ -38,7 +38,7 @@ updated: 2019-04-27 16:46:26
 | 10 | goto node modules                | 快速定位 node 模块                                                                                                           |
 | 11 | HTML CSS Support                 | 智能提示CSS类名以及id                                                                                                          |
 | 12 | Image preview                    | 图片预览。（支持html、css中图片资源预览）                                                                                               |
-| 13 | JavaScript \(ES6\) code snippets | 代码提示                                                                                                                   |
+| 13 | JavaScript \(ES6\) code snippets | ES6语法智能提示，以及快速输入，不仅仅支持.js，还支持.ts，.jsx，.tsx，.html，.vue，省去了配置其支持各种包含js代码文件的时间                                                                                                                   |
 | 14 | Node\.js Modules Intellisense    | 提供JavaScript和TypeScript导入声明时的自动补全                                                                                      |
 | 15 | npm                              | 支持运行文件中定义的npm脚本，并根据中定义的依赖项验证已安装的模块package\.json。                                                                       |
 | 16 | npm Intellisense                 | 用于在import语句中自动填充npm模块                                                                                                  |

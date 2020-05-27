@@ -17,6 +17,13 @@ updated: 2020-05-14 19:07:09
 
 
 ```html
-<video ref="videoRef" controls preload :src="videoUrl" x5-video-player-type="h5-page"
-  playsinline="true" webkit-playsinline="true"></video>
+<video 
+  ref="videoRef" 
+  controls 
+  preload 
+  :src="videoUrl" 
+  x5-video-player-type="h5-page"
+  playsinline="true"
+  webkit-playsinline="true"
+></video>
 ```
