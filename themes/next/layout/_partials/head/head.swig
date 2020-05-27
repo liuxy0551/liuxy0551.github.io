@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="{{ pace_css_uri }}"/>
 {% endif %}
 
-{% if theme.han %}
+{% if theme.hans %}
   {% set Han_uri = url_for(theme.vendors._internal + '/Han/dist/han.min.css?v=3.3') %}
   {% if theme.vendors.han %}
     {% set Han_uri = theme.vendors.han %}

@@ -381,7 +381,9 @@ font:
   # 外链字体库地址，例如 //fonts.googleapis.com (默认值)
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
   # fonts.lug.ustc.edu.cn是中科大的源,解决Hexo NexT主题访问慢
-  host: //fonts.lug.ustc.edu.cn
+  # host: //fonts.lug.ustc.edu.cn
+  # host: //fonts.useso.com
+  host: //fonts.loli.net
 
   # 全局字体，应用在 body 元素上
   global:
@@ -1096,7 +1098,7 @@ mylinks:
     info: 不积跬步无以至千里  #友链说明
 
   - nickname: 青果先生  #友链名称
-    avatar: https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/003.jpg  #友链头像
+    avatar: https://wugenqiang.gitee.io/images/fighting_wugenqiang.jpg  #友链头像
     # site: https://blog.enjoytoshare.club  #友链地址
     site: https://wugenqiang.gitee.io  #友链地址
     info: Sometimes your whole life boils down to one insame move.  #友链说明
