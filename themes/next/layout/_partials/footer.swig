@@ -63,6 +63,8 @@
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!-- 样式二（飘动的彩带） -->
+<script type="text/javascript" src="/js/src/piaodai.js"></script>
 
 <div>
 <!-- 网站运行时间的设置 -->
@@ -89,18 +91,18 @@ setInterval("createtime()",250);
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
   <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
-  <a style="color: #999; border-bottom: none" target="_blank" href="http://www.beian.miit.gov.cn/"> / 浙ICP备19046839号</a>
+  <a style="color: #999; border-bottom: none" target="_blank" href="http://www.beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
 <!-- 不蒜字统计 -->
 <div>
 	<i class="fa fa-user-md"></i>
-	<span id="busuanzi_container_site_uv">
-	  访问人数：<span id="busuanzi_value_site_uv"></span>
+	<span>
+	  本站访客数：<span id="busuanzi_value_site_uv"></span>
 	</span>&nbsp;|&nbsp;
 
 	<i class="fa fa-eye"></i>
-	<span id="busuanzi_container_site_pv">
-	  总访问量：<span id="busuanzi_value_site_pv"></span>
+	<span>
+	  本站总访问量：<span id="busuanzi_value_site_pv"></span>
 	</span>
 </div>
