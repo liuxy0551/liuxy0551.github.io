@@ -28,7 +28,9 @@
 }
 </style>
 
-<button id="selectionCopyright" disabled="disabled">本文发表于 [<a href="https://liuxianyu.cn">刘先玉的个人随笔</a>] 分享记得注明来源哟</button>
+
+<!-- <button id="selectionCopyright" disabled="disabled">本文发表于 [<a href="https://liuxianyu.cn">刘先玉的个人随笔</a>] 分享记得注明来源哟</button> -->
+
 
 <script>
 window.onload = function() {
