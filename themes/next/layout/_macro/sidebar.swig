@@ -93,7 +93,7 @@
                 </div>
               {% endif %}
 
-              {% if site.tags.length > 1 %}
+              {% if site.tags.length > 1 && theme.tagCloud.enable %}
                 <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
                 <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
                 <div class="widget-wrap">

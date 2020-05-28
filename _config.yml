@@ -141,6 +141,11 @@ selectionCopyright:
   enable: true
 
 
+# 3D 标签旋转
+tagCloud:
+  enable: true
+
+
 # Markdown-it config
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:
