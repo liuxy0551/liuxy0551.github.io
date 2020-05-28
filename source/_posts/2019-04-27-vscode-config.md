@@ -19,7 +19,7 @@ updated: 2019-04-27 16:46:26
 
 ### 一、配置文件
 
-链接: [https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg](https://pan.baidu.com/s/1Z9NzIufXRtcLOdIdpIIhpg)  密码:`uibc`
+链接: [https://pan.baidu.com/s/1qPeuAwM8TUW8UA6yED0PfQ](https://pan.baidu.com/s/1qPeuAwM8TUW8UA6yED0PfQ)  密码:`2171`
 
 
 ### 二、插件列表
