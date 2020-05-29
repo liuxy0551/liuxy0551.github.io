@@ -57,7 +57,7 @@ window.onload = function() {
                 scTip.style.top = top + yScroll - 15 + 'px';//鼠标当前y值
             }, 100);
         } else {
-            scTip.style.display = 'none';
+            scTip && (scTip.style.display = 'none');
         }
     };
 
