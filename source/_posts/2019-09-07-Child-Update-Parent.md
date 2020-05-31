@@ -31,6 +31,9 @@ updated: 2019-09-07 23:36:30
     this.$emit('update:show', false)
     ```
 
+>**注意**
+>* 要定义对应的变量去传值，如：show，不可以直接传 true 之类的实际值
+
 ### 二、this.$parent
 
 　　1、不使用修饰符，通过 this.$parent 进行改变
