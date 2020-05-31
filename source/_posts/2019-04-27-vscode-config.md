@@ -5,6 +5,7 @@ tags:
   - vscode
 categories:
   - 前端
+  - 开发工具
   - vscode
 author: liuxy0551
 copyright: true
