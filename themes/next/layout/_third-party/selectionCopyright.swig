@@ -50,7 +50,7 @@ window.onload = function() {
         var top = ev.clientY;//获取鼠标相对浏览器可视区域左上角垂直距离距离
         var xScroll = Math.max(document.body.scrollLeft, document.documentElement.scrollLeft);//获取文档水平滚动距离
         var yScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);//获取文档垂直滚动距离
-        if (selectText().length > 0) {
+        if (selectText().length > 0 && scTip) {
             setTimeout(function() { //设定一个定时器
                 scTip.style.display = 'inline-block';
                 scTip.style.left = left + xScroll + 15 + 'px';//鼠标当前x值
