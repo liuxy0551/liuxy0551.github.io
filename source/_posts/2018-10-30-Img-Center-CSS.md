@@ -20,7 +20,7 @@ updated: 2018-10-30 20:29:30
 ### 一、实现效果
 
 <center>
-    <iframe width="500" height="400" src="http://media.liuxianyu.cn/img-center-css-1.mp4" allowfullscreen></iframe>
+    <iframe width="418" height="510" src="/images/images/videos/img-center-css-1.mp4" allowfullscreen></iframe>
 </center>
 <br>
 
