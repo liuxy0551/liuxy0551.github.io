@@ -30,7 +30,7 @@ updated: 2018-01-29 20:29:30
 安装 cnpm，npm 可能安装失败，建议先用 npm 安装一下，cnpm 用淘宝镜像安装 （https://npm.taobao.org/ )，指令：
 
 　　``` 
-     gnpm install -g cnpm --registry=https://registry.npm.taobao.org
+     npm install -g cnpm --registry=https://registry.npm.taobao.org
     ```
 
 使用 cnpm 安装脚手架：
