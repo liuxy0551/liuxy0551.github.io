@@ -32,7 +32,8 @@ updated: 2020-05-28 17:05:57
   "printWidth": 140,
   "semi": false,
   "singleQuote": true,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "arrowParens": "avoid"
 }
 ```
 
