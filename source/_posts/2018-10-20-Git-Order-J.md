@@ -1,5 +1,5 @@
 ---
-title: Git 常用命令（十）—— github Fork 的代码如何更新
+title: Git 常用命令（十）—— github Fork 的代码如何更新并新建 pull request
 urlname: git-order-j
 tags:
   - git
@@ -8,11 +8,11 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2020-06-07 15:09:16
-updated: 2020-06-07 15:09:16
+updated: 2020-06-18 10:46:52
 ---
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下`github Fork 的代码如何更新`：
+&nbsp;&nbsp;&nbsp;&nbsp;git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下`github Fork 的代码如何更新并新建 pull request`：
 <!--more-->
 
 ### 1、拉取 Fork 后的代码
@@ -46,3 +46,7 @@ git merge author/master
 ``` shell
 git push origin master
 ```
+
+### 6、新建 pull request
+
+&nbsp;&nbsp;&nbsp;&nbsp;在自己的项目中，点击`New pull request` -> `Create pull request`
