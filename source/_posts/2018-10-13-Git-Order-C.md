@@ -16,9 +16,15 @@ updated: 2019-12-13 12:14:23
 <!--more-->
 
 
-###  追加 commit
+###  1、追加 commit
 
 ``` shell
 git add .
+git commit --amend
+```
+
+###  2、修改 commit 信息
+
+``` shell
 git commit --amend
 ```

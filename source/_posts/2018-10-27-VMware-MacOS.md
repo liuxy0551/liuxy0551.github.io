@@ -37,74 +37,96 @@ Windows 系统、VMware、unlocker（使得 VMware 可以识别到 MacOS）、Ma
 
 　　在完成以上准备工作后，就可以开始新建虚拟机载入 MacOS 了，后续步骤以图片为主。
 
-　　![](http://media.liuxianyu.cn/vmware-macos-2.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-3.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-4.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-5.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-6.png)
+{% gp 8-4 %}
+![](http://media.liuxianyu.cn/vmware-macos-2.png)
+![](http://media.liuxianyu.cn/vmware-macos-3.png)
+![](http://media.liuxianyu.cn/vmware-macos-4.png)
+![](http://media.liuxianyu.cn/vmware-macos-5.png)
+![](http://media.liuxianyu.cn/vmware-macos-6.png)
+{% endgp %}
 
 　　下图中的内存和处理器的分配数量可依主机性能而定，多多益善。
 
-　　![](http://media.liuxianyu.cn/vmware-macos-7.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-8.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-9.png)
+{% gp 8-4 %}
+![](http://media.liuxianyu.cn/vmware-macos-7.png)
+![](http://media.liuxianyu.cn/vmware-macos-8.png)
+![](http://media.liuxianyu.cn/vmware-macos-9.png)
+{% endgp %}
 
 　　    正常情况下，初次开启此虚拟机后会出现如下图的错误，unlocker 的开发者给出了解决方法：找到并打开安装目录下的 XXXX.vmx 文件，使用记事本打开后，在 smc.present = "TRUE" 后添加以下代码后保存，问题即可解决。
     ```
     smc.version = "0"
     ```
 
+{% gp 2-2 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-10.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-11.png)
+{% endgp %}
 
 　　按上图修改安装文件后，再次点击开启此虚拟机，即可开始初次开机时系统的安装过程。
 
-　　![](http://media.liuxianyu.cn/vmware-macos-12.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-13.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-14.png)
-
-　　![](http://media.liuxianyu.cn/vmware-macos-15.png)
+{% gp 8-4 %}
+![](http://media.liuxianyu.cn/vmware-macos-12.png)
+![](http://media.liuxianyu.cn/vmware-macos-13.png)
+![](http://media.liuxianyu.cn/vmware-macos-14.png)
+![](http://media.liuxianyu.cn/vmware-macos-15.png)
+{% endgp %}
 
 　　安装时会出现上图中的情况，只有一个磁盘。为了文件管理方便，我将磁盘抹掉并改名，然后将系统安装在新出现的磁盘上。点击继续后就是系统的安装过程，静候佳音。
 
-　　![](http://media.liuxianyu.cn/vmware-macos-16.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-17.png)
-　　![](http://media.liuxianyu.cn/vmware-macos-18.png)
+{% gp 8-4 %}
+![](http://media.liuxianyu.cn/vmware-macos-16.png)
+![](http://media.liuxianyu.cn/vmware-macos-17.png)
+![](http://media.liuxianyu.cn/vmware-macos-18.png)
+{% endgp %}
 
 　　接下来就是系统的一些基本设置。
 
+{% gp 2-2 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-19.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-20.png)
+{% endgp %}
 
 ### 3、安装 VMware Tools
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VMware 中安装 VMware Tools 后，可支持自由拖拽的功能，鼠标也可以在虚拟机与主机之前自由移动（不用再按 Ctrl + Alt），且虚拟机屏幕也可以全屏了，好处多多。
 
+{% gp 8-4 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-21.png)
 　　![](/images/posts/VMware_MacOS/22.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-23.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-24.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-25.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-26.png)
+{% endgp %}
 
 　　安装完成后重启，会报错 - 系统扩展已被阻止，按照图片顺序设置，允许载入该系统软件。
 
+{% gp 2-2 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-27.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-28.png)
+{% endgp %}
 
+<br>
 　　允许载入后按上述步骤重新安装 VMware Tools。
 
+{% gp 8-4 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-29.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-30.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-31.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-32.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-33.png)
+{% endgp %}
 
+<br>
 　　安装完成后重启，按下图推出“ VMware Tools ”，这样桌面就很干净了。
 
+{% gp 2-2 %}
 　　![](http://media.liuxianyu.cn/vmware-macos-34.png)
 　　![](http://media.liuxianyu.cn/vmware-macos-35.png)
+{% endgp %}
 
+<br>
 
 >**注意**
 >* unlocker 的储存路径不要有中文字符，否则会安装失败，而且没有失败的提示；
