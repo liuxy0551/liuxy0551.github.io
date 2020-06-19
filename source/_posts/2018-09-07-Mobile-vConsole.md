@@ -25,7 +25,7 @@ updated: 2020-03-30 11:43:50
 
 #### 2、安装
 ``` shell
-npm install vconsole -S
+npm i vconsole -S
 ```
 
 #### 3、简单使用
@@ -84,7 +84,7 @@ export default {
 
 #### 1、安装
 ``` shell
-npm install vconsole-webpack-plugin -D
+npm i vconsole-webpack-plugin -D
 ```
 
 #### 2、使用

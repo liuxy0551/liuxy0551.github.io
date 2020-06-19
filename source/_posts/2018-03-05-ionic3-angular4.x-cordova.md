@@ -30,13 +30,13 @@ updated: 2018-01-29 20:29:30
 安装 cnpm，npm 可能安装失败，建议先用 npm 安装一下，cnpm 用淘宝镜像安装 （https://npm.taobao.org/ )，指令：
 
 　　``` 
-     npm install -g cnpm --registry=https://registry.npm.taobao.org
+     npm i -g cnpm --registry=https://registry.npm.taobao.org
     ```
 
 使用 cnpm 安装脚手架：
 
 　　``` 
-    npm install -g @angular/cli
+    npm i -g @angular/cli
     ```
 
 然后就可以新建项目了，进入刚才创建的项目里面启动服务:
@@ -44,7 +44,7 @@ updated: 2018-01-29 20:29:30
 　　```
     ng new my-app
     cd my-app
-    npm install
+    npm i
     ng serve --open
     ```
 
@@ -53,7 +53,7 @@ updated: 2018-01-29 20:29:30
 全局安装 ionic 3 和 cordova，指令：
 
 　　``` 
-    npm install -g cordova ionic
+    npm i -g cordova ionic
     ```
 
 新建带 tabs 的项目并启动服务（或 menu）：
@@ -61,7 +61,7 @@ updated: 2018-01-29 20:29:30
 　　``` 
     ionic start ionicDemo02 tabs
     cd ionicDemo02
-    npm install
+    npm i
     ionic serve
     ```
 

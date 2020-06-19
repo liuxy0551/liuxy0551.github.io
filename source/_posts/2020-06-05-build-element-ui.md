@@ -1,5 +1,5 @@
 ---
-title: 通过 CDN 引入 element-ui 时，如何改变主题色
+title: 通过 CDN 引入 element-ui 时，如何改变其主题色
 urlname: build-element-ui
 tags:
   - Element UI
