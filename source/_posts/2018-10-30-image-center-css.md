@@ -13,24 +13,21 @@ updated: 2018-10-30 20:29:30
 ---
 
 
-　　公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。
+&nbsp;&nbsp;&nbsp;&nbsp;公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。
 <!--more-->
 
 
 ### 一、实现效果
 
-<center>
-    <iframe width="418" height="510" src="/images/images/videos/img-center-css-1.mp4" allowfullscreen></iframe>
-</center>
-<br>
+![](http://media.liuxianyu.cn/img-center-css-1.gif)
 
-　　项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。
+&nbsp;&nbsp;&nbsp;&nbsp;项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。
 
 ### 二、具体实现
 
 #### 1、HTML 部分
 
-　　![](http://media.liuxianyu.cn/img-center-css-2.png)
+![](http://media.liuxianyu.cn/img-center-css-2.png)
 ```
     <mt-swipe :auto="0">
       <mt-swipe-item class="product-swipe" v-for="item in product_info.images" :key="item.piid">
@@ -41,7 +38,7 @@ updated: 2018-10-30 20:29:30
 
 #### 2、CSS 部分
 
-　　![](http://media.liuxianyu.cn/img-center-css-2.png)
+![](http://media.liuxianyu.cn/img-center-css-2.png)
 ```
       .product-swipe {
         width: 750px;
