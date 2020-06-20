@@ -4,6 +4,7 @@ urlname: wechat-video-autoplay
 tags:
   - HTML
 categories:
+  - 前端
   - HTML
 author: liuxy0551
 copyright: true
