@@ -25,6 +25,7 @@ updated: 2020-05-14 19:07:09
   :src="videoUrl" 
   x5-video-player-type="h5-page"
   playsinline="true"
+  x5-playsinline=""
   webkit-playsinline="true"
 ></video>
 ```
