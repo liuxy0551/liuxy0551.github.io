@@ -16,12 +16,22 @@ updated: 2020-07-05 21:23:32
 <!--more-->
 
 
-### 一、ngrok
-
-&ensp;&ensp;&ensp;&ensp;使用 ngrok 官网的工具，在官网登录后访问 <a href="https://dashboard.ngrok.com/get-started/setup" target="_black">https://dashboard.ngrok.com/get-started/setup</a>，按照步骤即可启动服务。浏览器访问给出的地址，出现了`Invalid Host header`字样。这是因为新版的 webpack-dev-server 出于安全考虑，默认检查 hostname，如果 hostname 不是配置内的就不能访问。
+&ensp;&ensp;&ensp;&ensp;使用 ngrok 工具，在浏览器访问给出的地址，出现了`Invalid Host header`字样。这是因为新版的 webpack-dev-server 出于安全考虑，默认检查 hostname，如果 hostname 不是配置内的就不能访问。
 
 
-### 二、解决办法
+### 一、ngrok.com
+
+- 优点：启动方便
+- 缺点：网速慢，不能自定义域名
+
+
+### 二、ngrok.cc
+
+- 优点：网速好一点，自定义域名
+- 缺点：配置麻烦
+
+
+### 三、解决办法
 
 #### 1、修改 node_modules
 
