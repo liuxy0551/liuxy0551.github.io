@@ -24,6 +24,8 @@ updated: 2020-07-05 21:23:32
 - 优点：启动方便
 - 缺点：网速慢，不能自定义域名
 
+&ensp;&ensp;&ensp;&ensp;官网的工具包链接: <a href="https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ" target="_black">https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ</a>  密码:`vcvj`
+
 
 ### 二、ngrok.cc
 
