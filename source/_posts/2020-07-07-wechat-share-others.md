@@ -17,6 +17,9 @@ updated: 2020-07-07 16:51:17
 <!--more-->
 
 
+
+### 一、非 vue 项目
+
 #### 1、标题
 
 - 自动生成：获取当前页的 title
@@ -33,6 +36,22 @@ updated: 2020-07-07 16:51:17
   <img style="position:fixed;width:80%;opacity:0;z-index:-1"
        src="http://zju123.oss-cn-hangzhou.aliyuncs.com/zju_graduate/images/zju-logo.jpg">
 </body>
+```
+
+
+### 二、vue 项目
+
+&ensp;&ensp;&ensp;&ensp;基于`vue-cli 3.x +`，在`public/index.html`中的 head 中设置：
+
+```html
+  <head>
+    <meta name="description" content="庆祝中国科学院海洋研究所建所70周年">
+    <meta property="og:title" content="庆祝中国科学院海洋研究所建所70周年">
+    <meta property="og:image" content="http://159.226.158.199/media/logo.png">
+    <meta property="og:description" content="庆祝中国科学院海洋研究所建所70周年">
+
+    <title>庆祝中国科学院海洋研究所建所70周年</title>
+  </head>
 ```
 
 
