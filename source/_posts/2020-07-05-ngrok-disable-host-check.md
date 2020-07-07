@@ -2,6 +2,7 @@
 title: ngrok 出现 Invalid Host header 的解决方案
 urlname: ngrok-disable-host-check
 tags:
+  - ngrok
 categories:
   - 前端
   - ngrok
@@ -34,6 +35,8 @@ updated: 2020-07-05 21:23:32
 
 
 ### 三、解决办法
+
+&ensp;&ensp;&ensp;&ensp;因为不是熟悉的 vue 项目，所以记录一下，vue 项目中解决较为简单，不做赘述。
 
 #### 1、修改 node_modules
 
