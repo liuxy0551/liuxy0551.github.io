@@ -19,21 +19,42 @@ updated: 2020-07-11 17:09:56
 <!--more-->
 
 &ensp;&ensp;&ensp;&ensp;开发时，写的图片路径通常是相对路径，在 webpack 的配置中可以进行配置，配置后在打包时就可以自动将我们写的相对路径转换成 CDN 路径：
-`@/assets/images/logo.png`或`../../assets/images/logo.png` -> `http://media.liuxianyu.cn/images`
+`@/assets/images/logo.png`或`../../assets/images/logo.png` -> `http://media.liuxianyu.cn/images`。
 
 
-#### 1、publicPath
+#### 1、vue.config.js
 
-&ensp;&ensp;&ensp;&ensp;webpack 中，`publicPath`可以修改项目中静态文件的引用路径，尝试修改：
+- 1、process.env.NODE_ENV 判断项目环境
+- 2、相关选项写在了 url-loader 里, url-loader 的作用是将图片引用方式转换为 base64 的内联引用方式
+- 3、配置 limit, 可使文件大小小于此 limit 值(单位为 byte)的文件转换为 base64 格式, 大于此 limit 的, 会执行 options 中的 fallback 配置项
+- 4、fallback 默认值为 file-loader, 而且 url-loader 的 options 配置项也会被传递给 <a href="https://webpack.docschina.org/loaders/file-loader/#publicpath" target="_black">file-loader</a>
+
+
 ```javascript
 // vue.config.js
 module.exports = {
-  publicPath: 'http://media.liuxianyu.cn/images'
+  chainWebpack: config => {
+    config
+      .module
+      .rule("images")
+      .test(/\.(jpe?g|png|gif)$/i)
+      .use("url-loader")
+      .loader("url-loader")
+      .options({
+        limit: 10,
+        publicPath: process.env.NODE_ENV === 'production' ? 'http://media.liuxianyu.cn/images' : '',
+        outputPath: 'img',
+        name: '[name].[ext]'
+      })
+      .end()
+  }
 }
 ```
-&ensp;&ensp;&ensp;&ensp;但是这样修改`publicPath`会使所有的静态文件都变成这个路径，包括 js，css，img 等，如果需要仅针对 img 类型的文件，
-那就需要在`chainWebpack`里修改图片类型文件的`file-loader`配置项，单独配置 img 类型文件的`publicPath`。
 
 
-#### 2、chainWebpack
 
+#### 2、参考资料
+
+<a href="https://www.cnblogs.com/skura23/p/10825795.html" target="_black">配置vue项目将打包后图片文件的引用路径改为cdn路径?</a>
+<a href="https://webpack.docschina.org/loaders/url-loader/#fallback" target="_black">webpack url-loader</a>
+<a href="https://webpack.docschina.org/loaders/file-loader/#publicpath" target="_black">webpack file-loader</a>
