@@ -14,7 +14,7 @@ updated: 2019-10-02 16:48:19
 ---
 
 
-　　记录一下使用 JavaScript 实现的冒泡排序算法，实际操作可查看 [https://liuxy0551.github.io/my-vue/#/bubble](https://liuxy0551.github.io/my-vue/#/bubble)。
+　　记录一下使用 JavaScript 实现的冒泡排序算法，实际操作可查看 [http://my-vue.liuxianyu.cn/#/bubble](http://my-vue.liuxianyu.cn/#/bubble)。
 <!--more-->
 
 
