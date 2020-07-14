@@ -100,6 +100,9 @@ git --version
     ```shell
     sudo systemctl start/stop/reload/restart/status nginx
     ```
+    ```shell
+    nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx
+    ```
 
 #### （二）、多配置文件
 
