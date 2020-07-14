@@ -47,6 +47,13 @@ npm run build:theme
 
 ![](http://media.liuxianyu.cn/build-element-ui-3.png)
 
-&ensp;&ensp;&ensp;&ensp;那找到 element-ui 设置的`$--color-primary`改为我的橙色再编译一下，不就可以了嘛，机智，说干就干。全局搜索`$--color-primary`，发现 element-ui 是在`/element-ui/packages/theme-chalk/src/common/var.scss`中设置主题色的，找到`$--color-primary`，将色号从`#409EFF`改为橙色就可以了，连带着透明度的颜色变量都会在编译后改变，SASS 的美妙。
+&ensp;&ensp;&ensp;&ensp;那找到 element-ui 设置的`$--color-primary`改为我的橙色再编译一下，不就可以了嘛，机智，说干就干。全局搜索`$--color-primary`，发现 element-ui 是在`/element-ui/packages/theme-chalk/src/common/var.scss`中设置主题色的，找到`$--color-primary`，将色号从默认的`#409EFF`改为橙色就可以了，连带着透明度的颜色变量都会在编译后改变，SASS 的美妙。
 
 &ensp;&ensp;&ensp;&ensp;这个时候再`npm run build:theme`一次，上传`/element-ui/lib/theme-chalk/index.css`到 OSS，再次刷新，就是特别好看的橙色啦!
+
+
+
+### 三、新遇到的问题
+
+&ensp;&ensp;&ensp;&ensp;最近再次编译的时候发现会报如下错误：意思是`postcss`版本高了，引用需要修改，将`/packages/theme-thalk/gulpfile.js`中的`browsers`改为`overrideBrowserslist`再次编译即可。
+![](http://media.liuxianyu.cn/build-element-ui-4.png)
