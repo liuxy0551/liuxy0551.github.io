@@ -3,10 +3,10 @@ title: 使用 GitHub Pages 部署静态网页
 urlname: github-pages
 tags:
   - git
-  - Github Pages
+  - github
 categories:
   - git
-  - Github Pages
+  - github
 author: liuxy0551
 copyright: true
 date: 2019-06-21 13:44:22

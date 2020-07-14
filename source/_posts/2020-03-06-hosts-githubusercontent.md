@@ -3,6 +3,7 @@ title: 修改 Hosts 文件临时解决 raw.githubusercontent.com 无法访问的
 urlname: hosts-githubusercontent
 tags:
   - Hosts
+  - github
 categories:
   - Hosts
 author: liuxy0551

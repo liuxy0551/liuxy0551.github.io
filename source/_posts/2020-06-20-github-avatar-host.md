@@ -3,6 +3,7 @@ title: 设置 Host 解决 GitHub 头像不显示
 urlname: github-avatar-host
 tags:
   - Hosts
+  - github
 categories:
   - Hosts
 author: liuxy0551
