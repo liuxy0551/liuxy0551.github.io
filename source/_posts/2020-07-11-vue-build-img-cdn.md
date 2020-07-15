@@ -26,7 +26,7 @@ updated: 2020-07-11 17:09:56
 
 - 1、process.env.NODE_ENV 判断项目环境
 - 2、相关选项写在了 url-loader 里, url-loader 的作用是将图片引用方式转换为 base64 的内联引用方式
-- 3、配置 limit, 可使文件大小小于此 limit 值(单位为 byte)的文件转换为 base64 格式, 大于此 limit 的, 会执行 options 中的 fallback 配置项
+- 3、配置 limit (默认 10000)，可使文件大小小于此 limit 值(单位为 byte)的文件转换为 base64 格式, 大于此 limit 的, 会执行 options 中的 fallback 配置项
 - 4、fallback 默认值为 file-loader, 而且 url-loader 的 options 配置项也会被传递给 <a href="https://webpack.docschina.org/loaders/file-loader/#publicpath" target="_black">file-loader</a>
 
 
@@ -41,7 +41,7 @@ module.exports = {
       .use("url-loader")
       .loader("url-loader")
       .options({
-        limit: 10,
+        limit: 10000,
         publicPath: process.env.NODE_ENV === 'production' ? 'http://media.liuxianyu.cn/images' : '',
         outputPath: 'img',
         name: '[name].[ext]'
