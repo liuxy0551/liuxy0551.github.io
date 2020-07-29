@@ -18,7 +18,7 @@ Hello，欢迎来到刘先玉的个人小站。
 
 * 个人邮箱：<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=MFxZRUhJAAUFAXBBQR5TX10" style="text-decoration:none;">liuxy0551@qq.com</a>
 
-* Github：https://github.com/liuxy0551  厚积薄发，蓄势待发
+* Github：https://github.com/liuxy0551
 
 ## 关于本站
 作者：[刘先玉](https://liuxianyu.cn/)（英文名：Simon）。
