@@ -50,9 +50,9 @@ return true;
 ```
 &ensp;&ensp;&ensp;&ensp;即可，不对 hostname 做检查就返回通过。
 
-#### 2、修改启动命令
+#### 2、修改启动命令`推荐`
 
-&ensp;&ensp;&ensp;&ensp;在 script 命令中修改，添加：` --disableHostCheck=true`
+&ensp;&ensp;&ensp;&ensp;修改 script 中的启动命令，添加参数：` --disableHostCheck=true`
 ```
     "scripts": {
         "dev": "npm run development",
