@@ -54,7 +54,9 @@ Vue.prototype.$ELEMENT = {
 &ensp;&ensp;&ensp;&ensp;接着执行`npm run dist`，上传`/lib/index.js`到 OSS，再次刷新，页面上的按钮就变小啦！
 
 
-> &ensp;&ensp;&ensp;&ensp;至于如何在众多命令中使用正确合适的命令，可以通过全局搜索`Vue.prototype.$ELEMENT`，一层一层地去发现查找到的各个文件之间的关联，不难发现`/src/index.js`中的代码是依据`build-entry.js`来生成的。
+>**注意**
+>* `npm run dist`也会打包样式文件
+>* 至于如何在众多命令中使用正确合适的命令，可以通过全局搜索`Vue.prototype.$ELEMENT`，一层一层地去发现查找到的各个文件之间的关联，不难发现`/src/index.js`中的代码是依据`build-entry.js`来生成的。
 
 
 
