@@ -26,7 +26,7 @@ updated: 2020-06-05 20:04:37
 ### 一、第一次尝试
 
 &ensp;&ensp;&ensp;&ensp;element-ui 的 css 文件是经过编译的，`$--color-primary`早已被编译成了蓝色(#409EFF)，那就全局替换吧，替换成我的橙色，上传 OSS，一气呵成。
-&ensp;&ensp;&ensp;&ensp;一刷新，咦，怎么按钮边线有股淡淡的蓝色，到其他页面一看，事情并不简单，一片淡蓝色，想起带透明色的变量颜色都没有替换掉。如果替换的话，还得挨个计算加上透明度后色号是多少再替换，还可能遗漏，而且很显然，这不是程序员干的事儿。那么，第二种解法来了：
+&ensp;&ensp;&ensp;&ensp;一刷新，咦，怎么按钮边线有股淡淡的蓝色，到其他页面一看，事情并不简单，一片淡蓝色，想起主题色带透明的颜色都没有进行替换。如果替换的话，还得挨个计算加上透明度后色号是多少再替换，还可能遗漏，而且很显然，这不是程序员干的事儿。那么，第二种解法来了：
 
 
 ### 二、第二次尝试 `正解`
@@ -57,3 +57,8 @@ npm run build:theme
 
 &ensp;&ensp;&ensp;&ensp;最近再次编译的时候发现会报如下错误：意思是`postcss`版本高了，引用需要修改，将`/packages/theme-thalk/gulpfile.js`中的`browsers`改为`overrideBrowserslist`再次编译即可。
 ![](http://media.liuxianyu.cn/build-element-ui-4.png)
+
+
+### 四、类似随笔
+
+<a href="https://liuxianyu.cn/article/element-cdn-global-settings.html" target="_black">通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)</a>
