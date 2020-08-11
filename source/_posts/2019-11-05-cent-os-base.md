@@ -47,30 +47,29 @@ updated: 2019-11-05 09:52:45
 ### 二、 添加本机的 SSH 到服务器
 以后连接服务器不用每次都输入用户名和密码
 
-　　1、查看本机 SSH 公钥
+　　1、查看本地 SSH 公钥
     ```shell
     cat ~/.ssh/id_rsa.pub
     ```
+　　没有公钥可通过`ssh-keygen -t rsa`一路回车生成公钥
     
-　　2、切换 deploy 用户，服务器创建 .ssh 文件夹，打开服务器 authorized_keys 文件，将本机 SSH 公钥粘贴进去
+　　2、本地执行以下命令并输入对应密码完成自动写入到远程服务器的 ~/.ssh/authorized_keys 文件
     ```shell
-    su deploy
-    cd ~
-    mkdir .ssh
-    cd .ssh
-    vim authorized_keys
+    ssh-copy-id deploy@47.65.55.62
     ```
->**注意**
->* **巨坑：如果在第 3 步完成后还是不能免密登录的话，把刚刚粘贴进 authorized_keys 文件的秘钥再粘贴一遍即可**
->* **巨坑：猜测是 Cent OS 对第一个公钥的识别有问题，没查找到合适的资料，待查找。**
     
-　　3、配置相应的权限：
+　　3、再使用`ssh deploy@47.65.55.62`连接服务器就可以免密登录了
+    
+>**注意**
+>* **如果还不能免密登录，就进行第 4 步设置权限**
+>* **authorized_keys 权限一定要为600**
+    
+　　4、在远程服务器配置相应的权限：
     ```shell
+    chmod 700 /home/deploy
     chmod 700 /home/deploy/.ssh
     chmod 600 /home/deploy/.ssh/authorized_keys
     ```
-    
-　　4、再使用`ssh deploy@47.65.55.62`连接服务器就可以免密登录了
 
 
 ### 三、安装 git
@@ -100,9 +99,9 @@ git --version
     ```shell
     sudo systemctl start/stop/reload/restart/status nginx
     ```
-    ```shell
-    nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx
-    ```
+```shell
+nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx
+```
 
 #### （二）、多配置文件
 
