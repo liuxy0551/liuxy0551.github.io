@@ -70,7 +70,7 @@ updated: 2019-11-05 09:52:45
     chmod 700 /home/deploy/.ssh
     chmod 600 /home/deploy/.ssh/authorized_keys
     ```
-
+　　`chmod 777 -R /mnt`将 mnt 目录下所有文件都给予 777 权限
 
 ### 三、安装 git
 -y 代表需要输入 y 的地方自动输入
