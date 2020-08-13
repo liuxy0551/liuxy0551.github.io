@@ -40,11 +40,11 @@ function run() {
 
           echo('Success: git add success');
 
-          echo('git commit -m "optimize"');
+          echo('git commit -m "hexo d"');
 
         }
 
-        if (exec('git commit -m "optimize"').code !== 0) {
+        if (exec('git commit -m "hexo d"').code !== 0) {
 
             echo('Error: git commit failed');
 
