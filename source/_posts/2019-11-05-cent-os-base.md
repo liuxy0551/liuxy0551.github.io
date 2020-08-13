@@ -48,7 +48,7 @@ updated: 2019-11-05 09:52:45
 
 　　以后连接服务器不用每次都输入用户名和密码
     
-　　1、本地执行以下命令并输入对应密码完成自动写入到远程服务器的 ~/.ssh/authorized_keys 文件，没有公钥可通过`ssh-keygen -t rsa`一路回车生成公钥
+　　1、本地执行以下命令并输入对应密码完成自动写入到远程服务器的`~/.ssh/authorized_keys`文件，没有公钥可通过`ssh-keygen -t rsa`一路回车生成公钥
     ```shell
     ssh-copy-id deploy@47.65.55.62
     ```
