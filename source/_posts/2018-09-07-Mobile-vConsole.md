@@ -108,3 +108,11 @@ module.exports = {
 ```
 >**注意**
 >* **修改`vue.config.js`文件需要重启项目**
+
+
+
+### 三、通过 CDN 引入
+
+``` html
+<script src="http://wise-job.oss-cn-zhangjiakou.aliyuncs.com/webjs/libs/vConsole/vconsole.3.3.4.min.js"></script>
+```
