@@ -96,3 +96,37 @@ for (let command of buildCommands) {
   console.log(chalk.cyan(`DONE  ${ command } complete`))
 }
 ```
+
+
+
+### 三、npm link
+
+&ensp;&ensp;&ensp;&ensp;在本地开发 npm 命令行工具时，可以使用`npm link`将开发模块指向到对应的运行项目中，方便调试。
+
+#### 1、绑定指向
+
+&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+```
+npm link
+```
+- （Mac OS）会在`/usr/local/lib/node_modules`下新增`deployvue`整体项目的快捷方式
+- （Mac OS）会在`/usr/local/bin`下新增`deployvue/bin/index.js`的快捷方式
+
+
+#### 2、解除绑定指向
+
+&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+```
+npm unlink
+```
+
+
+### 四、npm 删除发布
+
+&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+```
+npm unpublish deployvue --force
+```
+
+&ensp;&ensp;&ensp;&ensp;在删除 npm 包的24小时内不可再次发布该 npm 包。
+
