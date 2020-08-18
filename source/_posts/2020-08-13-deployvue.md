@@ -2,6 +2,7 @@
 title: 写一个 Vue 项目的自动化部署插件
 urlname: deploy-vue
 tags:
+  - Node
   - Vue
   - 自动化部署
 categories:
@@ -11,14 +12,16 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2020-08-13 16:20:39
-updated: 2020-08-13 16:20:39
+updated: 2020-08-18 15:54:14
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近抽空写了个 Vue 项目的部署插件，设置部署参数后可以实现`npm run deploy`一条命令完成部署更新。
+&ensp;&ensp;&ensp;&ensp;最近抽空写了个 Vue 项目的部署插件`deployvue`，设置部署参数后可以实现`npm run deploy`一条命令完成部署更新。
 
 <!--more-->
 
 &ensp;&ensp;&ensp;&ensp;具体如何使用，可移步 <a href="https://github.com/liuxy0551/deployvue#readme" target="_black">README.md</a> 查看。这里不过多介绍使用方法，主要记录一下遇到的一些点。
+
+![](http://media.liuxianyu.cn/deployvue.gif)
 
 
 ### 一、部署流程
