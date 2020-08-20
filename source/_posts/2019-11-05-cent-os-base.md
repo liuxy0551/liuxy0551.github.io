@@ -70,7 +70,7 @@ updated: 2019-11-05 09:52:45
 ### 三、安装 git
 -y 代表需要输入 y 的地方自动输入
 ```shell
-sudo yum install git -y
+yum install git -y
 git --version
 ```
 
@@ -79,36 +79,37 @@ git --version
 
 #### （一）、安装与常见命令
 
-　　1、安装 nginx 并查看版本号
+　　1、安装 nginx 并查看版本号，安装完成后就启动 nginx
     ```shell
-    sudo yum install nginx -y
+    yum install nginx -y
     nginx -v
     ```
 
 　　2、配置对应的 nginx
     ```shell
     cd /etc/nginx/conf.d
-    sudo vim exapmle.conf
+    vim exapmle.conf
     ```
 
 　　3、nginx 常用命令
     ```shell
-    sudo systemctl start/stop/reload/restart/status nginx
+    systemctl start/stop/reload/restart/status nginx
     ```
+重新加载 nginx 配置
 ```shell
-nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx
+nginx -s reload
 ```
 
 #### （二）、多配置文件
 
 　　这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：`/etc/nginx/nginx.conf`。
 
-　　1、将 nginx 默认配置中的 server 删除，注意保留文件中的`include`指向。
+　　1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的`include`指向。
 ![](http://media.liuxianyu.cn/cent-os-base-1.png)
 
 　　2、在`/etc/nginx/conf.d`文件夹下创建配置文件，以`.conf`结尾，配置内容可以参考百度或 [Nginx - Vue单页面应用配置](https://blogs.zezeping.com/#/Blog/BlogDetail/16)
 ```shell
-sudo vim /etc/nginx/conf.d/hexo-blog.conf
+vim /etc/nginx/conf.d/hexo-blog.conf
 ```
 ```
 server {
@@ -134,10 +135,10 @@ server {
 }
 ```
 
-　　启动 nginx 并设置开机自启
+　　启动 nginx，并设置开机自启
     ```shell
-    sudo systemctl start nginx
-    sudo systemctl enable nginx
+    systemctl start nginx
+    systemctl enable nginx
     ```
 
     
