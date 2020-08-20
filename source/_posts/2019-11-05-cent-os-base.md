@@ -85,9 +85,10 @@ git --version
     nginx -v
     ```
 
-　　2、配置 nginx
+　　2、配置对应的 nginx
     ```shell
-    sudo vim /etc/nginx/nginx.conf
+    cd /etc/nginx/conf.d
+    sudo vim exapmle.conf
     ```
 
 　　3、nginx 常用命令
