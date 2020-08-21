@@ -44,7 +44,6 @@ import Vue from 'vue'
 import store from '@/store'
 
 class DingTalk {
-
   // dd.ready
   static ready () {
     return new Promise(resolve => {
@@ -64,7 +63,7 @@ class DingTalk {
       'biz.contact.complexPicker'
     ]
 
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       Vue.prototype.axios.post(`${ process.env.VUE_APP_BASE_API || '' }/api/getJsApiTicket`, params).then(res => {
         if (res.data.code === 200) {
           let config = {
@@ -93,7 +92,7 @@ class DingTalk {
         onSuccess: res => {
           resolve(res)
         },
-        onFail : err => {
+        onFail: err => {
           console.log('error: ' + JSON.stringify(err))
           reject(err)
         }
@@ -140,7 +139,7 @@ class DingTalk {
   }
 }
 
-// export default DingTalk
+export default DingTalk
 ```
 
 
