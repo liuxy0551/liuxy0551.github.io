@@ -84,7 +84,7 @@ class DingTalk {
   }
 
   // 获取 authCode
-  static async getAuthCode (corpId) {
+  static async requestAuthCode (corpId) {
     return new Promise(async (resolve, reject) => {
       await DingTalk.ready()
       dd.runtime.permission.requestAuthCode({
@@ -164,7 +164,7 @@ export default {
 methods: {
   // 获取 authCode
   async getAuthCode () {
-    let res = await this.DingTalk.getAuthCode(this.corpId)
+    let res = await this.DingTalk.requestAuthCode(this.corpId)
   }
 }
 
