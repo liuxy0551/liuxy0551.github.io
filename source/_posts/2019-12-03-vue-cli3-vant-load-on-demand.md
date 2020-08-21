@@ -15,8 +15,8 @@ date: 2019-12-03 11:21:21
 updated: 2019-12-03 11:21:21
 ---
 
+&ensp;&ensp;&ensp;&ensp;`前端项目优化之旅`系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue CLI 3 项目中如何让 Vant 自动按需引入组件。
 
-　　`前端项目优化之旅`系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue CLI 3 项目中如何让 Vant 自动按需引入组件
 <!--more-->
 
 
@@ -29,7 +29,7 @@ npm i vant -S
 
 ### 二、完整引入
 
-　　在 main.js 中写入以下内容：
+&ensp;&ensp;&ensp;&ensp;在 main.js 中写入以下内容：
 
 ``` javascript
 import Vant from 'vant'
@@ -41,13 +41,13 @@ Vue.use(Vant)
 
 ### 三、自动按需引入组件`推荐`
 
-　　1、[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它能在编译的过程中将 import 写法自动转换为按需引入的方式。
+&ensp;&ensp;&ensp;&ensp;1、[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一款 babel 插件，它能在编译的过程中将 import 写法自动转换为按需引入的方式。
 
 ``` shell
 npm i babel-plugin-import -D
 ```
 
-　　2、babel 7 在`babel.config.js`中配置
+&ensp;&ensp;&ensp;&ensp;2、babel 7 在`babel.config.js`中配置
 
 ``` javascript
 module.exports = {
@@ -58,7 +58,7 @@ module.exports = {
 }
 ```
 
-　　3、在`src/components`下新建`vant.js`文件，具体代码见 [src/components/vant.js](https://github.com/liuxy0551/vue-cli3-build-optimization/blob/master/src/components/vant.js)
+&ensp;&ensp;&ensp;&ensp;3、在`src/components`下新建`vant.js`文件，具体代码见 [src/components/vant.js](https://github.com/liuxy0551/vue-cli3-build-optimization/blob/master/src/components/vant.js)
 
 ``` javascript
 // 自动按需引入 Vant 组件
@@ -75,14 +75,14 @@ export default {
 }
 ```
 
-　　4、在`main.js`中引入`src/components/vant.js`：
+&ensp;&ensp;&ensp;&ensp;4、在`main.js`中引入`src/components/vant.js`：
 
 ``` javascript
 import vant from './components/vant'
 Vue.use(vant)
 ```
 
-　　5、页面使用组件：
+&ensp;&ensp;&ensp;&ensp;5、页面使用组件：
 
 ``` javascript
 <van-button type="default">默认按钮</van-button>
