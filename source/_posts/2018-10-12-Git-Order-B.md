@@ -21,9 +21,10 @@ updated: 2019-12-13 11:30:07
 
 　　1、两种 clone 操作
 
-　　（1）输入以下命令，就会进入主分支。其中 git clone 后的内容为你要下载的项目地址：
+　　（1）输入以下命令，就会进入主分支。其中 git clone 后的内容为你要下载的项目地址，newLearnGit 是本地目录：
     ``` shell
     git clone https://github.com/liuxy0551/learnGit.git
+    git clone https://github.com/liuxy0551/learnGit.git newLearnGit
     ```
 
 　　（2）clone 指定分支，就会进入指定分支。输入以下命令：
