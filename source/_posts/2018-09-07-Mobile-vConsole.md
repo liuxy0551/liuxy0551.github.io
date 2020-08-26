@@ -25,7 +25,7 @@ updated: 2020-03-30 11:43:50
 
 #### 2、安装
 ``` shell
-npm i vconsole -S
+npm i vconsole -D
 ```
 
 #### 3、简单使用

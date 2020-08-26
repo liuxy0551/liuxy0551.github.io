@@ -132,6 +132,7 @@ class DingTalk {
   }
 
   static install (Vue) {
+    Vue.prototype.isDingTalk = dd?.env?.platform !== 'notInDingTalk'
     Vue.prototype.DingTalk = DingTalk
   }
 
