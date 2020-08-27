@@ -24,15 +24,15 @@ updated: 2020-08-06 13:17:54
 
 ### 一、官方推荐（npm 安装法）
 
-&ensp;&ensp;&ensp;&ensp;size 的值有：medium、small、mini，默认值为空字符串
+&ensp;&ensp;&ensp;&ensp;size 的值有：medium、small、mini，默认值为空字符串，比 medium 大。
 
 ![](http://media.liuxianyu.cn/element-cdn-global-settings-1.png)
 
 
 
-### 二、编译源码
+### 二、编译源码，CDN 引入
 
-&ensp;&ensp;&ensp;&ensp;拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在`package.json`中查找如何编译出 js。
+&ensp;&ensp;&ensp;&ensp;拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在`package.json`中查找如何编译出 js，注意`dist`命令。
 
 ![](http://media.liuxianyu.cn/build-element-ui-1.png)
 
@@ -51,7 +51,7 @@ Vue.prototype.$ELEMENT = {
 };
 ```
 
-&ensp;&ensp;&ensp;&ensp;接着执行`npm run dist`，上传`/lib/index.js`到 OSS，再次刷新，页面上的按钮就变小啦！
+&ensp;&ensp;&ensp;&ensp;接着执行`npm run dist`，上传`/lib/index.js`到 OSS 并引用，再次刷新，页面上的按钮就变小啦！
 
 
 >**注意**
