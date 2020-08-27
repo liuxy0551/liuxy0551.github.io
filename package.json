@@ -6,7 +6,7 @@
     "version": "3.8.0"
   },
   "scripts": {
-    "deploy": "node"
+    "deploy": "bash deploy.command"
   },
   "dependencies": {
     "gulp": "^4.0.1",
