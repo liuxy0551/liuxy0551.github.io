@@ -1,5 +1,5 @@
-echo -e '$ hexo clean\n'
+echo -e '$ hexo clean'
 hexo clean
 
-echo -e '\n\n$ hexo d'
+echo -e '\n$ hexo d'
 hexo d
