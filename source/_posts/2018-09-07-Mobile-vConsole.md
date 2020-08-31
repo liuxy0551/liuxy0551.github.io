@@ -34,22 +34,11 @@ npm i vconsole -D
 ``` javascript
 import VConsole from 'vconsole'
 const vConsole = new VConsole()
-Vue.use(vConsole)
 ```
 
 #### 4、灵活使用 `推荐`
 
-　　生产环境可能出现一些 bug，除去抓包的方法外，可以使用 vConsole：写一个`vConsole.js`文件，在`App.vue`中使用。
-``` javascript
-// App.vue
-import vConsole from "@/utils/vConsole"
-
-export default {
-  mounted() {
-    vConsole.open()
-  }
-}
-```
+　　生产环境可能出现一些调试问题，除去抓包的方法外，可以使用 vConsole：写一个`vConsole.js`文件，在`App.vue`中使用。
 ``` javascript
 // vConsole.js
 export default {
@@ -75,6 +64,16 @@ export default {
   
     let VConsole = require('vconsole/dist/vconsole.min.js')
     this.vConsole = new VConsole()
+  }
+}
+```
+``` javascript
+// App.vue
+import vConsole from "@/utils/vConsole"
+
+export default {
+  mounted() {
+    vConsole.open()
   }
 }
 ```
