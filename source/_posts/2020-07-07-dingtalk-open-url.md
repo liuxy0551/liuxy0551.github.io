@@ -21,7 +21,7 @@ updated: 2020-07-07 16:40:23
 
 ```javascript
 let url = 'https://www.baidu.com/'
-location.href = `http://qr.dingtalk.com/page/link?url=${encodeURIComponent(url)}`
+location.href = `http://qr.dingtalk.com/page/link?url=${ encodeURIComponent(url) }`
 ```
 
 
@@ -29,5 +29,5 @@ location.href = `http://qr.dingtalk.com/page/link?url=${encodeURIComponent(url)}
 
 ```javascript
 let url = 'https://www.baidu.com/'
-location.href = `dingtalk://dingtalkclient/page/link?url=${encodeURIComponent(url)}`
+location.href = `dingtalk://dingtalkclient/page/link?url=${ encodeURIComponent(url) }`
 ```
