@@ -1,5 +1,5 @@
 ---
-title: 通过 node 将本地 json 文件中的数据存储到 mysql 
+title: 通过 node 将本地 json 文件中的数据存储到 mysql
 urlname: node-mysql
 tags:
   - node
