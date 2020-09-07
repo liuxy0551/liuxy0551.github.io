@@ -34,6 +34,7 @@ npm i vconsole -D
 ``` javascript
 import VConsole from 'vconsole'
 const vConsole = new VConsole()
+Vue.use(vConsole)
 ```
 
 #### 4、灵活使用 `推荐`
