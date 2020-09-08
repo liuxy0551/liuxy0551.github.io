@@ -45,12 +45,12 @@ footer:
     animated: true  #是否要为图标设置动画，默认为false
     color: "#EE0000"  #图标颜色
   copyright: 刘先玉  #版权
-    #powered:
-    #enable: true  #是否显示 Hexo link
-    #version: true  #是否显示Hexo链接后的Hexo版本信息（vX.X.X）
-    #theme:
-    #enable: true   #是否显示NexT Themelink
-    #version: true  #是否显示NexT版本信息
+#  powered:
+#    enable: true  #是否显示 Hexo link
+#    version: true  #是否显示Hexo链接后的Hexo版本信息（vX.X.X）
+#  theme:
+#    enable: true   #是否显示NexT Themelink
+#    version: true  #是否显示NexT版本信息
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a href="https://pages.coding.me" class="theme-link" rel="noopener" target="_blank">Coding Pages</a>
