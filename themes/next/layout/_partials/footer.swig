@@ -106,3 +106,16 @@ setInterval("createtime()",250);
 	  本站总访问量：<span id="busuanzi_value_site_pv"></span>
 	</span>
 </div>
+
+
+<!-- 评论框美化 -->
+<style>
+    #comments .veditor{
+        min-height: 10rem;
+        background-image: url(http://media.liuxianyu.cn/comment-bg.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: none;}
+</style>
