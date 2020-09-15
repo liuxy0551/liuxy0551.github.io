@@ -3,7 +3,7 @@ title: 写一个 Vue 项目的自动化部署插件
 urlname: deploy-vue
 tags:
   - npm
-  - node
+  - nodes
   - Vue
   - 自动化部署
 categories:

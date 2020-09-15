@@ -2,9 +2,9 @@
 title: 使用 node 进行简单爬虫学习
 urlname: node-data-crawler
 tags:
-  - node
+  - nodes
 categories:
-  - node
+  - nodes
   - 爬虫
 author: liuxy0551
 copyright: true

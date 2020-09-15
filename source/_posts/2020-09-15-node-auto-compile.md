@@ -2,9 +2,9 @@
 title: node 自动编译
 urlname: node-auto-compile
 tags:
-  - node
+  - nodes
 categories:
-  - node
+  - nodes
 author: liuxy0551
 copyright: true
 date: 2020-09-15 14:38:03
