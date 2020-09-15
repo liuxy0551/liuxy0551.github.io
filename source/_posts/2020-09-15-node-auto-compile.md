@@ -18,3 +18,18 @@ updated: 2020-09-15 14:38:03
 
 - <a href="https://www.npmjs.com/package/nodemon" target="_black">nodemon</a>
 - <a href="https://www.npmjs.com/package/supervisor" target="_black">supervisor</a>
+
+
+### 一、nodemon`推荐`
+
+&ensp;&ensp;&ensp;&ensp;全局安装：
+
+```
+npm i nodemon -g
+```
+
+&ensp;&ensp;&ensp;&ensp;项目根目录运行：
+
+```
+nodemon app.js
+```
