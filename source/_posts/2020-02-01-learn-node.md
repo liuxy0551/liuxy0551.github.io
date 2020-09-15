@@ -2,9 +2,9 @@
 title: node 学习笔记
 urlname: learn-node
 tags:
-  - nodes
+  - node
 categories:
-  - nodes
+  - node
 author: liuxy0551
 copyright: true
 date: 2020-02-01 14:59:49

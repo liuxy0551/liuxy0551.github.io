@@ -2,9 +2,9 @@
 title: node 爬虫尝试使用动态代理 IP
 urlname: node-data-crawler-proxy-ip
 tags:
-  - nodes
+  - node
 categories:
-  - nodes
+  - node
   - 爬虫
 author: liuxy0551
 copyright: true

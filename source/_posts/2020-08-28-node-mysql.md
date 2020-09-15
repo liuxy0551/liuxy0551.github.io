@@ -2,9 +2,9 @@
 title: 通过 node 将本地 json 文件中的数据存储到 mysql
 urlname: node-mysql
 tags:
-  - nodes
+  - node
 categories:
-  - nodes
+  - node
   - mysql
 author: liuxy0551
 copyright: true
