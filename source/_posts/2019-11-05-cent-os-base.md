@@ -79,10 +79,11 @@ git --version
 
 #### （一）、安装与常见命令
 
-　　1、安装 nginx 并查看版本号，安装完成后就启动 nginx
+　　1、安装 nginx 并查看版本号，安装完成后就启动 nginx 查看是否有问题
     ```shell
     yum install nginx -y
     nginx -v
+    systemctl start nginx
     ```
 
 　　2、配置对应的 nginx
