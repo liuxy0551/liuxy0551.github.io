@@ -79,9 +79,7 @@ nginx -s reload
 
 ### 四、查看效果
 
-```
-http://markdown.liuxianyu.cn/?tex=r=%5Csqrt%7Bx^2+y^2%7D
-```
+<a href="http://markdown.liuxianyu.cn/?tex=r=%5Csqrt%7Bx^2+y^2%7D" target="_black">http://markdown.liuxianyu.cn/?tex=r=%5Csqrt%7Bx^2+y^2%7D</a>
 
 ![](http://media.liuxianyu.cn/node-markdown-1.png)
 
