@@ -1,5 +1,5 @@
 ---
-title: 摄影 or 视频
+title: 摄影
 noDate: true
 type: "photos"
 comments: false

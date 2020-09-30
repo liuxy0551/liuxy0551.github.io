@@ -111,14 +111,14 @@ menu:
   tags: /tags/ || tags #标签
   categories: /categories/ || th #分类
   archives: /archives/ || archive #归档
-  photos: /photos/ || camera  #摄影相册
-  #book: /book/ || book #书籍
-  love: http://love.liuxianyu.cn || heart #告白
+#  book: /book/ || book #书籍
+#  photos: /photos/ || camera  #摄影
+#  love: http://love.liuxianyu.cn || heart #告白
   links: /links/ || paper-plane #友链
-  laboratory: /laboratory/ || anchor #实验室
+#  laboratory: /laboratory/ || anchor #实验室
   about: /about/ || user #关于
 #  notes: /notes || calendar #札记 & 留言板
-  schedule: /schedule/ || amazon #时间表
+#  schedule: /schedule/ || amazon #时间表
 #  sitemap: /sitemap.xml || sitemap #网站地图
 #  commonweal: /404/ || heartbeat #公益
 

@@ -14,7 +14,7 @@ updated: 2020-09-30 15:47:59
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;前几天部署了一个 node 项目，可参考<a href="https://liuxianyu.cn/article/node-pm2.html" target="_black">使用 pm2 部署 node 项目</a>，在各个小程序配置中，基本都要求 https 请求，记录一下在阿里云通过 SSL证书和 nginx 配置 https。
+&ensp;&ensp;&ensp;&ensp;前几天部署了一个 node 项目，在各个小程序配置中，基本都要求 https 请求，记录一下在阿里云通过 SSL证书和 nginx 配置 https。
 
 <!--more-->
 
