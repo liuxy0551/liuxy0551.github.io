@@ -1,5 +1,5 @@
 ---
-title: 部署 node 服务渲染支持 Markdown 中的数字公式 LaTeX、yUML 流程图支持
+title: node 服务渲染支持 Markdown 中的数字公式 LaTeX、yUML 流程图支持
 urlname: node-markdown
 tags:
   - node
@@ -65,7 +65,7 @@ server {
     server_name     markdown.liuxianyu.cn;
 
     location / {
-	proxy_pass http://localhost:9001/;
+	    proxy_pass http://localhost:9001/;
     }
 }
 ```
