@@ -48,7 +48,7 @@ const url = 'https://www.baidu.com/'
 | pc_slide | true 表示在`PC 客户端`侧边栏打开，false 表示在浏览器打开 |
 
 
-#### 4、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/5709b3ac" target="_black">消息链接在`PC 客户端`工作台打开(只支持打开第三方应用)</a>
+#### 4、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/5709b3ac" target="_black">消息链接在`PC 客户端`工作台打开</a>
 
 &ensp;&ensp;&ensp;&ensp;当消息中的 URL 链接是某个微应用链接时，希望在`PC 客户端`工作台打开，可以使用以下方式:
 
@@ -64,3 +64,7 @@ const url = 'https://www.baidu.com/'
 | app_id | 由数字 0、下划线、agentid 拼接组成；agentid 是企业内部应用 id，<a href="https://ding-doc.dingtalk.com/doc#/bgb96b/mzd9qg/M753O" target="_black">获取 agentid 查看文档</a> |
 | redirect_type | 只能填写 jump |
 | redirect_url | 表示要跳转的地址，必须 urlEncode |
+
+
+<a href="https://ding-doc.dingtalk.com/doc#/serverapi3/hhxwag" target="_black">第三方企业应用 - 消息链接说明</a>
+<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8" target="_black">企业内部应用 - 消息链接说明</a>
