@@ -48,7 +48,7 @@ const url = 'https://www.baidu.com/'
 | pc_slide | true 表示在`PC 客户端`侧边栏打开，false 表示在浏览器打开 |
 
 
-#### 4、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/5709b3ac" target="_black">消息链接在`PC 客户端`工作台打开</a>
+#### 4、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/5709b3ac" target="_black">消息链接在`PC 客户端`工作台打开(只支持打开第三方应用)</a>
 
 &ensp;&ensp;&ensp;&ensp;当消息中的 URL 链接是某个微应用链接时，希望在`PC 客户端`工作台打开，可以使用以下方式:
 
