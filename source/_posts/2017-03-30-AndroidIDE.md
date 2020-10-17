@@ -43,7 +43,7 @@ updated: 2018-04-20 20:21:09
 　　打开 [http://developer.android.com/sdk/index.html](http://developer.android.com/sdk/index.html)（没有梯子打不开）可下载 Android SDK。或者从下面两个网站下载  
 [http://www.androiddevtools.cn/](http://www.androiddevtools.cn/)  
 
-![](http://media.liuxianyu.cn/android-ide-6.png)
+![](https://liuxy0551.gitee.io/Android-IDE/6.png)
 
 
 [http://tools.android-studio.org/index.php/sdk/](http://tools.android-studio.org/index.php/sdk/)  
