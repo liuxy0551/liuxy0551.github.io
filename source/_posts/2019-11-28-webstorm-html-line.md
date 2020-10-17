@@ -18,10 +18,10 @@ updated: 2019-11-28 11:40:21
 <!--more-->
 
 &ensp;&ensp;&ensp;&ensp;进入 WebStorm -> Preferences -> Editor -> Code Style -> HTML -> Code Generation，将 Line comment at first column 和 Block comment at first column 前的勾选全部取消，解决问题。
-![](http://media.liuxianyu.cn/webstorm-html-line-1.png)
+![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/1.png)
 
 &ensp;&ensp;&ensp;&ensp;修改前：
-![](http://media.liuxianyu.cn/webstorm-html-line-2.png)
+![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/2.png)
 
 &ensp;&ensp;&ensp;&ensp;期望、修改后：
-![](http://media.liuxianyu.cn/webstorm-html-line-3.png)
+![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/3.png)

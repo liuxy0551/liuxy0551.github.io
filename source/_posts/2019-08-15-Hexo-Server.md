@@ -93,7 +93,7 @@ updated: 2019-11-05 09:52:45
     ```
     
 　　9、配置 nginx
-![](http://media.liuxianyu.cn/hexo-server-1.png)
+![](https://liuxy0551.gitee.io/assets/posts/hexo-server/1.png)
 ```shell
 sudo vim /etc/nginx/conf.d/hexo-blog.conf
 ```
