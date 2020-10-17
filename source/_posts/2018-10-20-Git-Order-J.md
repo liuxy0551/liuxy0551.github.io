@@ -27,7 +27,7 @@ git clone https://github.com/liuxy0551/vue-base-structrue.git
 git remote add author https://github.com/vue-quick-framework/vue-base-structrue.git
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;此时可以使用`git remote -v`查看远程仓库信息：
-![](http://media.liuxianyu.cn/git-order-2.png)
+![](https://liuxy0551.gitee.io/assets/_posts/git-order/2.png)
 
 
 ### 3、fetch 原项目的最新代码到本地

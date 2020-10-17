@@ -21,7 +21,7 @@ updated: 2018-11-18 20:29:30
 
 ### 一、实现效果
 
-![](http://media.liuxianyu.cn/vue-mintui-address-7.gif)
+![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/1.gif)
 
 　　功能的实现参考了部分资料：
 
@@ -39,7 +39,7 @@ updated: 2018-11-18 20:29:30
 
 #### 1、HTML 部分
 
-　　![](http://media.liuxianyu.cn/vue-mintui-address-2.png)
+　　![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/2.png)
 ```
     <li class="m-default-address" @click="addressPopup = true">
       <div>
@@ -53,7 +53,7 @@ updated: 2018-11-18 20:29:30
     </li>
 ```
 
-　　![](http://media.liuxianyu.cn/vue-mintui-address-3.png)
+　　![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/3.png)
 ```
     <!--省市区地址三级联动-->
     <mt-popup class="m-address-popup" v-model="addressPopup" position="bottom">
@@ -72,7 +72,7 @@ updated: 2018-11-18 20:29:30
 
 #### 2、JavaScript 部分
 
-　　![](http://media.liuxianyu.cn/vue-mintui-address-4.png)
+　　![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/4.png)
 ```
     data() {
       return {
@@ -115,7 +115,7 @@ updated: 2018-11-18 20:29:30
     }
 ```
 
-　　![](http://media.liuxianyu.cn/vue-mintui-address-5.png)
+　　![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/5.png)
       
 ```
       // 地址三级联动
@@ -140,7 +140,7 @@ updated: 2018-11-18 20:29:30
       }
 ```
 
-　　![](http://media.liuxianyu.cn/vue-mintui-address-6.png)
+　　![](https://liuxy0551.gitee.io/assets/_posts/vue-mintui-address/6.png)
       
 ```
     created() {

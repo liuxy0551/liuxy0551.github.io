@@ -20,14 +20,14 @@ updated: 2018-08-19 20:29:30
 
 ### 实现效果
 
-![](http://media.liuxianyu.cn/vue-countdown-1.gif)
+![](https://liuxy0551.gitee.io/assets/_posts/code-setInterval/1.gif)
 
 
 ### 具体实现
 
 #### 1、HTML 部分
 
-![](http://media.liuxianyu.cn/vue-countdown-2.png)
+![](https://liuxy0551.gitee.io/assets/_posts/code-setInterval/2.png)
 ```
     <li>
       <div>
@@ -51,7 +51,7 @@ updated: 2018-08-19 20:29:30
 
 #### 2、JS 部分
 
-![](http://media.liuxianyu.cn/vue-countdown-3.png)
+![](https://liuxy0551.gitee.io/assets/_posts/code-setInterval/3.png)
 
 ```
     data() {
@@ -64,7 +64,7 @@ updated: 2018-08-19 20:29:30
     }
 ```
 
-![](http://media.liuxianyu.cn/vue-countdown-4.png)
+![](https://liuxy0551.gitee.io/assets/_posts/code-setInterval/4.png)
 ```
   // 获取验证码
   getInforcode() {
@@ -95,7 +95,7 @@ updated: 2018-08-19 20:29:30
       
 #### 3、CSS 部分
 
-![](http://media.liuxianyu.cn/vue-countdown-5.png)
+![](https://liuxy0551.gitee.io/assets/_posts/code-setInterval/5.png)
 ```
 .m-get-code{
   display: inline-block;
