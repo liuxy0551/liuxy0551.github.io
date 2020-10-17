@@ -25,7 +25,7 @@ Windows 系统、VMware、unlocker（使得 VMware 可以识别到 MacOS）、Ma
 
 ### 1、准备工作
 
-　　(1) 这篇随笔记录的过程是在 Windows 系统上完成，准备工作需要在 Windows 上安装好 VMware，并下载好所需文件，链接: [https://pan.baidu.com/s/1FJ5KlH0ea6Fdb12siwOV4Q](https://pan.baidu.com/s/1FJ5KlH0ea6Fdb12siwOV4Q) 提取码: `p8jp`。其中文件夹是第二个压缩包解压后的文件，第一个压缩包备用，第三个压缩包就是 MacOS High Sierra 10.13 镜像。如果链接失效，可以从 [关于我](https://liuxianyu.cn/about/) 中找到我的联系方式。
+　　(1) 这篇随笔记录的过程是在 Windows 系统上完成，准备工作需要在 Windows 上安装好 VMware，并下载好所需文件，`文件链接已失效`。其中文件夹是第二个压缩包解压后的文件，第一个压缩包备用，第三个压缩包就是 MacOS High Sierra 10.13 镜像。
 　　
 　　![](https://liuxy0551.gitee.io/assets/posts/vmware-macos/36.png)
 
