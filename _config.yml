@@ -14,7 +14,7 @@ timezone: UTC           #时区
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 # url: http://liuxy0551.github.io # liuxy0551是我的账号，修改为自己的账号
-url: https://liuxianyu.cn # liuxy0551是我的账号，修改为自己的账号
+url: https://liuxianyu.cn1 # liuxy0551是我的账号，修改为自己的账号
 root: /
 permalink: article/:urlname.html #:year/:month/:day/:title/
 permalink_defaults:
