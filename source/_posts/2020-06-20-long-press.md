@@ -83,9 +83,9 @@ updated: 2020-06-20 14:26:02
 
 
 #### 4、附件
-1、点赞的 canvas 文件：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/images/posts/long-press/canvas.js" target="_black">canvas.js</a>
-2、点赞的组件代码：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/images/posts/long-press/ThumbUp.vue" target="_black">ThumbUp.vue</a>
-3、点赞图标：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/images/posts/long-press/thumb-up.png" target="_black">thumb-up.png</a>
+1、点赞的 canvas 文件：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/long-press/canvas.js" target="_black">canvas.js</a>
+2、点赞的组件代码：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/long-press/ThumbUp.vue" target="_black">ThumbUp.vue</a>
+3、点赞图标：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/long-press/thumb-up.png" target="_black">thumb-up.png</a>
 
 
 

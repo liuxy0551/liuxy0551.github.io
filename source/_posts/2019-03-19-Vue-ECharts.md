@@ -32,7 +32,7 @@ updated: 2019-03-19 20:29:30
 
 ### 三、世界地图的组件代码（已省略部分国家数据，可在代码文件中复制）
 
-　　[世界 - 代码文件](https://github.com/liuxy0551/liuxy0551.github.io/blob/develop/source/images/posts/ECharts/world.vue)
+　　[世界 - 代码文件](https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-echarts/world.vue)
 ```
     <template>
       <div class="echarts-box">
@@ -193,7 +193,7 @@ updated: 2019-03-19 20:29:30
 
 ### 四、中国地图的组件代码（已省略部分省份数据，可在代码文件中复制）
 
-　　[中国 - 代码文件](https://github.com/liuxy0551/liuxy0551.github.io/blob/develop/source/images/posts/ECharts/China.vue)
+　　[中国 - 代码文件](https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-echarts/China.vue)
 ```
     <template>
       <div class="echarts-box">
