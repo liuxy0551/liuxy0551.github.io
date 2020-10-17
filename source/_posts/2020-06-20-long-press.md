@@ -20,7 +20,7 @@ updated: 2020-06-20 14:26:02
 
 #### 1、实现效果
 
-![](http://media.liuxianyu.cn/long-press.gif)
+![](https://liuxy0551.gitee.io/assets/posts/long-press/1.gif)
 
 
 #### 2、HTML
