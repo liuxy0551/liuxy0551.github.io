@@ -21,7 +21,7 @@ updated: 2020-10-16 17:13:38
 
 ### 一、实现效果
 
-&ensp;&ensp;&ensp;&ensp;待补充
+![](https://liuxy0551.gitee.io/assets/posts/wechat-scroll-left-right/1.gif)
 
 
 ### 二、实现方法
