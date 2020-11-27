@@ -10,7 +10,7 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2020-11-17 17:10:00
-updated: 2020-11-17 17:10:00
+updated: 2020-11-27 11:32:36
 ---
 
 
@@ -79,11 +79,38 @@ fun deploy
 ```
 
 
-### 三、遇到的问题
+### 三、阿里云控制台注意事项
+
+#### 1、自定义域名
+
+&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 自定义域名
+&ensp;&ensp;&ensp;&ensp;每个路由的 版本/别名 在开发调试时先选择 LATEST，等待上线时，按照第4条的版本管理，选择别名。
+
+#### 2、日志查询
+
+&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 日志查询
+&ensp;&ensp;&ensp;&ensp;日志内容包含的内容如：接口url、报错信息
+
+#### 3、配置导出
+
+&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 概览 -> 导出 -> 导出配置
+&ensp;&ensp;&ensp;&ensp;将导出的 template.yml 文件放到项目中，这样控制台配置的配置项就不会被 deploy 覆盖掉。
+
+>**注意**
+>* **控制台导出的配置文件可能有部分缺失，需要和本地已有的 template.yml 文件对比，保留部分字段，如：CodeUri**
+
+#### 4、版本管理
+
+&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)版本管理 -> 别名
+&ensp;&ensp;&ensp;&ensp;（1）上线时可以新建一个版本，并对该版本新建别名且设置别名对应的版本占比，用来在自定义域名中使用(每个路径都选择该别名)，在 版本管理 -> 别名 中可对该别名进行版本占比控制，达到灰度发布的效果。
+&ensp;&ensp;&ensp;&ensp;（2）后续迭代时，deploy 后可在 版本管理 中新建一个版本，并在别名中选择该版本的占比。
+
+
+### 四、遇到的问题
 
 #### 1、regeneratorRuntime is not defined
 
-&ensp;&ensp;&ensp;&ensp;在代码中使用 async/await 时报错，是 babel 编译的问题，安装 babel-plugin-transform-runtime ，
+&ensp;&ensp;&ensp;&ensp;在代码中使用 async/await 时报错，是 babel 编译的问题，安装`babel-plugin-transform-runtime`，
 
 ```
 npm i babel-plugin-transform-runtime -D
@@ -98,14 +125,31 @@ npm i babel-plugin-transform-runtime -D
 }
 ```
 
-#### 2、load code for handler:index.handler
+#### 2、使用 ... 扩展符
+
+&ensp;&ensp;&ensp;&ensp;在代码中使用 ... 扩展符时本地运行报错，是 babel 编译的问题，安装`babel-plugin-transform-object-rest-spread`，
+
+```
+npm i babel-plugin-transform-object-rest-spread -D
+```
+
+&ensp;&ensp;&ensp;&ensp;然后在 .babelrc 中添加 plugins，重新运行即可。
+
+``` javascript
+{
+    ...,
+    "plugins": ["transform-object-rest-spread"]
+}
+```
+
+#### 3、load code for handler:index.handler
 
 &ensp;&ensp;&ensp;&ensp;本地运行时项目刚启动，调用 POST 接口可能导致程序阻塞（deploy到线上不会阻塞），先调用一次 GET 接口再调用 POST 接口就不会阻塞，原因未知。
 
-#### 3、静态文件使用自定义域名
+#### 4、静态文件使用自定义域名
 
 &ensp;&ensp;&ensp;&ensp;需要每个文件都添加记录，等待后续必须上传到函数计算时，使用打包到 OSS 尝试解决。
 
-#### 4、目录过深，运行报错
+#### 5、目录过深，运行报错
 
 &ensp;&ensp;&ensp;&ensp;将项目拷贝到桌面，运行。
