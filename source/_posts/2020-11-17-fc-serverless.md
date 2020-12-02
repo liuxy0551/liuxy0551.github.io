@@ -105,6 +105,18 @@ fun deploy
 &ensp;&ensp;&ensp;&ensp;（1）上线时可以新建一个版本，并对该版本新建别名且设置别名对应的版本占比，用来在自定义域名中使用(每个路径都选择该别名)，在 版本管理 -> 别名 中可对该别名进行版本占比控制，达到灰度发布的效果。
 &ensp;&ensp;&ensp;&ensp;（2）后续迭代时，deploy 后可在 版本管理 中新建一个版本，并在别名中选择该版本的占比。
 
+#### 5、环境变量
+
+&ensp;&ensp;&ensp;&ensp;待补充 <a href="https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN" target="_black">https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN</a>
+
+#### 6、请求环境区分
+
+&ensp;&ensp;&ensp;&ensp;调用请求时需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本，如下图：
+![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/1.png)
+
+&ensp;&ensp;&ensp;&ensp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
+![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/2.png)
+
 
 ### 四、遇到的问题
 
