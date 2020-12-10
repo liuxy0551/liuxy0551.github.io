@@ -1,5 +1,5 @@
 ---
-title: linux 中关于进程的一些命令
+title: linux 中的一些命令
 urlname: linux-command
 tags:
   - Linux
@@ -8,16 +8,17 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2020-09-25 20:26:42
-updated: 2020-09-25 20:26:42
+updated: 2020-12-10 14:02:03
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;记录一些服务器上经常用到的关于进程的命令。
+&ensp;&ensp;&ensp;&ensp;记录 linux 中的一些命令。
 
 <!--more-->
 
 
-#### 1、netstat
+
+#### 1、netstat - 查看端口
 
 &ensp;&ensp;&ensp;&ensp;查看是否在监听项目端口，无 PID：
 
@@ -26,7 +27,7 @@ netstat -tpln
 ```
 
 
-#### 2、lsof
+#### 2、lsof - 查看进程
 
 &ensp;&ensp;&ensp;&ensp;查看指定端口的进程，会返回 PID：
 
@@ -35,7 +36,7 @@ lsof -i:9000
 ```
 
 
-#### 3、kill
+#### 3、kill - 杀死进程
 
 &ensp;&ensp;&ensp;&ensp;关闭某个进程：
 
@@ -49,3 +50,23 @@ kill 9127
 kill -9 9127
 ```
 
+
+#### 4、tailf - 查看日志
+
+```
+tailf -100 /tmp/planet/log20181212.txt
+```
+
+
+#### 5、cp - 复制文件
+
+```
+cp start.sh ../markdown-server/
+```
+
+
+#### 6、mv - 移动文件
+
+```
+mv start.sh ../markdown-server/
+```
