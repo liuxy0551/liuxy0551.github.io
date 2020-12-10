@@ -54,7 +54,7 @@ kill -9 9127
 #### 4、tailf - 查看日志
 
 ```
-tailf -100 /tmp/planet/log20181212.txt
+tailf -100 pm2/logs/pm2-out.log
 ```
 
 
