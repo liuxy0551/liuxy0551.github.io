@@ -79,3 +79,10 @@ git pull origin master
 cnpm i
 pm2 restart ./pm2/config.json
 ```
+
+&ensp;&ensp;&ensp;&ensp;可按需要添加以下两条命令：
+
+| 含义 | 命令 |
+| :---: | --- |
+| 显示每个应用程序的 CPU 和内存占用情况 | pm2 monit |
+| 查看输出的日志 | pm2 logs |
