@@ -78,6 +78,7 @@ server {
 git pull origin master
 cnpm i
 pm2 restart ./pm2/config.json
+pm2 monit
 ```
 
 &ensp;&ensp;&ensp;&ensp;可按需要添加以下两条命令：
