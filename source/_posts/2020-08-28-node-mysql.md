@@ -12,7 +12,7 @@ date: 2020-08-28 17:39:40
 updated: 2020-08-28 17:39:40
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近从 <a href="https://github.com/Tencent/wepy#%E5%93%AA%E4%BA%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%98%AF%E7%94%A8-wepy-%E5%BC%80%E5%8F%91%E7%9A%84" target="_black">wepy 的案例</a> 中看到了一款`诗词墨客`的小程序，风格很喜欢，在这个小程序的`README.md`中又发现了中华古诗词数据库 <a href="https://github.com/chinese-poetry/chinese-poetry" target="_black">chinese-poetry</a>，便想着拿这些数据通过 node 导入 mysql 练练手，<a href="https://github.com/liuxy0551/node-chinese-poetry" target="_black">https://github.com/liuxy0551/node-chinese-poetry</a>，<a href="https://github.com/liuxy0551/chinese-poetry/tree/master/node-mysql" target="_black">node 代码：node-mysql</a>。
+&emsp;&emsp;最近从 <a href="https://github.com/Tencent/wepy#%E5%93%AA%E4%BA%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%98%AF%E7%94%A8-wepy-%E5%BC%80%E5%8F%91%E7%9A%84" target="_black">wepy 的案例</a> 中看到了一款`诗词墨客`的小程序，风格很喜欢，在这个小程序的`README.md`中又发现了中华古诗词数据库 <a href="https://github.com/chinese-poetry/chinese-poetry" target="_black">chinese-poetry</a>，便想着拿这些数据通过 node 导入 mysql 练练手，<a href="https://github.com/liuxy0551/node-chinese-poetry" target="_black">https://github.com/liuxy0551/node-chinese-poetry</a>，<a href="https://github.com/liuxy0551/chinese-poetry/tree/master/node-mysql" target="_black">node 代码：node-mysql</a>。
 
 <!--more-->
 

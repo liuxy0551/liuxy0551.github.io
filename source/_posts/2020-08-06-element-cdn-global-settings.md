@@ -14,17 +14,17 @@ date: 2020-08-06 13:17:54
 updated: 2020-08-06 13:17:54
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近在写一个后台管理的项目，自己觉得按钮默认的尺寸比较大，遂加上了`size="small"`，但是发现每个页面的按钮都需要加上才够统一、协调，想起了 Element 官方有推荐全局配置，改之。
+&emsp;&emsp;最近在写一个后台管理的项目，自己觉得按钮默认的尺寸比较大，遂加上了`size="small"`，但是发现每个页面的按钮都需要加上才够统一、协调，想起了 Element 官方有推荐全局配置，改之。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;以上是通过 npm 引入 Element 的写法，为提升加载速度，项目中大部分基本库都是通过 CDN 引入的，Element 亦然。那么`通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)`呢，记录如下：
+&emsp;&emsp;以上是通过 npm 引入 Element 的写法，为提升加载速度，项目中大部分基本库都是通过 CDN 引入的，Element 亦然。那么`通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)`呢，记录如下：
 
 
 
 ### 一、官方推荐（npm 安装法）
 
-&ensp;&ensp;&ensp;&ensp;size 的值有：medium、small、mini，默认值为空字符串，比 medium 大。
+&emsp;&emsp;size 的值有：medium、small、mini，默认值为空字符串，比 medium 大。
 
 ![](https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/1.png)
 
@@ -32,11 +32,11 @@ updated: 2020-08-06 13:17:54
 
 ### 二、编译源码，CDN 引入
 
-&ensp;&ensp;&ensp;&ensp;拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在`package.json`中查找如何编译出 js，注意`dist`命令。
+&emsp;&emsp;拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在`package.json`中查找如何编译出 js，注意`dist`命令。
 
 ![](https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/2.png)
 
-&ensp;&ensp;&ensp;&ensp;在`/build/bin/build-entry.js`中将：
+&emsp;&emsp;在`/build/bin/build-entry.js`中将：
 ```
 Vue.prototype.$ELEMENT = {
   size: opts.size || '',
@@ -51,7 +51,7 @@ Vue.prototype.$ELEMENT = {
 };
 ```
 
-&ensp;&ensp;&ensp;&ensp;接着执行`npm run dist`，上传`/lib/index.js`到 OSS 并引用，再次刷新，页面上的按钮就变小啦！
+&emsp;&emsp;接着执行`npm run dist`，上传`/lib/index.js`到 OSS 并引用，再次刷新，页面上的按钮就变小啦！
 
 
 >**注意**

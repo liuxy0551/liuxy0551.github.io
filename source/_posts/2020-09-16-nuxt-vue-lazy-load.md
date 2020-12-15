@@ -15,7 +15,7 @@ updated: 2020-09-16 15:44:46
 
 
 
-&ensp;&ensp;&ensp;&ensp;最近用 nuxt 写了个 SSR 的页面，有很多图片展示，使用了图片懒加载，记录一下。
+&emsp;&emsp;最近用 nuxt 写了个 SSR 的页面，有很多图片展示，使用了图片懒加载，记录一下。
 
 <!--more-->
 
@@ -38,7 +38,7 @@ npm i vue-lazyload -D
 
 #### 2、引入
 
-&ensp;&ensp;&ensp;&ensp;在`plugins`目录下新建一个`vueLazyLoad.js`，内容如下：
+&emsp;&emsp;在`plugins`目录下新建一个`vueLazyLoad.js`，内容如下：
 
 ```
 import Vue from 'vue'
@@ -52,7 +52,7 @@ Vue.use(VueLazyLoad, {
 })
 ```
 
-&ensp;&ensp;&ensp;&ensp;在`nuxt.config.js`中配置插件：
+&emsp;&emsp;在`nuxt.config.js`中配置插件：
 
 ```
   plugins: [
@@ -63,4 +63,4 @@ Vue.use(VueLazyLoad, {
 
 #### 3、使用
 
-&ensp;&ensp;&ensp;&ensp;将需要懒加载处的`:src`属性改为`v-lazy`，刷新页面，即可看到效果。
+&emsp;&emsp;将需要懒加载处的`:src`属性改为`v-lazy`，刷新页面，即可看到效果。

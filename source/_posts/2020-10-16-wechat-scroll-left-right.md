@@ -13,7 +13,7 @@ updated: 2020-10-16 17:13:38
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;最近写了个教育机构的微信小程序，其中有个批阅的功能，产品希望切换题目的时候能通过左右滑动切换上一题下一题，说是客户抖音玩多了，记录一下实现方法。
+&emsp;&emsp;最近写了个教育机构的微信小程序，其中有个批阅的功能，产品希望切换题目的时候能通过左右滑动切换上一题下一题，说是客户抖音玩多了，记录一下实现方法。
 
 <!--more-->
 
@@ -26,11 +26,11 @@ updated: 2020-10-16 17:13:38
 
 ### 二、实现方法
 
-&ensp;&ensp;&ensp;&ensp;在需要滑动的区域加上触摸事件的监听，文档可参考 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html#%E4%BA%8B%E4%BB%B6%E8%AF%A6%E8%A7%A3" target="_black">事件详解</a>。主要使用到三个事件touchstart、touchmove、touchend，思路是：
+&emsp;&emsp;在需要滑动的区域加上触摸事件的监听，文档可参考 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html#%E4%BA%8B%E4%BB%B6%E8%AF%A6%E8%A7%A3" target="_black">事件详解</a>。主要使用到三个事件touchstart、touchmove、touchend，思路是：
 
 > `touchstart` 记录开始的位置，标识已开始移动；`touchmove` 记录移动的距离，超过设定的移动距离即认为进行了滑动操作；`touchend` 标识结束移动
 
-&ensp;&ensp;&ensp;&ensp;代码如下：
+&emsp;&emsp;代码如下：
 
 ``` javascript
 <template>

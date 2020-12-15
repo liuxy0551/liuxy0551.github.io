@@ -13,7 +13,7 @@ updated: 2020-09-15 14:38:03
 
 
 
-&ensp;&ensp;&ensp;&ensp;node 开发中自动编译无需重启是件很重要的事，记录一下几个工具。
+&emsp;&emsp;node 开发中自动编译无需重启是件很重要的事，记录一下几个工具。
 
 <!--more-->
 
@@ -24,13 +24,13 @@ updated: 2020-09-15 14:38:03
 
 ### 一、nodemon`推荐`
 
-&ensp;&ensp;&ensp;&ensp;全局安装：
+&emsp;&emsp;全局安装：
 
 ```
 npm i nodemon -g
 ```
 
-&ensp;&ensp;&ensp;&ensp;项目根目录运行：
+&emsp;&emsp;项目根目录运行：
 
 ```
 nodemon app.js

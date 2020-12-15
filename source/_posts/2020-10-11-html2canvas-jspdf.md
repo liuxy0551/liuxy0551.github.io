@@ -12,11 +12,11 @@ updated: 2020-10-11 17:39:04
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;最近有个导出 pdf 的需求，内容区域含有 echarts 图表，记录一下处理的代码。
+&emsp;&emsp;最近有个导出 pdf 的需求，内容区域含有 echarts 图表，记录一下处理的代码。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;本篇随笔和另一篇 <a href="https://liuxianyu.cn/article/window-print-canvas-image.html" target="_black">使用 window.print() 时将 DOM 中的 canvas 转为 image</a> 是同一个问题的处理记录。
+&emsp;&emsp;本篇随笔和另一篇 <a href="https://liuxianyu.cn/article/window-print-canvas-image.html" target="_black">使用 window.print() 时将 DOM 中的 canvas 转为 image</a> 是同一个问题的处理记录。
 
 
 ``` javascript

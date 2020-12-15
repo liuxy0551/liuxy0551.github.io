@@ -12,12 +12,12 @@ date: 2020-07-05 21:23:32
 updated: 2020-07-05 21:23:32
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近有个公司的甲方拿了个项目来让我们改改再用，不是熟悉的 vue 项目，记录一些点。
+&emsp;&emsp;最近有个公司的甲方拿了个项目来让我们改改再用，不是熟悉的 vue 项目，记录一些点。
 
 <!--more-->
 
 
-&ensp;&ensp;&ensp;&ensp;使用 ngrok 工具，在浏览器访问给出的地址，出现了`Invalid Host header`字样。这是因为新版的 webpack-dev-server 出于安全考虑，默认检查 hostname，如果 hostname 不是配置内的就不能访问。
+&emsp;&emsp;使用 ngrok 工具，在浏览器访问给出的地址，出现了`Invalid Host header`字样。这是因为新版的 webpack-dev-server 出于安全考虑，默认检查 hostname，如果 hostname 不是配置内的就不能访问。
 
 
 ### 一、ngrok.com
@@ -25,7 +25,7 @@ updated: 2020-07-05 21:23:32
 - 优点：启动方便
 - 缺点：网速慢，不能自定义域名
 
-&ensp;&ensp;&ensp;&ensp;官网的工具包链接: <a href="https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ" target="_black">https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ</a>  密码:`vcvj`
+&emsp;&emsp;官网的工具包链接: <a href="https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ" target="_black">https://pan.baidu.com/s/1r8noo1iQbEt3DJJRkdJhbQ</a>  密码:`vcvj`
 
 
 ### 二、ngrok.cc
@@ -36,23 +36,23 @@ updated: 2020-07-05 21:23:32
 
 ### 三、解决办法
 
-&ensp;&ensp;&ensp;&ensp;因为不是熟悉的 vue 项目，所以记录一下，vue 项目中解决较为简单，不做赘述。
+&emsp;&emsp;因为不是熟悉的 vue 项目，所以记录一下，vue 项目中解决较为简单，不做赘述。
 
 #### 1、修改 node_modules
 
-&ensp;&ensp;&ensp;&ensp;进入`/node_modules/_webpack-dev-server@2.11.5@webpack-dev-server/lib`，在`Server.js`中查找，将
+&emsp;&emsp;进入`/node_modules/_webpack-dev-server@2.11.5@webpack-dev-server/lib`，在`Server.js`中查找，将
 ``` javascript
 if (this.disableHostCheck) return true;
 ```
-&ensp;&ensp;&ensp;&ensp;改为：
+&emsp;&emsp;改为：
 ``` javascript
 return true;
 ```
-&ensp;&ensp;&ensp;&ensp;即可，不对 hostname 做检查就返回通过。
+&emsp;&emsp;即可，不对 hostname 做检查就返回通过。
 
 #### 2、修改启动命令`推荐`
 
-&ensp;&ensp;&ensp;&ensp;修改 script 中的启动命令，添加参数：` --disableHostCheck=true`
+&emsp;&emsp;修改 script 中的启动命令，添加参数：` --disableHostCheck=true`
 ```
     "scripts": {
         "dev": "npm run development",

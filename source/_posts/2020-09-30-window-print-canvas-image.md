@@ -12,7 +12,7 @@ updated: 2020-09-30 17:32:40
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;最近有个导出 pdf 的需求，尝试过程中遇到了 window.print() 导出时，内容区域有 echarts 图表，图表区域是个 canvas，导出后的 pdf 文件中 canvas 区域空白，记录一下解决方法。
+&emsp;&emsp;最近有个导出 pdf 的需求，尝试过程中遇到了 window.print() 导出时，内容区域有 echarts 图表，图表区域是个 canvas，导出后的 pdf 文件中 canvas 区域空白，记录一下解决方法。
 
 <!--more-->
 

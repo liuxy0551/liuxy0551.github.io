@@ -14,7 +14,7 @@ updated: 2020-11-27 11:32:36
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;最近在公司项目中实践数据中台的概念，调研并使用了阿里云提供的函数计算服务，记录下相关内容：
+&emsp;&emsp;最近在公司项目中实践数据中台的概念，调研并使用了阿里云提供的函数计算服务，记录下相关内容：
 
 <!--more-->
 
@@ -30,7 +30,7 @@ fun --version
 
 ### 二、搭建基于Express的Serverless Web应用
 
-&ensp;&ensp;&ensp;&ensp;阿里云文档：<a href="https://help.aliyun.com/document_detail/147099.html?spm=a2c4g.11186623.6.752.43ed5e12IPyLRR" target="_black">搭建基于Express的Serverless Web应用</a>
+&emsp;&emsp;阿里云文档：<a href="https://help.aliyun.com/document_detail/147099.html?spm=a2c4g.11186623.6.752.43ed5e12IPyLRR" target="_black">搭建基于Express的Serverless Web应用</a>
 
 #### 1、通过 fun 模板生成项目
 
@@ -52,16 +52,16 @@ npm run dev
 fun local start
 ```
 
-&ensp;&ensp;&ensp;&ensp;本地查看效果：<a href="http://localhost:8000/2016-08-15/proxy/wisejob-class-service/wisejob-class" target="_black">http://localhost:8000/2016-08-15/proxy/wisejob-class-service/wisejob-class</a>
+&emsp;&emsp;本地查看效果：<a href="http://localhost:8000/2016-08-15/proxy/wisejob-class-service/wisejob-class" target="_black">http://localhost:8000/2016-08-15/proxy/wisejob-class-service/wisejob-class</a>
 
 #### 3、通过 .env 文件配置
 
-&ensp;&ensp;&ensp;&ensp;(1)、在项目目录即template.yml文件所在目录下，创建一个名为.env的文件。
+&emsp;&emsp;(1)、在项目目录即template.yml文件所在目录下，创建一个名为.env的文件。
 
 >**说明**
 >* **建议将 .env 文件放到 .gitignore中，避免泄漏重要的账户信息。**
 
-&ensp;&ensp;&ensp;&ensp;(2)、在 .env 文件录入以下配置：
+&emsp;&emsp;(2)、在 .env 文件录入以下配置：
 
 ```
 ACCOUNT_ID=xxxxxxxx
@@ -83,13 +83,13 @@ fun deploy
 
 #### 1、自定义域名
 
-&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 自定义域名
-&ensp;&ensp;&ensp;&ensp;每个路由的 版本/别名 在开发调试时先选择 LATEST，等待上线时，按照第4条的版本管理，选择别名。
+&emsp;&emsp;操作路径：控制台 -> 函数计算 -> 自定义域名
+&emsp;&emsp;每个路由的 版本/别名 在开发调试时先选择 LATEST，等待上线时，按照第4条的版本管理，选择别名。
 
 #### 2、日志查询
 
-&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 日志查询
-&ensp;&ensp;&ensp;&ensp;日志内容包含的内容如：接口url、报错信息
+&emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 日志查询
+&emsp;&emsp;日志内容包含的内容如：接口url、报错信息
 
 #### 3、配置导出
 

@@ -14,7 +14,7 @@ updated: 2020-09-30 15:47:59
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;前几天部署了一个 node 项目，在各个小程序配置中，基本都要求 https 请求，记录一下在阿里云通过 SSL证书和 nginx 配置 https。
+&emsp;&emsp;前几天部署了一个 node 项目，在各个小程序配置中，基本都要求 https 请求，记录一下在阿里云通过 SSL证书和 nginx 配置 https。
 
 <!--more-->
 
@@ -22,12 +22,12 @@ updated: 2020-09-30 15:47:59
 
 ### 一、购买、下载、上传 SSL 证书
 
-&ensp;&ensp;&ensp;&ensp;登录阿里云后在控制台搜索进入`SSL 证书`，点击购买证书，选择单个域名、DV域名级SSL、免费版、1年，支付0元购买。在证书列表页点击证书申请按钮，填入证书绑定域名`api.koa-app.liuxianyu.cn`，下一步（在阿里云购买的域名会自动在域名解析处添加域名验证信息，https 生效后可删除该条解析），下载证书（Nginx）。解压后将证书上传到`/etc/nginx/cert`目录下，建议将文件名都改为对应域名以作区分。
+&emsp;&emsp;登录阿里云后在控制台搜索进入`SSL 证书`，点击购买证书，选择单个域名、DV域名级SSL、免费版、1年，支付0元购买。在证书列表页点击证书申请按钮，填入证书绑定域名`api.koa-app.liuxianyu.cn`，下一步（在阿里云购买的域名会自动在域名解析处添加域名验证信息，https 生效后可删除该条解析），下载证书（Nginx）。解压后将证书上传到`/etc/nginx/cert`目录下，建议将文件名都改为对应域名以作区分。
 
 
 ### 二、配置 nginx
 
-&ensp;&ensp;&ensp;&ensp;编辑已有的`koa-app.conf`，新的配置如下：
+&emsp;&emsp;编辑已有的`koa-app.conf`，新的配置如下：
 
 ```
 # 学习 koa-app 的 nginx 配置

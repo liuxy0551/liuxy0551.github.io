@@ -12,7 +12,7 @@ date: 2020-07-07 16:40:23
 updated: 2020-07-07 16:40:23
 ---
 
-&ensp;&ensp;&ensp;&ensp;平常公司开发中一直围绕钉钉，这里记录一下如何在浏览器访问特定地址可以跳到钉钉并打开指定 URL，适用部分业务场景。
+&emsp;&emsp;平常公司开发中一直围绕钉钉，这里记录一下如何在浏览器访问特定地址可以跳到钉钉并打开指定 URL，适用部分业务场景。
 
 <!--more-->
 
@@ -35,7 +35,7 @@ location.href = `dingtalk://dingtalkclient/page/link?url=${ encodeURIComponent(u
 
 #### 3、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/e300ae98" target="_black">消息链接在`PC 客户端`侧边栏打开</a>
 
-&ensp;&ensp;&ensp;&ensp;在`PC 客户端`点击消息中的 URL 链接时，希望控制链接的打开方式，可以使用以下方式：
+&emsp;&emsp;在`PC 客户端`点击消息中的 URL 链接时，希望控制链接的打开方式，可以使用以下方式：
 
 ```javascript
 const url = 'https://www.baidu.com/'
@@ -50,7 +50,7 @@ const url = 'https://www.baidu.com/'
 
 #### 4、<a href="https://ding-doc.dingtalk.com/doc#/serverapi2/iat9q8/5709b3ac" target="_black">消息链接在`PC 客户端`工作台打开</a>
 
-&ensp;&ensp;&ensp;&ensp;当消息中的 URL 链接是某个微应用链接时，希望在`PC 客户端`工作台打开，可以使用以下方式:
+&emsp;&emsp;当消息中的 URL 链接是某个微应用链接时，希望在`PC 客户端`工作台打开，可以使用以下方式:
 
 ```
 const url = 'https://www.baidu.com/'

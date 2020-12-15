@@ -12,15 +12,15 @@ updated: 2020-10-21 10:34:54
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;这里做做原型和原型链的笔记。
+&emsp;&emsp;这里做做原型和原型链的笔记。
 
 <!--more-->
 
 **文字理解：**
 
-&ensp;&ensp;&ensp;&ensp;每个函数都有一个`prototype`属性，当这个函数作为构造函数的时候，实例化出来的函数(以下称实例)会有一个`__proto__`属性，这个`__proto__`属性指向构造函数的`prototype`。
-&ensp;&ensp;&ensp;&ensp;实例通过`prototype`来访问其父元素的属性和方法，依次迭代访问构成原型链，直到 Object 原型的`prototype`为`null`，此时位于原型链的顶端。
-&ensp;&ensp;&ensp;&ensp;每个实例原型都有一个`constructor`属性指向关联的构造函数。
+&emsp;&emsp;每个函数都有一个`prototype`属性，当这个函数作为构造函数的时候，实例化出来的函数(以下称实例)会有一个`__proto__`属性，这个`__proto__`属性指向构造函数的`prototype`。
+&emsp;&emsp;实例通过`prototype`来访问其父元素的属性和方法，依次迭代访问构成原型链，直到 Object 原型的`prototype`为`null`，此时位于原型链的顶端。
+&emsp;&emsp;每个实例原型都有一个`constructor`属性指向关联的构造函数。
 
 ![](https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png)
 

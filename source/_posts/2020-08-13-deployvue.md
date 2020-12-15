@@ -16,24 +16,24 @@ date: 2020-08-13 16:20:39
 updated: 2020-08-18 15:54:14
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近抽空写了个 Vue 项目的部署插件`deployvue`，设置部署参数后可以实现`npm run deploy`一条命令完成部署更新。
+&emsp;&emsp;最近抽空写了个 Vue 项目的部署插件`deployvue`，设置部署参数后可以实现`npm run deploy`一条命令完成部署更新。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;具体如何使用，可移步 <a href="https://github.com/liuxy0551/deployvue#readme" target="_black">README.md</a> 查看。这里不过多介绍使用方法，主要记录一下遇到的一些点。
+&emsp;&emsp;具体如何使用，可移步 <a href="https://github.com/liuxy0551/deployvue#readme" target="_black">README.md</a> 查看。这里不过多介绍使用方法，主要记录一下遇到的一些点。
 
 ![](https://liuxy0551.gitee.io/assets/posts/deploy-vue/1.gif)
 
 
 ### 一、部署流程
 
-&ensp;&ensp;&ensp;&ensp;公司的部署发布流程是：
-&ensp;&ensp;&ensp;&ensp;1、git 提交代码到远程仓库
-&ensp;&ensp;&ensp;&ensp;2、用 Jenkins 点击对应工程的 Build 按钮，执行脚本
-&ensp;&ensp;&ensp;&ensp;3、运维服务器端执行 git pull 拉取对应分支的代码
-&ensp;&ensp;&ensp;&ensp;4、npm install
-&ensp;&ensp;&ensp;&ensp;5、npm run build
-&ensp;&ensp;&ensp;&ensp;6、在运维服务器通过 scp 命令将打包后的文件夹传输到（多台，做了负载均衡）部署服务器。
+&emsp;&emsp;公司的部署发布流程是：
+&emsp;&emsp;1、git 提交代码到远程仓库
+&emsp;&emsp;2、用 Jenkins 点击对应工程的 Build 按钮，执行脚本
+&emsp;&emsp;3、运维服务器端执行 git pull 拉取对应分支的代码
+&emsp;&emsp;4、npm install
+&emsp;&emsp;5、npm run build
+&emsp;&emsp;6、在运维服务器通过 scp 命令将打包后的文件夹传输到（多台，做了负载均衡）部署服务器。
 
 &ensp;&ensp;&ensp;&ensp;`deployvue`的部署流程是：
 &ensp;&ensp;&ensp;&ensp;1、执行 build 命令

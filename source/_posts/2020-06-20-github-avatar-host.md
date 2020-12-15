@@ -12,18 +12,18 @@ date: 2020-04-15 14:26:02
 updated: 2020-04-15 14:26:02
 ---
 
-&ensp;&ensp;&ensp;&ensp;GitHub 头像和 icon 大部分时间不能正常显示，很影响使用感受，可以通过设置 hosts 文件来解决。
+&emsp;&emsp;GitHub 头像和 icon 大部分时间不能正常显示，很影响使用感受，可以通过设置 hosts 文件来解决。
 
 <!--more-->
 
 
-&ensp;&ensp;&ensp;&ensp;编辑 hosts 文件：
+&emsp;&emsp;编辑 hosts 文件：
 
 ```shell
 vim /etc/hosts
 ```
 
-&ensp;&ensp;&ensp;&ensp;在原有配置后追加即可：
+&emsp;&emsp;在原有配置后追加即可：
 ```
 # github avatar
 199.232.28.133 assets-cdn.github.com

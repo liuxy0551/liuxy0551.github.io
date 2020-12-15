@@ -6,7 +6,7 @@ type: "about"
 
 <img style="width:127px; height:127px; border-radius:50%; overflow:hidden;" src="/images/avatar.jpg"/>
 
-&ensp;&ensp;&ensp;&ensp;Hello，欢迎来到我的个人小站。
+&emsp;&emsp;Hello，欢迎来到我的个人小站。
 
 
 ## 关于个人
