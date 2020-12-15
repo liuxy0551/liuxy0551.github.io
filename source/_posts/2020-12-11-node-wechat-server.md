@@ -50,7 +50,6 @@ module.exports = app => {
 
   app.use(router.routes(), router.allowedMethods())
 }
-
 ```
 
 ### 二、服务器配置

@@ -3,6 +3,8 @@ title: 使用 certbot 在 Cent OS 中给 nginx 配置 https
 urlname: centos-nginx-https
 tags:
   - Cent OS
+  - nginx
+  - https
 categories:
   - Linux
   - Cent OS
