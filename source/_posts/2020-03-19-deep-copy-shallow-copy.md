@@ -20,8 +20,8 @@ updated: 2020-03-19 21:12:49
 
 [JavaScript 中的数据类型以及内存分配](https://liuxianyu.cn/article/js-typeof.html)
 
-&ensp;&ensp;&ensp;&ensp;堆和栈都是内存中用来存储的区域：**栈**是自动分配的内存，由系统自动释放；**堆**是动态分配的内存，大小不定同时也不会自动释放。深拷贝和浅拷贝的区别也在于两者在内存中的存储类型有所不同。
-&ensp;&ensp;&ensp;&ensp;介绍一下基本数据类型和引用数据类型的概念，`基本数据类型`包括：String、Number、Boolean、null、undefined 五类（es6 新引入 Symbol，代表独一无二的值），`引用数据类型`统称为 Object 类型，包括：对象、数组、Date、RefExp、函数等。
+&emsp;&emsp;堆和栈都是内存中用来存储的区域：**栈**是自动分配的内存，由系统自动释放；**堆**是动态分配的内存，大小不定同时也不会自动释放。深拷贝和浅拷贝的区别也在于两者在内存中的存储类型有所不同。
+&emsp;&emsp;介绍一下基本数据类型和引用数据类型的概念，`基本数据类型`包括：String、Number、Boolean、null、undefined 五类（es6 新引入 Symbol，代表独一无二的值），`引用数据类型`统称为 Object 类型，包括：对象、数组、Date、RefExp、函数等。
 
 - 栈：基本数据类型存放在**栈**里面，数据段简单，数据大小也确定，占用内存空间大小确定，是直接按值存放的，可以直接访问。
 - 堆：引用数据类型存放在**堆**里面，object 实际上是一个存放在栈内存的指针，这个指针指向的是堆内存中的地址。
@@ -55,11 +55,11 @@ console.log(a, b)  // [0, 2, 3, 4, 5, 6], [0, 2, 3, 4, 5, 6]
 
 ### 三、浅拷贝（ShallowCopy）
 
-&ensp;&ensp;&ensp;&ensp;拷贝原始对象，如果原始对象的属性是基本数据类型，拷贝的就是基本数据类型的值；如果原始对象的属性是引用数据类型，那么拷贝的就是引用数据类型的内存地址，如果两个对象中的某一个改变属性值从而影响内存地址，则另一个对象也会受到影响。
+&emsp;&emsp;拷贝原始对象，如果原始对象的属性是基本数据类型，拷贝的就是基本数据类型的值；如果原始对象的属性是引用数据类型，那么拷贝的就是引用数据类型的内存地址，如果两个对象中的某一个改变属性值从而影响内存地址，则另一个对象也会受到影响。
 
 #### 1、Object.assign()
 
-&ensp;&ensp;&ensp;&ensp;[Object.assign()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 可以将多个对象的属性复制到目标对象，返回目标对象。下面的代码中，改变对象 a 之后，b 对象的属性中，基本数据类型保持不变，但是引用数据类型发生了对应的变化。
+&emsp;&emsp;[Object.assign()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 可以将多个对象的属性复制到目标对象，返回目标对象。下面的代码中，改变对象 a 之后，b 对象的属性中，基本数据类型保持不变，但是引用数据类型发生了对应的变化。
 
 ``` javascript
 let a = {
@@ -80,7 +80,7 @@ console.log(b)  // { name: 'old', info: { sex: 1, height: 185 }}
 
 #### 2、... 解构
 
-&ensp;&ensp;&ensp;&ensp;[展开语法(Spread syntax)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax) 通过实验可以看出效果和`Object.assgin()`一致。
+&emsp;&emsp;[展开语法(Spread syntax)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax) 通过实验可以看出效果和`Object.assgin()`一致。
 
 ``` javascript
 let a = {
@@ -101,7 +101,7 @@ console.log(b)  // { name: 'old', info: { sex: 1, height: 185 }}
 
 #### 3、Array.slice()
 
-&ensp;&ensp;&ensp;&ensp;[slice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) 方法的效果可以说明`slice()`方法是浅拷贝。
+&emsp;&emsp;[slice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) 方法的效果可以说明`slice()`方法是浅拷贝。
 
 ``` javascript
 let a = ['old', true, [0, 1]]
@@ -114,12 +114,12 @@ console.log(a, b)   // ['old', true, [1, 1]], ['new', true, [1, 1]]
 
 #### 4、Array.concat()
 
-&ensp;&ensp;&ensp;&ensp;[concat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) 方法也是浅拷贝，同`slice()`。
+&emsp;&emsp;[concat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) 方法也是浅拷贝，同`slice()`。
 
 
 ### 四、深拷贝（DeepCopy）
 
-&ensp;&ensp;&ensp;&ensp;在深拷贝时，会复制原始对象所有的属性，并分配新的内存地址，相比浅拷贝性能消耗较大且速度较慢。拷贝前后的两个对象互不影响。
+&emsp;&emsp;在深拷贝时，会复制原始对象所有的属性，并分配新的内存地址，相比浅拷贝性能消耗较大且速度较慢。拷贝前后的两个对象互不影响。
 
 #### 1、JSON.parse(JSON.stringify(object))
 

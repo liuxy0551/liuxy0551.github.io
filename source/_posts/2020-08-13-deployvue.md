@@ -35,21 +35,21 @@ updated: 2020-08-18 15:54:14
 &emsp;&emsp;5、npm run build
 &emsp;&emsp;6、在运维服务器通过 scp 命令将打包后的文件夹传输到（多台，做了负载均衡）部署服务器。
 
-&ensp;&ensp;&ensp;&ensp;`deployvue`的部署流程是：
-&ensp;&ensp;&ensp;&ensp;1、执行 build 命令
-&ensp;&ensp;&ensp;&ensp;2、自动压缩打包后的文件夹
-&ensp;&ensp;&ensp;&ensp;3、连接服务器，创建部署目录及备份目录（用于回退版本）
-&ensp;&ensp;&ensp;&ensp;4、scp 将打包后的压缩包上传到服务器指定路径
-&ensp;&ensp;&ensp;&ensp;5、利用已有的服务器连接，在服务器端解压压缩包
-&ensp;&ensp;&ensp;&ensp;6、删除本地的打包文件及压缩包，部署完成。
-&ensp;&ensp;&ensp;&ensp;相较于公司当前的部署方式，有个优点就是不需要在服务器存放代码，主要是不需要在服务器存储`node_modules`，毕竟`node_modules`文件夹动辄200M+，公用本地的`node_modules`可以减少服务器磁盘占用。
+&emsp;&emsp;`deployvue`的部署流程是：
+&emsp;&emsp;1、执行 build 命令
+&emsp;&emsp;2、自动压缩打包后的文件夹
+&emsp;&emsp;3、连接服务器，创建部署目录及备份目录（用于回退版本）
+&emsp;&emsp;4、scp 将打包后的压缩包上传到服务器指定路径
+&emsp;&emsp;5、利用已有的服务器连接，在服务器端解压压缩包
+&emsp;&emsp;6、删除本地的打包文件及压缩包，部署完成。
+&emsp;&emsp;相较于公司当前的部署方式，有个优点就是不需要在服务器存放代码，主要是不需要在服务器存储`node_modules`，毕竟`node_modules`文件夹动辄200M+，公用本地的`node_modules`可以减少服务器磁盘占用。
 
 
 ### 二、node 模块
 
 #### 1、commander
 
-&ensp;&ensp;&ensp;&ensp;用来接收终端输入的命令
+&emsp;&emsp;用来接收终端输入的命令
 ```
 const { program } = require('commander')
 const packageJson = require('../package.json')
@@ -64,21 +64,21 @@ program.parse(process.argv)
 
 #### 2、archiver
 
-&ensp;&ensp;&ensp;&ensp;用来压缩打包后的文件夹
+&emsp;&emsp;用来压缩打包后的文件夹
 ```
 archive.directory(`${ process.cwd() }/${ deployConfig.archiveRootDir }`, false)
 ```
 
 #### 3、chalk
 
-&ensp;&ensp;&ensp;&ensp;用来输出不同颜色的信息内容到终端，起到不同的提示作用，不同软件可能输出的颜色有色差，主要集中在 blue 和 cyan。
+&emsp;&emsp;用来输出不同颜色的信息内容到终端，起到不同的提示作用，不同软件可能输出的颜色有色差，主要集中在 blue 和 cyan。
 ```
 console.log(chalk.cyan('hello deployvue'))
 ```
 
 #### 4、node-ssh
 
-&ensp;&ensp;&ensp;&ensp;用来连接服务器，需要在指定目录下操作的，需要把命令连起来，因为 execCommand 执行时都是从 `~` 路径下开始执行的
+&emsp;&emsp;用来连接服务器，需要在指定目录下操作的，需要把命令连起来，因为 execCommand 执行时都是从 `~` 路径下开始执行的
 ```
 // 把压缩包 move 到备份文件夹
 await ssh.execCommand(`cd ${ deployConfig.deployTo }; ${ unArchiveCommand }; mv ${ deployConfig.archiveRootDir }-${ date }.tar ${ deployConfig.archiveRootDir }-history`)
@@ -88,7 +88,7 @@ await ssh.execCommand(`cd ${ deployConfig.deployTo }/${ deployConfig.archiveRoot
 
 #### 5、shelljs
 
-&ensp;&ensp;&ensp;&ensp;用来在本地执行命令、结束程序
+&emsp;&emsp;用来在本地执行命令、结束程序
 ```
 for (let command of buildCommands) {
   console.log(`+ ${ command }`)
@@ -105,11 +105,11 @@ for (let command of buildCommands) {
 
 ### 三、npm link
 
-&ensp;&ensp;&ensp;&ensp;在本地开发 npm 命令行工具时，可以使用`npm link`将开发模块指向到对应的运行项目中，方便调试。
+&emsp;&emsp;在本地开发 npm 命令行工具时，可以使用`npm link`将开发模块指向到对应的运行项目中，方便调试。
 
 #### 1、绑定指向
 
-&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+&emsp;&emsp;在`deployvue`项目目录下执行：
 ```
 npm link
 ```
@@ -119,7 +119,7 @@ npm link
 
 #### 2、解除绑定指向
 
-&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+&emsp;&emsp;在`deployvue`项目目录下执行：
 ```
 npm unlink
 ```
@@ -127,10 +127,10 @@ npm unlink
 
 ### 四、npm 删除发布
 
-&ensp;&ensp;&ensp;&ensp;在`deployvue`项目目录下执行：
+&emsp;&emsp;在`deployvue`项目目录下执行：
 ```
 npm unpublish deployvue --force
 ```
 
-&ensp;&ensp;&ensp;&ensp;在删除 npm 包的24小时内不可再次发布该 npm 包。
+&emsp;&emsp;在删除 npm 包的24小时内不可再次发布该 npm 包。
 

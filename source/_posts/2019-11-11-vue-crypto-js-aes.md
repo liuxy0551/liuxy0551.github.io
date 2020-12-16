@@ -16,13 +16,13 @@ updated: 2019-11-11 22:23:08
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;公司项目需要上架钉钉应用市场，上架要求中包含了接口请求进行加密，这里记录一下最终采用的方案 —— `AES`
+&emsp;&emsp;公司项目需要上架钉钉应用市场，上架要求中包含了接口请求进行加密，这里记录一下最终采用的方案 —— `AES`
 <!--more-->
 
 
 ### 一、crypto-js
 
-&ensp;&ensp;&ensp;&ensp;参考：[https://www.npmjs.com/package/crypto-js](https://www.npmjs.com/package/crypto-js)
+&emsp;&emsp;参考：[https://www.npmjs.com/package/crypto-js](https://www.npmjs.com/package/crypto-js)
 
 
 ### 二、自行封装

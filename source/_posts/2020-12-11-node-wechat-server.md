@@ -12,14 +12,14 @@ date: 2020-12-11 10:36:43
 updated: 2020-12-11 10:36:43
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近想用 node 写一个微信公众号的项目，建议全程 https，这里记录一下怎么在微信公众号平台设置服务器及对应开发。
+&emsp;&emsp;最近想用 node 写一个微信公众号的项目，建议全程 https，这里记录一下怎么在微信公众号平台设置服务器及对应开发。
 
 <!--more-->
 
 
 ### 一、开发内容
 
-&ensp;&ensp;&ensp;&ensp;在刚刚搭建的基础框架中开发，`router/index.js`中写入如下代码：
+&emsp;&emsp;在刚刚搭建的基础框架中开发，`router/index.js`中写入如下代码：
 
 ``` javascript
 /**
@@ -56,5 +56,5 @@ module.exports = app => {
 
 ![](https://liuxy0551.gitee.io/assets/posts/node-wechat/1.png)
 
-&ensp;&ensp;&ensp;&ensp;如上图在`微信公众号管理平台 -> 开发 -> 基本设置 -> 服务器配置`中设置参数，注意`Token`字段需要与 <a href="https://liuxianyu.cn/article/node-wechat-base-koa.html#2-app-config-js" target="_black">app.config.js</a> 中的`Token`保持一致。`记得启用服务器配置`。配置后用户发给公众号的信息也会调用刚刚设置的服务器 URL，我这边暂时不对消息做处理，可依据 <a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html" target="_black">官方文档建议</a>，先返回空字符串。
+&emsp;&emsp;如上图在`微信公众号管理平台 -> 开发 -> 基本设置 -> 服务器配置`中设置参数，注意`Token`字段需要与 <a href="https://liuxianyu.cn/article/node-wechat-base-koa.html#2-app-config-js" target="_black">app.config.js</a> 中的`Token`保持一致。`记得启用服务器配置`。配置后用户发给公众号的信息也会调用刚刚设置的服务器 URL，我这边暂时不对消息做处理，可依据 <a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html" target="_black">官方文档建议</a>，先返回空字符串。
 

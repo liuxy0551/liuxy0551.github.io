@@ -18,11 +18,9 @@ updated: 2020-09-15 14:38:03
 <!--more-->
 
 
-- <a href="https://www.npmjs.com/package/nodemon" target="_black">nodemon</a>
+- <a href="https://www.npmjs.com/package/nodemon" target="_black">nodemon</a>`推荐`
 - <a href="https://www.npmjs.com/package/supervisor" target="_black">supervisor</a>
 
-
-### 一、nodemon`推荐`
 
 &emsp;&emsp;全局安装：
 

@@ -14,11 +14,11 @@ date: 2020-07-11 17:09:56
 updated: 2020-07-11 17:09:56
 ---
 
-&ensp;&ensp;&ensp;&ensp;vue-cli 3 + 在项目优化的时候，可以考虑把图片资源放到 CDN 上，减少对服务器带宽的压力。
+&emsp;&emsp;vue-cli 3 + 在项目优化的时候，可以考虑把图片资源放到 CDN 上，减少对服务器带宽的压力。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;开发时，写的图片路径通常是相对路径，在 webpack 的配置中可以进行配置，配置后在打包时就可以自动将我们写的相对路径转换成 CDN 路径：
+&emsp;&emsp;开发时，写的图片路径通常是相对路径，在 webpack 的配置中可以进行配置，配置后在打包时就可以自动将我们写的相对路径转换成 CDN 路径：
 `@/assets/images/logo.png`或`../../assets/images/logo.png` -> `https://liuxy0551.gitee.io/assets/images`。
 
 

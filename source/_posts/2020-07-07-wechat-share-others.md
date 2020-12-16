@@ -12,7 +12,7 @@ date: 2020-07-07 16:51:17
 updated: 2020-07-07 16:51:17
 ---
 
-&ensp;&ensp;&ensp;&ensp;之前做过微信的自定义分享，是基于微信开发，这次是钉钉内开发，分享页面时标题和缩略图有点问题，记录一下。
+&emsp;&emsp;之前做过微信的自定义分享，是基于微信开发，这次是钉钉内开发，分享页面时标题和缩略图有点问题，记录一下。
 
 <!--more-->
 
@@ -41,7 +41,7 @@ updated: 2020-07-07 16:51:17
 
 ### 二、vue 项目
 
-&ensp;&ensp;&ensp;&ensp;基于`vue-cli 3.x +`，在`public/index.html`中的 head 中设置：
+&emsp;&emsp;基于`vue-cli 3.x +`，在`public/index.html`中的 head 中设置：
 
 ```html
   <head>

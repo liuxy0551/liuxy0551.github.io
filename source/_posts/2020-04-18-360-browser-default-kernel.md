@@ -12,7 +12,7 @@ date: 2020-04-18 13:13:11
 updated: 2020-04-18 13:13:11
 ---
 
-&ensp;&ensp;&ensp;&ensp;测试同学说项目在 360 浏览器中白屏，了解了下是 360 浏览器内核设置的原因，记录下解决方法。
+&emsp;&emsp;测试同学说项目在 360 浏览器中白屏，了解了下是 360 浏览器内核设置的原因，记录下解决方法。
 
 <!--more-->
 
@@ -21,7 +21,7 @@ updated: 2020-04-18 13:13:11
 
 #### 1、解决办法
 
-&ensp;&ensp;&ensp;&ensp;**请用域名测试为准，不要用IP地址测试**。在`<head></head>`标签中增加`meta`标签：
+&emsp;&emsp;**请用域名测试为准，不要用IP地址测试**。在`<head></head>`标签中增加`meta`标签：
 
 ```
 <meta name="renderer" content="webkit">
@@ -30,4 +30,4 @@ updated: 2020-04-18 13:13:11
 
 #### 2、官方文档
 
-&ensp;&ensp;&ensp;&ensp;<a href="https://bbs.360.cn/thread-14958904-1-1.html" target="_black">360 浏览器自定义设置内核模式说明</a>
+&emsp;&emsp;<a href="https://bbs.360.cn/thread-14958904-1-1.html" target="_black">360 浏览器自定义设置内核模式说明</a>

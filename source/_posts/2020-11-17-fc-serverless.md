@@ -93,28 +93,28 @@ fun deploy
 
 #### 3、配置导出
 
-&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 概览 -> 导出 -> 导出配置
-&ensp;&ensp;&ensp;&ensp;将导出的 template.yml 文件放到项目中，这样控制台配置的配置项就不会被 deploy 覆盖掉。
+&emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)函数列表 -> 函数名称(点击函数名称) -> 概览 -> 导出 -> 导出配置
+&emsp;&emsp;将导出的 template.yml 文件放到项目中，这样控制台配置的配置项就不会被 deploy 覆盖掉。
 
 >**注意**
 >* **控制台导出的配置文件可能有部分缺失，需要和本地已有的 template.yml 文件对比，保留部分字段，如：CodeUri**
 
 #### 4、版本管理
 
-&ensp;&ensp;&ensp;&ensp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)版本管理 -> 别名
-&ensp;&ensp;&ensp;&ensp;（1）上线时可以新建一个版本，并对该版本新建别名且设置别名对应的版本占比，用来在自定义域名中使用(每个路径都选择该别名)，在 版本管理 -> 别名 中可对该别名进行版本占比控制，达到灰度发布的效果。
-&ensp;&ensp;&ensp;&ensp;（2）后续迭代时，deploy 后可在 版本管理 中新建一个版本，并在别名中选择该版本的占比。
+&emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务/函数 -> (选择一个函数)版本管理 -> 别名
+&emsp;&emsp;（1）上线时可以新建一个版本，并对该版本新建别名且设置别名对应的版本占比，用来在自定义域名中使用(每个路径都选择该别名)，在 版本管理 -> 别名 中可对该别名进行版本占比控制，达到灰度发布的效果。
+&emsp;&emsp;（2）后续迭代时，deploy 后可在 版本管理 中新建一个版本，并在别名中选择该版本的占比。
 
 #### 5、环境变量
 
-&ensp;&ensp;&ensp;&ensp;待补充 <a href="https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN" target="_black">https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN</a>
+&emsp;&emsp;待补充 <a href="https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN" target="_black">https://help.aliyun.com/document_detail/164217.html?spm=a2c4g.11186623.6.629.3e0a283bkc5bnN</a>
 
 #### 6、请求环境区分
 
-&ensp;&ensp;&ensp;&ensp;调用请求时需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本，如下图：
+&emsp;&emsp;调用请求时需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本，如下图：
 ![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/1.png)
 
-&ensp;&ensp;&ensp;&ensp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
+&emsp;&emsp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
 ![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/2.png)
 
 
@@ -122,13 +122,13 @@ fun deploy
 
 #### 1、regeneratorRuntime is not defined
 
-&ensp;&ensp;&ensp;&ensp;在代码中使用 async/await 时报错，是 babel 编译的问题，安装`babel-plugin-transform-runtime`，
+&emsp;&emsp;在代码中使用 async/await 时报错，是 babel 编译的问题，安装`babel-plugin-transform-runtime`，
 
 ```
 npm i babel-plugin-transform-runtime -D
 ```
 
-&ensp;&ensp;&ensp;&ensp;然后在 .babelrc 中添加 plugins，重新运行即可。
+&emsp;&emsp;然后在 .babelrc 中添加 plugins，重新运行即可。
 
 ``` javascript
 {
@@ -139,13 +139,13 @@ npm i babel-plugin-transform-runtime -D
 
 #### 2、使用 ... 扩展符
 
-&ensp;&ensp;&ensp;&ensp;在代码中使用 ... 扩展符时本地运行报错，是 babel 编译的问题，安装`babel-plugin-transform-object-rest-spread`，
+&emsp;&emsp;在代码中使用 ... 扩展符时本地运行报错，是 babel 编译的问题，安装`babel-plugin-transform-object-rest-spread`，
 
 ```
 npm i babel-plugin-transform-object-rest-spread -D
 ```
 
-&ensp;&ensp;&ensp;&ensp;然后在 .babelrc 中添加 plugins，重新运行即可。
+&emsp;&emsp;然后在 .babelrc 中添加 plugins，重新运行即可。
 
 ``` javascript
 {
@@ -156,12 +156,12 @@ npm i babel-plugin-transform-object-rest-spread -D
 
 #### 3、load code for handler:index.handler
 
-&ensp;&ensp;&ensp;&ensp;本地运行时项目刚启动，调用 POST 接口可能导致程序阻塞（deploy到线上不会阻塞），先调用一次 GET 接口再调用 POST 接口就不会阻塞，原因未知。
+&emsp;&emsp;本地运行时项目刚启动，调用 POST 接口可能导致程序阻塞（deploy到线上不会阻塞），先调用一次 GET 接口再调用 POST 接口就不会阻塞，原因未知。
 
 #### 4、静态文件使用自定义域名
 
-&ensp;&ensp;&ensp;&ensp;需要每个文件都添加记录，等待后续必须上传到函数计算时，使用打包到 OSS 尝试解决。
+&emsp;&emsp;需要每个文件都添加记录，等待后续必须上传到函数计算时，使用打包到 OSS 尝试解决。
 
 #### 5、目录过深，运行报错
 
-&ensp;&ensp;&ensp;&ensp;将项目拷贝到桌面，运行。
+&emsp;&emsp;将项目拷贝到桌面，运行。

@@ -12,7 +12,7 @@ date: 2020-08-21 11:39:22
 updated: 2020-08-21 11:39:22
 ---
 
-&ensp;&ensp;&ensp;&ensp;通过 terser-webpack-plugin 可以在打包时去除 console.log，记录一下实现。
+&emsp;&emsp;通过 terser-webpack-plugin 可以在打包时去除 console.log，记录一下实现。
 
 <!--more-->
 
@@ -26,7 +26,7 @@ npm i terser-webpack-plugin -D
 
 ### 2、配置
 
-&ensp;&ensp;&ensp;&ensp;在`vue.config.js`中添加如下配置：
+&emsp;&emsp;在`vue.config.js`中添加如下配置：
 
 ```javascript
 module.export = {

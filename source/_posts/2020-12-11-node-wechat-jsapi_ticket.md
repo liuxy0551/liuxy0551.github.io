@@ -12,14 +12,14 @@ date: 2020-12-11 11:43:35
 updated: 2020-12-11 11:43:35
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近想用 node 写一个微信公众号的项目，建议全程 https，这里记录一下如何获取并缓存 jsapi_ticket 并生成 JS-SDK 权限验证的签名。
+&emsp;&emsp;最近想用 node 写一个微信公众号的项目，建议全程 https，这里记录一下如何获取并缓存 jsapi_ticket 并生成 JS-SDK 权限验证的签名。
 
 <!--more-->
 
 
 ### 一、jsapi_ticket
 
-&ensp;&ensp;&ensp;&ensp;这一部分可参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62" target="_black">官方文档 - JS-SDK 使用权限签名算法</a>，<a href="https://liuxianyu.cn/article/node-wechat-base-koa.html#2-app-config-js" target="_black">app.config.js</a>。
+&emsp;&emsp;这一部分可参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62" target="_black">官方文档 - JS-SDK 使用权限签名算法</a>，<a href="https://liuxianyu.cn/article/node-wechat-base-koa.html#2-app-config-js" target="_black">app.config.js</a>。
 
 #### 1、getJsapiTicket.js
 
@@ -111,7 +111,7 @@ console.log(jsapiTicket)
 
 ### 二、签名算法
 
-&ensp;&ensp;&ensp;&ensp;这一部分可参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62" target="_black">官方文档 - JS-SDK 使用权限签名算法</a>
+&emsp;&emsp;这一部分可参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62" target="_black">官方文档 - JS-SDK 使用权限签名算法</a>
 
 #### 1、sign.js
 

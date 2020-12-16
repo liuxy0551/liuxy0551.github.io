@@ -16,7 +16,7 @@ updated: 2020-08-28 14:58:30
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/liuxy0551/data-crawler/blob/master/proxy-ip/index.js" target="_black">Github：data-crawler-proxy-ip</a> 其实代理就是在`request`中把 options 写完整：
+&emsp;&emsp;<a href="https://github.com/liuxy0551/data-crawler/blob/master/proxy-ip/index.js" target="_black">Github：data-crawler-proxy-ip</a> 其实代理就是在`request`中把 options 写完整：
 
 ```javascript
 let options = {

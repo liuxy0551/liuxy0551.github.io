@@ -13,7 +13,7 @@ date: 2020-05-28 17:05:57
 updated: 2020-05-28 17:05:57
 ---
 
-&ensp;&ensp;&ensp;&ensp;代码格式化插件，记录一下自定义配置。
+&emsp;&emsp;代码格式化插件，记录一下自定义配置。
 
 <!--more-->
 
@@ -21,11 +21,11 @@ updated: 2020-05-28 17:05:57
 
 #### 1、安装插件
 
-&ensp;&ensp;&ensp;&ensp;搜索并安装插件`Prettier - Code formatter`
+&emsp;&emsp;搜索并安装插件`Prettier - Code formatter`
 
 #### 2、添加配置文件
 
-&ensp;&ensp;&ensp;&ensp;在项目根目录添加配置文件`.prettierrc`，如下：
+&emsp;&emsp;在项目根目录添加配置文件`.prettierrc`，如下：
 
 ```json
 {
@@ -47,7 +47,7 @@ updated: 2020-05-28 17:05:57
 
 #### 3、保存自动格式化代码 `可选`
 
-&ensp;&ensp;&ensp;&ensp;在`settings.json`中添加如下代码：
+&emsp;&emsp;在`settings.json`中添加如下代码：
 
 ```
   "editor.formatOnSave": false

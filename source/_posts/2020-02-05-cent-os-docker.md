@@ -14,7 +14,7 @@ updated: 2020-02-05 20:21:58
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;Docker 官方要求 Linux 内核版本至少`3.8`以上。
+&emsp;&emsp;Docker 官方要求 Linux 内核版本至少`3.8`以上。
 
 <!--more-->
 
@@ -48,7 +48,7 @@ yum remove docker docker-common docker-selinux docker-engine -y
 
 #### 3、安装需要的软件包
 
-&ensp;&ensp;&ensp;&ensp;yum-util 提供 yum-config-manager 功能，另外两个是 devicemapper 驱动依赖的：
+&emsp;&emsp;yum-util 提供 yum-config-manager 功能，另外两个是 devicemapper 驱动依赖的：
 
 ``` shell
 yum install yum-utils device-mapper-persistent-data lvm2 -y
@@ -57,7 +57,7 @@ yum install yum-utils device-mapper-persistent-data lvm2 -y
 
 ### 三、设置 yum 源
 
-&ensp;&ensp;&ensp;&ensp;选择其中一个：阿里仓库`推荐`、中央仓库
+&emsp;&emsp;选择其中一个：阿里仓库`推荐`、中央仓库
 
 ``` shell 阿里仓库
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
@@ -76,7 +76,7 @@ yum list docker-ce --showduplicates | sort -r
 
 ### 五、安装 Docker
 
-&ensp;&ensp;&ensp;&ensp;我选的是 18.03.1.ce，命令如下：
+&emsp;&emsp;我选的是 18.03.1.ce，命令如下：
 
 ``` shell
 yum install docker-ce-18.03.1.ce -y
@@ -85,7 +85,7 @@ yum install docker-ce-18.03.1.ce -y
 
 ### 六、启动 Docker
 
-&ensp;&ensp;&ensp;&ensp;1、root 用户操作：
+&emsp;&emsp;1、root 用户操作：
 
 ``` shell 启动 Docker
 systemctl start docker
@@ -94,7 +94,7 @@ systemctl start docker
 systemctl enable docker
 ```
 
-&ensp;&ensp;&ensp;&ensp;2、查看 Docker 是否安装成功：
+&emsp;&emsp;2、查看 Docker 是否安装成功：
 
 ``` shell
 docker -v

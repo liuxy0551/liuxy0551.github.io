@@ -12,14 +12,14 @@ date: 2020-08-18 11:11:32
 updated: 2020-08-18 11:11:32
 ---
 
-&ensp;&ensp;&ensp;&ensp;`require.context`是 webpack 中用于生成上下文模块的一个方法，传入要搜索的目录，将目录下所有模块通过正则表达式匹配后 require 进来，新增模块时无需再依次引入。可参考 <a href="https://webpack.js.org/guides/dependency-management/#requirecontext" target="_black">官方文档</a>
+&emsp;&emsp;`require.context`是 webpack 中用于生成上下文模块的一个方法，传入要搜索的目录，将目录下所有模块通过正则表达式匹配后 require 进来，新增模块时无需再依次引入。可参考 <a href="https://webpack.js.org/guides/dependency-management/#requirecontext" target="_black">官方文档</a>
 
 <!--more-->
 
 
 ### 一、require.context
 
-&ensp;&ensp;&ensp;&ensp;官方示例接收四个参数：
+&emsp;&emsp;官方示例接收四个参数：
 
 ```javascript
 require.context(directory, useSubdirectories = true, regExp = /^\.\/.*$/, mode = 'sync');

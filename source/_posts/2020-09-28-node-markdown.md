@@ -14,7 +14,7 @@ updated: 2020-09-28 11:47:25
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;最近在微信小程序中遇到了数学公式的显示，后端不好处理成图片，记录一下通过 node 生成 svg。
+&emsp;&emsp;最近在微信小程序中遇到了数学公式的显示，后端不好处理成图片，记录一下通过 node 生成 svg。
 
 <!--more-->
 
@@ -25,7 +25,7 @@ updated: 2020-09-28 11:47:25
 git clone https://github.com/sbfkcel/markdown-server
 ```
 
-&ensp;&ensp;&ensp;&ensp;项目结构比较简洁，如下：
+&emsp;&emsp;项目结构比较简洁，如下：
 
 ```
 markdown-server
@@ -46,7 +46,7 @@ npm i 或 yarn install
 
 #### 2、改变端口
 
-&ensp;&ensp;&ensp;&ensp;出于个人偏好，将项目本身的 8001 端口改为了 9001。
+&emsp;&emsp;出于个人偏好，将项目本身的 8001 端口改为了 9001。
 
 #### 3、运行服务
 
@@ -57,7 +57,7 @@ node index
 
 ### 三、配置 nginx
 
-&ensp;&ensp;&ensp;&ensp;内容如下：
+&emsp;&emsp;内容如下：
 
 ```
 server {
@@ -70,7 +70,7 @@ server {
 }
 ```
 
-&ensp;&ensp;&ensp;&ensp;重启 nginx：
+&emsp;&emsp;重启 nginx：
 
 ```
 nginx -s reload

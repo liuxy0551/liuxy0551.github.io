@@ -13,15 +13,15 @@ date: 2019-11-28 11:40:21
 updated: 2019-11-28 11:40:21
 ---
 
-&ensp;&ensp;&ensp;&ensp;WebStorm 中快捷键`cmd + /`行注释，`//`会跑到该行的顶格处，记录一下如何设置可以恢复正常。
+&emsp;&emsp;WebStorm 中快捷键`cmd + /`行注释，`//`会跑到该行的顶格处，记录一下如何设置可以恢复正常。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;进入 WebStorm -> Preferences -> Editor -> Code Style -> HTML -> Code Generation，将 Line comment at first column 和 Block comment at first column 前的勾选全部取消，解决问题。
+&emsp;&emsp;进入 WebStorm -> Preferences -> Editor -> Code Style -> HTML -> Code Generation，将 Line comment at first column 和 Block comment at first column 前的勾选全部取消，解决问题。
 ![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/1.png)
 
-&ensp;&ensp;&ensp;&ensp;修改前：
+&emsp;&emsp;修改前：
 ![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/2.png)
 
-&ensp;&ensp;&ensp;&ensp;期望、修改后：
+&emsp;&emsp;期望、修改后：
 ![](https://liuxy0551.gitee.io/assets/posts/webstorm-html-line/3.png)

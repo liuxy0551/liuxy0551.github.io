@@ -16,23 +16,23 @@ updated: 2020-08-28 17:39:40
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;这些 json 文件的获取建议直接 clone `chinese-poetry`的仓库，我是使用`cnpm install chinese-poetry -D`后从`node_modules`中复制的文件内容，作了一些筛选。
+&emsp;&emsp;这些 json 文件的获取建议直接 clone `chinese-poetry`的仓库，我是使用`cnpm install chinese-poetry -D`后从`node_modules`中复制的文件内容，作了一些筛选。
 
 
 ### 一、整理数据
 
-&ensp;&ensp;&ensp;&ensp;将本地文件名和数据库表名对应：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/index.js" target="_black">/node-mysql/index.js</a>
+&emsp;&emsp;将本地文件名和数据库表名对应：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/index.js" target="_black">/node-mysql/index.js</a>
 
 
 ### 二、读取文件
 
-&ensp;&ensp;&ensp;&ensp;拼接路径和文件名，读取本地的 json 文件：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/file.js" target="_black">/node-mysql/file.js</a>
+&emsp;&emsp;拼接路径和文件名，读取本地的 json 文件：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/file.js" target="_black">/node-mysql/file.js</a>
 
 
 ### 三、mysql
 
-&ensp;&ensp;&ensp;&ensp;存储到 mysql 数据库主要使用`sequelize`模块：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/mysql.js" target="_black">/node-mysql/mysql.js</a>
-&ensp;&ensp;&ensp;&ensp;`sequelize`模块有一些注意事项，如下：
+&emsp;&emsp;存储到 mysql 数据库主要使用`sequelize`模块：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/mysql.js" target="_black">/node-mysql/mysql.js</a>
+&emsp;&emsp;`sequelize`模块有一些注意事项，如下：
 
 #### 1、区分版本
 
@@ -49,7 +49,7 @@ v6 版本
 
 #### 2、mysql2
 
-&ensp;&ensp;&ensp;&ensp;需要同时安装`mysql2`：
+&emsp;&emsp;需要同时安装`mysql2`：
 
 ```
 npm i mysql2 -S
@@ -57,7 +57,7 @@ npm i mysql2 -S
 
 #### 3、插入数据
 
-&ensp;&ensp;&ensp;&ensp;create 接收 logging 参数，是否显示 sql 语句日志：
+&emsp;&emsp;create 接收 logging 参数，是否显示 sql 语句日志：
 
 ```javascript
 async function insertData (k) {

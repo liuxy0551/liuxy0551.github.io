@@ -13,7 +13,7 @@ date: 2019-04-27 16:46:26
 updated: 2019-04-27 16:46:26
 ---
 
-&ensp;&ensp;&ensp;&ensp;一直使用的是 WebStorm，比较重，尝试一下轻量的 vscode，记录一下配置和插件。
+&emsp;&emsp;一直使用的是 WebStorm，比较重，尝试一下轻量的 vscode，记录一下配置和插件。
 
 <!--more-->
 

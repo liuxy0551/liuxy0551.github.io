@@ -12,14 +12,14 @@ date: 2020-08-18 10:35:32
 updated: 2020-08-18 10:35:32
 ---
 
-&ensp;&ensp;&ensp;&ensp;钉钉 JSAPI 为 H5 微应用开发提供了调用钉钉控件的能力，这里记录一下自己封装的 DingTalk 类，方便开发。可参考 <a href="https://ding-doc.dingtalk.com/doc#/dev/welcome-to-lark" target="_black">钉钉开发文档</a>
+&emsp;&emsp;钉钉 JSAPI 为 H5 微应用开发提供了调用钉钉控件的能力，这里记录一下自己封装的 DingTalk 类，方便开发。可参考 <a href="https://ding-doc.dingtalk.com/doc#/dev/welcome-to-lark" target="_black">钉钉开发文档</a>
 
 <!--more-->
 
 
 ### 一、钉钉 JSAPI
 
-&ensp;&ensp;&ensp;&ensp;封装的 DingTalk 类也是基于钉钉 JSAPI，所以项目中需要安装钉钉的 JSAPI：
+&emsp;&emsp;封装的 DingTalk 类也是基于钉钉 JSAPI，所以项目中需要安装钉钉的 JSAPI：
 
 #### 1、npm
 ```
@@ -28,7 +28,7 @@ npm i dingtalk-jsapi -S
 
 #### 2、CDN 引入
 
-&ensp;&ensp;&ensp;&ensp;详见 <a href="https://liuxianyu.cn/article/vue-cli3-cdn.html" target="_black">前端项目优化之旅（六）—— 引入并使用 CDN</a>
+&emsp;&emsp;详见 <a href="https://liuxianyu.cn/article/vue-cli3-cdn.html" target="_black">前端项目优化之旅（六）—— 引入并使用 CDN</a>
 
 
 
@@ -36,7 +36,7 @@ npm i dingtalk-jsapi -S
 
 #### 1、封装
 
-&ensp;&ensp;&ensp;&ensp;新建`/src/utils/DingTalk/index.js`，内容如下：
+&emsp;&emsp;新建`/src/utils/DingTalk/index.js`，内容如下：
 
 ``` javascript
 import * as dd from 'dingtalk-jsapi'
@@ -147,7 +147,7 @@ export default DingTalk
 
 #### 2、引入
 
-&ensp;&ensp;&ensp;&ensp;在`/src/utils/index.js`中添加如下引入：
+&emsp;&emsp;在`/src/utils/index.js`中添加如下引入：
 
 ```javascript
 import DingTalk from './DingTalk'

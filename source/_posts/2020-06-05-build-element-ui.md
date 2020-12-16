@@ -35,27 +35,27 @@ updated: 2020-06-05 20:04:37
 
 ![](https://liuxy0551.gitee.io/assets/posts/build-element-ui/1.png)
 
-&ensp;&ensp;&ensp;&ensp;可以看到，script 中的`build:theme`就是我们想要的命令，命令行先走一个试一下：
+&emsp;&emsp;可以看到，script 中的`build:theme`就是我们想要的命令，命令行先走一个试一下：
 ```shell
 npm run build:theme
 ```
-&ensp;&ensp;&ensp;&ensp;报错了，仔细一看，sass-loader 要求 node 版本为 11.x 了，那当前的 13.x 咋办呢，学一下 <a href="https://liuxianyu.cn/article/node-n.html" target="_blank">Mac OS 中管理 node 版本的工具 —— n</a> 吧。
+&emsp;&emsp;报错了，仔细一看，sass-loader 要求 node 版本为 11.x 了，那当前的 13.x 咋办呢，学一下 <a href="https://liuxianyu.cn/article/node-n.html" target="_blank">Mac OS 中管理 node 版本的工具 —— n</a> 吧。
 
 ![](https://liuxy0551.gitee.io/assets/posts/build-element-ui/2.png)
 
-&ensp;&ensp;&ensp;&ensp;整好环境后，再来一次吧，结果还凑合。
+&emsp;&emsp;整好环境后，再来一次吧，结果还凑合。
 
 ![](https://liuxy0551.gitee.io/assets/posts/build-element-ui/3.png)
 
-&ensp;&ensp;&ensp;&ensp;那找到 element-ui 设置的`$--color-primary`改为我的橙色再编译一下，不就可以了嘛，机智，说干就干。全局搜索`$--color-primary`，发现 element-ui 是在`/element-ui/packages/theme-chalk/src/common/var.scss`中设置主题色的，找到`$--color-primary`，将色号从默认的`#409EFF`改为橙色就可以了，连带着透明度的颜色变量都会在编译后改变，SASS 的美妙。
+&emsp;&emsp;那找到 element-ui 设置的`$--color-primary`改为我的橙色再编译一下，不就可以了嘛，机智，说干就干。全局搜索`$--color-primary`，发现 element-ui 是在`/element-ui/packages/theme-chalk/src/common/var.scss`中设置主题色的，找到`$--color-primary`，将色号从默认的`#409EFF`改为橙色就可以了，连带着透明度的颜色变量都会在编译后改变，SASS 的美妙。
 
-&ensp;&ensp;&ensp;&ensp;这个时候再`npm run build:theme`一次，上传`/element-ui/lib/theme-chalk/index.css`到 OSS，再次刷新，就是特别好看的橙色啦!
+&emsp;&emsp;这个时候再`npm run build:theme`一次，上传`/element-ui/lib/theme-chalk/index.css`到 OSS，再次刷新，就是特别好看的橙色啦!
 
 
 
 ### 三、新遇到的问题
 
-&ensp;&ensp;&ensp;&ensp;最近再次编译的时候发现会报如下错误：意思是`postcss`版本高了，引用需要修改，将`/packages/theme-thalk/gulpfile.js`中的`browsers`改为`overrideBrowserslist`再次编译即可。
+&emsp;&emsp;最近再次编译的时候发现会报如下错误：意思是`postcss`版本高了，引用需要修改，将`/packages/theme-thalk/gulpfile.js`中的`browsers`改为`overrideBrowserslist`再次编译即可。
 ![](https://liuxy0551.gitee.io/assets/posts/build-element-ui/4.png)
 
 

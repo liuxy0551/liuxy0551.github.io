@@ -12,16 +12,16 @@ date: 2020-08-28 09:44:17
 updated: 2020-08-28 09:44:17
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近在公众号看到篇 node 爬虫的文章，比较简单，本着学习的态度看完觉得可以加大点难度试一试。
+&emsp;&emsp;最近在公众号看到篇 node 爬虫的文章，比较简单，本着学习的态度看完觉得可以加大点难度试一试。
 
 <!--more-->
 
-&ensp;&ensp;&ensp;&ensp;<a href="https://github.com/liuxy0551/data-crawler" target="_black">Github：data-crawler</a>
+&emsp;&emsp;<a href="https://github.com/liuxy0551/data-crawler" target="_black">Github：data-crawler</a>
 
 
 ### 一、Top250 - 爬取页面
 
-&ensp;&ensp;&ensp;&ensp;<a href="https://movie.douban.com/top250" target="_black">豆瓣电影 Top250</a> 是基于网页爬取，每页25条数据，访问 URL 有一定规律。思路是获取 DOM 节点的内容，写入到 json 文件，下载电影的封面图片。`cheerio`用来解析 html 非常方便，写法可参考 [抓取当前页面](https://liuxianyu.cn/article/node-data-crawler.html#2-%E6%8A%93%E5%8F%96%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2)。
+&emsp;&emsp;<a href="https://movie.douban.com/top250" target="_black">豆瓣电影 Top250</a> 是基于网页爬取，每页25条数据，访问 URL 有一定规律。思路是获取 DOM 节点的内容，写入到 json 文件，下载电影的封面图片。`cheerio`用来解析 html 非常方便，写法可参考 [抓取当前页面](https://liuxianyu.cn/article/node-data-crawler.html#2-%E6%8A%93%E5%8F%96%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2)。
 
 #### 1、入口文件
 
@@ -131,7 +131,7 @@ module.exports = function downloadImage (pics, pageNum) {
 
 ### 二、电影列表 - 调用接口
 
-&ensp;&ensp;&ensp;&ensp;<a href="https://movie.douban.com/tag/#/" target="_black">豆瓣电影全量列表（9900+条信息）</a> 是通过接口去请求的
+&emsp;&emsp;<a href="https://movie.douban.com/tag/#/" target="_black">豆瓣电影全量列表（9900+条信息）</a> 是通过接口去请求的
 
 ```javascript
 const fs = require('fs')

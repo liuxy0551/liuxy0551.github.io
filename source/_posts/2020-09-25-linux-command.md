@@ -12,7 +12,7 @@ updated: 2020-12-10 14:02:03
 ---
 
 
-&ensp;&ensp;&ensp;&ensp;记录 linux 中的一些命令。
+&emsp;&emsp;记录 linux 中的一些命令。
 
 <!--more-->
 
@@ -20,7 +20,7 @@ updated: 2020-12-10 14:02:03
 
 #### 1、netstat - 查看端口
 
-&ensp;&ensp;&ensp;&ensp;查看是否在监听项目端口，无 PID：
+&emsp;&emsp;查看是否在监听项目端口，无 PID：
 
 ```
 netstat -tpln
@@ -29,7 +29,7 @@ netstat -tpln
 
 #### 2、lsof - 查看进程
 
-&ensp;&ensp;&ensp;&ensp;查看指定端口的进程，会返回 PID：
+&emsp;&emsp;查看指定端口的进程，会返回 PID：
 
 ```
 lsof -i:9000
@@ -38,13 +38,13 @@ lsof -i:9000
 
 #### 3、kill - 杀死进程
 
-&ensp;&ensp;&ensp;&ensp;关闭某个进程：
+&emsp;&emsp;关闭某个进程：
 
 ```
 kill 9127
 ```
 
-&ensp;&ensp;&ensp;&ensp;-9 表明立即关闭：
+&emsp;&emsp;-9 表明立即关闭：
 
 ```
 kill -9 9127

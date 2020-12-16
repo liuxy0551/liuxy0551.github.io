@@ -12,7 +12,7 @@ date: 2020-12-10 15:28:15
 updated: 2020-12-10 15:28:15
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近在写个 node web server，记录一下部署方法。
+&emsp;&emsp;最近在写个 node web server，记录一下部署方法。
 
 <!--more-->
 
@@ -21,9 +21,9 @@ updated: 2020-12-10 15:28:15
 
 #### 1、部署前准备
 
-&ensp;&ensp;&ensp;&ensp;服务器端需要提前安装好 git、nginx、node、cnpm（<a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git" target="_black">安装 git、安装 nginx</a>）、pm2（<a href="https://liuxianyu.cn/article/node-pm2.html" target="_black">使用 pm2 部署 node 项目</a>）
-&ensp;&ensp;&ensp;&ensp;1、ssh 到服务器，并在指定目录位置通过 git clone 拉取代码初始化文件夹
-&ensp;&ensp;&ensp;&ensp;2、配置 node 服务的 nginx，服务启动在 9000 端口，http、https 均可访问(需要配置证书)，配置如下：
+&emsp;&emsp;服务器端需要提前安装好 git、nginx、node、cnpm（<a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git" target="_black">安装 git、安装 nginx</a>）、pm2（<a href="https://liuxianyu.cn/article/node-pm2.html" target="_black">使用 pm2 部署 node 项目</a>）
+&emsp;&emsp;1、ssh 到服务器，并在指定目录位置通过 git clone 拉取代码初始化文件夹
+&emsp;&emsp;2、配置 node 服务的 nginx，服务启动在 9000 端口，http、https 均可访问(需要配置证书)，配置如下：
 
 ```
 # 记账啦后端 node api 的 nginx 配置
@@ -58,21 +58,21 @@ server {
 
 #### 2、部署流程
 
-&ensp;&ensp;&ensp;&ensp;1、本地修改代码，上传到 git
-&ensp;&ensp;&ensp;&ensp;2、服务器通过 git 拉取最新代码
-&ensp;&ensp;&ensp;&ensp;3、重启 pm2 对应进程
+&emsp;&emsp;1、本地修改代码，上传到 git
+&emsp;&emsp;2、服务器通过 git 拉取最新代码
+&emsp;&emsp;3、重启 pm2 对应进程
 
 
 
 ### 二、操作
 
-&ensp;&ensp;&ensp;&ensp;终端连接到服务器，进入对应目录，命令行执行：
+&emsp;&emsp;终端连接到服务器，进入对应目录，命令行执行：
 
 ```
 ./start.sh
 ```
 
-&ensp;&ensp;&ensp;&ensp;`start.sh`文件内容如下：
+&emsp;&emsp;`start.sh`文件内容如下：
 
 ```
 git pull origin master
@@ -81,7 +81,7 @@ pm2 restart ./pm2/config.json
 pm2 monit
 ```
 
-&ensp;&ensp;&ensp;&ensp;可按需要添加以下两条命令：
+&emsp;&emsp;可按需要添加以下两条命令：
 
 | 含义 | 命令 |
 | :---: | --- |

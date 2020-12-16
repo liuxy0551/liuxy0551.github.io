@@ -13,7 +13,7 @@ date: 2020-08-18 13:25:29
 updated: 2020-08-18 13:25:29
 ---
 
-&ensp;&ensp;&ensp;&ensp;vuex 的持久化可避免刷新页面就更新状态，记录一下简单使用。
+&emsp;&emsp;vuex 的持久化可避免刷新页面就更新状态，记录一下简单使用。
 
 <!--more-->
 
@@ -42,7 +42,7 @@ export default new Vuex.Store({
 
 ### 二、部分模块持久化
 
-&ensp;&ensp;&ensp;&ensp;仅针对某个模块持久化时，代码如下：
+&emsp;&emsp;仅针对某个模块持久化时，代码如下：
 ```javascript
 import Vue from 'vue'
 import Vuex from 'vuex'

@@ -13,12 +13,12 @@ date: 2020-12-15 11:52:19
 updated: 2020-12-15 11:52:19
 ---
 
-&ensp;&ensp;&ensp;&ensp;之前通过 <a href="https://liuxianyu.cn/article/centos-nginx-https.html" target="_black">使用 certbot 在 Cent OS 中给 nginx 配置 https</a> 给 hexo 配置的 https 似乎到期了，Chrome 会报危险，这次参考 <a href="https://liuxianyu.cn/article/nginx-https.html" target="_black">在阿里云通过 SSL证书和 nginx 配置 https</a>，对 https 证书进行了更新，记录下 nginx 配置。
+&emsp;&emsp;之前通过 <a href="https://liuxianyu.cn/article/centos-nginx-https.html" target="_black">使用 certbot 在 Cent OS 中给 nginx 配置 https</a> 给 hexo 配置的 https 似乎到期了，Chrome 会报危险，这次参考 <a href="https://liuxianyu.cn/article/nginx-https.html" target="_black">在阿里云通过 SSL证书和 nginx 配置 https</a>，对 https 证书进行了更新，记录下 nginx 配置。
 
 <!--more-->
 
 
-&ensp;&ensp;&ensp;&ensp;只在原有的 nginx 配置上进行了简单更改，如下：
+&emsp;&emsp;只在原有的 nginx 配置上进行了简单更改，如下：
 
 ```
 # 博客的 nginx 配置
