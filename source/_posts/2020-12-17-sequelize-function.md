@@ -206,15 +206,6 @@ console.log(rows)
 ```
 
 
+### 二、作用域
 
-
-
-
-
-
-
-
-
-
-
-
+&emsp;&emsp;<a href="https://www.sequelize.com.cn/other-topics/scopes" target="_black">作用域用于帮助复用代码</a>
