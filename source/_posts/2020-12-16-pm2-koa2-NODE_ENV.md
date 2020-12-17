@@ -30,7 +30,7 @@ console.log('NODE_ENV', process.env.NODE_ENV)
 
 ```
 "scripts": {
-  "dev": "export NODE_ENV=development&&nodemon app.js"
+  "dev": "export NODE_ENV=development && nodemon app.js"
 },
 ```
 
