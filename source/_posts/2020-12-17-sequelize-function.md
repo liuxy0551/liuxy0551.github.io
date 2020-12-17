@@ -17,7 +17,7 @@ updated: 2020-12-17 09:52:01
 
 <!--more-->
 
-&emsp;&emsp;<a href="https://www.sequelize.com.cn/" target="_black">Sequelize 中文文档</a>
+&emsp;&emsp;<a href="https://www.sequelize.com.cn/" target="_black">Sequelize 中文文档</a>、<a href="https://itbilu.com/nodejs/npm/V1PExztfb.html" target="_black">Sequelize 中文API文档－2. Model 的定义、使用与Model类的API</a>
 
 
 ### 一、常用方法
