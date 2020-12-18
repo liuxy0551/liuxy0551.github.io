@@ -152,7 +152,7 @@ site_state: true
 social:
   GitHub: https://github.com/liuxy0551 || github
   Gitee: https://gitee.com/liuxy0551 || git
-  Gitlab: http://code.syedu.tech/liuyi || gitlab
+  #Gitlab: http://code.syedu.tech/liuyi || gitlab
   #简书: https://www.jianshu.com/u/60afda94ea5a || heartbeat
   #Coding: https://dev.tencent.com/u/wugenqiang || twitter
   #CSDN: https://blog.csdn.net/wugenqiang || git-square
