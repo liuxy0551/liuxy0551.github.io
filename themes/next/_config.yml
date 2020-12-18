@@ -190,7 +190,7 @@ toc:
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: true #true时是当标题宽度很长时，自动换到下一行
   # Maximum heading depth of generated toc. You can set it in one post through `toc_max_depth` in Front Matter.
-  max_depth: 10
+  max_depth: 6
 
 sidebar:
   # Sidebar Position, available values: left | right (only for Pisces | Gemini).
@@ -1080,7 +1080,7 @@ links:     #打开
   # 青果 | 引航: https://enjoytoshare.club/
 
 index_generator:
-  per_page: 6
+  per_page: 10
 
 archive_generator:
   per_page: 10 ##归档页面默认20篇文章标题
