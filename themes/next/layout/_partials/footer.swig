@@ -91,7 +91,7 @@ setInterval("createtime()",250);
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
   <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
-  <a style="color: #999; border-bottom: none" target="_blank" href="http://www.beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
+  <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
 <!-- 不蒜字统计 -->
