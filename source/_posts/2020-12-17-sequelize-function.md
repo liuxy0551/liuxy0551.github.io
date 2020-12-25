@@ -153,6 +153,15 @@ User.findAll({ offset: 8 })
 User.findAll({ offset: 5, limit: 5 })
 ```
 
+##### （5）返回原始数据
+
+&emsp;&emsp;默认情况下，返回的是模型类的实例，这意味着在数据库返回结果之后，Sequelize 会自动将所有内容包装在适当的实例对象中。当结果太多时，这种包装可能会效率低下，要禁用此包装并收到简单的响应，请将`{ raw: true }`作为参数传递给方法。
+
+``` javascript
+// 增加 raw 选项后，会返回数据库中的原始结果
+User.findAll({ where: { ... }, raw: true })
+```
+
 #### 2、count
 
 ``` javascript
@@ -164,7 +173,7 @@ const total = await User.count({
 })
 ```
 
-#### 3、findByPk`推荐`
+#### 3、findByPk
 
 &emsp;&emsp;`findByPk`方法使用提供的主键从表中仅获得一行数据：
 
