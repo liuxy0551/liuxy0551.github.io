@@ -23,7 +23,7 @@ updated: 2021-01-07 16:35:17
 
 ### 2、SQL 语句和结果
 
-![](https://liuxy0551.gitee.io/assets/posts/sql-group-by-day/1.png)
+![](https://liuxy0551.gitee.io/assets/posts/sql-group-by-day/2.png)
 
 ```
 SELECT
