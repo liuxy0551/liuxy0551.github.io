@@ -1,19 +1,19 @@
 ---
-title: sequelize 中常用的一些方法和参数
+title: Sequelize 中常用的一些方法和参数
 urlname: sequelize-function
 tags:
   - node
-  - sequelize
+  - Sequelize
 categories:
   - node
-  - sequelize
+  - Sequelize
 author: liuxy0551
 copyright: true
 date: 2020-12-17 09:52:01
 updated: 2020-12-17 09:52:01
 ---
 
-&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 sequelize，记录一下相关知识点。
+&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize，记录一下相关知识点。
 
 <!--more-->
 

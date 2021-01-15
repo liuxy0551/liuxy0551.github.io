@@ -3,17 +3,17 @@ title: koa2 中使用 sequelize-auto 自动生成 models
 urlname: sequelize-auto
 tags:
   - node
-  - sequelize
+  - Sequelize
 categories:
   - node
-  - sequelize
+  - Sequelize
 author: liuxy0551
 copyright: true
 date: 2020-12-18 11:43:31
 updated: 2020-12-18 11:43:31
 ---
 
-&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 sequelize，建好表后可以使用`sequelize-auto`自动生成每个表对应的 Model。
+&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize，建好表后可以使用`sequelize-auto`自动生成每个表对应的 Model。
 
 <!--more-->
 

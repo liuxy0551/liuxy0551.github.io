@@ -3,10 +3,10 @@ title: sequelize 日期格式化
 urlname: sequelize-date
 tags:
   - node
-  - sequelize
+  - Sequelize
 categories:
   - node
-  - sequelize
+  - Sequelize
 author: liuxy0551
 copyright: true
 date: 2020-12-18 14:58:33
