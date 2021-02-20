@@ -7,7 +7,7 @@ title: 刘先玉           #网站标题
 subtitle: 知易行难      #网站副标题
 description:  Easier said than done      #详情
 keywords: 随笔小站
-author: liuxy0551          #作者
+author: liuxy0551       #作者
 language: zh-CN         #语言
 timezone: UTC           #时区
 
@@ -52,7 +52,7 @@ search:
   path: search.xml
   field: post
   format: html
-  limit: 10000
+  limit: 100
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -87,7 +87,7 @@ pagination_dir: page
 theme: next
 
 live2d:
-  enable: true
+  enable: false
   scriptFrom: local
   pluginRootPath: live2dw/
   pluginJsPath: lib/
@@ -128,6 +128,11 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+
+# 3D 标签旋转
+tagCloud:
+  enable: false
+
 # hexo-tag-cloud 滚动标签
 tag_cloud:
   textFont: Trebuchet MS, Helvetica
@@ -136,13 +141,9 @@ tag_cloud:
   outlineColor: '#b3e5ef'
   maxSpeed: 0.07
 
+
 # 鼠标选取文字自动提示版权信息
 selectionCopyright:
-  enable: true
-
-
-# 3D 标签旋转
-tagCloud:
   enable: true
 
 

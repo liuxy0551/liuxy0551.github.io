@@ -68,11 +68,11 @@ creative_commons:
   #post: true
   language:
 
-# Follow me on GitHub banner in right-top corner.
+# Find me on GitHub banner in right-top corner.
 github_banner:
   enable: false
   permalink: https://github.com/liuxy0551
-  title: Follow me on GitHub
+  title: Find me on GitHub
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -286,7 +286,7 @@ codeblock:
     # Style: only 'flat' is currently available, leave it blank if you prefer default theme
     style:
 
-# Wechat Subscriber
+# Wechat Subscriber 微信二维码
 wechat_subscriber:
   enable: false
   qcode: /images/liuxywork.jpeg
@@ -317,7 +317,7 @@ related_posts:
     #isImage: false
     #isExcerpt: false
 
-# Post edit
+# Post edit 在线编辑
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: false
@@ -1090,7 +1090,7 @@ archive_generator:
 tag_generator:
   per_page: 10
 
-daovoice: true
+daovoice: false
 daovoice_app_id: f6120c87 #我们注册获取的id
 
 mylinks:
