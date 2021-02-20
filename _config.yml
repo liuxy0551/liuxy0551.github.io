@@ -52,7 +52,7 @@ search:
   path: search.xml
   field: post
   format: html
-  limit: 100
+  limit: 10000
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
