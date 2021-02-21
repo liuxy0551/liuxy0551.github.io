@@ -1557,6 +1557,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[在 macOS 中安装 Jekyll]]></title>
+    <url>%2Farticle%2Fmacos-jekyll.html</url>
+    <content type="text"><![CDATA[最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。 电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 Jekyll 中文文档，按照指令进行环境准备。 1$ gem install jekyll 这一步可能会遇到一些问题： 如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。 1234$ cd /Library/Ruby/Gems$ sudo chmod -R 777 2.3.0/Password:$ gem install jekyll 注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。 接下来进入到博客文件夹，启动服务： 12$ cd *****.github.io$ jekyll serve 此时出现了新的问题： 123Configuration file: /Users/czre/git/blog/_config.yml Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/! 这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。 1$ gem install jekyll-paginate 另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。 经过上述步骤，输入以下指令就可以在 http://127.0.0.1:4000/ 或者 http://localhost:4000 见到博客了。 1$ jekyll serve]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue Mint-UI 省市区地址三级联动]]></title>
     <url>%2Farticle%2Fvue-mintui-address.html</url>
     <content type="text"><![CDATA[最近公司项目中用到收货地址的功能，遂采用这种联动的方式 ¶一、实现效果 功能的实现参考了部分资料： 1、vue mint-ui 三级地址联动 这篇文章中间联动部分的代码写的不是很好，直接复制是联动不了的。 2、Mint UI Picker 的源码 Mint UI 官网 Picker 二级联动的代码，有一定的参考意义。 3、中国行政区划数据：省份、城市、区县、乡镇，省市区镇三级四级联动 有二、三、四、五级的地名联动，在 README.md 中下载需要的 json 文件即可（打包下载，部分文件无港澳台地区的联动）。 4、pca-code.json 5、这篇随笔的代码：addAddress.vue ¶二、具体实现 ¶1、HTML 部分 12345678910&lt;li class=&quot;m-default-address&quot; @click=&quot;addressPopup = true&quot;&gt; &lt;div&gt; &lt;span class=&quot;m-border&quot;&gt;&lt;/span&gt; &lt;span class=&quot;m-label&quot;&gt;&lt;span class=&quot;m-must&quot;&gt;*&lt;/span&gt; 省市区&lt;/span&gt; &lt;/div&gt; &lt;div&gt; &lt;div class=&quot;m-address-text&quot;&gt;&#123;&#123;addressText&#125;&#125;&lt;/div&gt; &lt;!--&lt;span class=&quot;m-icon-more&quot;&gt;&lt;/span&gt;--&gt; &lt;/div&gt;&lt;/li&gt; 12345678910111213&lt;!--省市区地址三级联动--&gt;&lt;mt-popup class=&quot;m-address-popup&quot; v-model=&quot;addressPopup&quot; position=&quot;bottom&quot;&gt; &lt;div class=&quot;m-popup-btn&quot;&gt; &lt;div @click=&quot;addressPopup = false&quot;&gt;取消&lt;/div&gt; &lt;div @click=&quot;addressDone&quot;&gt;确认&lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;m-popup-btn&quot;&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&#123;&#123;myAddressProvince&#125;&#125;-&#123;&#123;myAddressCity&#125;&#125;-&#123;&#123;myAddressArea&#125;&#125;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; &lt;mt-picker :slots=&quot;myAddressSlots&quot; value-key=&quot;name&quot; :visibleItemCount=&quot;7&quot; @change=&quot;onMyAddressChange&quot;&gt;&lt;/mt-picker&gt;&lt;/mt-popup&gt; ¶2、JavaScript 部分 123456789101112131415161718192021222324252627282930313233343536373839data() &#123; return &#123; name: &apos;&apos;, user: &#123;&#125;, address: &#123; uadefault: &quot;0&quot; &#125;, addressText: &quot;请选择省-市-区&quot;, addressPopup: false, myAddressSlots: [ &#123; flex: 1, defaultIndex: 1, values: myaddress, //省份数组 className: &apos;slot1&apos;, textAlign: &apos;center&apos; &#125;, &#123; divider: true, content: &apos;-&apos;, className: &apos;slot2&apos; &#125;, &#123; flex: 1, values: [], className: &apos;slot3&apos;, textAlign: &apos;center&apos; &#125;,&#123; divider: true, content: &apos;-&apos;, className: &apos;slot4&apos; &#125;,&#123; flex: 1, values: [], className: &apos;slot5&apos;, textAlign: &apos;center&apos; &#125; ], myAddressProvince: &apos;&apos;, myAddressCity: &apos;&apos;, myAddressArea: &apos;&apos;, &#125;&#125; 1234567891011121314151617181920// 地址三级联动onMyAddressChange(picker, values) &#123; if(values[0]) &#123; // 判断values[0]是否有值 picker.setSlotValues(1, values[0].children); // 将所点击省份拿到的城市list赋值 this.myAddressProvince = values[0].name; if(values[1]) &#123; // 判断values[1]是否有值 picker.setSlotValues(2, values[1].children); // 将所点击城市拿到的区县list赋值 this.myAddressCity = values[1].name; if(values[2]) &#123; // 判断values[2]是否有值 this.myAddressArea = values[2].name; this.address.aaid = values[2].code; &#125; &#125; &#125;&#125;,// 省市区三级联动选择后addressDone() &#123; this.addressText = this.myAddressProvince + &quot;-&quot; + this.myAddressCity + &quot;-&quot; + this.myAddressArea; this.addressPopup = false;&#125; 12345678910created() &#123; common.changeTitle(&apos;添加地址&apos;); this.getUser(); // 获取用户信息 this.$nextTick(() =&gt; &#123; //vue里面全部加载好了再执行的函数 （类似于setTimeout） this.myAddressSlots[0].defaultIndex = 0; // 这里的值需要和 data里面 defaultIndex 的值不一样才能够初始化 //因为我没有看过源码（我猜测是因为数据没有改变，不会触发更新） &#125;);&#125;]]></content>
@@ -1568,17 +1579,6 @@
       <tags>
         <tag>Vue</tag>
         <tag>Mint UI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[在 macOS 中安装 Jekyll]]></title>
-    <url>%2Farticle%2Fmacos-jekyll.html</url>
-    <content type="text"><![CDATA[最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。 电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 Jekyll 中文文档，按照指令进行环境准备。 1$ gem install jekyll 这一步可能会遇到一些问题： 如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。 1234$ cd /Library/Ruby/Gems$ sudo chmod -R 777 2.3.0/Password:$ gem install jekyll 注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。 接下来进入到博客文件夹，启动服务： 12$ cd *****.github.io$ jekyll serve 此时出现了新的问题： 123Configuration file: /Users/czre/git/blog/_config.yml Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/! 这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。 1$ gem install jekyll-paginate 另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。 经过上述步骤，输入以下指令就可以在 http://127.0.0.1:4000/ 或者 http://localhost:4000 见到博客了。 1$ jekyll serve]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
