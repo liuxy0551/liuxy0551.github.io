@@ -112,9 +112,11 @@ fun deploy
 #### 6、请求环境区分
 
 &emsp;&emsp;调用请求时需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本，如下图：
+
 ![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/1.png)
 
 &emsp;&emsp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
+
 ![](https://liuxy0551.gitee.io/assets/posts/fc-serverless/2.png)
 
 

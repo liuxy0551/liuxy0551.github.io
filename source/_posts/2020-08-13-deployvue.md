@@ -1,5 +1,5 @@
 ---
-title: 写一个 Vue 项目的自动化部署插件
+title: 写一个 Vue 项目的自动化部署插件 —— deployvue
 urlname: deploy-vue
 tags:
   - npm
@@ -23,7 +23,6 @@ updated: 2020-08-18 15:54:14
 &emsp;&emsp;具体如何使用，可移步 <a href="https://github.com/liuxy0551/deployvue#readme" target="_black">README.md</a> 查看。这里不过多介绍使用方法，主要记录一下遇到的一些点。
 
 ![](https://liuxy0551.gitee.io/assets/posts/deploy-vue/1.gif)
-
 
 ### 一、部署流程
 

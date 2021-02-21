@@ -38,9 +38,9 @@ function run() {
 
         } else {
 
-          echo('Success: git add success');
+            echo('Success: git add success');
 
-          echo('git commit -m "hexo d"');
+            echo('git commit -m "hexo d"');
 
         }
 
@@ -52,21 +52,21 @@ function run() {
 
         } else {
 
-          echo('Success: git commit success');
+            echo('Success: git commit success');
 
-          echo('git push origin develop');
+            echo('git push origin develop');
 
         }
 
         if (exec('git push origin develop').code !== 0) {
 
-            echo('Error: git push origin failed');
+            echo('Error: git push failed');
 
             exit(1);
 
         } else {
 
-          echo('Success: git push origin success');
+            echo('Success: git push success');
 
         }
 
