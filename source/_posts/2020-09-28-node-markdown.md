@@ -81,7 +81,7 @@ nginx -s reload
 
 <a href="http://markdown.liuxianyu.cn/?tex=r=%5Csqrt%7Bx^2+y^2%7D" target="_black">http://markdown.liuxianyu.cn/?tex=r=%5Csqrt%7Bx^2+y^2%7D</a>
 
-![](https://liuxy0551.gitee.io/assets/posts/node-markdown/1.png)
+![](https://liuxy0551.gitee.io/image-hosting/posts/node-markdown/1.png)
 
 
 

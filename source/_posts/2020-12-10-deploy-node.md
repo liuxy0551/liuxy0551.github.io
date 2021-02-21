@@ -88,5 +88,5 @@ pm2 monit
 | 显示每个应用程序的 CPU 和内存占用情况 | pm2 monit |
 | 查看输出的日志 | pm2 logs |
 
-![pm2 monit](https://liuxy0551.gitee.io/assets/posts/deploy-node/1.jpg)
-![pm2 logs](https://liuxy0551.gitee.io/assets/posts/deploy-node/2.jpg)
+![pm2 monit](https://liuxy0551.gitee.io/image-hosting/posts/deploy-node/1.jpg)
+![pm2 logs](https://liuxy0551.gitee.io/image-hosting/posts/deploy-node/2.jpg)

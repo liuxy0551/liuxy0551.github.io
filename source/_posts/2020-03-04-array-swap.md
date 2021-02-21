@@ -18,7 +18,7 @@ updated: 2020-03-04 14:03:00
 
 ### 一、实现效果
 
-![](https://liuxy0551.gitee.io/assets/posts/array-swap/1.png)
+![](https://liuxy0551.gitee.io/image-hosting/posts/array-swap/1.png)
 
 ### 二、实现原理
 

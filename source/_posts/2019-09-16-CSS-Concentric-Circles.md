@@ -19,7 +19,7 @@ updated: 2019-09-16 13:36:30
 
 ### 一、实现效果
 
-![](https://liuxy0551.gitee.io/assets/posts/css-concentric-circles/1.png)
+![](https://liuxy0551.gitee.io/image-hosting/posts/css-concentric-circles/1.png)
 
 
 ### 二、HTML
