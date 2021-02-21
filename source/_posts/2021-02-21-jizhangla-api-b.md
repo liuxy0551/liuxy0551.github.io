@@ -26,15 +26,15 @@ updated: 2021-02-21 22:30:29
 ### 截图展示
 
 {% gp 9-9 %}
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/1.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/2.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/3.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/4.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/5.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/6.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/7.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/8.png)
-    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/9.png)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/1.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/2.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/3.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/4.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/5.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/6.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/7.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/8.jpg)
+    ![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-b/9.jpg)
 {% endgp %}
 
 

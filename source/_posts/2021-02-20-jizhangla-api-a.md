@@ -12,7 +12,7 @@ date: 2021-02-20 21:14:00
 updated: 2021-02-20 21:14:00
 ---
 
-![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-a/1.png)
+![](https://liuxy0551.gitee.io/assets/posts/jizhangla-api-a/1.jpg)
 
 &emsp;&emsp;`记账啦`是一个微信小程序，**如果你也喜欢记账，可以看看这个小程序。**
 
