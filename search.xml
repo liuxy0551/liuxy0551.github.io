@@ -614,8 +614,8 @@
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>HTML</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -658,7 +658,7 @@
   <entry>
     <title><![CDATA[Mac OS 中管理 node 版本的工具 —— n]]></title>
     <url>%2Farticle%2Fnode-n.html</url>
-    <content type="text"><![CDATA[有时候项目中需要老版本的 node 支持，所以记录一下如何管理多个 node 版本。 node 以往的版本 ¶一、管理工具 —— n 通过 npm 安装n： 12npm i -g nn -V ¶二、使用淘宝镜像 n 安装 node 版本时是从 nodejs 官网进行下载的，鉴于国内的网络环境，可以配置使用淘宝镜像： 1vim ~/.zshrc 或 ~/.bashrc 在上述配置文件尾添加以下内容： 12# node n taobao 镜像export N_NODE_MIRROR=https://npm.taobao.org/dist/ 1source ~/.zshrc 或 ~/.bashrc 配置后地址显示不变，但速度明显有提升。 ¶三、常用命令 ¶1、安装、激活版本： 只需执行n &lt;version&gt;即可安装对应版本的 node。如果&lt;version&gt;已经安装（通过 n），n 将激活该版本。 1sudo n 13.14.0 ¶2、查看当前安装的版本： 1n ls ¶3、选取已安装的版本： 1n 键盘上下键选择版本后回车确认 ¶4、运行脚本时选择版本： 1n use 13.14.0 app.js ¶6、删除版本： 123n rm 12.20.2n rm v12.20.2n - 12.20.2 注意 如果删除不成功，可进入/usr/local/n/versions/node目录删除版本 12cd /usr/local/n/versions/nodesudo rm -rf 12.20.2 ¶四、参考资料 以下两篇结合着看 linux 下使用&quot;n&quot;配置使用淘宝镜像 更换node版本切换工具n模块的镜像源]]></content>
+    <content type="text"><![CDATA[有时候项目中需要老版本的 node 支持，所以记录一下如何管理多个 node 版本。 node 以往的版本 ¶一、管理工具 —— n 通过 npm 安装n： 12npm i -g nn -V ¶二、使用淘宝镜像 n 安装 node 版本时是从 nodejs 官网进行下载的，鉴于国内的网络环境，可以配置使用淘宝镜像： 1vim ~/.zshrc 或 ~/.bashrc 在上述配置文件尾添加以下内容： 12# node n taobao 镜像export N_NODE_MIRROR=https://npm.taobao.org/dist/ 1source ~/.zshrc 或 ~/.bashrc 配置后地址显示不变，但速度明显有提升。 ¶三、常用命令 ¶1、安装、激活版本： 只需执行n &lt;version&gt;即可安装对应版本的 node。如果&lt;version&gt;已经安装（通过 n），n 将激活该版本。 1sudo n 13.5.0 ¶2、查看当前安装的版本： 1n ls ¶3、选取已安装的版本： 1n 键盘上下键选择版本后回车确认 ¶4、运行脚本时选择版本： 1n use 13.5.0 app.js ¶6、删除版本： 123n rm 12.20.2n rm v12.20.2n - 12.20.2 注意 如果删除不成功，可进入/usr/local/n/versions/node目录删除版本 12cd /usr/local/n/versions/nodesudo rm -rf 12.20.2 ¶四、参考资料 以下两篇结合着看 linux 下使用&quot;n&quot;配置使用淘宝镜像 更换node版本切换工具n模块的镜像源]]></content>
       <categories>
         <category>node</category>
         <category>版本管理</category>
