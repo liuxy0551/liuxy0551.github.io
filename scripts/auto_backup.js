@@ -60,13 +60,25 @@ function run() {
 
         if (exec('git push origin develop').code !== 0) {
 
-            echo('Error: git push failed');
+            echo('Error: git push origin failed');
 
             exit(1);
 
         } else {
 
-          echo('Success: git push success');
+          echo('Success: git push origin success');
+
+        }
+
+        if (exec('git push gitee develop').code !== 0) {
+
+            echo('Error: git push gitee failed');
+
+            exit(1);
+
+        } else {
+
+            echo('Success: git push gitee success');
 
         }
 
