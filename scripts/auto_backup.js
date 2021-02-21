@@ -70,18 +70,6 @@ function run() {
 
         }
 
-        if (exec('git push gitee develop').code !== 0) {
-
-            echo('Error: git push gitee failed');
-
-            exit(1);
-
-        } else {
-
-            echo('Success: git push gitee success');
-
-        }
-
         echo("============================ Auto Backup Complete ============================")
 
     }
