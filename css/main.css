@@ -2084,7 +2084,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff0ed4;
+  background: #50ffd5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3391,7 +3391,7 @@ Hexo博客NexT主题美化之网站标题栏背景变色,
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("https://liuxy0551.gitee.io/assets/config-bg.jpg");
+    background-image: url("https://liuxy0551.gitee.io/image-hosting/config-bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;

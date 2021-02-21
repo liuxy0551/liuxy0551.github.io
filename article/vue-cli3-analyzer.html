@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="上个月有好几个项目需要部署上线，其中有一个项目需要在钉钉第三方应用市场上线，而钉钉对于页面性能、白屏率等有硬性要求，所以对这个项目做了很多打包优化。 前端项目优化之旅将以基于 Vue CLI 3 新写的 vue-cli3-build-optimization 作为记录对象，记录一些优化方法：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-analyzer/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-analyzer/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-analyzer/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-analyzer/2.png">
 <meta property="og:updated_time" content="2019-12-02T13:06:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端项目优化之旅（一）—— 分析插件">
 <meta name="twitter:description" content="上个月有好几个项目需要部署上线，其中有一个项目需要在钉钉第三方应用市场上线，而钉钉对于页面性能、白屏率等有硬性要求，所以对这个项目做了很多打包优化。 前端项目优化之旅将以基于 Vue CLI 3 新写的 vue-cli3-build-optimization 作为记录对象，记录一些优化方法：">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-analyzer/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-analyzer/1.png">
 
 
 
@@ -703,8 +703,8 @@ window.onload = function() {
 <p>在 vue.config.js 中对 webpack 进行配置：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config</span><br><span class="line">      .plugin(<span class="string">'webpack-bundle-analyzer'</span>)</span><br><span class="line">      .use(<span class="built_in">require</span>(<span class="string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下运行<code>npm run serve</code>即可，会自动打开浏览器并访问 <a href="http://127.0.0.1:8888/" target="_blank" rel="noopener">http://127.0.0.1:8888</a></p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-analyzer/1.png" alt><br>
-<img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-analyzer/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-analyzer/1.png" alt><br>
+<img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-analyzer/2.png" alt></p>
 
       
     </div>
@@ -1393,7 +1393,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1415,7 +1415,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

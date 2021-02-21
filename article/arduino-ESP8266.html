@@ -148,14 +148,14 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="在课程设计的学习过程中，有一个部分是使用 ESP8266-WiFi 模块通过 Arduino 平台自动发送数据到网络调试助手，现在拿来分享。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/2.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/3.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/1.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/2.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/3.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/1.jpg">
 <meta property="og:updated_time" content="2017-05-09T20:31:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESP8266 通过 Arduino 自动发送数据到网络调试助手">
 <meta name="twitter:description" content="在课程设计的学习过程中，有一个部分是使用 ESP8266-WiFi 模块通过 Arduino 平台自动发送数据到网络调试助手，现在拿来分享。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/2.jpg">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/2.jpg">
 
 
 
@@ -701,15 +701,15 @@ window.onload = function() {
 <h2 id="方法-步骤"><a class="header-anchor" href="#方法-步骤">¶</a>方法 / 步骤</h2>
 <h3 id="一-电路连线"><a class="header-anchor" href="#一-电路连线">¶</a>一、电路连线</h3>
 <p>ESP8266 和 Arduino：TX 连 8，RX 连 9，EN（CH_PD）和 3V3 连 3.3V，GND 连 GND。  <br><br>
-<br><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/2.jpg" alt></p>
+<br><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/2.jpg" alt></p>
 <h3 id="二-编译上传代码"><a class="header-anchor" href="#二-编译上传代码">¶</a>二、编译上传代码</h3>
 <p>使用 Arduino IDE1.7.8 打开 ESP8266auto.ino 文件，编译并上传到 Arduino 板子上。  <br><br>
-<br><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/3.jpg" alt></p>
+<br><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/3.jpg" alt></p>
 <h3 id="三-数据传输"><a class="header-anchor" href="#三-数据传输">¶</a>三、数据传输</h3>
 <p>电脑连上 WiFi，再打开 USR-TCP232-Test-V1.3 串口转网络调试助手，本篇经验只使用右侧的网络调试助手。</p>
 <p>1、网络设置区域的协议类型选择“TCP Server”；本地 ip 地址栏通常会在连接上 WiFi 后打开软件时自动更新；本地端口号为“8080”，可改。</p>
 <p>2、设置好后点击“开始监听”按钮，重启 Arduino 板子，等待一分钟左右网络调试助手连接对象区域会出现 ESP8266 的 IP，此时代表已经连接上，等待网络数据接收区域显示内容后，数据正常变化实验即完成。  <br></p>
-<p><br><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266/1.jpg" alt>  <br></p>
+<p><br><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266/1.jpg" alt>  <br></p>
 <p>如果网盘链接挂了可以在百度文库下载或复制 <a href="https://wenku.baidu.com/view/7761a44a302b3169a45177232f60ddccda38e69c.html" target="_blank" rel="noopener">ESP8266通过Arduino自动发送数据代码</a> 文本文件，其余软件可自行百度下载。</p>
 <blockquote>
 <ul>
@@ -1403,7 +1403,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1425,7 +1425,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

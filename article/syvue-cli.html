@@ -148,15 +148,15 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近新建项目挺多，刚好有现成的模板，就写了个适用于公司内部的脚手架工具，基于 vue cli 3.x + 快速生成 vue 项目基础结构。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/syvue-cli/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/syvue-cli/2.svg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/syvue-cli/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/syvue-cli/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/2.svg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/4.png">
 <meta property="og:updated_time" content="2020-08-25T15:52:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写一个快速创建 vue 项目的脚手架">
 <meta name="twitter:description" content="最近新建项目挺多，刚好有现成的模板，就写了个适用于公司内部的脚手架工具，基于 vue cli 3.x + 快速生成 vue 项目基础结构。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/syvue-cli/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/1.png">
 
 
 
@@ -705,16 +705,16 @@ window.onload = function() {
 <h4 id="3-inquirer"><a class="header-anchor" href="#3-inquirer">¶</a>3、inquirer</h4>
 <p>  在命令行和用户互动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let answer = await inquirer.prompt([</span><br><span class="line">  &#123;</span><br><span class="line">    type: &apos;list&apos;,</span><br><span class="line">    name: &apos;template&apos;,</span><br><span class="line">    message: `$&#123; chalk.bold(&apos;Please pick template type: &apos;) &#125;`,</span><br><span class="line">    choices: [`admin ($&#123; chalk.yellow(&apos;management template&apos;) &#125;)`, `mobile ($&#123; chalk.yellow(&apos;mobile template&apos;) &#125;)`]</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/syvue-cli/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/1.png" alt></p>
 <h4 id="4-ora"><a class="header-anchor" href="#4-ora">¶</a>4、ora</h4>
 <p>  命令行加载中的动画效果 <a href="https://www.npmjs.com/package/ora" target="_black">ora</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let cnpmSpinner = ora(`Installing npm plugins. This might take a while` + &apos;...&apos;)</span><br><span class="line">cnpmSpinner.start()</span><br><span class="line">shell.exec(`cd $&#123; process.cwd() &#125;/$&#123; projectName &#125;; cnpm i`, &#123; silent: true &#125;)</span><br><span class="line">cnpmSpinner.stop()</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/syvue-cli/2.svg" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/2.svg" alt></p>
 <h4 id="5-shelljs"><a class="header-anchor" href="#5-shelljs">¶</a>5、shelljs</h4>
 <p>  用来在本地执行命令、结束程序，将 silent 设为 true 可隐藏在终端的内容输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for (let command of buildCommands) &#123;</span><br><span class="line">  console.log(`+ $&#123; command &#125;`)</span><br><span class="line">  if (shell.exec(`$&#123; command &#125;`).code !== 0) &#123;</span><br><span class="line">    shell.echo(`Run: $&#123; command &#125; Error`)</span><br><span class="line">    shell.exit(1)</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(chalk.cyan(`DONE  $&#123; command &#125; complete`))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/syvue-cli/3.png" alt><br>
-<img src="https://liuxy0551.gitee.io/assets/posts/syvue-cli/4.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/3.png" alt><br>
+<img src="https://liuxy0551.gitee.io/image-hosting/posts/syvue-cli/4.png" alt></p>
 
       
     </div>
@@ -1409,7 +1409,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1431,7 +1431,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

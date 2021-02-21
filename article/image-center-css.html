@@ -148,14 +148,14 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/image-center-css/1.gif">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/image-center-css/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/image-center-css/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/1.gif">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/3.png">
 <meta property="og:updated_time" content="2018-10-30T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片大小不固定时在 div 中居中显示">
 <meta name="twitter:description" content="公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/image-center-css/1.gif">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/1.gif">
 
 
 
@@ -687,14 +687,14 @@ window.onload = function() {
         <p>    公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。</p>
 <a id="more"></a>
 <h3 id="一-实现效果"><a class="header-anchor" href="#一-实现效果">¶</a>一、实现效果</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/image-center-css/1.gif" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/1.gif" alt></p>
 <p>    项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。</p>
 <h3 id="二-具体实现"><a class="header-anchor" href="#二-具体实现">¶</a>二、具体实现</h3>
 <h4 id="1-html-部分"><a class="header-anchor" href="#1-html-部分">¶</a>1、HTML 部分</h4>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/image-center-css/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/2.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;mt-swipe :auto=&quot;0&quot;&gt;</span><br><span class="line">  &lt;mt-swipe-item class=&quot;product-swipe&quot; v-for=&quot;item in product_info.images&quot; :key=&quot;item.piid&quot;&gt;</span><br><span class="line">    &lt;img :src=&quot;item.piurl&quot; class=&quot;product-img&quot;&gt;</span><br><span class="line">  &lt;/mt-swipe-item&gt;</span><br><span class="line">&lt;/mt-swipe&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2-css-部分"><a class="header-anchor" href="#2-css-部分">¶</a>2、CSS 部分</h4>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/image-center-css/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/3.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.product-swipe &#123;</span><br><span class="line">  width: 750px;</span><br><span class="line">  height: 750px;</span><br><span class="line">  .product-img &#123;</span><br><span class="line">    max-width: 750px;</span><br><span class="line">    max-height: 750px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.mint-swipe &#123;</span><br><span class="line">  width: 750px;</span><br><span class="line">  height: 750px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -790,8 +790,8 @@ window.onload = function() {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/article/vue-mintui-address.html" rel="prev" title="Vue Mint-UI 省市区地址三级联动">
-                Vue Mint-UI 省市区地址三级联动 <i class="fa fa-chevron-right"></i>
+              <a href="/article/macos-jekyll.html" rel="prev" title="在 macOS 中安装 Jekyll">
+                在 macOS 中安装 Jekyll <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1381,7 +1381,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1403,7 +1403,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

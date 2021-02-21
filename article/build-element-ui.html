@@ -148,15 +148,15 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近公司有个项目，使用了 element-ui，而且使用了自己项目的主题色 —— 橙色。   按照 Element UI -&amp;gt; 自定义主题 -&amp;gt; 在项目中改变 SCSS 变量 中的设置就可以把项目中的 element-ui 的主题色改为橙色了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/build-element-ui/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/build-element-ui/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/build-element-ui/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/build-element-ui/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/4.png">
 <meta property="og:updated_time" content="2020-06-05T20:04:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过 CDN 引入 element-ui 时，如何改变其主题色">
 <meta name="twitter:description" content="最近公司有个项目，使用了 element-ui，而且使用了自己项目的主题色 —— 橙色。   按照 Element UI -&amp;gt; 自定义主题 -&amp;gt; 在项目中改变 SCSS 变量 中的设置就可以把项目中的 element-ui 的主题色改为橙色了。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/build-element-ui/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/1.png">
 
 
 
@@ -705,18 +705,18 @@ window.onload = function() {
   一刷新，咦，怎么按钮边线有股淡淡的蓝色，到其他页面一看，事情并不简单，一片淡蓝色，想起主题色带透明的颜色都没有进行替换。如果替换的话，还得挨个计算加上透明度后色号是多少再替换，还可能遗漏，而且很显然，这不是程序员干的事儿。那么，第二种解法来了：</p>
 <h3 id="二-第二次尝试-正解"><a class="header-anchor" href="#二-第二次尝试-正解">¶</a>二、第二次尝试 <code>正解</code></h3>
 <p>  好嘛，你是经过编译的嘛，来，编译你。拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)。拿到一个项目，如何直击灵魂呢，查看<code>package.json</code>即可，还别说，大厂就是大厂，代码写得让人很舒服。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/build-element-ui/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/1.png" alt></p>
 <p>  可以看到，script 中的<code>build:theme</code>就是我们想要的命令，命令行先走一个试一下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build:theme</span><br></pre></td></tr></table></figure>
 <p>  报错了，仔细一看，sass-loader 要求 node 版本为 11.x 了，那当前的 13.x 咋办呢，学一下 <a href="https://liuxianyu.cn/article/node-n.html" target="_blank">Mac OS 中管理 node 版本的工具 —— n</a> 吧。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/build-element-ui/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/2.png" alt></p>
 <p>  整好环境后，再来一次吧，结果还凑合。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/build-element-ui/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/3.png" alt></p>
 <p>  那找到 element-ui 设置的<code>$--color-primary</code>改为我的橙色再编译一下，不就可以了嘛，机智，说干就干。全局搜索<code>$--color-primary</code>，发现 element-ui 是在<code>/element-ui/packages/theme-chalk/src/common/var.scss</code>中设置主题色的，找到<code>$--color-primary</code>，将色号从默认的<code>#409EFF</code>改为橙色就可以了，连带着透明度的颜色变量都会在编译后改变，SASS 的美妙。</p>
 <p>  这个时候再<code>npm run build:theme</code>一次，上传<code>/element-ui/lib/theme-chalk/index.css</code>到 OSS，再次刷新，就是特别好看的橙色啦!</p>
 <h3 id="三-新遇到的问题"><a class="header-anchor" href="#三-新遇到的问题">¶</a>三、新遇到的问题</h3>
 <p>  最近再次编译的时候发现会报如下错误：意思是<code>postcss</code>版本高了，引用需要修改，将<code>/packages/theme-thalk/gulpfile.js</code>中的<code>browsers</code>改为<code>overrideBrowserslist</code>再次编译即可。<br>
-<img src="https://liuxy0551.gitee.io/assets/posts/build-element-ui/4.png" alt></p>
+<img src="https://liuxy0551.gitee.io/image-hosting/posts/build-element-ui/4.png" alt></p>
 <h3 id="四-类似随笔"><a class="header-anchor" href="#四-类似随笔">¶</a>四、类似随笔</h3>
 <p><a href="https://liuxianyu.cn/article/element-cdn-global-settings.html" target="_black">通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)</a></p>
 
@@ -1407,7 +1407,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1429,7 +1429,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

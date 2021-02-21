@@ -690,7 +690,7 @@ window.onload = function() {
         <p>  vue-cli 3 + 在项目优化的时候，可以考虑把图片资源放到 CDN 上，减少对服务器带宽的压力。</p>
 <a id="more"></a>
 <p>  开发时，写的图片路径通常是相对路径，在 webpack 的配置中可以进行配置，配置后在打包时就可以自动将我们写的相对路径转换成 CDN 路径：<br>
-<code>@/assets/images/logo.png</code>或<code>../../assets/images/logo.png</code> -&gt; <code>https://liuxy0551.gitee.io/assets/images</code>。</p>
+<code>@/assets/images/logo.png</code>或<code>../../assets/images/logo.png</code> -&gt; <code>https://liuxy0551.gitee.io/image-hosting/images</code>。</p>
 <h4 id="1-vue-config-js"><a class="header-anchor" href="#1-vue-config-js">¶</a>1、vue.config.js</h4>
 <ul>
 <li>1、process.env.NODE_ENV 判断项目环境</li>
@@ -698,7 +698,7 @@ window.onload = function() {
 <li>3、配置 limit (默认 10000)，可使文件大小小于此 limit 值(单位为 byte)的文件转换为 base64 格式, 大于此 limit 的, 会执行 options 中的 fallback 配置项</li>
 <li>4、fallback 默认值为 file-loader, 而且 url-loader 的 options 配置项也会被传递给 <a href="https://webpack.docschina.org/loaders/file-loader/#publicpath" target="_black">file-loader</a></li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config</span><br><span class="line">      .module</span><br><span class="line">      .rule(<span class="string">"images"</span>)</span><br><span class="line">      .test(<span class="regexp">/\.(jpe?g|png|gif)$/i</span>)</span><br><span class="line">      .use(<span class="string">"url-loader"</span>)</span><br><span class="line">      .loader(<span class="string">"url-loader"</span>)</span><br><span class="line">      .options(&#123;</span><br><span class="line">        limit: <span class="number">10000</span>,</span><br><span class="line">        publicPath: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'https://liuxy0551.gitee.io/assets/images'</span> : <span class="string">''</span>,</span><br><span class="line">        outputPath: <span class="string">'img'</span>,</span><br><span class="line">        name: <span class="string">'[name].[ext]'</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .end()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config</span><br><span class="line">      .module</span><br><span class="line">      .rule(<span class="string">"images"</span>)</span><br><span class="line">      .test(<span class="regexp">/\.(jpe?g|png|gif)$/i</span>)</span><br><span class="line">      .use(<span class="string">"url-loader"</span>)</span><br><span class="line">      .loader(<span class="string">"url-loader"</span>)</span><br><span class="line">      .options(&#123;</span><br><span class="line">        limit: <span class="number">10000</span>,</span><br><span class="line">        publicPath: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'https://liuxy0551.gitee.io/image-hosting/images'</span> : <span class="string">''</span>,</span><br><span class="line">        outputPath: <span class="string">'img'</span>,</span><br><span class="line">        name: <span class="string">'[name].[ext]'</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .end()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2-参考资料"><a class="header-anchor" href="#2-参考资料">¶</a>2、参考资料</h4>
 <p><a href="https://www.cnblogs.com/skura23/p/10825795.html" target="_black">配置vue项目将打包后图片文件的引用路径改为cdn路径?</a><br>
 <a href="https://webpack.docschina.org/loaders/url-loader/#fallback" target="_black">webpack url-loader</a><br>
@@ -1391,7 +1391,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1413,7 +1413,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

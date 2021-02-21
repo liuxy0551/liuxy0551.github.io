@@ -148,16 +148,16 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="公司项目中有根据手机号获取验证码的环节，倒计时的实现还是比较有趣的，记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/1.gif">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/1.gif">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/5.png">
 <meta property="og:updated_time" content="2018-08-19T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 中实现验证码倒计时功能">
 <meta name="twitter:description" content="公司项目中有根据手机号获取验证码的环节，倒计时的实现还是比较有趣的，记录一下。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/code-setInterval/1.gif">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/1.gif">
 
 
 
@@ -689,18 +689,18 @@ window.onload = function() {
         <p>公司项目中有根据手机号获取验证码的环节，倒计时的实现还是比较有趣的，记录一下。</p>
 <a id="more"></a>
 <h3 id="实现效果"><a class="header-anchor" href="#实现效果">¶</a>实现效果</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/code-setInterval/1.gif" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/1.gif" alt></p>
 <h3 id="具体实现"><a class="header-anchor" href="#具体实现">¶</a>具体实现</h3>
 <h4 id="1-html-部分"><a class="header-anchor" href="#1-html-部分">¶</a>1、HTML 部分</h4>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/code-setInterval/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/2.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;span&gt;手机号&lt;/span&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; class=&quot;m-edit-input&quot; v-model=&quot;ustelphone&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;span&gt;验证码&lt;/span&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; class=&quot;m-edit-input-s&quot; v-model=&quot;identifyingcode&quot; maxlength=&quot;6&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;m-get-code active&quot; v-if=&quot;!getCode&quot; @click=&quot;getInforcode&quot;&gt;获取验证码&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;m-get-code&quot; v-if=&quot;getCode&quot;&gt;&#123;&#123; count &#125;&#125; 秒后再次获取&lt;/span&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2-js-部分"><a class="header-anchor" href="#2-js-部分">¶</a>2、JS 部分</h4>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/code-setInterval/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/3.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    getCode: false,               // 是否已获取验证码</span><br><span class="line">    ustelphone: &apos;&apos;,               // 手机号码</span><br><span class="line">    timer: null,                  // 倒计时</span><br><span class="line">    count: &quot;&quot;                     // 倒计时</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/code-setInterval/4.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/4.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 获取验证码</span><br><span class="line">getInforcode() &#123;</span><br><span class="line">  if(!this.ustelphone)&#123;</span><br><span class="line">    Toast(&quot;请先输入手机号码&quot;);</span><br><span class="line">    return false;</span><br><span class="line">  &#125;</span><br><span class="line">  // 倒计时60秒</span><br><span class="line">  const TIME_COUNT = 10;</span><br><span class="line">  if (!this.timer) &#123;</span><br><span class="line">    this.count = TIME_COUNT;</span><br><span class="line">    this.getCode = true;</span><br><span class="line">    this.timer = setInterval(() =&gt; &#123;</span><br><span class="line">      if (this.count &gt; 0 &amp;&amp; this.count &lt;= TIME_COUNT) &#123;</span><br><span class="line">        this.count --;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        this.getCode = false;</span><br><span class="line">        clearInterval(this.timer);</span><br><span class="line">        this.timer = null;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">  &#125;</span><br><span class="line">  axios.get(api.get_inforcode + &quot;?ustelphone=&quot; + this.ustelphone).then(res =&gt; &#123;</span><br><span class="line">    Toast(res.data.message);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3-css-部分"><a class="header-anchor" href="#3-css-部分">¶</a>3、CSS 部分</h4>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/code-setInterval/5.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/code-setInterval/5.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.m-get-code&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  padding: 4px 15px;</span><br><span class="line">  border-radius: 10px;</span><br><span class="line">  background-color: #CCCCCC;</span><br><span class="line">  color: #fff;</span><br><span class="line">  box-shadow:0 3px 6px rgba(0,0,0,0.16);</span><br><span class="line">  font-size: 21px;</span><br><span class="line">  line-height: 40px;</span><br><span class="line">  &amp;.active&#123;</span><br><span class="line">    background-color: @mainColor;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -1390,7 +1390,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1412,7 +1412,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

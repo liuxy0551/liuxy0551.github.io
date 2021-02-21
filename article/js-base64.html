@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近公司项目中需要解密一下后端同学经过 Base64 加密的分享 id，顺便记录一下加密的写法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-base64/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-base64/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-base64/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-base64/2.png">
 <meta property="og:updated_time" content="2019-04-01T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 实现 Base64 的加密和解密">
 <meta name="twitter:description" content="最近公司项目中需要解密一下后端同学经过 Base64 加密的分享 id，顺便记录一下加密的写法。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/js-base64/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-base64/1.png">
 
 
 
@@ -693,10 +693,10 @@ window.onload = function() {
         <p>      最近公司项目中需要解密一下后端同学经过 Base64 加密的分享 id，顺便记录一下加密的写法。</p>
 <a id="more"></a>
 <h3 id="一-base64-的加密"><a class="header-anchor" href="#一-base64-的加密">¶</a>一、Base64 的加密</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-base64/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-base64/1.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// base64的加密</span><br><span class="line">b64EncodeUnicode(str) &#123;</span><br><span class="line">  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]&#123;2&#125;)/g, function(match, p1) &#123;</span><br><span class="line">    return String.fromCharCode(&apos;0x&apos; + p1);</span><br><span class="line">  &#125;))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(this.b64EncodeUnicode(&apos;base64的加密解密&apos;))         // YmFzZTY055qE5Yqg5a+G6Kej5a+G</span><br></pre></td></tr></table></figure>
 <h3 id="二-base64-的解密"><a class="header-anchor" href="#二-base64-的解密">¶</a>二、Base64 的解密</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-base64/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-base64/2.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// base64的解密</span><br><span class="line">b64DecodeUnicode(str) &#123;</span><br><span class="line">  return decodeURIComponent(atob(str).split(&apos;&apos;).map(function(c) &#123;</span><br><span class="line">    return &apos;%&apos; + (&apos;00&apos; + c.charCodeAt(0).toString(16)).slice(-2);</span><br><span class="line">  &#125;).join(&apos;&apos;));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(this.b64DecodeUnicode(&apos;YmFzZTY055qE5Yqg5a+G6Kej5a+G&apos;))     // base64的加密解密</span><br></pre></td></tr></table></figure>
 
       
@@ -1386,7 +1386,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1408,7 +1408,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

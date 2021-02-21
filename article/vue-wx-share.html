@@ -148,18 +148,18 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近公司项目中有在微信中自定义分享的需要，遇到的问题记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/5.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/6.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/7.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/6.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/7.png">
 <meta property="og:updated_time" content="2018-12-18T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 项目实现微信自定义分享">
 <meta name="twitter:description" content="最近公司项目中有在微信中自定义分享的需要，遇到的问题记录一下。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/3.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/3.png">
 
 
 
@@ -691,7 +691,7 @@ window.onload = function() {
         <p>      最近公司项目中有在微信中自定义分享的需要，遇到的问题记录一下。</p>
 <a id="more"></a>
 <h3 id="一-实现效果"><a class="header-anchor" href="#一-实现效果">¶</a>一、实现效果</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/3.png" alt></p>
 <h3 id="二-遇到的问题"><a class="header-anchor" href="#二-遇到的问题">¶</a>二、遇到的问题</h3>
 <p>      1、需求：项目需要带参分享，进行好友拆礼盒的类似操作，需要带个参与活动的 id，其实这种分享微信是不太赞成的，这里不论。<br>
 　　2、问题 1：项目本身引入的 js-sdk 是 1.3.3 版本，与微信目前推荐的 1.4.0 版本还有版本差距。<br>
@@ -700,22 +700,22 @@ window.onload = function() {
 <p>      其实如果早知道第二条第 3 小条的话，也许我就不需要花费很多时间在这个自定义链接上。<br>
 　　1、微信分享中的配置微信 js-sdk，自行查阅 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115" target="_blank" rel="noopener">微信 JS-SDK 说明文档</a>。<br>
 　　2、因为项目有多处需要自定义分享，所以我将请求签名和注入权限的方法写到了一个 js 文件中，同时在需要自定义分享的页面加载时调用这些方法。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/4.png" alt><br>
-<img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/5.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/4.png" alt><br>
+<img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/5.png" alt></p>
 <p>3、像下图这种基本就是没有完成页面的签名及授权验证，按照微信文档接收后端同学返回的数据即可。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/1.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">wxRegister(link) &#123;</span><br><span class="line">  let params = &#123;</span><br><span class="line">    url: link,</span><br><span class="line">    app_from: window.location.origin.substr(8, window.location.origin.length)</span><br><span class="line">  &#125;;</span><br><span class="line">  axios.get(api.get_wxconfig, &#123; params: params &#125;).then((res) =&gt; &#123;</span><br><span class="line">    if(res.data.status == 200) &#123;</span><br><span class="line">      wx.config(&#123;</span><br><span class="line">        debug: false,</span><br><span class="line">        appId: res.data.data.appId,</span><br><span class="line">        timestamp: Number(res.data.data.timestamp),</span><br><span class="line">        nonceStr: res.data.data.noncestr,</span><br><span class="line">        signature: res.data.data.sign,</span><br><span class="line">        jsApiList: [&apos;updateAppMessageShareData&apos;, &apos;updateTimelineShareData&apos;, &apos;onMenuShareAppMessage&apos;, &apos;onMenuShareTimeline&apos;,</span><br><span class="line">          &apos;previewImage&apos;]</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).catch((error) =&gt; &#123;</span><br><span class="line">    console.log(error)</span><br><span class="line">  &#125;);</span><br><span class="line">  // 需在用户可能点击分享按钮前就先调用</span><br><span class="line">  wx.ready(function() &#123;</span><br><span class="line">    // 获取微信分享参数</span><br><span class="line">    axios.get(api.get_share_params).then(res =&gt; &#123;</span><br><span class="line">      if(res.data.status == 200) &#123;</span><br><span class="line">        let params = res.data.data;</span><br><span class="line">        // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）</span><br><span class="line">        if(wx.updateAppMessageShareData) &#123;</span><br><span class="line">          wx.updateAppMessageShareData(&#123;</span><br><span class="line">            title: params.title, // 分享标题</span><br><span class="line">            desc: params.content, // 分享描述</span><br><span class="line">            link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line">            imgUrl: params.img, // 分享图标</span><br><span class="line">            success: function () &#123;</span><br><span class="line">              // 设置成功</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）</span><br><span class="line">        if(wx.updateTimelineShareData) &#123;</span><br><span class="line">          wx.updateTimelineShareData(&#123;</span><br><span class="line">            title: params.title, // 分享标题</span><br><span class="line">            link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line">            imgUrl: params.img, // 分享图标</span><br><span class="line">            success: function () &#123;</span><br><span class="line">              // 设置成功</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>4、像下图这种就是困扰我的问题，分享出去的内容除了最关键的自定义链接，其余都正常，这是很伤心的一件事，也是这篇随笔的来源。解决这个问题需要知道这样的信息，<br>
 微信公众号中的项目在请求签名和自定义分享链接的时候对于 Vue 的 # 路由不太友好，因为分享出去的自定义链接在 # 之后会被微信去除，了解这点后，我们就可以来着手解决问题了。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/2.png" alt><br>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/2.png" alt><br>
 <br></p>
 <p>5、点击页面中的分享按钮，这个时候将需要分享出去的自定义内容准备好，按照微信文档的格式写就可以。建议在调用微信分享方法前判断是否可用，因为这几个分享接口都是即将废弃的，<br>
 下图中白色字体代码是因为当前没有引入 1.4.0 版本的 js 文件。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/6.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/6.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// 点击分享</span><br><span class="line">share () &#123;</span><br><span class="line">  let options = &#123;</span><br><span class="line">    title: &apos;魔法礼盒&apos;,</span><br><span class="line">    desc: &apos;快来帮您的好友拆开魔法礼盒吧&apos;,</span><br><span class="line">    imgUrl: this.box.prpic</span><br><span class="line">  &#125;;</span><br><span class="line">  // 参与魔盒活动(获取分享所需的url参数) - 拿mbjid</span><br><span class="line">  axios.post(api.join_magicbox + &apos;?token=&apos;+ localStorage.getItem(&apos;token&apos;), &#123; mbaid: this.mbaid &#125;).then(res =&gt; &#123;</span><br><span class="line">    if(res.data.status == 200) &#123;</span><br><span class="line">      localStorage.setItem(&apos;mbjid&apos;, res.data.data.mbjid);</span><br><span class="line">      options.link = window.location.href.split(&apos;#&apos;)[0] + &apos;?mbjid=&apos; + localStorage.getItem(&apos;mbjid&apos;);</span><br><span class="line">      // options.link = window.location.origin + &apos;/#/pandora?mbjid=&apos; + localStorage.getItem(&apos;mbjid&apos;);</span><br><span class="line"></span><br><span class="line">      // 点击分享</span><br><span class="line">      this.show_invite = true;</span><br><span class="line">      // 倒计时</span><br><span class="line">      const TIME_COUNT = 3;</span><br><span class="line">      let count = TIME_COUNT;</span><br><span class="line">      let time = setInterval(() =&gt; &#123;</span><br><span class="line">        if (count &gt; 0 &amp;&amp; count &lt;= TIME_COUNT) &#123;</span><br><span class="line">          count --;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          this.show_invite = false;</span><br><span class="line">          clearInterval(time);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, 1000);</span><br><span class="line">      axios.get(api.secret_usid + &apos;?token=&apos; + localStorage.getItem(&apos;token&apos;)).then(res =&gt; &#123;</span><br><span class="line">        if(res.data.status == 200) &#123;</span><br><span class="line">          options.link += &apos;&amp;secret_usid=&apos; + res.data.data.secret_usid;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容（1.4.0）</span><br><span class="line">      if(wx.updateAppMessageShareData) &#123;</span><br><span class="line">        wx.updateAppMessageShareData(options);</span><br><span class="line">      &#125;</span><br><span class="line">      // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）</span><br><span class="line">      if(wx.updateTimelineShareData) &#123;</span><br><span class="line">        wx.updateTimelineShareData(options);</span><br><span class="line">      &#125;</span><br><span class="line">      // 获取“分享给朋友”按钮点击状态及自定义分享内容接口（即将废弃）</span><br><span class="line">      if(wx.onMenuShareAppMessage) &#123;</span><br><span class="line">        wx.onMenuShareAppMessage(options);</span><br><span class="line">      &#125;</span><br><span class="line">      // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口（即将废弃）</span><br><span class="line">      if(wx.onMenuShareTimeline) &#123;</span><br><span class="line">        wx.onMenuShareTimeline(options);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>6、看上面的代码就能看出，我的思路是微信处理 # ，我就避开 # ，将需要分享的参数直接附在 # 之前，我的后端同学在以为是签名 url 出错时，给过替换 # 的提议，都是大同小异的方法。<br>
 然后在 APP.vue 文件的初始化方法中查看点击分享到底是跳到什么 url 去了，建议使用 alert，因为 vconsoel 打印过后如果页面重定向后，就看不到打印的信息了。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-wx-share/7.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wx-share/7.png" alt></p>
 <p>7、同时分享出去的自定义链接还会被微信加上一些识别流量来源的参数，但是这些参数并不会影响页面的重定向。可是为防止这些参数在分享出去后，在接收处理数据时乱入，故将其直接去除，使用 split。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?from=singlemessage</span><br><span class="line">?from=timeline</span><br><span class="line">?from=groupmessage</span><br></pre></td></tr></table></figure>
 
@@ -1406,7 +1406,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1428,7 +1428,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

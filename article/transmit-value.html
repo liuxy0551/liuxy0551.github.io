@@ -148,17 +148,17 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近公司的一个项目中使用 Vue 2.0 + element UI 实现一个后台管理系统的前端部分，属于商城类型。其中我负责的部分有一项需要跳转页面，由于跳转前的页面是多个组件构成的，所以在跳转页面的时候，并不适合用传统的 href，于是使用路由进行传值。在这里分享一下开发的过程。 如何引入路由，可查看官方文档：https://router.vuejs.org/zh/installation.ht">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/5.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/6.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/6.png">
 <meta property="og:updated_time" content="2018-07-27T18:29:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 编程之路（二）——跳转页面传值">
 <meta name="twitter:description" content="最近公司的一个项目中使用 Vue 2.0 + element UI 实现一个后台管理系统的前端部分，属于商城类型。其中我负责的部分有一项需要跳转页面，由于跳转前的页面是多个组件构成的，所以在跳转页面的时候，并不适合用传统的 href，于是使用路由进行传值。在这里分享一下开发的过程。 如何引入路由，可查看官方文档：https://router.vuejs.org/zh/installation.ht">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/transmit-value/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/1.png">
 
 
 
@@ -691,17 +691,17 @@ window.onload = function() {
 如何引入路由，可查看官方文档：<a href="https://router.vuejs.org/zh/installation.html" target="_blank" rel="noopener">https://router.vuejs.org/zh/installation.html</a>，也可自行搜索。</p>
 <a id="more"></a>
 <h3 id="一-我采用的实现方法"><a class="header-anchor" href="#一-我采用的实现方法">¶</a>一、我采用的实现方法</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/1.png" alt></p>
 <p>上图，跳转前的页面。给每一行的按钮绑定点击事件，并将每一行的数据携带上。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/2.png" alt></p>
 <p>上图，按钮的点击事件。首先创建 props ，然后在 props 中创建对应的属性名，之后即可在 template 中使用接收到的对象。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/3.png" alt></p>
 <p>上图，跳转前的页面所对应的响应事件。其中 path 所对应的 ‘/order/orderDetails’ 我已经在 src/router/index.js 中注册声明，如下图：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/4.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/4.png" alt></p>
 <p>上图，在 src/router/index.js 中注册声明。</p>
 <p>点击“订单详情”按钮后，页面跳转，此时的 URL 为：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/5.png" alt></p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/transmit-value/6.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/5.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/transmit-value/6.png" alt></p>
 <p>上图，接收页接收数据。此时刷新页面，数据依然存在，因为 URL 没有改变，接收页直接从 URL 截取参数去接口中拿数据，故刷新页面不会影响接收页的数据。可以看到，这边是把需要的参数写入 URL 了，然后在接收页接收数据：</p>
 <h3 id="二-介绍一下先前采用的方法"><a class="header-anchor" href="#二-介绍一下先前采用的方法">¶</a>二、介绍一下先前采用的方法</h3>
 <p>拿着整个订单对象用路由传，实际上能传成功，但是会在刷新页面后拿不到数据，观察 URL 发现显示的是 Object ，可能是刷新后解析问题导致拿不到数据。</p>
@@ -1410,7 +1410,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1432,7 +1432,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

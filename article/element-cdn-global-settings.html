@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近在写一个后台管理的项目，自己觉得按钮默认的尺寸比较大，遂加上了size=&amp;quot;small&amp;quot;，但是发现每个页面的按钮都需要加上才够统一、协调，想起了 Element 官方有推荐全局配置，改之。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/element-cdn-global-settings/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/element-cdn-global-settings/2.png">
 <meta property="og:updated_time" content="2020-08-06T13:17:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)">
 <meta name="twitter:description" content="最近在写一个后台管理的项目，自己觉得按钮默认的尺寸比较大，遂加上了size=&amp;quot;small&amp;quot;，但是发现每个页面的按钮都需要加上才够统一、协调，想起了 Element 官方有推荐全局配置，改之。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/element-cdn-global-settings/1.png">
 
 
 
@@ -695,10 +695,10 @@ window.onload = function() {
 <p>  以上是通过 npm 引入 Element 的写法，为提升加载速度，项目中大部分基本库都是通过 CDN 引入的，Element 亦然。那么<code>通过 CDN 引入 element-ui 时，如何改变其全局配置 (size, z-index)</code>呢，记录如下：</p>
 <h3 id="一-官方推荐-npm-安装法"><a class="header-anchor" href="#一-官方推荐-npm-安装法">¶</a>一、官方推荐（npm 安装法）</h3>
 <p>  size 的值有：medium、small、mini，默认值为空字符串，比 medium 大。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/element-cdn-global-settings/1.png" alt></p>
 <h3 id="二-编译源码-cdn-引入"><a class="header-anchor" href="#二-编译源码-cdn-引入">¶</a>二、编译源码，CDN 引入</h3>
 <p>  拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在<code>package.json</code>中查找如何编译出 js，注意<code>dist</code>命令。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/element-cdn-global-settings/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/element-cdn-global-settings/2.png" alt></p>
 <p>  在<code>/build/bin/build-entry.js</code>中将：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$ELEMENT = &#123;</span><br><span class="line">  size: opts.size || &apos;&apos;,</span><br><span class="line">  zIndex: opts.zIndex || 2000</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>改为</p>
@@ -1401,7 +1401,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1423,7 +1423,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

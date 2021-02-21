@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下在 Vue CLI 3 项目中单独引用 Lodash 函数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-lodash/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-lodash/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-lodash/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-lodash/2.png">
 <meta property="og:updated_time" content="2019-12-04T20:39:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端项目优化之旅（三）—— Lodash 单独引入函数">
 <meta name="twitter:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下在 Vue CLI 3 项目中单独引用 Lodash 函数。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-lodash/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-lodash/1.png">
 
 
 
@@ -698,11 +698,11 @@ window.onload = function() {
 <h3 id="二-完全引入-lodash"><a class="header-anchor" href="#二-完全引入-lodash">¶</a>二、完全引入 lodash</h3>
 <p>举例：拆分数组（生成二维数组）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">'lodash'</span></span><br><span class="line"></span><br><span class="line">_.chunk([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>], <span class="number">2</span>)</span><br><span class="line"><span class="comment">// =&gt; [['a', 'b'], ['c', 'd']]</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-lodash/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-lodash/1.png" alt></p>
 <h3 id="三-单独引入-lodash-推荐"><a class="header-anchor" href="#三-单独引入-lodash-推荐">¶</a>三、单独引入 lodash <code>推荐</code></h3>
 <p>举例：拆分数组（生成二维数组）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chunk <span class="keyword">from</span> <span class="string">'lodash/chunk'</span></span><br><span class="line"></span><br><span class="line">chunk([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>], <span class="number">2</span>)</span><br><span class="line"><span class="comment">// =&gt; [['a', 'b'], ['c', 'd']]</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-lodash/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-lodash/2.png" alt></p>
 <ul>
 <li>主要体现在 element 文件大小减少了约<code>550+ KB</code></li>
 </ul>
@@ -1397,7 +1397,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1419,7 +1419,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

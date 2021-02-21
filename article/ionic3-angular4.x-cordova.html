@@ -148,17 +148,17 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="在实习过程中因项目组需要，学习了一段时间的混合开发，工银系统新版APP的部分开发工作。主要是利用 Ionic 3 + AngularJS 4.x + Cordova 混合开发这个项目，做的是一些基本工作，记录一下。内容很多，学会的也很多，记录下来的是一些此时觉得比较常用的知识点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/5.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/6.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/6.png">
 <meta property="og:updated_time" content="2018-01-29T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ionic 3 + AngularJS 4.x + Cordova 混合开发项目小战">
 <meta name="twitter:description" content="在实习过程中因项目组需要，学习了一段时间的混合开发，工银系统新版APP的部分开发工作。主要是利用 Ionic 3 + AngularJS 4.x + Cordova 混合开发这个项目，做的是一些基本工作，记录一下。内容很多，学会的也很多，记录下来的是一些此时觉得比较常用的知识点。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/1.png">
 
 
 
@@ -726,21 +726,21 @@ window.onload = function() {
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic g page exam-online</span><br></pre></td></tr></table></figure></p>
 <h3 id="四-打包项目"><a class="header-anchor" href="#四-打包项目">¶</a>四、打包项目</h3>
 <p>这里只介绍我比较熟悉的 Android 打包，需要安装 Android SDK（可参考 <a href="https://liuxianyu.cn/article/AndroidIDE.html">轻松搞定 Android 开发环境的搭建</a> 中安装 Android SDK 的部分），我安装的是 Android 8.0.0（API 26），与下文中的 gradle 4.1 版本相对应。点此下载 <a href="https://pan.baidu.com/s/1uvbvk2UBmsDHBHFckjq1ag" target="_blank" rel="noopener">gradle-4.1-all.zip</a> 密码：<code>yt35</code>。将这个压缩包解压，添加 bin 文件夹路径至环境变量 Path。</p>
-<p><br><img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/1.png" alt></p>
+<p><br><img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/1.png" alt></p>
 <p>添加打包平台（Android）的命令：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova platform add android</span><br></pre></td></tr></table></figure></p>
 <p>修改 <code>E:\AppDemo\Ionic2\cplease\platforms\android\cordova\lib\builders\GradleBuilder.js</code> 中的第250行，将行末改为指向本地的 gradle-4.1-all.zip 文件，改为&quot;…/gradle-4.1-all.zip&quot;。</p>
 <br>
 打包成 apk 文件（生成一个 debug 包，无签名）的命令：
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android  --prod</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/2.png" alt><br>
-<img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/2.png" alt><br>
+<img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/3.png" alt></p>
 <p>打包成 apk 文件的命令（比上一个打包出来的占用空间大）：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android</span><br></pre></td></tr></table></figure></p>
 <p>打包后的文件位置（自行对应这个文件夹下的 apk 文件）：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\AppDemo\Ionic2\cplease\platforms\android\app\build\outputs\apk\debug</span><br></pre></td></tr></table></figure></p>
 <p>以下为部分真机测试时的截图</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/4.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/5.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/assets/posts/ionic3-angular4.x-cordova/6.png" alt></div></div><div class="group-picture-row"></div></div></div>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/4.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/5.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/ionic3-angular4.x-cordova/6.png" alt></div></div><div class="group-picture-row"></div></div></div>
 
       
     </div>
@@ -1426,7 +1426,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1448,7 +1448,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

@@ -148,13 +148,13 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue CLI 3 项目中如何让 Vant 自动按需引入组件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-vant-load-on-demand/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-vant-load-on-demand/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-vant-load-on-demand/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-vant-load-on-demand/2.png">
 <meta property="og:updated_time" content="2019-12-03T11:21:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端项目优化之旅（二）—— Vant 自动按需引入组件">
 <meta name="twitter:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue CLI 3 项目中如何让 Vant 自动按需引入组件。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/vue-cli3-vant-load-on-demand/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-vant-load-on-demand/1.png">
 
 
 
@@ -697,7 +697,7 @@ window.onload = function() {
 <h3 id="二-完整引入"><a class="header-anchor" href="#二-完整引入">¶</a>二、完整引入</h3>
 <p>  在 main.js 中写入以下内容：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vant <span class="keyword">from</span> <span class="string">'vant'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'vant/lib/index.css'</span></span><br><span class="line">Vue.use(Vant)</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-vant-load-on-demand/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-vant-load-on-demand/1.png" alt></p>
 <h3 id="三-自动按需引入组件推荐"><a class="header-anchor" href="#三-自动按需引入组件推荐">¶</a>三、自动按需引入组件<code>推荐</code></h3>
 <p>  1、<a href="https://github.com/ant-design/babel-plugin-import" target="_blank" rel="noopener">babel-plugin-import</a> 是一款 babel 插件，它能在编译的过程中将 import 写法自动转换为按需引入的方式。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i babel-plugin-import -D</span><br></pre></td></tr></table></figure>
@@ -709,7 +709,7 @@ window.onload = function() {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vant <span class="keyword">from</span> <span class="string">'./components/vant'</span></span><br><span class="line">Vue.use(vant)</span><br></pre></td></tr></table></figure>
 <p>  5、页面使用组件：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;van-button type=<span class="string">"default"</span>&gt;默认按钮&lt;<span class="regexp">/van-button&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/vue-cli3-vant-load-on-demand/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-cli3-vant-load-on-demand/2.png" alt></p>
 <ul>
 <li>主要体现在 vant 文件大小减少了约<code>384 KB</code></li>
 </ul>
@@ -1404,7 +1404,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1426,7 +1426,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

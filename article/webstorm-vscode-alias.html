@@ -148,12 +148,12 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="记录一下如何配置可以让 WebStorm 和 vscode 识别 Vue CLI 3 项目中的别名 alias @。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/webstorm-vscode-alias/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/webstorm-vscode-alias/1.png">
 <meta property="og:updated_time" content="2020-05-29T11:40:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebStorm、vscode 配置识别 vue 项目的别名 alias @">
 <meta name="twitter:description" content="记录一下如何配置可以让 WebStorm 和 vscode 识别 Vue CLI 3 项目中的别名 alias @。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/webstorm-vscode-alias/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/webstorm-vscode-alias/1.png">
 
 
 
@@ -689,7 +689,7 @@ window.onload = function() {
 <p>  可以在 WebStorm 的项目空间中添加一个<code>alias.config.js</code>文件，然后使用该文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/liuyi/Library/Preferences/WebStorm2019.3/alias.config.js</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 由于 Vue CLI 3 不再使用传统的 webpack 配置文件，故 WebStorm 无法识别别名</span></span><br><span class="line"><span class="comment"> * 本文件对项目无任何作用，仅作为 WebStorm 识别别名用</span></span><br><span class="line"><span class="comment"> * 进入 WebStorm preferences -&gt; Language &amp; Framework -&gt; JavaScript -&gt; Webpack，选择这个文件即可</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">const</span> resolve = <span class="function"><span class="params">dir</span> =&gt;</span> <span class="built_in">require</span>(<span class="string">'path'</span>).join(__dirname, dir)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">      <span class="string">'@'</span>: resolve(<span class="string">'src'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/webstorm-vscode-alias/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/webstorm-vscode-alias/1.png" alt></p>
 <h4 id="2-项目单独设置"><a class="header-anchor" href="#2-项目单独设置">¶</a>2、项目单独设置</h4>
 <p>  参考 <a href="https://juejin.im/post/5c9477ad6fb9a070ce31b050" target="_blank" rel="noopener">在 WebStorm 中，配置能够识别 Vue CLI 3 创建的项目的别名 alias @</a><br>
   进入 WebStorm -&gt; Preferences -&gt; Language &amp; Framework -&gt; JavaScript -&gt; Webpack，选择<code>项目目录\node_modules\@vue\cli-service\webpack.config.js</code>即可。</p>
@@ -1385,7 +1385,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1407,7 +1407,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

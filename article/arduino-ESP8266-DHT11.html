@@ -148,16 +148,16 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="在课程设计的学习过程中，有一个部分是使用 Arduino 平台，利用 ESP8266 传输 DHT11 的温湿度数据到网络调试助手，实验成功后便拿来分享了。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/1.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/4.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/5.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/2.jpg">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/3.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/1.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/4.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/5.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/2.jpg">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/3.jpg">
 <meta property="og:updated_time" content="2017-05-09T22:20:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arduino + ESP8266 + DHT11 传输数据到网络调试助手">
 <meta name="twitter:description" content="在课程设计的学习过程中，有一个部分是使用 Arduino 平台，利用 ESP8266 传输 DHT11 的温湿度数据到网络调试助手，实验成功后便拿来分享了。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/1.jpg">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/1.jpg">
 
 
 
@@ -704,18 +704,18 @@ window.onload = function() {
 <h3 id="一-电路连线"><a class="header-anchor" href="#一-电路连线">¶</a>一、电路连线</h3>
 <p>1、DHT11 和 Arduino：vcc 连 3.3V，DATA 连 A0，GND 连 GND；<br>
 　　2、ESP8266 和 Arduino：TX 连 0, RX 连 1, EN（CH_PD）和 3V3 连 3.3v, GND 连 GND。</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/1.jpg" alt></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/4.jpg" alt></div><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/5.jpg" alt></div></div></div></div>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/1.jpg" alt></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/4.jpg" alt></div><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/5.jpg" alt></div></div></div></div>
 <h3 id="二-编译上传代码"><a class="header-anchor" href="#二-编译上传代码">¶</a>二、编译上传代码</h3>
 <p>使用 Arduino IDE1.7.8 打开 ESP8266_DHT11.ino 文件，编译并上传到 Arduino 板子上。<br>
 <strong>注意</strong>：编译成功后拔掉 ESP8266 的 TX 和 RX 线（或 Arduino 上的 0 和 1 口），再上传，否则会报错：<strong>上传时占用输入输出口</strong>！上传成功后记得再连好。<br>
-<br><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/2.jpg" alt><br></p>
+<br><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/2.jpg" alt><br></p>
 <h3 id="三-数据传输"><a class="header-anchor" href="#三-数据传输">¶</a>三、数据传输</h3>
 <p>电脑连上 WiFi，再打开 USR-TCP232-Test-V1.3 串口转网络调试助手，本篇经验只使用右侧的网络调试助手。</p>
 <p>1、网络设置区域的协议类型选择“TCP Server”；本地 ip 地址栏通常会在连接上 WiFi 后打开软件时自动更新；<br>
 本地端口号为“8080”，可改。<br>
 　　2、设置好后点击“开始监听”按钮，重启 Arduino 板子，等待十秒以内网络调试助手连接对象区域会出现 ESP8266 的 IP，此时代表<br>
 已经连接上，等待网络数据接收区域显示内容后，在 DHT11 温湿度模块上哈几口气验证数据，数据正常变化实验即完成。<br>
-<br><img src="https://liuxy0551.gitee.io/assets/posts/arduino-ESP8266-DHT11/3.jpg" alt><br></p>
+<br><img src="https://liuxy0551.gitee.io/image-hosting/posts/arduino-ESP8266-DHT11/3.jpg" alt><br></p>
 <p>如果网盘链接挂了可以在百度文库下载或复制 <a href="https://wenku.baidu.com/view/ab3db226591b6bd97f192279168884868662b856" target="_blank" rel="noopener">Arduino + ESP8266 + DHT11 传输数据到网络调试助手</a> 文本文件，其余软件可自行百度下载。</p>
 <blockquote>
 <ul>
@@ -1408,7 +1408,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1430,7 +1430,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

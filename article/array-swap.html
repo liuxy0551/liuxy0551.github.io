@@ -148,12 +148,12 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="最近涉及到试卷出题的业务需求，其实去年3月份也做过类似的需求。在一套试卷中，题目需要可以上下移动位置，记录一下实现的原理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/array-swap/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/array-swap/1.png">
 <meta property="og:updated_time" content="2020-03-04T14:03:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 实现数组元素交换">
 <meta name="twitter:description" content="最近涉及到试卷出题的业务需求，其实去年3月份也做过类似的需求。在一套试卷中，题目需要可以上下移动位置，记录一下实现的原理。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/array-swap/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/array-swap/1.png">
 
 
 
@@ -678,7 +678,7 @@ window.onload = function() {
         <p>最近涉及到试卷出题的业务需求，其实去年3月份也做过类似的需求。在一套试卷中，题目需要可以上下移动位置，记录一下实现的原理。</p>
 <a id="more"></a>
 <h3 id="一-实现效果"><a class="header-anchor" href="#一-实现效果">¶</a>一、实现效果</h3>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/array-swap/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/array-swap/1.png" alt></p>
 <h3 id="二-实现原理"><a class="header-anchor" href="#二-实现原理">¶</a>二、实现原理</h3>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">swapArray (arr, index1, index2) &#123;</span><br><span class="line">  arr[index1] = arr.splice(index2, <span class="number">1</span>, arr[index1])[<span class="number">0</span>]</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 下移</span></span><br><span class="line">indexUp () &#123;</span><br><span class="line">  <span class="keyword">this</span>.swapArray(arr, index, index + <span class="number">1</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 上移</span></span><br><span class="line">indexDown () &#123;</span><br><span class="line">  <span class="keyword">this</span>.swapArray(arr, index, index - <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="http://my-vue.liuxianyu.cn/#/array" target="_blank" rel="noopener">在线 Demo</a></p>
@@ -1369,7 +1369,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1391,7 +1391,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

@@ -44,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/assets/posts/vue-mintui-address/pca-code.json</loc>
-    
-    <lastmod>2021-02-21T01:29:45.563Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/achives/index.html</loc>
     
     <lastmod>2021-02-21T01:29:44.690Z</lastmod>
@@ -240,14 +233,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
+    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
     
     <lastmod>2020-10-21T10:34:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
+    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
     
     <lastmod>2020-10-21T10:34:54.000Z</lastmod>
     
@@ -835,13 +828,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/js-object-string.html</loc>
-    
-    <lastmod>2019-11-07T10:53:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/article/vue-rsa.html</loc>
     
     <lastmod>2019-11-07T10:53:08.000Z</lastmod>
@@ -849,14 +835,21 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/hexo-server.html</loc>
+    <loc>https://liuxianyu.cn/article/js-object-string.html</loc>
+    
+    <lastmod>2019-11-07T10:53:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/article/cent-os-base.html</loc>
     
     <lastmod>2019-11-05T09:52:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/cent-os-base.html</loc>
+    <loc>https://liuxianyu.cn/article/hexo-server.html</loc>
     
     <lastmod>2019-11-05T09:52:45.000Z</lastmod>
     
@@ -989,7 +982,7 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
     
@@ -1003,7 +996,7 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
     
@@ -1080,14 +1073,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
+    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
+    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     

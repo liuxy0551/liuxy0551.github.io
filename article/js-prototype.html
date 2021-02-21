@@ -148,17 +148,17 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="这里做做原型和原型链的笔记。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/5.png">
 <meta property="og:updated_time" content="2020-10-21T10:34:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 中的原型和原型链">
 <meta name="twitter:description" content="这里做做原型和原型链的笔记。">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/5.png">
 
 
 
@@ -702,22 +702,22 @@ window.onload = function() {
 <p>  每个函数都有一个<code>prototype</code>属性，当这个函数作为构造函数的时候，实例化出来的函数(以下称实例)会有一个<code>__proto__</code>属性，这个<code>__proto__</code>属性指向构造函数的<code>prototype</code>。<br>
   实例通过<code>prototype</code>来访问其父元素的属性和方法，依次迭代访问构成原型链，直到 Object 原型的<code>prototype</code>为<code>null</code>，此时位于原型链的顶端。<br>
   每个实例原型都有一个<code>constructor</code>属性指向关联的构造函数。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/5.png" alt></p>
 <h3 id="一-构造函数创建对象"><a class="header-anchor" href="#一-构造函数创建对象">¶</a>一、构造函数创建对象</h3>
 <h4 id="1-prototype"><a class="header-anchor" href="#1-prototype">¶</a>1、prototype</h4>
 <p>每个函数都有一个 prototype 属性，如利用构造函数 Student 创建实例对象 stuA 和 stuB：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span> (<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">Student.prototype.name = <span class="string">'Simon'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stuA = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="keyword">let</span> stuB = <span class="keyword">new</span> Student()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(stuA.name) <span class="comment">// Simon</span></span><br><span class="line"><span class="built_in">console</span>.log(stuB.name) <span class="comment">// Simon</span></span><br></pre></td></tr></table></figure>
 <p>函数的 prototype 属性指向调用该构造函数而创建的实例的原型，也就是上述代码中 stuA 和 stuB 的原型，如下图：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/1.png" alt></p>
 <h4 id="2-proto"><a class="header-anchor" href="#2-proto">¶</a>2、<code>__proto__</code></h4>
 <p>这是每一个 JavaScript 对象（除 null）都具有的一个属性，这个属性会指向该对象的原型。验证：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span> (<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stu = <span class="keyword">new</span> Student()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(stu.__proto__ === Student.prototype) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>实例对象和构造函数都可以指向原型，如下图：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/2.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/2.png" alt></p>
 <h4 id="3-constructor"><a class="header-anchor" href="#3-constructor">¶</a>3、constructor</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span> (<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stu = <span class="keyword">new</span> Student()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Student === Student.prototype.constructor) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>每个原型都有一个 constructor 属性指向关联的构造函数，如下图所示构造函数、实例原型和实例之间的关系：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/3.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/3.png" alt></p>
 <blockquote>
 <p><strong>综上可以得出：</strong></p>
 </blockquote>
@@ -729,12 +729,12 @@ window.onload = function() {
 <h3 id="原型的原型"><a class="header-anchor" href="#原型的原型">¶</a>原型的原型</h3>
 <p>如果在 stu 的原型没有找到 name 属性的话，就会在 stu 的原型的原型上查找 name 属性，那原型的原型是什么呢？</p>
 <p>前面有提到原型也是对象，其实原型对象就是通过 Object 构造函数创建的，实例的 <strong>proto</strong> 指向构造函数的 prototype，如下图：</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/4.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/4.png" alt></p>
 <h3 id="原型链"><a class="header-anchor" href="#原型链">¶</a>原型链</h3>
 <p>那么 Object.prototype 的原型呢？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__) <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
 <p>Object.prototype 的原型是 null，即 Object.prototype 没有原型。意味着查找属性的时候查到 Object.prototype 就可以停止查找了。</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/js-prototype/5.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/js-prototype/5.png" alt></p>
 <p>上图中相互关联的原型组成的链状结构就是原型链，也就是上图中蓝色的线。</p>
 
       
@@ -1421,7 +1421,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1443,7 +1443,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

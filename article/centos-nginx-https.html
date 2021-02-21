@@ -148,16 +148,16 @@
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="免费的 SSL 证书可以通过阿里云获取，也可以通过以下操作安装。这里只记录使用 certbot 在 CentOS 中给 nginx 配置 https：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/1.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/2.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/3.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/4.png">
-<meta property="og:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/5.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/1.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/2.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/3.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/4.png">
+<meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/5.png">
 <meta property="og:updated_time" content="2019-11-15T17:08:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 certbot 在 Cent OS 中给 nginx 配置 https">
 <meta name="twitter:description" content="免费的 SSL 证书可以通过阿里云获取，也可以通过以下操作安装。这里只记录使用 certbot 在 CentOS 中给 nginx 配置 https：">
-<meta name="twitter:image" content="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/1.png">
+<meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/1.png">
 
 
 
@@ -689,7 +689,7 @@ window.onload = function() {
         <p>免费的 SSL 证书可以通过阿里云获取，也可以通过以下操作安装。这里只记录使用 certbot 在 CentOS 中给 nginx 配置 https：</p>
 <a id="more"></a>
 <p>先去 Certbot 官网 <a href="https://certbot.eff.org/" target="_blank" rel="noopener">https://certbot.eff.org/</a>，选择 nginx ，再选择 CentOS/RHEL 7，意思是在什么系统上使用什么 HTTP 服务器</p>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/1.png" alt></p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/1.png" alt></p>
 <h4 id="1-查看服务器实例"><a class="header-anchor" href="#1-查看服务器实例">¶</a>1、查看服务器实例</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /sys/devices/virtual/dmi/id/product_uuid</span><br></pre></td></tr></table></figure>
 <p>如果没有 dmi 文件夹，就进行安装：</p>
@@ -700,9 +700,9 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y certbot python2-certbot-nginx</span><br></pre></td></tr></table></figure>
 <h4 id="3-获取并安装-ssl-证书"><a class="header-anchor" href="#3-获取并安装-ssl-证书">¶</a>3、获取并安装 SSL 证书</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/2.png" alt>报错如上，参考资料：<a href="https://stackoverflow.com/questions/46168364/certbot-importerror-no-module-named-requests-packages-urllib3" target="_blank" rel="noopener">Certbot :ImportError: No module named 'requests.packages.urllib3</a>，执行以下指令：</p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/2.png" alt>报错如上，参考资料：<a href="https://stackoverflow.com/questions/46168364/certbot-importerror-no-module-named-requests-packages-urllib3" target="_blank" rel="noopener">Certbot :ImportError: No module named 'requests.packages.urllib3</a>，执行以下指令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install --upgrade --force-reinstall 'requests==2.6.0' urllib3</span><br></pre></td></tr></table></figure>
-<p><img src="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/3.png" alt>提示输入以下指令升级<code>pip</code>，可以不搭理。</p>
+<p><img src="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/3.png" alt>提示输入以下指令升级<code>pip</code>，可以不搭理。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install --upgrade pip</span><br></pre></td></tr></table></figure>
 <p>接下来重新运行<code>sudo certbot --nginx</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
@@ -712,7 +712,7 @@ window.onload = function() {
 　　- 输入 N，邮箱接收相关推广邮件，不需要<br>
 　　- 输入数字，选择部署的域名，多个域名用<code>,</code>隔开<br>
 　　- 输入数字，选择是否将 http 重定向到 https。1、无需重定向，2、重定向<br>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/4.png" alt></div><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/assets/posts/centos-nginx-https/5.png" alt></div></div></div></div></p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/4.png" alt></div><div class="group-picture-column" style="width: 50%;"><img src="https://liuxy0551.gitee.io/image-hosting/posts/centos-nginx-https/5.png" alt></div></div></div></div></p>
 <h4 id="4-确定-certbot-正常运行"><a class="header-anchor" href="#4-确定-certbot-正常运行">¶</a>4、确定 Certbot 正常运行</h4>
 <p>在浏览器输入域名，在 URL 栏确认是否有 🔒 图标</p>
 <h4 id="5-设置自动续订"><a class="header-anchor" href="#5-设置自动续订">¶</a>5、设置自动续订</h4>
@@ -1410,7 +1410,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共74.9k字</span>
+  <span class="post-count">博客全站共75k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
@@ -1432,7 +1432,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxy0551.gitee.io/assets/comment-bg.png);
+        background-image: url(https://liuxy0551.gitee.io/image-hosting/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;
