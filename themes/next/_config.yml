@@ -1089,19 +1089,13 @@ daovoice_app_id: f6120c87 #我们注册获取的id
 mylinks:
   - nickname: wuyuedefeng  #友链名称
     avatar: https://wuyuedefeng.github.io/images/avatar.png  #友链头像
-    site: https://blogs.zezeping.com  #友链地址
+    site: https://github.com/wuyuedefeng/blogs/issues  #友链地址
     info: 不积跬步无以至千里  #友链说明
 
   - nickname: 青果先生  #友链名称
     avatar: https://wugenqiang.gitee.io/images/fighting_wugenqiang.jpg  #友链头像
-    # site: https://blog.enjoytoshare.club  #友链地址
     site: https://wugenqiang.gitee.io  #友链地址
     info: Sometimes your whole life boils down to one insame move.  #友链说明
-
-  - nickname: wuyuedefeng  #友链名称
-    avatar: https://wuyuedefeng.github.io/images/avatar.png  #友链头像
-    site: https://wuyuedefeng.github.io  #友链地址
-    info: 不积跬步无以至千里  #友链说明
 
 # Hide single post
 hide:

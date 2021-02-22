@@ -106,4 +106,4 @@ rm -rf .git/modules/src
 ### 五、参考资料
 
 1、[Git Submodule使用完整教程](https://www.cnblogs.com/lsgxeva/p/8540758.html)
-2、[git submodules学习笔记](https://blogs.zezeping.com/#/Blog/BlogDetail/48)
+2、[git submodules学习笔记](https://github.com/wuyuedefeng/blogs/issues/48)

@@ -108,7 +108,7 @@ nginx -s reload
 　　1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的`include`指向。
 ![](https://liuxy0551.gitee.io/image-hosting/posts/cent-os-base/1.png)
 
-　　2、在`/etc/nginx/conf.d`文件夹下创建配置文件，以`.conf`结尾，配置内容可以参考百度或 [Nginx - Vue单页面应用配置](https://blogs.zezeping.com/#/Blog/BlogDetail/16)
+　　2、在`/etc/nginx/conf.d`文件夹下创建配置文件，以`.conf`结尾，配置内容可以参考百度或 [Nginx - Vue单页面应用配置(Vue部署)](https://github.com/wuyuedefeng/blogs/issues/16)
 ```shell
 vim /etc/nginx/conf.d/hexo-blog.conf
 ```
