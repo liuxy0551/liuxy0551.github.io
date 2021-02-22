@@ -2084,7 +2084,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #5dcb3b;
+  background: #ff45dd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3516,6 +3516,11 @@ pre {
 .vpower,
 .txt-right {
   display: none;
+}
+.vbtn {
+  color: #66b1ff !important;
+  border-color: #66b1ff !important;
+  font-size: 0.9rem !important;
 }
 .vnick,
 .vmail,
