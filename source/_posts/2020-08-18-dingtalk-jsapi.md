@@ -175,3 +175,11 @@ mounted () {
   this.DingTalk.getJsApiTicket() // 钉钉鉴权
 }
 ```
+
+#### 4、判断是否是钉钉环境
+
+```
+import * as dd from 'dingtalk-jsapi'
+...
+console.log(dd.env.platform === 'notInDingTalk')
+```
