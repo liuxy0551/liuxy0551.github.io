@@ -6,7 +6,7 @@ tags:
   - Sequelize
 categories:
   - node
-  - Sequelize1
+  - Sequelize
 author: liuxy0551
 copyright: true
 date: 2020-12-17 09:52:01
