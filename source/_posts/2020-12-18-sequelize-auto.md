@@ -13,7 +13,7 @@ date: 2020-12-18 11:43:31
 updated: 2020-12-18 11:43:31
 ---
 
-&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize，建好表后可以使用`sequelize-auto`自动生成每个表对应的 Model。
+&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize V6，建好表后可以使用`sequelize-auto`自动生成每个表对应的 Model。
 
 <!--more-->
 

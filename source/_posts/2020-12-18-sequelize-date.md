@@ -13,7 +13,7 @@ date: 2020-12-18 14:58:33
 updated: 2020-12-18 14:58:33
 ---
 
-&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 sequelize，查询时返回的时间格式是`2020-12-18T09:11:12.668Z`，希望得到的是`YYYY-MM-dd HH:mm:ss`，记录一下处理过程。
+&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize V6，查询时返回的时间格式是`2020-12-18T09:11:12.668Z`，希望得到的是`YYYY-MM-dd HH:mm:ss`，记录一下处理过程。
 
 <!--more-->
 

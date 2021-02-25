@@ -13,7 +13,7 @@ date: 2020-12-17 09:52:01
 updated: 2020-12-17 09:52:01
 ---
 
-&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize，记录一下相关知识点。
+&emsp;&emsp;最近 koa2 项目中用到的 ORM 是 Sequelize V6，记录一下相关知识点。
 
 <!--more-->
 
