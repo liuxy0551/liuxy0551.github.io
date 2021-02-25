@@ -8,7 +8,7 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2021-02-01 12:00:39
-updated: 2021-02-01 12:00:39
+updated: 2021-02-01 12:00:38
 ---
 
 &emsp;&emsp;博客的图片等媒体资源经历了几次波折，这次记录下用 Gitee 搭建图床存储博客图片等媒体资源，不借助 PicGo 是因为 Gitee 仓库中超过 1M 的图片需要登录后才能查看，对访客很不友好。
