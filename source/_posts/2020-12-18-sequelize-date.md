@@ -19,6 +19,8 @@ updated: 2020-12-18 14:58:33
 
 
 ``` javascript
+const sequelize = require('sequelize')
+
 const userInfo = await db.User.findOne({
   where,
   attributes: {
