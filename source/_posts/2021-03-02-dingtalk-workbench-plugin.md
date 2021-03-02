@@ -63,11 +63,11 @@ Component({
       // 请求接口 - 获取新闻列表
       const { data } = await getSdk().request(props.getBanners, {}, {
         // sdk.request的第三个参数，输入注册数据源的信息
-        url: 'http://www.chinaztg.com/api/firstpage.ashx',
-        apiKey: 'ZJLV_BANNERS',
+        url: 'http://xxxxxxx.com/api/v1/xxxx',
+        apiKey: 'XXXXXX_BANNERS',
         httpMethod: 'GET',
         params: '',
-        apiSecret: 'ZJLV_BANNERS',
+        apiSecret: 'XXXXXX_BANNERS',
         system: {
           userid: 'xxxx',
           corpId: 'xxxx'
