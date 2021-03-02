@@ -37,7 +37,6 @@ updated: 2021-03-02 18:22:43
 #### 2、在自定义组件中使用数据源
 
 &emsp;&emsp;先查阅官方文档：<a href="https://developers.dingtalk.com/document/dashboard/lw6y3w" target="_black">SDK -> 发送请求</a>
-
 &emsp;&emsp;`/plugin/components/sy-swiper/index.js`：
 
 ```javascript
