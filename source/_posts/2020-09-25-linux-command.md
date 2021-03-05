@@ -65,8 +65,9 @@ cp start.sh ../markdown-server/
 ```
 
 
-#### 6、mv - 移动文件
+#### 6、mv - 移动文件、重命名
 
 ```
 mv start.sh ../markdown-server/
+mv start.sh new-start.sh
 ```
