@@ -149,11 +149,36 @@ console.log(b)  // { name: 'old', info: { sex: 1, height: 170 }}
 - new Date() 的转换结果不正确，可以考虑转换成字符串或者时间戳再深拷贝
 - 不能处理正则
 
-#### 2、jQuery.extend()
+#### 2、递归写法
+
+- 基础类型
+- 引用类型
+  &emsp;&emsp;RegExp、Date、函数 不是 JSON 安全的
+  &emsp;&emsp;会丢失 constructor，所有的构造函数都指向 Object
+  &emsp;&emsp;破解循环引用
+  
+```javascript
+function deepCopy (obj) {
+  let result
+  if (typeof obj === 'object') {
+    result = obj.constructor === Array ? [] : {}
+    
+    for (var i in obj) {
+      result[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i]
+    }
+  } else {
+    result = obj
+  }
+  
+  return result
+}
+```
+
+#### 3、jQuery.extend()
 
 [中文文档](http://jquery.cuishifeng.cn/jQuery.extend.html)、[英文文档](https://api.jquery.com/jQuery.extend/)
 
-#### 3、lodash.cloneDeep()
+#### 4、lodash.cloneDeep()
 
 [lodash.cloneDeep()](https://www.lodashjs.com/docs/lodash.cloneDeep)
 

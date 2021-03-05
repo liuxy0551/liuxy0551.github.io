@@ -9,8 +9,8 @@ categories:
   - WebStorm
 author: liuxy0551
 copyright: true
-date: 2021-03-02 10:18:36
-updated: 2021-03-02 10:18:36
+date: 2021-03-02 10:18:35
+updated: 2021-03-02 10:18:35
 ---
 
 &emsp;&emsp;平常使用 WebStorm 比较多，使用中偶尔会变更一下设置或者代码片段等，公司电脑和家里电脑会有些不同步，导出配置文件再导入有些不够高效（懒）。这个功能主要依赖`Preferences -> Tools -> Settings Repository`。
