@@ -85,7 +85,6 @@ updated: 2021-03-07 20:46:03
   transform: translateY(0);
 }
 
-
 .qrcode-box {
   /*display: none;*/
   opacity: 0;
@@ -93,7 +92,6 @@ updated: 2021-03-07 20:46:03
   transform: translateY(50%);
 }
 ```
-
 
 >**注意**
 >* **如果按钮、二维码有一个相同的父元素，.father:hover .qrcode-box { display: block; } 就可以实现类似的效果了。**
