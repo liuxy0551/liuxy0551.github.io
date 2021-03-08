@@ -10,7 +10,7 @@ categories:
 author: liuxy0551
 copyright: true
 date: 2021-03-07 20:46:03
-updated: 2021-03-07 20:46:03
+updated: 2021-03-08 10:39:03
 ---
 
 &emsp;&emsp;最近在项目有个鼠标移到按钮上旁边显示二维码的需求，简化理解为`某个元素 hover 时显示另一个元素`，记录下解决方法。
@@ -76,20 +76,45 @@ updated: 2021-03-07 20:46:03
 
 #### 添加动画
 
-&emsp;&emsp;按如下代码更换：
+&emsp;&emsp;按如下代码添加 CSS3 animation 动画，`推荐写法`：
 
 ```css
-&:hover .qrcode-box {
-  /*display: block;*/
-  opacity: 1;
-  transform: translateY(0);
+.bottom-btn {
+  &:hover .qrcode-box {
+     display: block;
+     animation: fade-in 0.5s linear forwards;
+   }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .qrcode-box {
+    display: none;
+  }
 }
+```
 
-.qrcode-box {
-  /*display: none;*/
-  opacity: 0;
-  transition: all 0.4s;
-  transform: translateY(50%);
+&emsp;&emsp;以下代码是参考资料中的写法，会使得 bottom-btn 元素变得较大，鼠标滑过二维码隐藏时的区域也会使二维码显现，不符合逻辑，`瑕疵示范`：
+
+```css
+.bottom-btn {
+  &:hover .qrcode-box {
+     /*display: block;*/
+     opacity: 1;
+     transform: translateY(0);
+   }
+  
+  .qrcode-box {
+    /*display: none;*/
+    opacity: 0;
+    transition: all 0.4s;
+    transform: translateY(50%);
+  }
 }
 ```
 
