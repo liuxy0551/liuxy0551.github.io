@@ -58,10 +58,11 @@ tailf -100 pm2/logs/pm2-out.log
 ```
 
 
-#### 5、cp - 复制文件
+#### 5、cp - 复制文件、目录
 
 ```
 cp start.sh ../markdown-server/
+cp -r node_modules ../markdown-server/
 ```
 
 
