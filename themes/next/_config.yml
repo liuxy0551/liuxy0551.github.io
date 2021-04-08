@@ -1099,7 +1099,7 @@ mylinks:
 
   - nickname: 刘洋博客  #友链名称
     avatar: https://www.itliuyang.com/_nuxt/img/head.2e6b70e.jpg  #友链头像
-    site: https://www.itliuyang.com/  #友链地址
+    site: https://www.itliuyang.com  #友链地址
     info: 越努力越幸运  #友链说明
 
 # Hide single post
