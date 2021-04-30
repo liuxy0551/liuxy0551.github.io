@@ -12,7 +12,7 @@ updated: 2018-10-27 20:29:30
 ---
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近抽空把以前在 VMware 中安装 MacOS 的过程回忆了一下，同时在自己电脑上再次安装了一遍，记录一下，随笔图片较多。
+&emsp;&emsp;最近抽空把以前在 VMware 中安装 MacOS 的过程回忆了一下，同时在自己电脑上再次安装了一遍，记录一下，随笔图片较多。
 <!--more-->
 
 
@@ -89,7 +89,7 @@ Windows 系统、VMware、unlocker（使得 VMware 可以识别到 MacOS）、Ma
 
 ### 3、安装 VMware Tools
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VMware 中安装 VMware Tools 后，可支持自由拖拽的功能，鼠标也可以在虚拟机与主机之前自由移动（不用再按 Ctrl + Alt），且虚拟机屏幕也可以全屏了，好处多多。
+&emsp;&emsp;VMware 中安装 VMware Tools 后，可支持自由拖拽的功能，鼠标也可以在虚拟机与主机之前自由移动（不用再按 Ctrl + Alt），且虚拟机屏幕也可以全屏了，好处多多。
 
 {% gp 8-4 %}
 ![](https://liuxy0551.gitee.io/image-hosting/posts/vmware-macos/21.png)

@@ -13,7 +13,7 @@ updated: 2020-06-18 10:46:52
 ---
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下`github Fork 的代码如何更新并新建 pull request`：
+&emsp;&emsp;git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下`github Fork 的代码如何更新并新建 pull request`：
 <!--more-->
 
 ### 1、拉取 Fork 后的代码
@@ -26,7 +26,7 @@ git clone https://github.com/liuxy0551/vue-base-structrue.git
 ``` shell
 git remote add author https://github.com/vue-quick-framework/vue-base-structrue.git
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;此时可以使用`git remote -v`查看远程仓库信息：
+&emsp;&emsp;此时可以使用`git remote -v`查看远程仓库信息：
 ![](https://liuxy0551.gitee.io/image-hosting/posts/git-order/2.png)
 
 
@@ -34,7 +34,7 @@ git remote add author https://github.com/vue-quick-framework/vue-base-structrue.
 ``` shell
 git fetch author
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;从原项目 fetch 来的内容，会被存储在本地分支`author/master`
+&emsp;&emsp;从原项目 fetch 来的内容，会被存储在本地分支`author/master`
 
 
 ### 4、合并`author/master`和`master`
@@ -50,4 +50,4 @@ git push origin master
 
 ### 6、新建 pull request
 
-&nbsp;&nbsp;&nbsp;&nbsp;在自己的项目中，点击`New pull request` -> `Create pull request`
+&emsp;&emsp;在自己的项目中，点击`New pull request` -> `Create pull request`

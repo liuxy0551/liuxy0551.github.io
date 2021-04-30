@@ -29,7 +29,7 @@ updated: 2018-11-19 20:29:30
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/data-time-picker/3.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;既然是选择出生日期，那可选日期当然需要做一些限制，粗略地处理为 1900-01-01 ~ 当前时间。注意到文档中的 startDate 和 endDate 可以控制起止时间，但是没有说明如何使用，源码中也没有例子。如果我们直接设置时间格式的字符串，如 `startDate: "1901-01-01"`，这样写是会报错的。
+&emsp;&emsp;既然是选择出生日期，那可选日期当然需要做一些限制，粗略地处理为 1900-01-01 ~ 当前时间。注意到文档中的 startDate 和 endDate 可以控制起止时间，但是没有说明如何使用，源码中也没有例子。如果我们直接设置时间格式的字符串，如 `startDate: "1901-01-01"`，这样写是会报错的。
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/data-time-picker/4.png)
 

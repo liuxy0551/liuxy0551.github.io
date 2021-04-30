@@ -16,7 +16,7 @@ updated: 2018-11-18 20:29:30
 <!--more-->
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 [Jekyll 中文文档](https://www.jekyll.com.cn/)，按照指令进行环境准备。
+&emsp;&emsp;电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 [Jekyll 中文文档](https://www.jekyll.com.cn/)，按照指令进行环境准备。
 ```
 $ gem install jekyll
 ```

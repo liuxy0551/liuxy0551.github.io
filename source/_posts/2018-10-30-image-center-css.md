@@ -13,7 +13,7 @@ updated: 2018-10-30 20:29:30
 ---
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。
+&emsp;&emsp;公司的一个商城项目中，需要实现商品详情页顶部图片非正方形时补白且居中，尝试了很多方法，实现后发现其实很简单，记录一下。
 <!--more-->
 
 
@@ -21,7 +21,7 @@ updated: 2018-10-30 20:29:30
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/image-center-css/1.gif)
 
-&nbsp;&nbsp;&nbsp;&nbsp;项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。
+&emsp;&emsp;项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。
 
 ### 二、具体实现
 
