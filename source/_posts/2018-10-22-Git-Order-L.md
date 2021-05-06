@@ -29,7 +29,7 @@ git config –global user.email "git repository email"
 ```
 
 ```
-git config –list
+git config -l
 ```
 
 
@@ -46,7 +46,7 @@ git config user.email "git repository email"
 ```
 
 ```
-git config –list
+git config -l
 ```
 
-&emsp;&emsp;`git config –list`查看的是全局配置 + 当前项目的单独配置，使用时会优先使用当前项目的单独配置。
+&emsp;&emsp;`git config -l`查看的是全局配置 + 当前项目的单独配置，使用时会优先使用当前项目的单独配置。
