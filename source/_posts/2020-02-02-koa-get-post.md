@@ -35,7 +35,7 @@ npm i koa koa-router koa-bodyparser -S
 
 #### 3、新增 app.js
 
-&emsp;&emsp;代码见：<a href="https://github.com/liuxy0551/learn-node/blob/master/koa-get-post-demo/app.js" target="_black">koa-get-post-demo/app.js</a>
+&emsp;&emsp;通过`vim app.js`命令创建 app.js 文件并保存。代码见：<a href="https://github.com/liuxy0551/learn-node/blob/master/koa-get-post-demo/app.js" target="_black">koa-get-post-demo/app.js</a>
 
 ``` javascript
 // 引入模块
@@ -86,7 +86,9 @@ app.listen(3000, () => {
 node app.js
 ```
 
-&emsp;&emsp;推荐使用`nodemon` ——&emsp;<a href="https://liuxianyu.cn/article/node-auto-compile.html" target="_black">node 自动编译</a>
+&emsp;&emsp;访问 <a href="http://localhost:3000/news?search=科技" target="_black">http://localhost:3000/news?search=科技</a> 查看效果。
+
+&emsp;&emsp;启动服务推荐使用`nodemon` ——&emsp;<a href="https://liuxianyu.cn/article/node-auto-compile.html" target="_black">node 自动编译</a>
 
 #### 5、测试
 
