@@ -1,12 +1,12 @@
 ---
-title: 用 Koa 写 GET、POST 测试接口
+title: 用 Koa2 写 GET、POST 测试接口
 urlname: koa-get-post
 tags:
   - node
-  - Koa
+  - Koa2
 categories:
   - node
-  - Koa
+  - Koa2
 author: liuxy0551
 copyright: true
 date: 2020-02-02 23:21:42
@@ -14,7 +14,7 @@ updated: 2020-02-02 23:21:42
 ---
 
 
-&emsp;&emsp;刚接触 Koa 框架，用 Koa 写一下 GET 和 POST 接口，平常开发中可以测试使用。
+&emsp;&emsp;刚接触 Koa2 框架，用 Koa2 写一下 GET 和 POST 接口，平常开发中可以测试使用。
 
 <!--more-->
 
@@ -22,8 +22,8 @@ updated: 2020-02-02 23:21:42
 #### 1、新建文件夹，并初始化
 
 ```
-mkdir koa-demo
-cd koa-demo
+mkdir koa2-demo
+cd koa2-demo
 npm init -y
 ```
 
