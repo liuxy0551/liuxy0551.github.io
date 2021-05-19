@@ -140,13 +140,13 @@
 
 
 
-  <meta name="description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给">
+  <meta name="description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给用户。">
 <meta name="keywords" content="Vue,微信小程序,wepy,filter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 和 WePY 中过滤器写法">
 <meta property="og:url" content="https://liuxianyu.cn/article/vue-wepy-filter.html">
 <meta property="og:site_name" content="刘先玉">
-<meta property="og:description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给">
+<meta property="og:description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给用户。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/1.png">
 <meta property="og:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/2.png">
@@ -155,7 +155,7 @@
 <meta property="og:updated_time" content="2019-04-10T20:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 和 WePY 中过滤器写法">
-<meta name="twitter:description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给">
+<meta name="twitter:description" content="现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给用户。">
 <meta name="twitter:image" content="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/1.png">
 
 
@@ -413,7 +413,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -432,7 +432,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -692,15 +692,15 @@ window.onload = function() {
       
 
       
-        <p>      现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。<br>
+        <p>  现有前端框架中普遍有 filter 的使用，最近在写一个小程序，需要显示金额，常规保留两位小数，记录一下处理方法及前端框架中的普遍用法。<br>
 　　小程序是基于腾讯官方 WePY 框架来实现的，但是由于小程序技术生态比较闭合，导致很多前端框架积累出的成果都没有实现。filter 可以理解为管道加工处理，接收一组数据，经过各种不同类型的管道加工，产出新的数据，但是又不会影响原有数据，最终展示给用户。</p>
 <h3 id="一-现有前端框架的-filter"><a class="header-anchor" href="#一-现有前端框架的-filter">¶</a>一、现有前端框架的 filter</h3>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/1.png" alt></p>
-<p>      在后端同学没有返回适合显示的数据或者不方便处理数据时，可以在前端使用过滤器处理，上述对时间和金额进行处理，使用 <code>|</code> 作为管道符，传递参数进行序列化。date 的过滤写法可参考 <a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-wepy-filter/date.js" target="_blank" rel="noopener">date.js</a> 。</p>
+<p>  在后端同学没有返回适合显示的数据或者不方便处理数据时，可以在前端使用过滤器处理，上述对时间和金额进行处理，使用 <code>|</code> 作为管道符，传递参数进行序列化。date 的过滤写法可参考 <a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-wepy-filter/date.js" target="_blank" rel="noopener">date.js</a> 。</p>
 <h3 id="二-小程序中过滤器的使用"><a class="header-anchor" href="#二-小程序中过滤器的使用">¶</a>二、小程序中过滤器的使用</h3>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/2.png" alt></p>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/3.png" alt></p>
-<p>      上图是小程序对金额的处理效果（基于 WePY），可参考 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/index.html?search-key=wxs" target="_blank" rel="noopener">微信小程序 WXS 文档</a>。<br>
+<p>  上图是小程序对金额的处理效果（基于 WePY），可参考 <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/index.html?search-key=wxs" target="_blank" rel="noopener">微信小程序 WXS 文档</a>。<br>
 　　在 template 中引入 <a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-wepy-filter/money.wxs" target="_blank" rel="noopener">money.wxs</a> 文件，并传入数据进行转换，页面代码可参考 <a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/vue-wepy-filter/detail.wpy" target="_blank" rel="noopener">detail.wpy</a></p>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-wepy-filter/4.png" alt></p>
 <p>可参考：</p>
@@ -888,7 +888,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1069,7 +1069,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1401,7 +1403,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

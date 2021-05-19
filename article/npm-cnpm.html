@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -677,11 +677,13 @@ window.onload = function() {
 <a id="more"></a>
 <h3 id="一-更换-npm-源推荐"><a class="header-anchor" href="#一-更换-npm-源推荐">¶</a>一、更换 npm 源<code>推荐</code></h3>
 <p>  淘宝仓库源和 npm 仓库源每十分钟同步一次，基本满足日常需求，可以更换 npm 源，使用淘宝仓库源。</p>
-<p>  查看 npm 配置：</p>
+<p>  1、查看 npm 配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config ls</span><br></pre></td></tr></table></figure>
-<p>  使用淘宝仓库源：</p>
+<p>  默认示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">; cli configs</span><br><span class="line">metrics-registry = &quot;https://registry.npmjs.org/&quot;</span><br><span class="line">scope = &quot;&quot;</span><br><span class="line">user-agent = &quot;npm/6.14.5 node/v14.3.0 linux x64&quot;</span><br><span class="line"></span><br><span class="line">; node bin location = /usr/src/node-v14.3.0-linux-x64/bin/node</span><br><span class="line">; cwd = /root/.jenkins/workspace/zucc-dingtalk-welcome</span><br><span class="line">; HOME = /root</span><br><span class="line">; &quot;npm config ls -l&quot; to show all defaults.</span><br></pre></td></tr></table></figure>
+<p>  2、使用淘宝仓库源：<code>推荐</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
-<p>  使用官方源（默认源）：</p>
+<p>  3、使用官方源（默认源）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
 <h3 id="二-使用-cnpm"><a class="header-anchor" href="#二-使用-cnpm">¶</a>二、使用 cnpm</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
@@ -861,7 +863,7 @@ cnpm 不受 package-lock 的影响，所以建议使用<code>更换 npm 源</cod
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1042,7 +1044,9 @@ cnpm 不受 package-lock 的影响，所以建议使用<code>更换 npm 源</cod
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1374,7 +1378,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

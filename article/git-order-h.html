@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -689,23 +689,20 @@ window.onload = function() {
       
 
       
-        <p>git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下<code>几种撤销操作和覆盖仓库</code>：</p>
+        <p>  git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下<code>几种撤销操作和覆盖仓库</code>：</p>
 <a id="more"></a>
 <h3 id="一-git-add-之前撤销文件更改"><a class="header-anchor" href="#一-git-add-之前撤销文件更改">¶</a>一、git add 之前撤销文件更改</h3>
-<p><code>git checkout --&lt;file&gt;...</code><br>
-　　修改 bug 时，发现尝试的方法不合适，当前所有改动的代码不想要了，可以执行：</p>
+<p>  <code>git checkout --&lt;file&gt;...</code>修改 bug 时，发现尝试的方法不合适，当前所有改动的代码不想要了，可以执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
 <h3 id="二-git-add-之后取消暂存文件"><a class="header-anchor" href="#二-git-add-之后取消暂存文件">¶</a>二、git add 之后取消暂存文件</h3>
-<p><code>git reset HEAD &lt;file&gt;...</code><br>
-　　修改 bug 时，发现改好了，准备提交时发现有个非公共文件不需要提交，但是这个时候已经 git add 暂存文件了，可以执行：</p>
+<p>  <code>git reset HEAD &lt;file&gt;...</code>修改 bug 时，发现改好了，准备提交时发现有个非公共文件不需要提交，但是这个时候已经 git add 暂存文件了，可以执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD learnGit.txt</span><br></pre></td></tr></table></figure>
 <h3 id="三-git-commit-之后撤回提交"><a class="header-anchor" href="#三-git-commit-之后撤回提交">¶</a>三、git commit 之后撤回提交</h3>
-<p><code>git reset HEAD~&lt;number&gt;</code><br>
-　　修改 bug，提交后发现这次提交的内容是错误的，则应该撤回这次提交，意思就是让 HEAD 这个指针指向其他地方，可以执行：</p>
+<p>  <code>git reset HEAD~&lt;number&gt;</code>修改 bug，提交后发现这次提交的内容是错误的，则应该撤回这次提交，意思就是让 HEAD 这个指针指向其他地方，可以执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~</span><br></pre></td></tr></table></figure>
-<p><code>~</code>之后不填则默认为 1，数字代表撤销几次提交。</p>
+<p>  <code>~</code>之后不填则默认为 1，数字代表撤销几次提交。</p>
 <h3 id="四-覆盖已经-push-到线上仓库的内容谨慎"><a class="header-anchor" href="#四-覆盖已经-push-到线上仓库的内容谨慎">¶</a>四、覆盖已经 push 到线上仓库的内容<code>谨慎</code></h3>
-<p>偶尔需要在测试服务器多次测试效果，将代码提交到 develop 分支然后通过 Jenkins 打包发布到测试环境，但是这些进行测试的 commit 不太好看，记录一下覆盖的操作：</p>
+<p>  偶尔需要在测试服务器多次测试效果，将代码提交到 develop 分支然后通过 Jenkins 打包发布到测试环境，但是这些进行测试的 commit 不太好看，记录一下覆盖的操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD~</span><br><span class="line">git add .</span><br><span class="line">git commit -m 'commit message'</span><br><span class="line">git push -f origin develop</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong></p>
@@ -885,7 +882,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1066,7 +1063,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1398,7 +1397,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

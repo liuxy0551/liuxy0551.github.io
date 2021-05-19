@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="最近 koa2 项目中用到的 ORM 是 sequelize，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
+  <meta name="description" content="最近 koa2 项目中用到的 ORM 是 Sequelize V6，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
 <meta name="keywords" content="node,Sequelize">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sequelize 日期格式化">
 <meta property="og:url" content="https://liuxianyu.cn/article/sequelize-date.html">
 <meta property="og:site_name" content="刘先玉">
-<meta property="og:description" content="最近 koa2 项目中用到的 ORM 是 sequelize，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
+<meta property="og:description" content="最近 koa2 项目中用到的 ORM 是 Sequelize V6，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-12-18T14:58:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sequelize 日期格式化">
-<meta name="twitter:description" content="最近 koa2 项目中用到的 ORM 是 sequelize，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
+<meta name="twitter:description" content="最近 koa2 项目中用到的 ORM 是 Sequelize V6，查询时返回的时间格式是2020-12-18T09:11:12.668Z，希望得到的是YYYY-MM-dd HH:mm:ss，记录一下处理过程。">
 
 
 
@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -680,9 +680,9 @@ window.onload = function() {
       
 
       
-        <p>  最近 koa2 项目中用到的 ORM 是 sequelize，查询时返回的时间格式是<code>2020-12-18T09:11:12.668Z</code>，希望得到的是<code>YYYY-MM-dd HH:mm:ss</code>，记录一下处理过程。</p>
+        <p>  最近 koa2 项目中用到的 ORM 是 Sequelize V6，查询时返回的时间格式是<code>2020-12-18T09:11:12.668Z</code>，希望得到的是<code>YYYY-MM-dd HH:mm:ss</code>，记录一下处理过程。</p>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> userInfo = <span class="keyword">await</span> db.User.findOne(&#123;</span><br><span class="line">  where,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    exclude: [<span class="string">'isDelete'</span>, <span class="string">'openId'</span>, <span class="string">'password'</span>],</span><br><span class="line">    include: [</span><br><span class="line">      [sequelize.Sequelize.fn(<span class="string">'date_format'</span>, sequelize.Sequelize.col(<span class="string">'createTime'</span>), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), <span class="string">'createTime'</span>],</span><br><span class="line">      [sequelize.Sequelize.fn(<span class="string">'date_format'</span>, sequelize.Sequelize.col(<span class="string">'updateTime'</span>), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), <span class="string">'updateTime'</span>],</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sequelize = <span class="built_in">require</span>(<span class="string">'sequelize'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userInfo = <span class="keyword">await</span> db.User.findOne(&#123;</span><br><span class="line">  where,</span><br><span class="line">  attributes: &#123;</span><br><span class="line">    exclude: [<span class="string">'isDelete'</span>, <span class="string">'openId'</span>, <span class="string">'password'</span>],</span><br><span class="line">    include: [</span><br><span class="line">      [sequelize.Sequelize.fn(<span class="string">'date_format'</span>, sequelize.Sequelize.col(<span class="string">'createTime'</span>), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), <span class="string">'createTime'</span>],</span><br><span class="line">      [sequelize.Sequelize.fn(<span class="string">'date_format'</span>, sequelize.Sequelize.col(<span class="string">'updateTime'</span>), <span class="string">'%Y-%m-%d %H:%i:%s'</span>), <span class="string">'updateTime'</span>],</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -849,7 +849,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1030,7 +1030,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1345,7 +1347,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

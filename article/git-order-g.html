@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -689,32 +689,26 @@ window.onload = function() {
       
 
       
-        <p>git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下<code>Bug 分支</code>：</p>
+        <p>  git 常用命令系列随笔会记录一些用到的常见命令，这里记录一下<code>Bug 分支</code>：</p>
 <a id="more"></a>
 <h3 id="一-git-stash"><a class="header-anchor" href="#一-git-stash">¶</a>一、git stash</h3>
-<p>出现 bug 时可以通过一个新的临时分支来修复，修复后合并分支，然后将这个临时分支删除。<br>
-在 develop 分支上开发的正嗨的时候，突然发现 master 分支上出现了一个 bug，这个时候很自然地想创建一个临时分支 issue01 来修复 bug，但是 develop 分支上的<br>
-代码还没有提交。并不是不想提交，而是没开发完成，还没法提交。但是线上 bug 刻不容缓。这个时候<code>git stash</code>就可以登场了：</p>
-<p>1、暂存代码：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure></p>
-<p>2、切到 master 分支、创建临时分支：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b issue01</span><br></pre></td></tr></table></figure></p>
-<p>3、修复后提交，切回 master 分支：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 'fix: bug issue01'</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure></p>
-<p>4、合并并删除临时分支：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m 'merge issue01 fix bug' issue01</span><br><span class="line">git branch -d issue01</span><br></pre></td></tr></table></figure></p>
-<p>两分钟搞定，bug 修复完成了，可以去 develop 分支干活了。</p>
-<p>5、恢复暂存的代码，<code>git stash pop</code>恢复代码的同时也会把暂存的内容也删了：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git stash list</span><br><span class="line">git stash pop stash@&#123;0&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  出现 bug 时可以通过一个新的临时分支来修复，修复后合并分支，然后将这个临时分支删除。在 develop 分支上开发的正嗨的时候，突然发现 master 分支上出现了一个 bug，这个时候很自然地想创建一个临时分支 issue01 来修复 bug，但是 develop 分支上的代码还没有提交。并不是不想提交，而是没开发完成，还没法提交。但是线上 bug 刻不容缓。这个时候<code>git stash</code>就可以登场了：</p>
+<p>  1、暂存代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>  2、切到 master 分支、创建临时分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b issue01</span><br></pre></td></tr></table></figure>
+<p>  3、修复后提交，切回 master 分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m 'fix: bug issue01'</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<p>  4、合并并删除临时分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m 'merge issue01 fix bug' issue01</span><br><span class="line">git branch -d issue01</span><br></pre></td></tr></table></figure>
+<p>  两分钟搞定，bug 修复完成了，可以去 develop 分支干活了。</p>
+<p>  5、恢复暂存的代码，<code>git stash pop</code>恢复代码的同时也会把暂存的内容也删了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git stash list</span><br><span class="line">git stash pop stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="二-git-cherry-pick"><a class="header-anchor" href="#二-git-cherry-pick">¶</a>二、git cherry-pick</h3>
-<p>在 master 分支上修复了 bug 后，仔细回忆一下，master 的代码是之前从 develop 分支上合并过去的，所以这个 bug 在 develop 分支上也存在。<br>
-那在 develop 分支上怎么修复这个 bug 呢？Ctrl C、Ctrl V 再操作一次，提交就可以了？<br>
-实际上这样操作也可以，但是如果 bug 修复涉及到的文件很多时，这样就有点不优雅了，<code>cherry-pick</code>命令可以很优雅地解决这个问题。</p>
-<p>同样的 bug，要在 develop 上修复，只需要把<code>ad52dcf fix: bug issue01</code>这个提交所做的修改<code>复制</code>到 develop 分支。注意：这里只想<br>
-复制<code>ad52dcf fix: bug issue01</code>这个提交的内容到 develop 分支，而不是要把 master 分支整个 merge 过来。</p>
+<p>  在 master 分支上修复了 bug 后，仔细回忆一下，master 的代码是之前从 develop 分支上合并过去的，所以这个 bug 在 develop 分支上也存在。那在 develop 分支上怎么修复这个 bug 呢？Ctrl C、Ctrl V 再操作一次，提交就可以了？实际上这样操作也可以，但是如果 bug 修复涉及到的文件很多时，这样就有点不优雅了，<code>cherry-pick</code>命令可以很优雅地解决这个问题。</p>
+<p>  同样的 bug，要在 develop 上修复，只需要把<code>ad52dcf fix: bug issue01</code>这个提交所做的修改<code>复制</code>到 develop 分支。注意：这里只想复制<code>ad52dcf fix: bug issue01</code>这个提交的内容到 develop 分支，而不是要把 master 分支整个 merge 过来。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick ad52dcf</span><br><span class="line">git push origin develop</span><br></pre></td></tr></table></figure>
-<p>git 自动给 develop 分支做了一次提交，这次提交不同于 master 分支的<code>ad52dcf</code>，因为这两个 commit 只是改动相同，但属于两个不同的 commit。<br>
-用<code>git cherry-pick</code>，我们就不需要在 develop 分支上手动再把修复 bug 的过程重复一遍。</p>
+<p>  git 自动给 develop 分支做了一次提交，这次提交不同于 master 分支的<code>ad52dcf</code>，因为这两个 commit 只是改动相同，但属于两个不同的 commit。用<code>git cherry-pick</code>，我们就不需要在 develop 分支上手动再把修复 bug 的过程重复一遍。</p>
 
       
     </div>
@@ -887,7 +881,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1068,7 +1062,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1400,7 +1396,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

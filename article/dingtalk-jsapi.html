@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -697,6 +697,8 @@ window.onload = function() {
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> DingTalk <span class="keyword">from</span> <span class="string">'./DingTalk'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install (Vue) &#123;</span><br><span class="line">    Vue.use(DingTalk)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3-使用"><a class="header-anchor" href="#3-使用">¶</a>3、使用</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// 获取 authCode</span></span><br><span class="line">  <span class="keyword">async</span> getAuthCode () &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.DingTalk.requestAuthCode(<span class="keyword">this</span>.corpId)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">mounted () &#123;</span><br><span class="line">  <span class="keyword">this</span>.DingTalk.getJsApiTicket() <span class="comment">// 钉钉鉴权</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-判断是否是钉钉环境"><a class="header-anchor" href="#4-判断是否是钉钉环境">¶</a>4、判断是否是钉钉环境</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as dd from &apos;dingtalk-jsapi&apos;</span><br><span class="line">...</span><br><span class="line">console.log(dd.env.platform === &apos;notInDingTalk&apos;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -869,7 +871,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1050,7 +1052,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1304,7 +1308,7 @@ window.onload = function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-钉钉-jsapi"><span class="nav-text">¶一、钉钉 JSAPI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-npm"><span class="nav-text">¶1、npm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cdn-引入"><span class="nav-text">¶2、CDN 引入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-dingtalk-类"><span class="nav-text">¶二、DingTalk 类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-封装"><span class="nav-text">¶1、封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-引入"><span class="nav-text">¶2、引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用"><span class="nav-text">¶3、使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-钉钉-jsapi"><span class="nav-text">¶一、钉钉 JSAPI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-npm"><span class="nav-text">¶1、npm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cdn-引入"><span class="nav-text">¶2、CDN 引入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-dingtalk-类"><span class="nav-text">¶二、DingTalk 类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-封装"><span class="nav-text">¶1、封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-引入"><span class="nav-text">¶2、引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用"><span class="nav-text">¶3、使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-判断是否是钉钉环境"><span class="nav-text">¶4、判断是否是钉钉环境</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1382,7 +1386,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

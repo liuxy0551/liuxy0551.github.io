@@ -143,14 +143,14 @@
   <meta name="description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue 中的路由懒加载。">
 <meta name="keywords" content="Vue,项目优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端项目优化之旅（五）—— Vue 路由懒加载">
+<meta property="og:title" content="前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载">
 <meta property="og:url" content="https://liuxianyu.cn/article/vue-cli3-router-load-lazy.html">
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue 中的路由懒加载。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-06T11:34:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端项目优化之旅（五）—— Vue 路由懒加载">
+<meta name="twitter:title" content="前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载">
 <meta name="twitter:description" content="前端项目优化之旅系列随笔主要记录工作中遇到的一些优化方案，这里记录一下 Vue 中的路由懒加载。">
 
 
@@ -181,7 +181,7 @@
     })();
 </script>
 
-  <title>前端项目优化之旅（五）—— Vue 路由懒加载 | 刘先玉</title>
+  <title>前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载 | 刘先玉</title>
   
 
 
@@ -408,7 +408,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -427,7 +427,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -563,7 +563,7 @@ window.onload = function() {
 
         
         
-          <h2 class="post-title" itemprop="name headline">前端项目优化之旅（五）—— Vue 路由懒加载
+          <h2 class="post-title" itemprop="name headline">前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载
 
               
             
@@ -649,7 +649,7 @@ window.onload = function() {
 
           
           
-            <span id="/article/vue-cli3-router-load-lazy.html" class="leancloud_visitors" data-flag-title="前端项目优化之旅（五）—— Vue 路由懒加载">
+            <span id="/article/vue-cli3-router-load-lazy.html" class="leancloud_visitors" data-flag-title="前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -692,12 +692,14 @@ window.onload = function() {
 <p>  可以看看官方文档：<a href="https://router.vuejs.org/zh/guide/advanced/lazy-loading.html" target="_black">Vue Router 路由懒加载</a>，写得浅显易懂。</p>
 <h3 id="一-为什么"><a class="header-anchor" href="#一-为什么">¶</a>一、为什么</h3>
 <p>  打包构建后，运用 webpack 打包后的文件变得非常大，在用户进入首页时，需要加载整个项目的资源，时间过长。即使做了 loading 或者骨架屏也不利于用户体验。</p>
-<h3 id="二-怎么办"><a class="header-anchor" href="#二-怎么办">¶</a>二、怎么办</h3>
+<h3 id="二-路由懒加载"><a class="header-anchor" href="#二-路由懒加载">¶</a>二、路由懒加载</h3>
 <p>  如果能把不同路由对应的组件分割成不同的代码块，在路由被访问时才加载对应组件，能有效减小首页的加载压力。但是当跳转到新页面的时候，需要等待新页面 js 文件的加载，体验会变差。</p>
 <p>  <code>router.js</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123; path: &apos;/&apos;, component: () =&gt; import(/* webpackChunkName: &apos;home&apos; */ &apos;../components/Navigator&apos;) &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">component</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: 'home-group' */</span> <span class="string">'../views/home'</span>) &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>  搭配 Vue 异步组件和 Webpack 的代码分割功能<code>webpackChunkName</code>实现懒加载，参考：<a href="https://github.com/liuxy0551/my-vue/blob/master/src/router.js" target="_black">router.js</a>。</p>
-<h3 id="三-webpackprefetch"><a class="header-anchor" href="#三-webpackprefetch">¶</a>三、webpackPrefetch</h3>
+<h3 id="三-组件懒加载"><a class="header-anchor" href="#三-组件懒加载">¶</a>三、组件懒加载</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Navigator = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: 'home-group' */</span> <span class="string">'../components/Navigator'</span>)</span><br><span class="line">...</span><br><span class="line">components: &#123; Navigator &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四-webpackprefetch"><a class="header-anchor" href="#四-webpackprefetch">¶</a>四、webpackPrefetch</h3>
 <p>  在 Vue CLI 3 中我们还可以再做一步：因为 Vue CLI 3 默认开启了<code>prefetch</code>（预加载模块），用来告诉浏览器在页面加载完成后，利用空闲时间提前获取用户未来可能会访问的内容。可以考虑关闭这个功能，在<code>vue.config.js</code>中设置：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 移除 prefetch 插件</span></span><br><span class="line">    config.plugins.delete(<span class="string">'prefetch'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 或者</span></span><br><span class="line">    <span class="comment">// 修改 prefetch 的选项：</span></span><br><span class="line">    config.plugin(<span class="string">'prefetch'</span>).tap(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">      options[<span class="number">0</span>].fileBlacklist = options[<span class="number">0</span>].fileBlacklist || []</span><br><span class="line">      options[<span class="number">0</span>].fileBlacklist.push(<span class="regexp">/myasyncRoute(.)+?\.js$/</span>)</span><br><span class="line">      <span class="keyword">return</span> options</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  当<code>prefetch</code>插件被禁用时，可以通过 webpack 的内联注释手动选定要提前获取的代码区块：</p>
@@ -730,11 +732,11 @@ window.onload = function() {
   <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
 
-  <p><span>随笔标题:</span>前端项目优化之旅（五）—— Vue 路由懒加载</p>
+  <p><span>随笔标题:</span>前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载</p>
   <p><span>随笔作者:</span>刘先玉</p>
   <p><span>发布时间:</span>2019年12月06日 - 11:34:19</p>
   <p><span>最后更新:</span>2019年12月06日 - 11:34:19</p>
-  <p><span>原文链接:</span><a href="/article/vue-cli3-router-load-lazy.html" title="前端项目优化之旅（五）—— Vue 路由懒加载">https://liuxianyu.cn/article/vue-cli3-router-load-lazy.html</a>
+  <p><span>原文链接:</span><a href="/article/vue-cli3-router-load-lazy.html" title="前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载">https://liuxianyu.cn/article/vue-cli3-router-load-lazy.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://liuxianyu.cn/article/vue-cli3-router-load-lazy.html" aria-label="复制成功！"></i></span>
   </p>
   <!-- <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> -->
@@ -877,7 +879,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1058,7 +1060,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1312,7 +1316,7 @@ window.onload = function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-为什么"><span class="nav-text">¶一、为什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-怎么办"><span class="nav-text">¶二、怎么办</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-webpackprefetch"><span class="nav-text">¶三、webpackPrefetch</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-为什么"><span class="nav-text">¶一、为什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-路由懒加载"><span class="nav-text">¶二、路由懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-组件懒加载"><span class="nav-text">¶三、组件懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-webpackprefetch"><span class="nav-text">¶四、webpackPrefetch</span></a></li></ol></div>
             
 
           </div>
@@ -1390,7 +1394,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 

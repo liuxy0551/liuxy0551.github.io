@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://liuxianyu.cn/article/fc-serverless.html</loc>
+    <lastmod>2021-05-16</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/aliyun-function-compute.html</loc>
+    <lastmod>2021-05-16</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/git-order-l.html</loc>
+    <lastmod>2021-04-29</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/js-code.html</loc>
+    <lastmod>2021-03-31</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/css-hover-show.html</loc>
+    <lastmod>2021-03-08</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/node-sass-failed.html</loc>
+    <lastmod>2021-03-07</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/dingtalk-workbench-plugin.html</loc>
+    <lastmod>2021-03-02</lastmod>
+  </url>  <url>
+    <loc>https://liuxianyu.cn/article/webstorm-settings-repository.html</loc>
+    <lastmod>2021-03-02</lastmod>
+  </url>  <url>
     <loc>https://liuxianyu.cn/article/jizhangla-api-b.html</loc>
     <lastmod>2021-02-21</lastmod>
   </url>  <url>
@@ -70,19 +94,16 @@
     <loc>https://liuxianyu.cn/article/git-order-k.html</loc>
     <lastmod>2020-12-10</lastmod>
   </url>  <url>
-    <loc>https://liuxianyu.cn/article/fc-serverless.html</loc>
-    <lastmod>2020-11-27</lastmod>
-  </url>  <url>
     <loc>https://liuxianyu.cn/article/koa2-cors.html</loc>
     <lastmod>2020-11-03</lastmod>
   </url>  <url>
     <loc>https://liuxianyu.cn/article/js-cb-promise-async-await.html</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
+    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
-    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
+    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
     <lastmod>2020-10-21</lastmod>
   </url>  <url>
     <loc>https://liuxianyu.cn/article/wechat-scroll-left-right.html</loc>
@@ -253,6 +274,9 @@
     <loc>https://liuxianyu.cn/article/mysql-a.html</loc>
     <lastmod>2020-02-03</lastmod>
   </url>  <url>
+    <loc>https://liuxianyu.cn/article/koa-get-post.html</loc>
+    <lastmod>2020-02-02</lastmod>
+  </url>  <url>
     <loc>https://liuxianyu.cn/article/learn-node.html</loc>
     <lastmod>2020-02-01</lastmod>
   </url>  <url>
@@ -334,10 +358,10 @@
     <loc>https://liuxianyu.cn/article/js-call-apply-bind.html</loc>
     <lastmod>2019-11-10</lastmod>
   </url>  <url>
-    <loc>https://liuxianyu.cn/article/js-object-string.html</loc>
+    <loc>https://liuxianyu.cn/article/vue-rsa.html</loc>
     <lastmod>2019-11-07</lastmod>
   </url>  <url>
-    <loc>https://liuxianyu.cn/article/vue-rsa.html</loc>
+    <loc>https://liuxianyu.cn/article/js-object-string.html</loc>
     <lastmod>2019-11-07</lastmod>
   </url>  <url>
     <loc>https://liuxianyu.cn/article/hexo-server.html</loc>

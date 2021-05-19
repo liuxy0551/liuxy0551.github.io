@@ -411,7 +411,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">82</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">83</span></a>
 
   </li>
         
@@ -430,7 +430,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">166</span></a>
 
   </li>
         
@@ -690,11 +690,11 @@ window.onload = function() {
       
 
       
-        <p>      我在学习 Vue 的时候，经常会接触到 Vue 的生命周期函数，常见的为 created 和 mounted，所以记录一下每个 Vue 实例在被创建之前都要经过的一系列初始化过程，例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这个过程便是 Vue 的生命周期。</p>
+        <p>  我在学习 Vue 的时候，经常会接触到 Vue 的生命周期函数，常见的为 created 和 mounted，所以记录一下每个 Vue 实例在被创建之前都要经过的一系列初始化过程，例如，需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这个过程便是 Vue 的生命周期。</p>
 <a id="more"></a>
 <h3 id="一-生命周期图示"><a class="header-anchor" href="#一-生命周期图示">¶</a>一、生命周期图示</h3>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-life-cycle/1.png" alt></p>
-<p>      上图展示了 Vue 实例的生命周期，<a href="https://cn.vuejs.org/images/lifecycle.png" target="_blank" rel="noopener">官网上的原图</a>，我在学习的时候也没有一下就弄懂这张图说的所有东西，但是随着 Vue 学习的深入，对这张图的兴趣越来越浓。可以看出，在 Vue 生命周期中有很多钩子函数提供给我们在 Vue 生命周期不同时刻进行操作。我们先在图上确认所有的生命周期函数，然后再依次理解。</p>
+<p>  上图展示了 Vue 实例的生命周期，<a href="https://cn.vuejs.org/images/lifecycle.png" target="_blank" rel="noopener">官网上的原图</a>，我在学习的时候也没有一下就弄懂这张图说的所有东西，但是随着 Vue 学习的深入，对这张图的兴趣越来越浓。可以看出，在 Vue 生命周期中有很多钩子函数提供给我们在 Vue 生命周期不同时刻进行操作。我们先在图上确认所有的生命周期函数，然后再依次理解。</p>
 <blockquote>
 <ul>
 <li>beforeCreate、created　　　　　　　　　   创建前后</li>
@@ -704,13 +704,13 @@ window.onload = function() {
 </ul>
 </blockquote>
 <h3 id="二-实际运行"><a class="header-anchor" href="#二-实际运行">¶</a>二、实际运行</h3>
-<p>      复制下面的代码，找一个可以在线运行 js 代码的网站粘贴运行，看看 console 打印的内容，便于理解生命周期的实际流程。</p>
+<p>  复制下面的代码，找一个可以在线运行 js 代码的网站粘贴运行，看看 console 打印的内容，便于理解生命周期的实际流程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">  &lt;title&gt;vue生命周期学习&lt;/title&gt;</span><br><span class="line">  &lt;script src=&quot;https://cdn.bootcss.com/vue/2.4.2/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  var vm = new Vue(&#123;</span><br><span class="line">    el: &apos;#app&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: &apos;Vue的生命周期&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeCreate: function() &#123;</span><br><span class="line">      console.group(&apos;------beforeCreate创建前状态------&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot; , &quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //undefined </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message) </span><br><span class="line">    &#125;,</span><br><span class="line">    created: function() &#123;</span><br><span class="line">      console.group(&apos;------created创建完毕状态------&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化 </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeMount: function() &#123;</span><br><span class="line">      console.group(&apos;------beforeMount挂载前状态------&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + (this.$el)); //已被初始化</span><br><span class="line">      console.log(this.$el);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化  </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化  </span><br><span class="line">    &#125;,</span><br><span class="line">    mounted: function() &#123;</span><br><span class="line">      console.group(&apos;------mounted 挂载结束状态------&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //已被初始化</span><br><span class="line">      console.log(this.$el);    </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化 </span><br><span class="line">    &#125;,</span><br><span class="line">    beforeUpdate: function () &#123;</span><br><span class="line">      console.group(&apos;beforeUpdate 更新前状态===============》&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);   </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    updated: function () &#123;</span><br><span class="line">      console.group(&apos;updated 更新完成状态===============》&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    beforeDestroy: function () &#123;</span><br><span class="line">      console.group(&apos;beforeDestroy 销毁前状态===============》&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);    </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    destroyed: function () &#123;</span><br><span class="line">      console.group(&apos;destroyed 销毁完成状态===============》&apos;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);  </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>运行后打开调试查看 console 打印的内容，可以看到：</p>
 <p><img src="https://liuxy0551.gitee.io/image-hosting/posts/vue-life-cycle/2.png" alt></p>
 <p>这样可以较为清晰地看到一个 Vue 示例在创建过程中调用的几个生命周期钩子函数。</p>
 <h3 id="三-钩子函数解析"><a class="header-anchor" href="#三-钩子函数解析">¶</a>三、钩子函数解析</h3>
-<p>      Vue 实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载 Dom、渲染 → 更新 → 渲染、销毁等一系列过程，我们称这是 Vue 的生命周期，通俗说就是 Vue 实例从创建到销毁的过程。每一个组件或者实例都会经历一个完整的生命周期，总共分为三个阶段：初始化、运行中、销毁。</p>
+<p>  Vue 实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载 Dom、渲染 → 更新 → 渲染、销毁等一系列过程，我们称这是 Vue 的生命周期，通俗说就是 Vue 实例从创建到销毁的过程。每一个组件或者实例都会经历一个完整的生命周期，总共分为三个阶段：初始化、运行中、销毁。</p>
 <p>1、<strong>beforeCreate 和 created：</strong> 在这两个生命周期之间，进行初始化事件，进行数据的观测，可以看到在 created 的时候数据已经和 data 属性进行绑定（放在 data 中的属性当值发生改变的同时，视图也会改变）；</p>
 <p>2、<strong>beforeMount：</strong> 接下来开始找实例或者组件对应的模板，编译模板为虚拟 Dom 放入到渲染函数中准备渲染，然后执行 beforeMount 钩子函数，在这个函数中虚拟 Dom 已经创建完成，马上就要渲染，在这里也可以更改数据，不会触发 updated，在这里可以在渲染前最后一次更改数据的机会，不会触发其他的钩子函数，一般可以在这里做初始数据的获取；</p>
 <p>3、<strong>mounted：</strong> 接下来开始渲染，渲染出真实 Dom，然后执行 mounted 钩子函数，此时组件已经出现在页面中，数据、真实 Dom 都已经处理好了,事件都已经挂载好了，可以在这里操作真实 Dom 等事情；</p>
@@ -893,7 +893,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">158</span>
+                    <span class="site-state-item-count">166</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1074,7 +1074,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">82</span>
+                      
+                    
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1406,7 +1408,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共75k字</span>
+  <span class="post-count">博客全站共78.7k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
