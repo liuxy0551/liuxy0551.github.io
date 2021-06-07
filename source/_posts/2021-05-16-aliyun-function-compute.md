@@ -321,6 +321,8 @@ exports.handler = (event, context, callback) => {
 &emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务及函数 -> (选择一个服务)版本管理。
 &emsp;&emsp;每次部署时可以新建一个版本，第一次新建版本后可以在此版本的基础上新建别名，如：prod，并将自定义域名（第 3 条）、函数的 http 触发器中 版本/别名 选择为 prod。后续部署时，可以新建版本，需要该版本生效时，可以简单编辑 prod 别名对应的版本即可，同时别名支持版本配比，可进行灰度测试。
 
+![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/11.png)
+
 #### 5.2、配置导出
 
 &emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务及函数 -> (选择一个服务)函数列表 -> 函数名称(点击函数名称) -> 概览 -> 导出 -> 导出配置将导出的 template.yml 文件放到项目中，这样控制台配置的配置项就不会被 deploy 覆盖掉。
@@ -340,8 +342,13 @@ exports.handler = (event, context, callback) => {
 
 #### 5.5、请求环境区分
 
-&emsp;&emsp;使用函数时如果需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本/别名，如下图：		
-自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
+&emsp;&emsp;使用函数时如果需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本/别名，如下图：	
+
+![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/12.png)
+
+&emsp;&emsp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
+
+![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/13.png)
 
 
 ### 参考文章
@@ -350,9 +357,6 @@ exports.handler = (event, context, callback) => {
 
 ### 附件
 
-1、<a href="https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/pptx/650384/1621858267399-fc86b6ab-6f92-404a-b757-6bc8bce56d44.pptx?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1622802577&Signature=WyOloO6NbB%2FOEeMfqt%2BAgQC7hS0%3D&response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27%25E5%2587%25BD%25E6%2595%25B0%25E8%25AE%25A1%25E7%25AE%2597%25E7%259A%2584%25E4%25BB%258B%25E7%25BB%258D%25E4%25B8%258E%25E5%25AE%259E%25E8%25B7%25B5.pptx" target="_black">函数计算的介绍与实践.pptx (2.7 MB)</a>
+1、<a href="https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/函数计算的介绍与实践.pptx" target="_black">函数计算的介绍与实践.pptx (2.7 MB)</a>
 
-2、<a href="https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2021/mp4/650384/1621858283761-e7a0797d-8d54-417d-8804-e7045c289624.mp4?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1622802644&Signature=UMAPApcBlbCgg32SLuLMUb1JGqY%3D&response-content-disposition=attachment%3Bfilename*%3DUTF-8%27%27%25E9%2583%25A8%25E7%25BD%25B2%25E6%25BC%2594%25E7%25A4%25BA.mp4" target="_black">部署演示.mp4 (28.2 MB)</a>
-
-
-
+2、<a href="https://a.jizhangla.liuxianyu.cn/assets/media/%E9%83%A8%E7%BD%B2%E6%BC%94%E7%A4%BA.mp4" target="_black">部署演示.mp4 (28.2 MB)</a>
