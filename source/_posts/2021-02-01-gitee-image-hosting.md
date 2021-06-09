@@ -47,6 +47,6 @@ updated: 2021-02-01 12:00:38
 
 #### 2、Gitee Pages
 
-&emsp;&emsp;每次有新图片都需要更新（白嫖的无奈），看到有 Open API，后续研究。
+&emsp;&emsp;每次有新图片都需要更新（白嫖的无奈），看到有 <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no" target="_black">Open API</a>，后续研究。
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/gitee-image-hosting/2.png)

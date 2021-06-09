@@ -1,5 +1,5 @@
 ---
-title: linux 中的一些命令
+title: Linux 中的一些命令
 urlname: linux-command
 tags:
   - Linux
@@ -12,7 +12,7 @@ updated: 2020-12-10 14:02:03
 ---
 
 
-&emsp;&emsp;记录 linux 中的一些命令。
+&emsp;&emsp;记录 Linux 中的一些命令。
 
 <!--more-->
 
