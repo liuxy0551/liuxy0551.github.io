@@ -64,7 +64,7 @@ tar -xzvf /mnt/gotty/gotty_linux_amd64.tar.gz -C /mnt/gotty
 /mnt/gotty/gotty -p 9000 -w --permit-arguments bash >/mnt/gotty/log.file 2>&1 &
 ```
 
-`>/mnt/gotty/log.file 2>&1 &`是将产生的文件存到指定文件中，可搜索`Linux 后台运行`；上述命令会返回对应进程的 PID
+`>/mnt/gotty/log.file 2>&1 &`是将产生的文件存到指定文件中，可搜索`Linux 后台运行`；上述命令会返回对应进程的 PID。服务启动后可在 MAC 上访问 <a href="http://localhost:9000" target="_black">http://localhost:9000</a> 查看效果。
 
 更多选项可参考：<a href="https://github.com/yudai/gotty#options" target="_black">https://github.com/yudai/gotty#options</a>
 
