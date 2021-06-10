@@ -196,7 +196,13 @@ npx --no-install egg-scripts start --workers=1
 
 &emsp;&emsp;本节代码：<a href="https://github.com/liuxy0551/dingtalk-robot" target="_black">https://github.com/liuxy0551/dingtalk-robot</a>
 
-#### 4.1、通过钉钉群机器人发消息
+#### 4.1、实现效果
+
+&emsp;&emsp;可以发送消息到指定钉钉群，效果如下:
+
+![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/14.gif)
+
+#### 4.2、通过钉钉群机器人发消息
 
 ``` javascript
 /**
@@ -260,7 +266,7 @@ getRobots () {
 }
 ```
 
-#### 4.2、百度统计
+#### 4.3、百度统计
 
 &emsp;&emsp;通过定时任务拉取百度统计的埋点数据，并通过统一的钉钉群机器人发送到群
 
@@ -303,13 +309,13 @@ exports.handler = (event, context, callback) => {
 }
 ```
 
-#### 4.3、记账啦
+#### 4.4、记账啦
 
 &emsp;&emsp;通过定时任务拉取微信小程序的数据，并通过统一的钉钉群机器人发送到群
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/9.png)
 
-### 4.4、从 MySQL 查询数据
+#### 4.5、从 MySQL 查询数据
 
 ![](https://liuxy0551.gitee.io/image-hosting/posts/aliyun-function-compute/10.png)
 
