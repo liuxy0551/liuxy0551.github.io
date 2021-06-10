@@ -12,7 +12,7 @@ date: 2020-08-18 10:35:32
 updated: 2020-08-18 10:35:32
 ---
 
-&emsp;&emsp;钉钉 JSAPI 为 H5 微应用开发提供了调用钉钉控件的能力，这里记录一下自己封装的 DingTalk 类，方便开发。可参考 <a href="https://ding-doc.dingtalk.com/doc#/dev/welcome-to-lark" target="_black">钉钉开发文档</a>
+&emsp;&emsp;钉钉 JSAPI 为 H5 微应用开发提供了调用钉钉控件的能力，这里记录一下自己封装的 DingTalk 类，方便开发。可参考 <a href="https://developers.dingtalk.com/document/app/jsapi-overview" target="_black">钉钉开发文档</a>
 
 <!--more-->
 
