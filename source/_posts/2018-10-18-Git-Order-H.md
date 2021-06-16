@@ -31,7 +31,7 @@ git checkout .
 &emsp;&emsp;`git reset HEAD <file>...`修改 bug 时，发现改好了，准备提交时发现有个非公共文件不需要提交，但是这个时候已经 git add 暂存文件了，可以执行：
 
 ``` shell
-git reset HEAD learnGit.txt
+git reset --hard
 ```
 
 ###  三、git commit 之后撤回提交
