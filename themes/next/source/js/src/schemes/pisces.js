@@ -9,6 +9,10 @@ $(document).ready(function() {
     return $('.header-inner').height() + sidebarOffset;
   }
 
+  function getTopAdHeight () {
+    return $('.top-ad-box').height()
+  }
+
   function getFooterOffset() {
     var footer = $('#footer');
     var footerInner = $('.footer-inner');
@@ -25,9 +29,10 @@ $(document).ready(function() {
 
     // Not affix if sidebar taller than content (to prevent bottom jumping).
     if (headerOffset + sidebarHeight < contentHeight) {
+      const topAdHeight = getTopAdHeight() ? getTopAdHeight() : 0
       sidebarInner.affix({
         offset: {
-          top   : headerOffset - sidebarOffset + 90,
+          top   : headerOffset - sidebarOffset + topAdHeight,
           bottom: footerOffset
         }
       });
