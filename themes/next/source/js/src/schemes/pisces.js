@@ -27,7 +27,7 @@ $(document).ready(function() {
     if (headerOffset + sidebarHeight < contentHeight) {
       sidebarInner.affix({
         offset: {
-          top   : headerOffset - sidebarOffset,
+          top   : headerOffset - sidebarOffset + 90,
           bottom: footerOffset
         }
       });

@@ -117,6 +117,12 @@
             </div>
           {% endif %}
 
+          {% if theme.ad_part.left_enable %}
+            <a href="{{ theme.ad_part.left_url }}" target="_blank">
+              <img class="left-ad-box" src="{{ url_for( theme.ad_part.left_image) }}" alt="{{ theme.ad_part.left_title }}"/>
+            </a>
+          {% endif %}
+
           {% if theme.social %}
             <div class="links-of-author motion-element">
               {% for name, link in theme.social %}
@@ -205,7 +211,6 @@
           {% endif %}
         </div>
       {% endif %}
-
     </div>
   </aside>
 

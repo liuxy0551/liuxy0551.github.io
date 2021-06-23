@@ -36,7 +36,7 @@ favicon:
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: false
 
 footer:
   since: 2017
@@ -342,6 +342,18 @@ android_chrome_color: "#222"
 custom_logo:
   enable: false
   image: #/uploads/custom-logo.jpg
+
+# 广告区域
+ad_part:
+  top_enable: true
+  top_url: https://www.aliyun.com/1111/new?userCode=prmc4zms
+  top_image: /images/ad-images/top-ad-728x90.jpg
+  top_title: 阿里云新人福利会场
+
+  left_enable: true
+  left_url: https://curl.qcloud.com/5U0A1rj1
+  left_image: /images/ad-images/left-ad-500x500.jpg
+  left_title: 腾讯云新客专属福利
 
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright
