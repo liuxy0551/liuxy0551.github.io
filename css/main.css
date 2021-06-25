@@ -1167,6 +1167,9 @@ pre .javascript .function {
 .header-inner {
   position: relative;
 }
+.top-ad-box {
+  background-color: #2830b5;
+}
 .headband {
   height: 3px;
   background: #222;
@@ -1927,9 +1930,12 @@ pre .javascript .function {
     display: none !important;
   }
 }
+.left-ad-box {
+  padding-top: 30px;
+}
 .sidebar-inner {
   position: relative;
-  padding: 20px 10px;
+  padding-top: 20px;
   color: #999;
   text-align: center;
 }
@@ -2084,7 +2090,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff0004;
+  background: #de9101;
 }
 .links-of-blogroll {
   font-size: 13px;
