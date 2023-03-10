@@ -1,0 +1,262 @@
+// Custom styles.
+
+//文章内链接文本样式
+.post-body p a{
+  color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
+  &:hover {
+    color: #fc6423;
+    border-bottom: none;
+    border-bottom: 1px solid #fc6423;
+  }
+}
+
+// 修改选中字符的颜色
+/* webkit, opera, IE9 */
+::selection {
+  background: #8959a8;
+  color: #f7f7f7;
+}
+/* firefox */
+::-moz-selection {
+  background: #00c4b6;
+  color: #f7f7f7;
+}
+
+//文章目录默认展开
+.post-toc .nav .nav-child { display: block; }
+//目录字体大小调整
+.post-toc ol {
+  font-size : 13px;
+}
+
+Hexo博客NexT主题美化之网站标题栏背景变色
+.site-meta {
+  background: $highlight_theme;
+}
+
+//page code background-color
+.code ::selection {
+  background: #2593a6;
+  color: #fff;
+}
+
+
+//gitalk code background-color
+.gt-container .gt-comment-content .highlight pre, .markdown-body pre{
+  background-color: #2d2d2d;
+}
+.gt-container .gt-comment-content .highlight ::selection {
+  background: #2593a6;
+  color: #fff;
+}
+
+  //添加背景图片
+@media screen and (min-width:1200px) {
+
+  body {
+    background-image: url(https://liuxianyu.cn/image-hosting/config-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+
+    background-image: none;
+
+    //margin-top: 20px;
+  }
+
+  #footer a {
+    color:#eee;
+  }
+}
+
+//添加代码：
+.headband {display:none;}
+//保存刷新发现黑边没有了。
+
+// 鼠标移动至文章标题时的效果
+.posts-expand .post-title-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  margin-top: 1.3em;
+  top: 2px;
+  background-color: #2593a6;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+// 修改按键（button）样式
+.btn {
+  /*color: #49b1f5;
+  background: #fff;
+  border: 2px solid #49b1f5;*/
+  border-radius: 5px;
+}
+// 按键（button）点击时样式
+.btn:hover {
+  /*border-color: #49b1f5;
+  color: #fff;
+  background: #49b1f5;*/
+}
+
+
+
+//以下是归档样式修改
+.archive .post-time{
+  position: absolute;
+  color: #fff;
+  background-color: #49b1f5;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 2px;
+}
+//目前只有 37 篇良品日志, 要继续向前进啊, fighting! Oliver
+/*.page-archive .archive-page-counter{
+  font-size: 20px;
+  background-color: #49b1f5;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+  color: #fff;
+}*/
+.archive a.post-title-link:before{
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  content: "\f073";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+  line-height: 16px;
+
+}
+.archive a.post-title-link{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+.archive .post{
+  position: relative;
+  margin-bottom: 1rem;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.archive .post-title{
+  display: block;
+  margin-left: 5rem;
+  color: #4c4948;
+  text-decoration: none;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.archive .post-header{
+  position: relative;
+  margin-bottom: 1rem;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.archive .post-title-link{
+  font-size: 16px;
+  font-weight: 500;
+}
+.archive .post-meta{
+  position: absolute;
+  color: #99a9bf;
+  width: 80px;
+  color: #114142;
+}
+//以上是归档样式修改
+
+
+//以下是页码样式修改
+.pagination{
+  height: 27px;
+}
+.pagination .page-number.current{
+  background-color: #49b1f5;
+  border-radius: 5px;
+}
+//以上是页码样式修改
+
+
+// 以下修改``代码块自定义样式
+// Custom styles.
+code {
+  padding: 2px 9px;
+  color: #d8004b;
+  background: #faf6f7;
+  /*color: #ff7600;
+  background: #fbf7f8;*/
+  margin: 6px;
+}
+.highlight, code, pre {
+  border: 1px solid #d6d6d6;
+}
+// 以上修改``代码块自定义样式
+
+/*
+.zhao-cover-img-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10002;
+  text-align: center;
+  background-color: #000;
+  overflow-y: scroll;
+}
+.zhao-cover-img{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.zhao-no-scroll{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+*/
+
+
+// 隐藏 valine 的 powered by
+.vpower, .txt-right {
+  display: none;
+}
+
+.vbtn {
+  color: #66b1ff !important;
+  border-color: #66b1ff !important;
+  font-size: 0.9rem !important;
+}
+
+.vnick, .vmail, .vlink, .vinput {
+  color #666 !important;
+  font-size: 16px !important;
+  font-weight: 500;
+}
+.vcontent {
+  p {
+    color #333 !important;
+    letter-spacing 0.5px;
+  }
+}
