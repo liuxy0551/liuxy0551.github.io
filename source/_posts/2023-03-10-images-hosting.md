@@ -54,9 +54,7 @@ export serverIP="43.139.139.139"
 
 #### 5、本地图床仓库
 
-&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。
-
-&emsp;&emsp;在本地图床仓库中添加 `package.json` 文件：
+&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。在本地图床仓库中添加 `package.json` 文件：
 
 ```
 {
@@ -70,8 +68,8 @@ export serverIP="43.139.139.139"
 }
 ```
 
-执行 `npm run deploy` 即可将本地图床仓库中的图片等静态资源上传到远程服务器指定的地址了。  
-执行 `npm run push` 可将本地图床仓库中的图片等静态资源上传到远程服务器指定的地址了。
+执行 `npm run deploy` 可将本地图床仓库中的图片等静态资源上传到远程服务器指定的地址了。  
+执行 `npm run push` 可以提交到远程 git 仓库。
 
 #### 6、配置 nginx
 
