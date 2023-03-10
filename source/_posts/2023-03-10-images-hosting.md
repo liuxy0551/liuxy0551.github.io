@@ -7,8 +7,8 @@ categories:
   - Blog
 author: liuxy0551
 copyright: true
-date: 2023-03-10 18:05:46
-updated: 2023-03-10 18:05:46
+date: 2023-03-10 22:37:22
+updated: 2023-03-10 22:37:22
 ---
 
 
@@ -54,7 +54,29 @@ export serverIP="43.139.139.139"
 
 #### 5、本地图床仓库
 
-&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。在本地图床仓库中添加 `package.json` 文件：
+&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。在本地图床仓库中添加 `deploy.command` 文件：
+
+```
+echo -e '1、本地压缩资源中...'
+gtar -czf images-hosting.tar.gz *
+
+
+echo -e '2、上传压缩包到远程服务器'
+scp -P 22 -r images-hosting.tar.gz deploy@$serverIP:/mnt/projects/images-hosting/
+
+
+echo -e '3、在远程服务器解压中...'
+ssh deploy@$serverIP "cd /mnt/projects/images-hosting/; tar -xzf images-hosting.tar.gz; rm -rf images-hosting.tar.gz; ls"
+
+
+echo -e '4、删除本地压缩包'
+rm -rf images-hosting.tar.gz
+
+
+echo -e '\n资源已经成功上传到远程服务器啦~'
+```
+
+&emsp;&emsp;在本地图床仓库中添加 `package.json` 文件：
 
 ```
 {
@@ -62,7 +84,7 @@ export serverIP="43.139.139.139"
   "version": "1.0.0",
   "description": "在服务器上自建图床 https://liuxianyu.cn/article/images-hosting.html",
   "scripts": {
-    "deploy": "scp -P 22 -r * deploy@$serverIP:/mnt/projects/images-hosting/",
+    "deploy": "bash deploy.command",
     "push": "git add . && git commit -m 'new images' && git push"
   }
 }
