@@ -45,7 +45,7 @@ module.exports = {
 }
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-vscode-alias/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-vscode-alias/1.png)
 
 #### 2、项目单独设置
 

@@ -36,7 +36,7 @@ updated: 2019-07-11 11:16:15
  将 Fork 后的代码在本地 clone 并打开，再将之前改动的代码替换掉 clone 的代码，然后上传到 git 仓库
 
 　　3、在需要引入该第三方库的项目中改动 package.json 文件，将版本号指向 git 仓库的地址，如下图：
-    ![](https://liuxianyu.cn/image-hosting/posts/git-reference/1.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/git-reference/1.png)
 
 
 

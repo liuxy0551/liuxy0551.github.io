@@ -26,7 +26,7 @@ updated: 2020-08-06 13:17:54
 
 &emsp;&emsp;size 的值有：medium、small、mini，默认值为空字符串，比 medium 大。
 
-![](https://liuxianyu.cn/image-hosting/posts/element-cdn-global-settings/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/element-cdn-global-settings/1.png)
 
 
 
@@ -34,7 +34,7 @@ updated: 2020-08-06 13:17:54
 
 &emsp;&emsp;拉取 <a href="https://github.com/ElemeFE/element" target="_black">element-ui</a> 源码(master 分支)，在`package.json`中查找如何编译出 js，注意`dist`命令。
 
-![](https://liuxianyu.cn/image-hosting/posts/element-cdn-global-settings/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/element-cdn-global-settings/2.png)
 
 &emsp;&emsp;在`/build/bin/build-entry.js`中将：
 ```

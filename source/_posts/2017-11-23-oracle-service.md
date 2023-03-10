@@ -27,12 +27,12 @@ ___
 ### 1、更改服务启动类型
 
 　　安装好 Oracle 11g 和第三方工具 PLSQL Developer 12 后，右击我的电脑 -> 服务或者控制面板 -> 管理工具 -> 服务，找到 Oracle 开头的七个或六个服务，将这些服务的启动类型全部改成手动。
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle-service/1.png)
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle-service/1.png)
 
 ### 2、理解服务含义
 
 　　成功安装 Oracle 11g 后，共有七个服务，这七个服务的含义可以参照 [这篇百度知道理解](https://zhidao.baidu.com/question/265616629111117845.html)，内容如下：
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle-service/2.png)<br>
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle-service/2.png)<br>
 
 ### 3、新建.bat文件
 
@@ -81,7 +81,7 @@ timeout 3
 exit
 ```
 
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle-service/3.png)<br>
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle-service/3.png)<br>
 
 >**注意**
 >　　上图中矩形方框中是 PLSQL 的安装位置，椭圆形标注的是服务名，与系统中的服务名要一致。
@@ -92,13 +92,13 @@ exit
 
 　　将上述文本文件改名为“PLSQL Developer 12.bat”，将文件剪切到 PLSQL Developer 12 的安装目录（随意哪个目录），然后“发送到 -> 桌面快捷方式”右击桌面上该快捷方式 -> 属性 -> 更改图标 -> 浏览，进入 PLSQL 安装目录，选择 plsqldev.exe，一路确认，将快捷方式改名为“PLSQL Developer 12”。
 <br>
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle-service/4.png)<br>
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle-service/4.png)<br>
 
 ### 5、启动与停止服务
 
 　　打开快捷方式，根据提示选择，关闭服务后，两个服务已经停止。同理，启动服务按提示进行即可。使用后可前往“服务”查看服务是否已启动或停止。
 <br>
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle-service/5.png)
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle-service/5.png)
 
 上文提到的部分文件：
 链接：[http://pan.baidu.com/s/1hr5J3JA](http://pan.baidu.com/s/1hr5J3JA) 密码：x705

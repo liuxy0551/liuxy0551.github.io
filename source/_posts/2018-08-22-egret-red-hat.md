@@ -15,7 +15,7 @@ updated: 2018-08-22 20:29:30
 
 
 &emsp;&emsp;最近花了两周时间在微信小游戏里踩坑，觉得挺有意思的，在这里分享一下开发的过程，点此可查看项目 [RedHat](https://github.com/liuxy0551/RedHat/tree/master/gameDemo)。首先介绍一下基础：小游戏 [官网教程](https://developers.weixin.qq.com/minigame/dev/) 、腾讯课堂的课程： [白鹭教育 - 成语大挑战小游戏开发](https://ke.qq.com/course/287266)（视频中的资料链接：[https://pan.baidu.com/s/1kkrCUwn0hikPLVg11PPFAA](https://pan.baidu.com/s/1kkrCUwn0hikPLVg11PPFAA) 密码：`3gtt`）、B站的教程：[使用白鹭引擎快速开发微信小游戏最全指南](https://www.bilibili.com/video/av18131669?from=search&seid=12272566927635524397)。这个小游戏是一个跳跃类游戏，基于白鹭（Egret）引擎开发，选用该引擎的原因是目前其对小游戏的开发支持较好，可以少踩些坑。上张图展示一下，下图为首页：
-![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/1.png)
 <!--more-->
 
 
@@ -33,7 +33,7 @@ updated: 2018-08-22 20:29:30
 选择扩展库 建议勾选上 game 游戏库，也可以在开发的时候在添加到项目中，egret.setTimeOut 方法需要 game 游戏库的支持；第六个的 tween 缓动动画库是游戏中的物体缓动的必需库文件。舞台尺寸默认，
 小游戏不支持 showAll 的缩放模式，需要更改，然后点击 创建 。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/5.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/5.png)
 
 #### 2、发布编译项目
 
@@ -41,7 +41,7 @@ updated: 2018-08-22 20:29:30
 大类一定要选择 游戏 ，否则在编译项目后会提示无app.json，看过小游戏官网教程的话就知道小游戏加载的是 game.json ；填上项目名称后点击 确定 ，等待发布编译，之后操作下图中的第六步，打开
  Egret Wing 3，然后在该编辑器中进行编写代码。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/6.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/6.png)
 
 #### 3、熟悉 Egret Wing 3
 
@@ -49,16 +49,16 @@ updated: 2018-08-22 20:29:30
  H5 页面查看小游戏的效果，更改为 wxgame 即可在点击调试按钮的时候直接打开微信开发者工具进行预览，下图左上角的箭头即指向调试按钮。前面提到的勾选 game 库，如果后期添加的话，需要在
   egretProperties.json 中按红框的格式添加，然后在终端输入 egret build -e 进行加载。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/8.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/8.png)
 
 　　src 文件夹下的 Platform.ts 是 Egret 引擎和微信小游戏之间的桥接文件，主要功能是使用小游戏的 API ，Main.ts 文件是在该项目中加载 Platform.ts 文件。同时，为了避免混淆，在 src 文件夹下新建 
 game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新建模板文件 > 新建 EUI 组件 ，输入类名后，修改 皮肤默认路径 ，也放到 resource 的 game 文件夹下，避免混淆。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/9.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/9.png)
 
 　　可以对照我放在 [Github](https://github.com/liuxy0551/RedHat) 上的源码，每个新建的 EUI 组件全部采用单例模式编写，利于后期调用被其他组件调用该组件中的方法。下图中的红框即是快速布局功能区。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/egret-red-hat/10.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/egret-red-hat/10.png)
 
 
 

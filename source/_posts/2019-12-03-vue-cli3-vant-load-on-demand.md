@@ -36,7 +36,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 Vue.use(Vant)
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-vant-load-on-demand/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-vant-load-on-demand/1.png)
 
 
 ### 三、自动按需引入组件`推荐`
@@ -87,7 +87,7 @@ Vue.use(vant)
 ``` javascript
 <van-button type="default">默认按钮</van-button>
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-vant-load-on-demand/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-vant-load-on-demand/2.png)
 
 
 - 主要体现在 vant 文件大小减少了约`384 KB`

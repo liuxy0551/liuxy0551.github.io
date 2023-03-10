@@ -22,7 +22,7 @@ updated: 2020-10-21 10:34:54
 &emsp;&emsp;实例通过`prototype`来访问其父元素的属性和方法，依次迭代访问构成原型链，直到 Object 原型的`prototype`为`null`，此时位于原型链的顶端。
 &emsp;&emsp;每个实例原型都有一个`constructor`属性指向关联的构造函数。
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/5.png)
 
 
 ### 一、构造函数创建对象
@@ -44,7 +44,7 @@ console.log(stuB.name) // Simon
 
 　　函数的 prototype 属性指向调用该构造函数而创建的实例的原型，也就是上述代码中 stuA 和 stuB 的原型，如下图：
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/1.png)
 
 
 #### 2、`__proto__`
@@ -61,7 +61,7 @@ console.log(stu.__proto__ === Student.prototype) // true
 
 　　实例对象和构造函数都可以指向原型，如下图：
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/2.png)
 
 
 #### 3、constructor
@@ -76,7 +76,7 @@ console.log(Student === Student.prototype.constructor) // true
 
 　　每个原型都有一个 constructor 属性指向关联的构造函数，如下图所示构造函数、实例原型和实例之间的关系：
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/3.png)
 
 
 >**综上可以得出：**
@@ -116,7 +116,7 @@ console.log(stu.name) // zhangsan
 
 前面有提到原型也是对象，其实原型对象就是通过 Object 构造函数创建的，实例的 __proto__ 指向构造函数的 prototype，如下图：
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/4.png)
 
 
 ### 原型链
@@ -129,6 +129,6 @@ console.log(Object.prototype.__proto__) // null
 
 　　Object.prototype 的原型是 null，即 Object.prototype 没有原型。意味着查找属性的时候查到 Object.prototype 就可以停止查找了。
 
-![](https://liuxianyu.cn/image-hosting/posts/js-prototype/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/js-prototype/5.png)
 
 　　上图中相互关联的原型组成的链状结构就是原型链，也就是上图中蓝色的线。

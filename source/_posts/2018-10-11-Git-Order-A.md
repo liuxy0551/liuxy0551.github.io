@@ -44,7 +44,7 @@ updated: 2019-12-13 11:26:22
     git remote add origin https://github.com/liuxy0551/learnGit.git
     ```
 　　如果出现问题：`fatal: remote origin already exists`，提示 origin 已存在，执行`git remote rm origin`删除别名再重复第 5 步即可
-　　![](https://liuxianyu.cn/image-hosting/posts/git-order/1.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/git-order/1.png)
 
 　　`一个本地仓库可以同时关联多个远程仓库`，依次关联即可：
     ``` shell

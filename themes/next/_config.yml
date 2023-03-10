@@ -360,7 +360,7 @@ ad_part:
   # 内推
   left_enable: false
   left_url: https://liuxianyu.cn/recruit/
-  left_image: https://liuxianyu.cn/image-hosting/recruit-qrcode.jpg
+  left_image: https://images-hosting.liuxianyu.cn/recruit-qrcode.jpg
   left_title: 内推
 
 # Code Highlight theme

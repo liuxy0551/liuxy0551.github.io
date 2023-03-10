@@ -14,7 +14,7 @@ date: 2021-02-20 21:14:00
 updated: 2021-02-20 21:14:00
 ---
 
-![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-a/1.jpg)
+![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-a/1.jpg)
 
 &emsp;&emsp;`记账啦`是一个微信小程序，**如果你也喜欢记账，可以看看这个小程序。**
 

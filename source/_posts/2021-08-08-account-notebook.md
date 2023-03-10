@@ -35,19 +35,19 @@ updated: 2021-08-08 16:07:42
 
 #### 2.1、微信扫码体验
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/share.jpg)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/share.jpg)
 
 
 #### 2.2、小程序截图
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/1.png)
 
 
 #### 2.3、云端数据截图
 
 &emsp;&emsp; 账号密码均为加密后的密文，无法查看明文
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/2.png)
 
 
 ### 三、相关说明
@@ -83,7 +83,7 @@ updated: 2021-08-08 16:07:42
 
 &emsp;&emsp;**如果对安全不放心，可以联系开发者进行私有化部署，让你拥有一个属于自己的账号管理小程序！**
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/wechat-qrcode.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/wechat-qrcode.png)
 
 
 #### 3.4、技术说明

@@ -23,14 +23,14 @@ updated: 2019-12-20 14:59:49
 前期项目赶时间的时候用直角三角形实现了，本着不偷工减料及钻研的态度，利用`伪类`按照设计图实现了一下。蓝色为设计图部分，绿色为实现部分。
 
 
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/7.png)
 {% gp 6-6 %}
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/1.png)
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/2.png)
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/3.png)
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/4.png)
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/5.png)
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/6.png)
 {% endgp %}
 
 
@@ -112,4 +112,4 @@ updated: 2019-12-20 14:59:49
 
 具体实现代码可参考：[bubble.vue](https://github.com/liuxy0551/vue-cli3-build-optimization/blob/master/src/pages/css/bubble.vue)
 
-![](https://liuxianyu.cn/image-hosting/posts/css-rectangle-triangle/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-rectangle-triangle/7.png)

@@ -43,6 +43,6 @@ updated: 2018-07-10 21:39:30
 >* 4、点击预览按钮查看 mock 响应
 >* 5、保存后，即可去代码中使用 mock 在线地址了
 
-![](https://liuxianyu.cn/image-hosting/posts/apizza-mock/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/apizza-mock/1.png)
 
 还可以去 apizza 的 [使用帮助页](https://apizza.net/wiki/datamodel) 查看更多使用方法。

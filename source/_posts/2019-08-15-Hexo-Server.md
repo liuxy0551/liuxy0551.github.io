@@ -49,7 +49,7 @@ updated: 2019-11-05 09:52:45
 　　参考 [Cent OS 基础环境搭建 - 安装 git](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
 　　参考 [Cent OS 基础环境搭建 - 安装 nginx](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
-　　4、在服务器上新建一个`blog`文件夹，用来存储`hexo d`后的静态文件，并且把该文件夹的权限授权给 deploy 用户。
+　　4、在服务器上新建一个`blog`文件夹，用来存储`hexo d`后的静态文件，并授权给 deploy 用户。
     ```shell
     sudo mkdir -p /mnt/projects/hexo-blog/blog
     cd /mnt/projects/hexo-blog
@@ -94,7 +94,7 @@ updated: 2019-11-05 09:52:45
     ```
 
 　　9、配置 nginx
-![](https://liuxianyu.cn/image-hosting/posts/hexo-server/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/hexo-server/1.png)
 ```shell
 sudo vim /etc/nginx/conf.d/hexo-blog.conf
 ```

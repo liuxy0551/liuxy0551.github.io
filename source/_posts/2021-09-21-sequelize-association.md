@@ -65,7 +65,7 @@ async getChinese (ctx) {
 ```
 
 &emsp;&emsp;接口返回的结果如下：
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/1.png)
 
 &emsp;&emsp;sequelize 自动生成的 sql 语句如下：
 ``` sql
@@ -136,7 +136,7 @@ async getProvinceList (ctx) {
 ```
 
 &emsp;&emsp;接口返回的结果如下：
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/2.png)
 
 &emsp;&emsp;sequelize 自动生成的 sql 语句如下：
 ``` sql
@@ -241,8 +241,8 @@ async getActorListWithMovies (ctx) {
 ```
 
 &emsp;&emsp;接口返回的结果如下：
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/3.png)
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/4.png)
 
 &emsp;&emsp;sequelize 自动生成的 sql 语句如下：
 ``` sql
@@ -307,7 +307,7 @@ FROM
 ### 四、注意事项
 
 &emsp;&emsp;1、在使用关联关系进行查询时，请求参数中不要使用`raw: true`，`raw`默认为 false，此时 sequelize 会自动拼接一些参数，设为 true 的话，会丢失参数导致数据结构错乱，如下图：
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/5.png)
 &emsp;&emsp;2、一对多时会出现返回的结果包含了大驼峰写法的关联 id 及值，可通过`include attributes exclude`将该字段过滤；  
 &emsp;&emsp;3、多对多时，一般不需要展示关联表的字段，可通过`include through attributes`将关联表字段过滤，如下：
 ``` javascript
@@ -321,7 +321,7 @@ const { count, rows } = await DB.Actor.findAndCountAll({
     ]
 })
 ```
-![](https://liuxianyu.cn/image-hosting/posts/sequelize-association/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/sequelize-association/6.png)
 &emsp;&emsp;4、建立关联关系时，可在`app/utils/mysql/db.js`中进行，引入的 initModels 中导出了所有 model 层，可参考：<a href="https://github.com/liuxy0551/sequelize-association/blob/master/app/utils/mysql/db.js" target="_black">app/utils/mysql/db.js</a>。  
 &emsp;&emsp;5、多对多的关联查询可以分解为以下四条 sql 进行，在数据量大的时候能减少查询时间，也是简化 sql 语句的方法：
 - 查询电影表的总数量 total  

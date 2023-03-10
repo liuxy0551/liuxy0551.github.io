@@ -17,7 +17,7 @@ updated: 2022-02-22 20:43:37
 <!--more-->
 
 <p align="center">
-    <img src="https://liuxianyu.cn/image-hosting/posts/node-process-thread/1.png"/>
+    <img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/1.png"/>
 </p>
 
 ### 一、进程和线程
@@ -39,7 +39,7 @@ updated: 2022-02-22 20:43:37
 
 &emsp;&emsp;站点小推车目前只有一个，大家都需要使用，这叫冲突。解决的方法有很多，排队等待或者等其他小哥用完后的通知，这叫线程同步。
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/2.png)
 
 &emsp;&emsp;总公司有很多站点，各个站点的运营模式几乎一模一样，这叫多进程。总公司叫主进程，各个站点叫子进程。  
 
@@ -94,7 +94,7 @@ app.listen(9000, () => {
 
 &emsp;&emsp;执行`node app.js`启动服务，用 Postman 发送请求，可以看到，计算 38 次耗费了 617ms，换而言之，因为执行了一个 CPU 密集型的计算任务，所以 Node.js 主线程被阻塞了六百多毫秒。如果同时处理更多的请求，或者计算任务更复杂，那么在这些请求之后的所有请求都会被延迟执行。
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/3.png)
 
 &emsp;&emsp;我们再新建一个 axios.js 用来模拟发送多次请求，此时将 app.js 中的 fibo 计算次数改为 43，用来模拟更复杂的计算任务：
 
@@ -114,7 +114,7 @@ fn('fibo?num=43')
 fn('test')
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/4.png)
 
 &emsp;&emsp;可以看到，当请求需要执行 CPU 密集型的计算任务时，后续的请求都被阻塞等待，这类请求一多，服务基本就阻塞卡死了。对于这种不足，Node.js 一直在弥补。
 
@@ -122,7 +122,7 @@ fn('test')
 
 &emsp;&emsp;master-worker 模式是一种并行模式，核心思想是：系统有两个及以上的进程或线程协同工作时，master 负责接收和分配并整合任务，worker 负责处理任务。
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/5.png)
 
 #### 2.3、多线程
 
@@ -195,7 +195,7 @@ parentPort.postMessage({
 
 &emsp;&emsp;执行上文的 axios.js，此时将 app.js 中的 fibo 计算次数改为 43，用来模拟更复杂的计算任务：
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/6.png)
 
 &emsp;&emsp;可以看到，将 CPU 密集型的计算任务交给子线程处理时，主线程不再被阻塞，只需等待子线程处理完成后，主线程接收子线程返回的结果即可，其他请求不再受影响。  
 &emsp;&emsp;上述代码是演示创建 worker 线程的过程和效果，实际开发中，请使用线程池来代替上述操作，因为频繁创建线程也会有资源的开销。  
@@ -213,7 +213,7 @@ parentPort.postMessage({
 
 &emsp;&emsp;cluster 底层就是 child_process，master 进程做总控，启动 1 个 agent 进程和 n 个 worker 进程，agent 进程处理一些公共事务，比如日志等；worker 进程使用建立的 IPC（Inter-Process Communication）通信通道和 master 进程通信，和 master 进程共享服务端口。
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/7.png)
 
 &emsp;&emsp;新增 fibo-10.js，模拟发送 10 次请求：
 
@@ -233,7 +233,7 @@ for (let i = 0; i < 10; i++) {
 
 &emsp;&emsp;可以看到，只使用了一个进程，10 个请求慢慢阻塞，累计耗时 15 秒：
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/8.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/8.png)
 
 &emsp;&emsp;接下来，将 app.js 稍微改动下，引入 cluster 模块：
 
@@ -289,16 +289,16 @@ if (cluster.isMaster) {
 
 &emsp;&emsp;执行`node app.js`启动服务，可以看到，cluster 帮我们创建了 1 个 master 进程和 4 个 worker 进程：
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/9.png)
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/10.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/9.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/10.png)
 
 &emsp;&emsp;通过 fibo-10.js  模拟发送 10 次请求，可以看到，四个进程处理 10 个请求耗时近 9 秒：
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/11.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/11.png)
 
 &emsp;&emsp;当启动 10 个 worker 进程时，看看效果：
 
-![](https://liuxianyu.cn/image-hosting/posts/node-process-thread/12.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-process-thread/12.png)
 
 &emsp;&emsp;仅需不到 3 秒，不过进程的数量也不是无限的。在日常开发中，worker 进程的数量一般和 CPU 核心数相同。
 

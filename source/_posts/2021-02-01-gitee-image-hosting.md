@@ -1,5 +1,5 @@
 ---
-title: Gitee 图床
+title: Gitee 图床【已不可用】
 urlname: gitee-image-hosting
 tags:
   - Blog
@@ -41,7 +41,7 @@ updated: 2021-02-01 12:00:38
 
 #### 1、新建仓库
 
-![](https://liuxianyu.cn/image-hosting/posts/gitee-image-hosting/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/gitee-image-hosting/1.png)
 
 &emsp;&emsp;clone 该仓库，将图片等媒体资源按随笔分文件夹存放到这个仓库，push 到远程仓库。
 
@@ -49,4 +49,4 @@ updated: 2021-02-01 12:00:38
 
 &emsp;&emsp;每次有新图片都需要更新（白嫖的无奈），看到有 <a href="https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoStargazers?ex=no" target="_black">Open API</a>，后续研究。
 
-![](https://liuxianyu.cn/image-hosting/posts/gitee-image-hosting/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/gitee-image-hosting/2.png)

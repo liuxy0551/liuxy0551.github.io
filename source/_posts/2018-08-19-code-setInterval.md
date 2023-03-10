@@ -20,14 +20,14 @@ updated: 2018-08-19 20:29:30
 
 ### 实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/code-setInterval/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/code-setInterval/1.gif)
 
 
 ### 具体实现
 
 #### 1、HTML 部分
 
-![](https://liuxianyu.cn/image-hosting/posts/code-setInterval/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/code-setInterval/2.png)
 ```
     <li>
       <div>
@@ -51,7 +51,7 @@ updated: 2018-08-19 20:29:30
 
 #### 2、JS 部分
 
-![](https://liuxianyu.cn/image-hosting/posts/code-setInterval/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/code-setInterval/3.png)
 
 ```
     data() {
@@ -64,7 +64,7 @@ updated: 2018-08-19 20:29:30
     }
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/code-setInterval/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/code-setInterval/4.png)
 ```
   // 获取验证码
   getInforcode() {
@@ -95,7 +95,7 @@ updated: 2018-08-19 20:29:30
       
 #### 3、CSS 部分
 
-![](https://liuxianyu.cn/image-hosting/posts/code-setInterval/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/code-setInterval/5.png)
 ```
 .m-get-code{
   display: inline-block;

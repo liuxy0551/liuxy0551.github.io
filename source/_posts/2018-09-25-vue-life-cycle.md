@@ -21,7 +21,7 @@ updated: 2018-09-25 20:29:30
 
 ### 一、生命周期图示
 
-　　![](https://liuxianyu.cn/image-hosting/posts/vue-life-cycle/1.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/vue-life-cycle/1.png)
 
 &emsp;&emsp;上图展示了 Vue 实例的生命周期，[官网上的原图](https://cn.vuejs.org/images/lifecycle.png)，我在学习的时候也没有一下就弄懂这张图说的所有东西，但是随着 Vue 学习的深入，对这张图的兴趣越来越浓。可以看出，在 Vue 生命周期中有很多钩子函数提供给我们在 Vue 生命周期不同时刻进行操作。我们先在图上确认所有的生命周期函数，然后再依次理解。
 
@@ -117,7 +117,7 @@ updated: 2018-09-25 20:29:30
 
 　　运行后打开调试查看 console 打印的内容，可以看到：
 
-　　![](https://liuxianyu.cn/image-hosting/posts/vue-life-cycle/2.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/vue-life-cycle/2.png)
 
 　　这样可以较为清晰地看到一个 Vue 示例在创建过程中调用的几个生命周期钩子函数。
 

@@ -36,7 +36,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-element-load-on-demand/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-element-load-on-demand/1.png)
 
 
 ### 三、按需引入
@@ -70,7 +70,7 @@ Vue.use(element)
 ``` javascript
 <el-input v-model.trim="msg" placeholder="请输入，最长 20 位，无空格" maxlength="20" clearable></el-input>
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-element-load-on-demand/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-element-load-on-demand/2.png)
 
 
 - 主要体现在 element 文件大小减少了约`1.5 MB`

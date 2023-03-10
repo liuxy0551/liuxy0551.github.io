@@ -98,4 +98,4 @@ console.log('加密后：', aesEncrypt(password)) // MTgzRDhEQTA1ODUzQzMwMDU0NkQ
 console.log('解密后：', aesDecrypt(aesEncrypt(password))) // Aa@.-123456
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/3.png)

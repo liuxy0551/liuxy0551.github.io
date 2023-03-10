@@ -27,11 +27,11 @@ updated: 2022-03-31 16:23:02
 
 &emsp;&emsp;`antd3.x TreeSelect`，在第一次获得焦点时，会依次触发`onFocus`、`onBlur`、`onFocus`，此时会清除一下搜索框，第一次还没有输入搜索条件，清除也无伤大雅。
 
-![](https://liuxianyu.cn/image-hosting/posts/antd3-antd4-together/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/antd3-antd4-together/1.gif)
 
 &emsp;&emsp;输入搜索内容后，选择某个选项，此时会发现，第一次选择选项，会再次出触发`onBlur`事件，这就让人很尴尬了，这样会让开发者无法区分`onBlur`到底是搜索后第一次选择选项触发的，还是点击组件外触发的，也就不能在`onBlur`事件中清除搜索条件，否则与需求不符。
 
-![](https://liuxianyu.cn/image-hosting/posts/antd3-antd4-together/2.gif)
+![](https://images-hosting.liuxianyu.cn/posts/antd3-antd4-together/2.gif)
 
 
 > **思考**
@@ -52,8 +52,8 @@ yarn add antd-v4@npm:antd@^4
 &emsp;&emsp;安装完成后可以在 package.json 和 yarn.lock 中看到安装的依赖：
 
 {% gp 4-4 %}
-![](https://liuxianyu.cn/image-hosting/posts/antd3-antd4-together/3.png)
-![](https://liuxianyu.cn/image-hosting/posts/antd3-antd4-together/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/antd3-antd4-together/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/antd3-antd4-together/4.png)
 {% endgp %}
 
 
@@ -138,7 +138,7 @@ export default class TreeSelectV4 extends React.Component<any, any> {
 
 - prefixCls 是样式前缀，这里统一写成`ant-v4`。
 
-![](https://liuxianyu.cn/image-hosting/posts/antd3-antd4-together/5.gif)
+![](https://images-hosting.liuxianyu.cn/posts/antd3-antd4-together/5.gif)
 
 
 > **注意**

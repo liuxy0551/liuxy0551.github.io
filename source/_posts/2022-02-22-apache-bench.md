@@ -38,7 +38,7 @@ ab -c 10 -n 10 http://baidu.com/
 
 `-c`后面的 10 表示采用 10 个并发（模拟 10 个人同时访问），`-n`后面的 10 代表总共发出 10 个请求；后面的网址表示测试的目标 URL。
 
-![](https://liuxianyu.cn/image-hosting/posts/apache-bench/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/apache-bench/1.png)
 
 - Document Path 测试页面
 - Document Length 页面大小

@@ -29,7 +29,7 @@ cat /etc/redhat-release
 uname -r
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/cent-os-docker/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/cent-os-docker/1.png)
 
 
 ### 二、安装 Docker

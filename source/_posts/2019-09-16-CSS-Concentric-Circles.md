@@ -19,7 +19,7 @@ updated: 2019-09-16 13:36:30
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/css-concentric-circles/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/css-concentric-circles/1.png)
 
 
 ### 二、HTML

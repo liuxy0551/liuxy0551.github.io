@@ -21,7 +21,7 @@ updated: 2021-06-08 09:31:45
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/cent-os-gotty/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/cent-os-gotty/1.gif)
 
 
 ### 二、安装运行

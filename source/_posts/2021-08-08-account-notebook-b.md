@@ -84,7 +84,7 @@ onLoad() {
 
 &emsp;&emsp;勾选`编译模式`下的`下次编译模拟更新`，并选择成功状态或失败状态，确认后点击`编译`按钮稍候片刻即可查看模拟效果：
 
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/4.png)
-![](https://liuxianyu.cn/image-hosting/posts/account-notebook/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/account-notebook/5.png)
 
 

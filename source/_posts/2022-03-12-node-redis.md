@@ -32,9 +32,9 @@ updated: 2022-03-12 22:25:55
 ### 三、缓存模式
 
 {% gp 4-4 %}
-![](https://liuxianyu.cn/image-hosting/posts/node-redis/1.png)
-![](https://liuxianyu.cn/image-hosting/posts/node-redis/2.png)
-![](https://liuxianyu.cn/image-hosting/posts/node-redis/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-redis/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-redis/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/node-redis/3.png)
 {% endgp %}
 
 

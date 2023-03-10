@@ -19,7 +19,7 @@ updated: 2018-10-30 20:29:30
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/image-center-css/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/image-center-css/1.gif)
 
 &emsp;&emsp;项目是移动端的项目，基于 Vue + Mint UI 实现。效果区域使用的是 Mint UI 自带的 swipe 组件，取消了自动播放。
 
@@ -27,7 +27,7 @@ updated: 2018-10-30 20:29:30
 
 #### 1、HTML 部分
 
-![](https://liuxianyu.cn/image-hosting/posts/image-center-css/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/image-center-css/2.png)
 ```
     <mt-swipe :auto="0">
       <mt-swipe-item class="product-swipe" v-for="item in product_info.images" :key="item.piid">
@@ -38,7 +38,7 @@ updated: 2018-10-30 20:29:30
 
 #### 2、CSS 部分
 
-![](https://liuxianyu.cn/image-hosting/posts/image-center-css/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/image-center-css/3.png)
 ```
       .product-swipe {
         width: 750px;

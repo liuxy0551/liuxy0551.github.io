@@ -29,8 +29,8 @@ updated: 2021-12-14 21:39:53
 ### 一、实现效果
 
 {% gp 4-4 %}
-  ![](https://liuxianyu.cn/image-hosting/posts/account-notebook/6.png)
-  ![](https://liuxianyu.cn/image-hosting/posts/account-notebook/7.gif)
+  ![](https://images-hosting.liuxianyu.cn/posts/account-notebook/6.png)
+  ![](https://images-hosting.liuxianyu.cn/posts/account-notebook/7.gif)
 {% endgp %}
 
 ### 二、需求分解

@@ -19,11 +19,11 @@ updated: 2021-01-07 16:35:17
 
 ### 1、User 表
 
-![](https://liuxianyu.cn/image-hosting/posts/sql-group-by-day/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/sql-group-by-day/1.png)
 
 ### 2、SQL 语句和结果
 
-![](https://liuxianyu.cn/image-hosting/posts/sql-group-by-day/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/sql-group-by-day/2.png)
 
 ```
 SELECT

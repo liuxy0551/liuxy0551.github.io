@@ -22,7 +22,7 @@ updated: 2019-11-15 17:08:08
 
 　　先去 Certbot 官网 [https://certbot.eff.org/](https://certbot.eff.org/)，选择 nginx ，再选择 CentOS/RHEL 7，意思是在什么系统上使用什么 HTTP 服务器
 
-![](https://liuxianyu.cn/image-hosting/posts/centos-nginx-https/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/centos-nginx-https/1.png)
 
 #### 1、查看服务器实例
 ``` shell
@@ -47,11 +47,11 @@ sudo yum install -y certbot python2-certbot-nginx
 ``` shell
 sudo certbot --nginx
 ```
-　　![](https://liuxianyu.cn/image-hosting/posts/centos-nginx-https/2.png)报错如上，参考资料：[Certbot :ImportError: No module named 'requests.packages.urllib3](https://stackoverflow.com/questions/46168364/certbot-importerror-no-module-named-requests-packages-urllib3)，执行以下指令：
+　　![](https://images-hosting.liuxianyu.cn/posts/centos-nginx-https/2.png)报错如上，参考资料：[Certbot :ImportError: No module named 'requests.packages.urllib3](https://stackoverflow.com/questions/46168364/certbot-importerror-no-module-named-requests-packages-urllib3)，执行以下指令：
 ``` shell
 sudo pip install --upgrade --force-reinstall 'requests==2.6.0' urllib3
 ```
-　　![](https://liuxianyu.cn/image-hosting/posts/centos-nginx-https/3.png)提示输入以下指令升级`pip`，可以不搭理。
+　　![](https://images-hosting.liuxianyu.cn/posts/centos-nginx-https/3.png)提示输入以下指令升级`pip`，可以不搭理。
 ``` shell
 sudo pip install --upgrade pip
 ```
@@ -67,8 +67,8 @@ sudo certbot --nginx
 　　- 输入数字，选择部署的域名，多个域名用`,`隔开
 　　- 输入数字，选择是否将 http 重定向到 https。1、无需重定向，2、重定向
     {% gp 2-2 %}
-    ![](https://liuxianyu.cn/image-hosting/posts/centos-nginx-https/4.png)
-    ![](https://liuxianyu.cn/image-hosting/posts/centos-nginx-https/5.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/centos-nginx-https/4.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/centos-nginx-https/5.png)
     {% endgp %}
     
 #### 4、确定 Certbot 正常运行 

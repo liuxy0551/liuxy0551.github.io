@@ -33,7 +33,7 @@ updated: 2019-06-21 13:44:22
 　　2、在 github 上创建一个新的 repository
 　　将本地项目传到 github 上可参考我的另一篇随笔 [Git 常用命令（一）—— 将本地仓库与多个远程仓库关联](https://liuxianyu.cn/article/git-order-a.html)
 
-　　来看一下项目结构：![](https://liuxianyu.cn/image-hosting/posts/github-pages/1.png)
+　　来看一下项目结构：![](https://images-hosting.liuxianyu.cn/posts/github-pages/1.png)
 
 　　这里需要配置的就是 /config/index.js，其中我们需要关注的是 module.exports 的 build 属性，我们将在这里配置 webpack build 时生成文件的路径。
 
@@ -87,7 +87,7 @@ updated: 2019-06-21 13:44:22
 
 **`npm run build`打包后然后把整个项目上传到 github 上之后就可以在存储库的 Setting，找到 GitHub Pages 部分，将 Source 选择为 master branch / docs folder （第二项），选择后会自动保存，然后在 Github Pages 部分就会给出 url ，点击即可进入我们的静态页面啦。**
 
-![](https://liuxianyu.cn/image-hosting/posts/github-pages/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/github-pages/2.png)
     
 
 ### 三、 自定义 template

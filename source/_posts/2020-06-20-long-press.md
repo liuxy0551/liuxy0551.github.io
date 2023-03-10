@@ -20,7 +20,7 @@ updated: 2020-06-20 14:26:02
 
 #### 1、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/long-press/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/long-press/1.gif)
 
 
 #### 2、HTML
@@ -85,7 +85,7 @@ updated: 2020-06-20 14:26:02
 #### 4、附件
 1、点赞的 canvas 文件：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/long-press/canvas.js" target="_black">canvas.js</a>
 2、点赞的组件代码：<a href="https://github.com/liuxy0551/liuxy0551.github.io/blob/master/assets/posts/long-press/ThumbUp.vue" target="_black">ThumbUp.vue</a>
-3、点赞图标：<a href="https://liuxianyu.cn/image-hosting/posts/long-press/thumb-up.png" target="_black">thumb-up.png</a>
+3、点赞图标：<a href="https://images-hosting.liuxianyu.cn/posts/long-press/thumb-up.png" target="_black">thumb-up.png</a>
 
 
 

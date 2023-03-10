@@ -25,7 +25,7 @@ $ gem install jekyll
 
 　　这一步可能会遇到一些问题：
 
-　　![](https://liuxianyu.cn/image-hosting/posts/macos-jekyll/1.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png)
 
 　　如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。
 ```
@@ -45,7 +45,7 @@ $ gem install jekyll
 
 　　此时出现了新的问题：
 
-　　![](https://liuxianyu.cn/image-hosting/posts/macos-jekyll/2.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png)
 ```
     Configuration file: /Users/czre/git/blog/_config.yml
        Deprecation: The 'gems' configuration option has been renamed to 'plugins'. Please update your config file accordingly.
@@ -59,11 +59,11 @@ $ gem install jekyll
 
 　　另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。
 
-　　![](https://liuxianyu.cn/image-hosting/posts/macos-jekyll/3.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png)
 
 　　经过上述步骤，输入以下指令就可以在 [http://127.0.0.1:4000/](http://127.0.0.1:4000/) 或者 [http://localhost:4000](http://localhost:4000) 见到博客了。
 ```
     $ jekyll serve
 ```
 
-　　![](https://liuxianyu.cn/image-hosting/posts/macos-jekyll/4.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png)

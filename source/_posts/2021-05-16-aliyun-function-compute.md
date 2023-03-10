@@ -21,7 +21,7 @@ updated: 2021-05-16 14:10:08
 
 &emsp;&emsp;Serverless 是一种新型的互联网架构 —— 无服务器架构，这里的无服务器不是指不需要服务器，而是开发者可以不管理服务器等基础设施。其实 Serverless 也谈不上新，因为这个概念在 2012 年就已经提出了，简单看下 Serverless 的发展历史：
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/1.png)
 
 &emsp;&emsp;云计算的发展过程从 IaaS，PaaS，SaaS 到最新的 Serverless，介绍下这些基本概念就可以看出 Serverless 是云计算发展到某一阶段的必然产物，可以节省运维成本和开发成本。
 
@@ -34,18 +34,18 @@ updated: 2021-05-16 14:10:08
 
 ### 二、函数计算
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/2.png)
 
 > &emsp;&emsp;函数计算是阿里云作为云服务商提供的一项服务能力，类似的服务还有亚马逊的 Lambda、腾讯云的云函数、Google Cloud Functions 等。本篇随笔就介绍一下阿里云的函数计算，并进行小场景实践：基于 egg 和 MySQL 提供 Web 服务。
 > &emsp;&emsp;阿里云对函数计算（Function Compute）的定义是：一个事件驱动的全托管 Serverless 计算服务，无需管理服务器等基础设施，只需编写代码并上传，函数计算会准备好计算资源，并以弹性、可靠的方式运行代码，并提供日志查询、性能监控和报警等功能。
 
 &emsp;&emsp;我们可以对比一个应用从开发到上线的过程：
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/3.png)
 
 #### 2.1、工作流程
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/4.png)
 
 - 1、开发者编写程序，函数计算支持的 <a href="https://help.aliyun.com/document_detail/74712.htm?spm=a2c4g.11186623.2.8.d913398eQ0WizG#concept-2259869" target="_black">开发语言列表</a>。
 - 2、开发者上传程序到函数计算。
@@ -90,7 +90,7 @@ fun --version
 
 &emsp;&emsp;使用 fun 工具部署可以去全局定义账户信息，输入`fun config`依次配置 Account ID（阿里云账号 ID）、AccessKey ID、AccessKey Secret、Default Region Name。如果账号是 RAM 用户，Account ID 需要配置为阿里云账号的 ID，AccessKey ID、AccessKey Secret 为 RAM 用户的密钥。推荐全局配置，完成配置后，Funcraft 会将配置保存到用户目录下的`.fcli/config.yaml`文件中。
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/5.png)
 
 #### 3.3、编写代码
 
@@ -189,7 +189,7 @@ npx --no-install egg-scripts start --workers=1
 
 &emsp;&emsp;继续命令行的部署，配置自定义域名后进行验证。
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/6.png)
 
 
 ### 四、复杂场景
@@ -200,7 +200,7 @@ npx --no-install egg-scripts start --workers=1
 
 &emsp;&emsp;可以发送消息到指定钉钉群，效果如下:
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/14.gif)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/14.gif)
 
 #### 4.2、通过钉钉群机器人发消息
 
@@ -270,7 +270,7 @@ getRobots () {
 
 &emsp;&emsp;通过定时任务拉取百度统计的埋点数据，并通过统一的钉钉群机器人发送到群
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/7.png)
 
 ``` javascript
 // 百度统计实现
@@ -296,7 +296,7 @@ const baidutjAPI = async (config) => {
 }
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/8.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/8.png)
 
 ``` javascript
 // 定时触发器
@@ -313,11 +313,11 @@ exports.handler = (event, context, callback) => {
 
 &emsp;&emsp;通过定时任务拉取微信小程序的数据，并通过统一的钉钉群机器人发送到群
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/9.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/9.png)
 
 #### 4.5、从 MySQL 查询数据
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/10.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/10.png)
 
 
 ### 五、使用心得
@@ -327,7 +327,7 @@ exports.handler = (event, context, callback) => {
 &emsp;&emsp;操作路径：控制台 -> 函数计算 -> 服务及函数 -> (选择一个服务)版本管理。
 &emsp;&emsp;每次部署时可以新建一个版本，第一次新建版本后可以在此版本的基础上新建别名，如：prod，并将自定义域名（第 3 条）、函数的 http 触发器中 版本/别名 选择为 prod。后续部署时，可以新建版本，需要该版本生效时，可以简单编辑 prod 别名对应的版本即可，同时别名支持版本配比，可进行灰度测试。
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/11.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/11.png)
 
 #### 5.2、配置导出
 
@@ -350,11 +350,11 @@ exports.handler = (event, context, callback) => {
 
 &emsp;&emsp;使用函数时如果需要区分生产环境和测试环境，可以发布不同的版本，并创建多个触发器，设置触发器指向不同的版本/别名，如下图：	
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/12.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/12.png)
 
 &emsp;&emsp;自定义域名中创建两个域名，用来区分环境，路径可按下方示例填写，生产和测试选择不同的版本/别名即可。
 
-![](https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/13.png)
+![](https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/13.png)
 
 
 ### 参考文章
@@ -363,6 +363,6 @@ exports.handler = (event, context, callback) => {
 
 ### 附件
 
-1、<a href="https://liuxianyu.cn/image-hosting/posts/aliyun-function-compute/函数计算的介绍与实践.pptx" target="_black">函数计算的介绍与实践.pptx (2.7 MB)</a>
+1、<a href="https://images-hosting.liuxianyu.cn/posts/aliyun-function-compute/函数计算的介绍与实践.pptx" target="_black">函数计算的介绍与实践.pptx (2.7 MB)</a>
 
 2、<a href="https://a.jizhangla.liuxianyu.cn/assets/media/%E9%83%A8%E7%BD%B2%E6%BC%94%E7%A4%BA.mp4" target="_black">部署演示.mp4 (28.2 MB)</a>

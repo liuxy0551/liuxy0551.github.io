@@ -21,7 +21,7 @@ updated: 2020-03-06 19:20:07
 
 　　通过 [https://www.ipaddress.com/](https://www.ipaddress.com/) 查询到`raw.githubusercontent.com`的真实 IP 地址：
 
-![](https://liuxianyu.cn/image-hosting/posts/hosts-githubusercontent/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/hosts-githubusercontent/1.png)
 
 
 #### 2、修改 Hosts 文件

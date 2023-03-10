@@ -115,7 +115,7 @@ nginx -s reload
 　　这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：`/etc/nginx/nginx.conf`。
 
 　　1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的`include`指向。
-![](https://liuxianyu.cn/image-hosting/posts/cent-os-base/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/cent-os-base/1.png)
 
 　　2、在`/etc/nginx/conf.d`文件夹下创建配置文件，以`.conf`结尾，配置内容可以参考百度或 [Nginx - Vue单页面应用配置(Vue部署)](https://github.com/wuyuedefeng/blogs/issues/16)
 ```shell
@@ -155,7 +155,7 @@ server {
 >**注意**
 >* **配置安全组规则, 这是个大坑。80 端口没打开的时候，无法通过 ip 直接访问，同事说 2018 年 80 端口还是默认打开的，欺负新人**
 
-![](https://liuxianyu.cn/image-hosting/posts/cent-os-base/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/cent-os-base/2.png)
 
 
 ### 五、安装 node
@@ -231,7 +231,7 @@ ssh-keygen -t rsa -b 4096 -C "liuxy0551@qq.com"
 操作步骤为：阿里云控制台 -> 云服务器 ECS -> 选择实例 -> 实例详情 -> 右上角 停止实例 -> 左侧 本实例磁盘 -> 重新初始化磁盘。
 但是下次再连接服务器的时候就会报错了`WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`，根据错误提示编辑对应的文件，删除服务器的记录即可。
 
-![](https://liuxianyu.cn/image-hosting/posts/cent-os-base/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/cent-os-base/3.png)
 
 ```shell
 vim ~/.ssh/known_hosts

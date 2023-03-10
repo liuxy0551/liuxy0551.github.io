@@ -39,7 +39,7 @@ npm i lodash -S
   _.chunk(['a', 'b', 'c', 'd'], 2)
   // => [['a', 'b'], ['c', 'd']]
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-lodash/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-lodash/1.png)
 
 
 ### 三、单独引入 lodash `推荐`
@@ -52,7 +52,7 @@ npm i lodash -S
   chunk(['a', 'b', 'c', 'd'], 2)
   // => [['a', 'b'], ['c', 'd']]
 ```
-![](https://liuxianyu.cn/image-hosting/posts/vue-cli3-lodash/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-cli3-lodash/2.png)
 
 
 - 主要体现在 element 文件大小减少了约`550+ KB`

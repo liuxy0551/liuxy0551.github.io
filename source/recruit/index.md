@@ -24,4 +24,4 @@ type: "recruit"
 &emsp;&emsp;浙江省杭州市余杭区仓前街道海智中心8号楼
 
 
-![](https://liuxianyu.cn/image-hosting/recruit-qrcode.jpg)
+![](https://images-hosting.liuxianyu.cn/recruit-qrcode.jpg)

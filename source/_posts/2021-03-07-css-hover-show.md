@@ -17,7 +17,7 @@ updated: 2021-03-08 10:39:03
 
 <!--more-->
 
-![](https://liuxianyu.cn/image-hosting/posts/css-hover-show/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/css-hover-show/1.gif)
 
 
 ### 实现思路：

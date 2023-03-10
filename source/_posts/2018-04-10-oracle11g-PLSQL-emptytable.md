@@ -60,11 +60,11 @@ DROP TABLESPACE OP;
 SELECT 'ALTER TABLE '||TABLE_NAME||' ALLOCATE EXTENT;' FROM USER_TABLES WHERE SEGMENT_CREATED='NO';
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/oracle11g-PLSQL-emptytable/1.png)<br>
+![](https://images-hosting.liuxianyu.cn/posts/oracle11g-PLSQL-emptytable/1.png)<br>
 
 可以通过语句导出查询结果，执行导出的语句即可（表数量少的话可以复制粘贴执行查询结果）。
 
-<br>![](https://liuxianyu.cn/image-hosting/posts/oracle11g-PLSQL-emptytable/2.png)
+<br>![](https://images-hosting.liuxianyu.cn/posts/oracle11g-PLSQL-emptytable/2.png)
 
 ``` 
 set heading off;

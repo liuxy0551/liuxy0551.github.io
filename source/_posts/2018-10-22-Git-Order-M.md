@@ -119,7 +119,7 @@ config/index.js
 
 &emsp;&emsp;以上的任意方式当切换分支时会出现一种特殊情况：即你的取消监听文件（比如 index.js）是项目现有的，然后你对它进行了更改而且 git 也忽略了它，但是当你切换分支时，如果切换分支的（index.js）与当前分支的 index.js 文件有冲突，你是无法切换过去的，它会提示如下：
 
-![](https://liuxianyu.cn/image-hosting/posts/git-order/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/git-order/3.png)
 
 &emsp;&emsp;图中表示`config/index.js`会被即将到来的分支所覆盖，请在切换分支前进行提交。
 

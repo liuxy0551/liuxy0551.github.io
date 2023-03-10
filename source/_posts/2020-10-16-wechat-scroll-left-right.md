@@ -21,7 +21,7 @@ updated: 2020-10-16 17:13:38
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/wechat-scroll-left-right/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/wechat-scroll-left-right/1.gif)
 
 
 ### 二、实现方法

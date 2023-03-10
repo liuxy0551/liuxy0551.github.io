@@ -47,7 +47,7 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 
 &emsp;&emsp;安装并添加完成后，便可以使用`git cz`命令来替换`git commit`了。修改一个文件并`git add`后，通过`git cz`试一下：
 
-![](https://liuxianyu.cn/image-hosting/posts/git-commit-version-changelog/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/git-commit-version-changelog/1.png)
 
 | 类型 | 描述 |
 | ---- | ---- |

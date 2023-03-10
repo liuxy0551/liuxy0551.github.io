@@ -87,7 +87,7 @@ external-ui: clash-dashboard # 静态页面文件夹
 
 访问`server ip:7891/ui`：
 
-![](https://liuxianyu.cn/image-hosting/posts/linux-clash/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/linux-clash/1.png)
 
 #### 6、启用/停用代理
 

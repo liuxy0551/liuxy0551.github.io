@@ -112,7 +112,7 @@ setInterval("createtime()",250);
 <style>
     #comments .veditor{
         min-height: 10rem;
-        background-image: url(https://liuxianyu.cn/image-hosting/comment-bg.png);
+        background-image: url(https://images-hosting.liuxianyu.cn/comment-bg.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;

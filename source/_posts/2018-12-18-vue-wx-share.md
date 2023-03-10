@@ -20,7 +20,7 @@ updated: 2018-12-18 20:29:30
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/3.png)
 
 
 ### 二、遇到的问题
@@ -36,12 +36,12 @@ updated: 2018-12-18 20:29:30
 　　1、微信分享中的配置微信 js-sdk，自行查阅 [微信 JS-SDK 说明文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)。
 　　2、因为项目有多处需要自定义分享，所以我将请求签名和注入权限的方法写到了一个 js 文件中，同时在需要自定义分享的页面加载时调用这些方法。
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/4.png)
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/5.png)
 
 　　3、像下图这种基本就是没有完成页面的签名及授权验证，按照微信文档接收后端同学返回的数据即可。
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/1.png)
 ```
   wxRegister(link) {
     let params = {
@@ -101,13 +101,13 @@ updated: 2018-12-18 20:29:30
 　　4、像下图这种就是困扰我的问题，分享出去的内容除了最关键的自定义链接，其余都正常，这是很伤心的一件事，也是这篇随笔的来源。解决这个问题需要知道这样的信息，
 微信公众号中的项目在请求签名和自定义分享链接的时候对于 Vue 的 # 路由不太友好，因为分享出去的自定义链接在 # 之后会被微信去除，了解这点后，我们就可以来着手解决问题了。
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/2.png)
 <br>
 
 　　5、点击页面中的分享按钮，这个时候将需要分享出去的自定义内容准备好，按照微信文档的格式写就可以。建议在调用微信分享方法前判断是否可用，因为这几个分享接口都是即将废弃的，
 下图中白色字体代码是因为当前没有引入 1.4.0 版本的 js 文件。
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/6.png)
 ```
  // 点击分享
  share () {
@@ -166,7 +166,7 @@ updated: 2018-12-18 20:29:30
 　　6、看上面的代码就能看出，我的思路是微信处理 # ，我就避开 # ，将需要分享的参数直接附在 # 之前，我的后端同学在以为是签名 url 出错时，给过替换 # 的提议，都是大同小异的方法。
 然后在 APP.vue 文件的初始化方法中查看点击分享到底是跳到什么 url 去了，建议使用 alert，因为 vconsoel 打印过后如果页面重定向后，就看不到打印的信息了。
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-wx-share/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-wx-share/7.png)
 
 　　7、同时分享出去的自定义链接还会被微信加上一些识别流量来源的参数，但是这些参数并不会影响页面的重定向。可是为防止这些参数在分享出去后，在接收处理数据时乱入，故将其直接去除，使用 split。
 

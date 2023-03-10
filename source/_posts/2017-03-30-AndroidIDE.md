@@ -43,21 +43,21 @@ updated: 2018-04-20 20:21:09
 　　打开 [http://developer.android.com/sdk/index.html](http://developer.android.com/sdk/index.html)（没有梯子打不开）可下载 Android SDK。或者从下面两个网站下载  
 [http://www.androiddevtools.cn/](http://www.androiddevtools.cn/)  
 
-![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/6.png)
+![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/6.png)
 
 
 [http://tools.android-studio.org/index.php/sdk/](http://tools.android-studio.org/index.php/sdk/)  
 
-![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/7.png)
+![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/7.png)
 
 #### 2、安装
 
 　　下载完成后双击“installer_r24.4.1-windows.exe”，选择解压文件夹，完成后双击“SDK Manager”，加载可安装的安卓版本。下面是我的一些安装选项，仅供参考：
 
 {% gp 4-2 %}
-　　![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/1.png)
-　　![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/2.png)
-　　![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/3.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/1.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/2.png)
+　　![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/3.png)
 {% endgp %}
 
 
@@ -77,11 +77,11 @@ updated: 2018-04-20 20:21:09
 
 　　启动 Eclipse，Help -> Install New Software，点击 Add… 按钮，名称可以用 ADT，然后点击 Archive 选择 ADT 的压缩包，点击 OK 选择要安装的工具，下一步。安装完成重启 Eclipse。可不进行：在 Eclipse 中点击 Window -> Preferences...，选择 Android：配置好你的 SDK 路径，则会出现刚才在 SDK 中安装的各平台包。  
 
-![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/5.png)
 
 　　到这里，Windows 系统上的 Android 开发环境就搭建完成了。在 Eclipse 中打开 File -> New -> Project 新建一个项目的时候，就可以看到建立 Android 项目的选项。测试运行程序可以连接 USB 线使用真机（需打开开发者模式中的 USB 调试功能），也可以使用此时已安装好的 Android SDK and AVD Manager 来创建虚拟设备。  
 
-![](https://liuxianyu.cn/image-hosting/posts/Android-IDE/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/Android-IDE/4.png)
 
 
 - 下面的步骤可能已经不需要了：因为国内有墙，有时候会出现加载安卓版本失败的情况。从万能的百度搜索上，找到了解决这个问题的方法：

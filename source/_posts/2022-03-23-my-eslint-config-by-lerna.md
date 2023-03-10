@@ -46,7 +46,7 @@ yarn global add lerna
 
 &emsp;&emsp;安装完成后输入`lerna -v`查看版本号：
 
-![](https://liuxianyu.cn/image-hosting/posts/my-eslint-config-by-lerna/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/my-eslint-config-by-lerna/1.png)
 
 ``` bash
 lerna init
@@ -162,7 +162,7 @@ lerna create packageName
 lerna list
 ```
 
-![](https://liuxianyu.cn/image-hosting/posts/my-eslint-config-by-lerna/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/my-eslint-config-by-lerna/2.png)
 
 #### 5.3、增加本地或者远程 package 作为当前项目 packages 里面的依赖
 
@@ -246,7 +246,7 @@ lerna changed
 
 &emsp;&emsp;列出改动过的包，发布时只更新改动过的包。
 
-![](https://liuxianyu.cn/image-hosting/posts/my-eslint-config-by-lerna/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/my-eslint-config-by-lerna/3.png)
 
 #### 5.8、指定版本号
 
@@ -273,8 +273,8 @@ lerna publish
 ```
 
 {% gp 4-4 %}
-![](https://liuxianyu.cn/image-hosting/posts/my-eslint-config-by-lerna/4.png)
-![](https://liuxianyu.cn/image-hosting/posts/my-eslint-config-by-lerna/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/my-eslint-config-by-lerna/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/my-eslint-config-by-lerna/5.png)
 {% endgp %}
 
 ### 六、发布整合包

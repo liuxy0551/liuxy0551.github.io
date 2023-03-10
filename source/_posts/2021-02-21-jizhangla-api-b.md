@@ -28,15 +28,15 @@ updated: 2021-02-21 22:30:29
 ### 截图展示
 
 {% gp 9-9 %}
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/1.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/2.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/3.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/4.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/5.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/6.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/7.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/8.jpg)
-    ![](https://liuxianyu.cn/image-hosting/posts/jizhangla-api-b/9.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/1.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/2.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/3.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/4.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/5.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/6.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/7.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/8.jpg)
+    ![](https://images-hosting.liuxianyu.cn/posts/jizhangla-api-b/9.jpg)
 {% endgp %}
 
 

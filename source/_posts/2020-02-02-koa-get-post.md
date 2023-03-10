@@ -93,6 +93,6 @@ node app.js
 #### 5、测试
 
 {% gp 2-2 %}
-![](https://liuxianyu.cn/image-hosting/posts/koa-get-post/1.png)
-![](https://liuxianyu.cn/image-hosting/posts/koa-get-post/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/koa-get-post/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/koa-get-post/2.png)
 {% endgp %}

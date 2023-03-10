@@ -21,8 +21,8 @@ updated: 2019-03-19 20:29:30
 
 ### 一、实现效果
 
-![](https://liuxianyu.cn/image-hosting/posts/vue-echarts/1.png)
-![](https://liuxianyu.cn/image-hosting/posts/vue-echarts/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-echarts/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/vue-echarts/2.png)
 
 ### 二、引入组件及说明
 　　1、v-charts：基于 Vue2.0 和 ECharts 封装的图表组件 [官方文档](https://v-charts.js.org)   [Github](https://github.com/ElemeFE/v-charts)

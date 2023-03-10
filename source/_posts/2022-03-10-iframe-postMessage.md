@@ -104,11 +104,11 @@ otherWindow.postMessage(message, targetOrigin, [transfer]);
 ### 二、实现效果
 
 <p align="center">
-    <img src="https://liuxianyu.cn/image-hosting/posts/iframe-postMessage/1.gif"/>
+    <img src="https://images-hosting.liuxianyu.cn/posts/iframe-postMessage/1.gif"/>
 </p>
 
-<img src="https://liuxianyu.cn/image-hosting/posts/iframe-postMessage/2.png"/>
-<img src="https://liuxianyu.cn/image-hosting/posts/iframe-postMessage/3.png"/>
+<img src="https://images-hosting.liuxianyu.cn/posts/iframe-postMessage/2.png"/>
+<img src="https://images-hosting.liuxianyu.cn/posts/iframe-postMessage/3.png"/>
 
 &emsp;&emsp;以上截图的代码是临时 demo。
 

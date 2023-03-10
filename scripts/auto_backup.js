@@ -39,15 +39,15 @@ function run() {
             exit(1);
         } else {
             echo('Success: git push origin success');
-            // echo('git push gitee develop');
+            echo('git push gitee develop');
         }
 
-        // if (exec('git push gitee develop').code !== 0) {
-        //     echo('Error: git push gitee failed');
-        //     exit(1);
-        // } else {
-        //     echo('Success: git push gitee success');
-        // }
+        if (exec('git push gitee develop').code !== 0) {
+            echo('Error: git push gitee failed');
+            exit(1);
+        } else {
+            echo('Success: git push gitee success');
+        }
 
         echo("============================ Auto Backup Complete ============================")
     }

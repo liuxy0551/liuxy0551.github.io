@@ -17,7 +17,7 @@ updated: 2021-07-16 10:37:40
 
 <!--more-->
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/normal.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/normal.png)
 
 
 ### 一、什么是 canvas
@@ -87,29 +87,29 @@ ctx.putImageData(imageData, 0, 0) // 重绘图像
 
 &emsp;&emsp;相当于黑白照片，定义以下公式：`gray = red * 0.3 + green * 0.59 + blue * 0.11`
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/1.png)
 
 #### 3.2、底片效果
 
 &emsp;&emsp;底片效果就是 RGB 最大值减去当前值，即 255 - 当前值：
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/2.png)
 
 #### 3.3、单色效果
 
 &emsp;&emsp;单色效果是将当前像素的其他色值去除，比如显示红色时将 green、blue 可以设置为 0：
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/3.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/3.png)
 
 #### 3.4、黑白效果
 
 &emsp;&emsp;通过判断当前像素的色值是否超过某一个标定值，大于则显示黑色，否则显示白色，即可达到效果。这个标定值可以设定为 RGB 最大值的一半，也就是 128：
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/4.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/4.png)
 
 #### 3.5、荧光效果
 
-![](https://liuxianyu.cn/image-hosting/posts/canvas-image-filter/5.png)
+![](https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/5.png)
 
 
 ### 四、代码

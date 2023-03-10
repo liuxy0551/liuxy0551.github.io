@@ -22,7 +22,7 @@ updated: 2020-08-18 15:54:14
 
 &emsp;&emsp;具体如何使用，可移步 <a href="https://github.com/liuxy0551/deployvue#readme" target="_black">README.md</a> 查看。这里不过多介绍使用方法，主要记录一下遇到的一些点。
 
-![](https://liuxianyu.cn/image-hosting/posts/deploy-vue/1.gif)
+![](https://images-hosting.liuxianyu.cn/posts/deploy-vue/1.gif)
 
 ### 一、部署流程
 

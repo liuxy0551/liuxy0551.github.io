@@ -24,18 +24,18 @@ updated: 2021-03-02 10:18:35
 &emsp;&emsp;新建一个 git 仓库用来存放配置，这里选的是 Github，生成一个 Token，稍后需要使用。
 
 
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/1.png)
 
 {% gp 2-2 %}
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/2.png)
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/3.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/2.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/3.png)
 {% endgp %}
 
 {% gp 8-4 %}
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/4.png)
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/5.png)
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/6.png)
-    ![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/7.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/4.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/5.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/6.png)
+    ![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/7.png)
 {% endgp %}
 
 #### 2、上传配置
@@ -43,16 +43,16 @@ updated: 2021-03-02 10:18:35
 &emsp;&emsp;在需要上传配置的电脑上，打开 File -> Settings Repository，输入仓库地址后点击 Overwrite Remote。
 
 {% gp 1-3 %}
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/8-1.png)
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/8-2.png)
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/9.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/8-1.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/8-2.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/9.png)
 {% endgp %}
 
 #### 3、下载配置
 
 &emsp;&emsp;在需要下载配置的电脑上，打开 File -> Settings Repository，输入仓库地址后点击 Overwrite Local。
 
-![](https://liuxianyu.cn/image-hosting/posts/webstorm-settings-repository/10.png)
+![](https://images-hosting.liuxianyu.cn/posts/webstorm-settings-repository/10.png)
 
 
 ### 参考资料：
