@@ -3,12 +3,14 @@ title: Linux 中的一些命令
 urlname: linux-command
 tags:
   - Linux
+  - Cent OS
 categories:
   - Linux
+  - Cent OS
 author: liuxy0551
 copyright: true
 date: 2020-09-25 20:26:42
-updated: 2020-12-10 14:02:03
+updated: 2023-03-16 17:25:03
 ---
 
 
@@ -112,3 +114,36 @@ ls -lahS
 - -a 所有文件，包含隐藏文件
 - -h 将文件内容大小以GB、KB等易读的方式显示
 - -S 以文件大小排序
+
+
+#### 10、查看 CentOS 的 CPU、内存、磁盘等信息
+
+查看每个物理CPU中core的个数(即核数)
+```
+cat /proc/cpuinfo| grep "cpu cores"| uniq
+```
+
+查看内存信息
+```
+cat /proc/meminfo
+```
+
+查看磁盘空间
+```
+df
+```
+
+
+#### 11、tar 压缩
+
+压缩
+```
+tar -czf fileName.tar.gz /dist
+```
+
+解压
+```
+tar -xzf fileName.tar.gz
+```
+
+<a href="https://blog.csdn.net/MssGuo/article/details/117387213"; target="_black">tar 打包压缩命令</a>
