@@ -24,7 +24,7 @@ updated: 2019-12-13 12:26:56
 ``` shell
 git rm -r --cached .idea
 ```
-    
+
 &emsp;&emsp;2、将更改记录提交到本地仓库：
 
 ``` shell
@@ -35,12 +35,6 @@ git commit -m 'delete: git .idea'
 
 ``` shell
 git push origin master
-```
-    
-&emsp;&emsp;或者覆盖：
-
-``` shell
-git push -u origin master
 ```
 
 &emsp;&emsp;本地项目中的`.idea`文件夹不收操作影响，删除的只是远程仓库中的`.idea`文件夹，可放心删除，其他文件或文件夹同理。
