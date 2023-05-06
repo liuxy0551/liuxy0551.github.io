@@ -18,10 +18,10 @@ updated: 2020-08-25 15:57:57
 
 #### 1、安装
 
-&emsp;&emsp;建议在项目路径内局部安装即可，无需写到 package.json。
+&emsp;&emsp;建议在全局安装，无需写到 package.json。
 
 ``` shell
-npm i treer
+npm i treer -g
 ```
 
 
