@@ -100,10 +100,10 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 - commit 地址是从 package.json 中获取的 repository 字段值；
 - issue 地址是从 package.json 中获取的 repository 字段值；
 
-&emsp;&emsp;如果你使用了第三方的协作系统，那么在生成 changelog 后可以使用 replace 工具来处理文本中的原有地址：
+&emsp;&emsp;如果你使用了第三方的协作系统，那么在生成 changelog 后可以使用 replace 工具（` --quiet` 表示不输出 replace 日志）来处理文本中的原有地址：
 
 ``` bash
-replace 'https://github.com/myproject/issues/' 'https://redmine.example.com' CHANGELOG.md
+replace 'https://github.com/myproject/issues/' 'https://redmine.example.com' CHANGELOG.md --quiet
 ```
 
 &emsp;&emsp;<a href='https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-core' target='_black'>点此查看</a> 更多配置选项。
