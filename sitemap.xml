@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2023-09-21T07:28:56.243Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2023-09-21T07:28:56.243Z</lastmod>
     
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/about/index.html</loc>
+    <loc>https://liuxianyu.cn/achives/index.html</loc>
     
     <lastmod>2023-09-21T07:28:56.234Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/achives/index.html</loc>
+    <loc>https://liuxianyu.cn/about/index.html</loc>
     
     <lastmod>2023-09-21T07:28:56.234Z</lastmod>
     
@@ -1220,13 +1220,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
-    
-    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
@@ -1234,14 +1227,21 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/links/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
+    
+    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/notes/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/notes/index.html</loc>
+    <loc>https://liuxianyu.cn/links/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     
@@ -1444,14 +1444,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/thinking.html</loc>
+    <loc>https://liuxianyu.cn/article/you.html</loc>
     
     <lastmod>2014-11-30T22:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/you.html</loc>
+    <loc>https://liuxianyu.cn/article/thinking.html</loc>
     
     <lastmod>2014-11-30T22:00:00.000Z</lastmod>
     
