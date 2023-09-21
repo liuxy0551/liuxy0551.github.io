@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+<script src="/js/src/photoswipe.min.js?v="></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+  <meta charset="UTF-8">
+<meta name="google-site-verification" content="xB9qCNYskF7D5dubQn6GwpuB9UX6ZULjI7A9rO7oD-4">
+<meta name="google-site-verification" content="53nL4S-QcXHb24jISzRDs8T0P7ytedH6xyGv_lqZu10">
+<meta name="baidu-site-verification" content="x0Z9lwLVom">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.loli.net/css?family=PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+
+  <meta name="description" content="线程和进程是计算机操作系统的基础概念，在程序员中属于高频词汇，那如何理解呢？Node.js 中的进程和线程又是怎样的呢？">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 中的进程和线程">
+<meta property="og:url" content="https://liuxianyu.cn/article/node-process-thread.html">
+<meta property="og:site_name" content="刘先玉">
+<meta property="og:description" content="线程和进程是计算机操作系统的基础概念，在程序员中属于高频词汇，那如何理解呢？Node.js 中的进程和线程又是怎样的呢？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/1.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/2.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/3.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/4.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/5.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/6.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/7.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/8.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/9.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/10.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/11.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/12.png">
+<meta property="og:updated_time" content="2022-02-22T20:43:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js 中的进程和线程">
+<meta name="twitter:description" content="线程和进程是计算机操作系统的基础概念，在程序员中属于高频词汇，那如何理解呢？Node.js 中的进程和线程又是怎样的呢？">
+<meta name="twitter:image" content="https://images-hosting.liuxianyu.cn/posts/node-process-thread/1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="刘先玉" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://liuxianyu.cn/article/node-process-thread.html">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入查看密码') !== ''){
+                history.back();
+                alert('密码不正确，请再想想');
+            }
+        }
+    })();
+</script>
+
+  <title>Node.js 中的进程和线程 | 刘先玉</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d1692b861c9c27f34c82f3b5fb2566d0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+</head>
+
+<body itemscope itemtype="https://schema.org/WebPage" lang="zh-CN">
+
+  
+<style>
+#selectionCopyright {
+    position: absolute;
+    display: none;
+    background: rgba(244,67,54,.7);
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: none;
+    border: none;
+    font-size: 14px;
+}
+#selectionCopyright a{
+    color:#fff;
+    border-color: #fff;
+}
+#selectionCopyright::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 8px 6px 0;
+    border-color: transparent rgba(244,67,54,.7) transparent transparent;
+    position: absolute;
+    left: -8px;
+    top:50%;
+    transform:translateY(-50%);
+}
+</style>
+
+
+<!-- <button id="selectionCopyright" disabled="disabled">本文发表于 [<a href="https://liuxianyu.cn">刘先玉的个人随笔</a>] 分享记得注明来源哟</button> -->
+
+
+<script>
+window.onload = function() {
+    function selectText() {
+        if (document.selection) { //IE浏览器下
+            return document.selection.createRange().text; //返回选中的文字
+        } else { //非IE浏览器下
+            return window.getSelection().toString(); //返回选中的文字
+        }
+    }
+    var content = document.getElementsByTagName("body")[0];
+    var scTip = document.getElementById('selectionCopyright');
+
+    content.onmouseup = function(ev) { //设定一个onmouseup事件
+        var ev = ev || window.event;
+        var left = ev.clientX;//获取鼠标相对浏览器可视区域左上角水平距离距离
+        var top = ev.clientY;//获取鼠标相对浏览器可视区域左上角垂直距离距离
+        var xScroll = Math.max(document.body.scrollLeft, document.documentElement.scrollLeft);//获取文档水平滚动距离
+        var yScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);//获取文档垂直滚动距离
+        if (selectText().length > 0 && scTip) {
+            setTimeout(function() { //设定一个定时器
+                scTip.style.display = 'inline-block';
+                scTip.style.left = left + xScroll + 15 + 'px';//鼠标当前x值
+                scTip.style.top = top + yScroll - 15 + 'px';//鼠标当前y值
+            }, 100);
+        } else {
+            scTip && (scTip.style.display = 'none');
+        }
+    };
+
+    content.onclick = function(ev) {
+        var ev = ev || window.event;
+        ev.cancelBubble = true;
+    };
+    document.onclick = function() {
+        scTip.style.display = 'none';
+    };
+};
+</script>
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/liuxy0551" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    
+
+    <header id="header" class="header" itemscope itemtype="https://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">刘先玉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">知易行难</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">82</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">84</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">189</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>友链</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="https://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://liuxianyu.cn/article/node-process-thread.html">
+
+    <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <meta itemprop="name" content="liuxy0551">
+      <meta itemprop="description" content="Easier said than done">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <meta itemprop="name" content="刘先玉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Node.js 中的进程和线程
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-02-22 20:43:37" itemprop="dateCreated datePublished" datetime="2022-02-22T20:43:37Z">2022-02-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/article/node-process-thread.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/article/node-process-thread.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/article/node-process-thread.html" class="leancloud_visitors" data-flag-title="Node.js 中的进程和线程">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">热度：</span>
+              
+                <span class="leancloud-visitors-count"></span><span>℃</span>
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             热度： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span><span> ℃</span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  线程和进程是计算机操作系统的基础概念，在程序员中属于高频词汇，那如何理解呢？Node.js 中的进程和线程又是怎样的呢？</p>
+<a id="more"></a>
+<p align="center">
+    <img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/1.png">
+</p>
+<h3 id="一-进程和线程"><a class="header-anchor" href="#一-进程和线程">¶</a>一、进程和线程</h3>
+<h4 id="1-1-专业性文字定义"><a class="header-anchor" href="#1-1-专业性文字定义">¶</a>1.1、专业性文字定义</h4>
+<ul>
+<li>进程（Process），进程是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础，进程是线程的容器。</li>
+<li>线程（Thread），线程是操作系统能够进行运算调度的最小单位，被包含在进程之中，是进程中的实际运作单位。</li>
+</ul>
+<h4 id="1-2-通俗理解"><a class="header-anchor" href="#1-2-通俗理解">¶</a>1.2、通俗理解</h4>
+<p>  以上描述比较硬，看完可能也没看懂，还不利于理解记忆。那么我们举个简单的例子：</p>
+<p>  假设你是某个快递站点的一名小哥，起初这个站点负责的区域住户不多，收取件都是你一个人。给张三家送完件，再去李四家取件，事情得一件件做，这叫单线程，所有的工作都得按顺序执行。</p>
+<p>  后来这个区域住户多了，站点给这个区域分配了多个小哥，还有个小组长，你们可以为更多的住户服务了，这叫多线程，小组长是主线程，每个小哥都是一个线程。</p>
+<p>  快递站点使用的小推车等工具，是站点提供的，小哥们都可以使用，并不仅供某一个人，这叫多线程资源共享。</p>
+<p>  站点小推车目前只有一个，大家都需要使用，这叫冲突。解决的方法有很多，排队等待或者等其他小哥用完后的通知，这叫线程同步。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/2.png" alt></p>
+<p>  总公司有很多站点，各个站点的运营模式几乎一模一样，这叫多进程。总公司叫主进程，各个站点叫子进程。</p>
+<p>  总公司和站点之间，以及各个站点互相之间，小推车都是相互独立的，不能混用，这叫进程间不共享资源。各站点间可以通过电话等方式联系，这叫管道。各站点间还有其他协同手段，便于完成更大的计算任务，这叫进程间同步。</p>
+<p>  还可以看看阮一峰对 <a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_black">进程与线程的一个简单解释</a>。</p>
+<h3 id="二-node-js-中的进程和线程"><a class="header-anchor" href="#二-node-js-中的进程和线程">¶</a>二、Node.js 中的进程和线程</h3>
+<p>  Node.js 是单线程服务，事件驱动和非阻塞 I/O 模型的语言特性，使得 Node.js 高效和轻量。优势在于免去了频繁切换线程和资源冲突；擅长 I/O 密集型操作（底层模块 libuv 通过多线程调用操作系统提供的异步 I/O 能力进行多任务的执行），但是对于服务端的 Node.js，可能每秒有上百个请求需要处理，当面对 CPU 密集型请求时，因为是单线程模式，难免会造成阻塞。</p>
+<h4 id="2-1-node-js-阻塞"><a class="header-anchor" href="#2-1-node-js-阻塞">¶</a>2.1、Node.js 阻塞</h4>
+<p>  我们利用 Koa 简单地搭建一个 Web 服务，用斐波那契数列方法来模拟一下 Node.js 处理 CPU 密集型的计算任务：</p>
+<blockquote>
+<p>斐波那契数列，也称黄金分割数列，这个数列从第三项开始，每一项都等于前两项只和：0、1、1、2、3、5、8、13、21、…</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来测试是否被阻塞</span></span><br><span class="line">router.get(<span class="string">'/test'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        pid: process.pid,</span><br><span class="line">        msg: <span class="string">'Hello World'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">router.get(<span class="string">'/fibo'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; num = <span class="number">38</span> &#125; = ctx.query</span><br><span class="line">    <span class="keyword">const</span> start = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="comment">// 斐波那契数列</span></span><br><span class="line">    <span class="keyword">const</span> fibo = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">1</span> ? fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>) : <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    fibo(num)</span><br><span class="line"></span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        pid: process.pid,</span><br><span class="line">        duration: <span class="built_in">Date</span>.now() - start</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(router.routes())</span><br><span class="line">app.listen(<span class="number">9000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server is running on 9000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>  执行<code>node app.js</code>启动服务，用 Postman 发送请求，可以看到，计算 38 次耗费了 617ms，换而言之，因为执行了一个 CPU 密集型的计算任务，所以 Node.js 主线程被阻塞了六百多毫秒。如果同时处理更多的请求，或者计算任务更复杂，那么在这些请求之后的所有请求都会被延迟执行。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/3.png" alt></p>
+<p>  我们再新建一个 axios.js 用来模拟发送多次请求，此时将 app.js 中的 fibo 计算次数改为 43，用来模拟更复杂的计算任务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// axios.js</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> start = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">url</span>) =&gt;</span> &#123;</span><br><span class="line">    axios.get(<span class="string">`http://127.0.0.1:9000/<span class="subst">$&#123; url &#125;</span>`</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res.data, <span class="string">`耗时: <span class="subst">$&#123; <span class="built_in">Date</span>.now() - start &#125;</span>ms`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn(<span class="string">'test'</span>)</span><br><span class="line">fn(<span class="string">'fibo?num=43'</span>)</span><br><span class="line">fn(<span class="string">'test'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/4.png" alt></p>
+<p>  可以看到，当请求需要执行 CPU 密集型的计算任务时，后续的请求都被阻塞等待，这类请求一多，服务基本就阻塞卡死了。对于这种不足，Node.js 一直在弥补。</p>
+<h4 id="2-2-master-worker"><a class="header-anchor" href="#2-2-master-worker">¶</a>2.2、master-worker</h4>
+<p>  master-worker 模式是一种并行模式，核心思想是：系统有两个及以上的进程或线程协同工作时，master 负责接收和分配并整合任务，worker 负责处理任务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/5.png" alt></p>
+<h4 id="2-3-多线程"><a class="header-anchor" href="#2-3-多线程">¶</a>2.3、多线程</h4>
+<p>  线程是 CPU 调度的一个基本单位，只能同时执行一个线程的任务，同一个线程也只能被一个 CPU 调用。如果使用的是多核 CPU，那么将无法充分利用 CPU 的性能。</p>
+<p>  多线程带给我们灵活的编程方式，但是需要学习更多的 Api 知识，在编写更多代码的同时也存在着更多的风险，线程的切换和锁也会增加系统资源的开销。</p>
+<ul>
+<li><a href="http://nodejs.cn/api-v14/worker_threads.html" target="_black">worker_threads 工作线程</a>，给 Node.js 提供了真正的多线程能力。</li>
+</ul>
+<p>  worker_threads 是 Node.js 提供的一种多线程 Api。对于执行 CPU 密集型的计算任务很有用，对 I/O 密集型的操作帮助不大，因为 Node.js 内置的异步 I/O 操作比 worker_threads 更高效。worker_threads 中的 Worker，parentPort 主要用于子线程和主线程的消息交互。</p>
+<p>  将 app.js 稍微改动下，将 CPU 密集型的计算任务交给子线程计算：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"><span class="keyword">const</span> &#123; Worker &#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来测试是否被阻塞</span></span><br><span class="line">router.get(<span class="string">'/test'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        pid: process.pid,</span><br><span class="line">        msg: <span class="string">'Hello World'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">router.get(<span class="string">'/fibo'</span>, <span class="keyword">async</span> (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; num = <span class="number">38</span> &#125; = ctx.query</span><br><span class="line">    ctx.body = <span class="keyword">await</span> asyncFibo(num)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> asyncFibo = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 创建 worker 线程并传递数据</span></span><br><span class="line">        <span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="string">'./fibo.js'</span>, &#123; <span class="attr">workerData</span>: &#123; num &#125; &#125;)</span><br><span class="line">        <span class="comment">// 主线程监听子线程发送的消息</span></span><br><span class="line">        worker.on(<span class="string">'message'</span>, resolve)</span><br><span class="line">        worker.on(<span class="string">'error'</span>, reject)</span><br><span class="line">        worker.on(<span class="string">'exit'</span>, (code) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (code !== <span class="number">0</span>) reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Worker stopped with exit code <span class="subst">$&#123;code&#125;</span>`</span>))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(router.routes())</span><br><span class="line">app.listen(<span class="number">9000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server is running on 9000'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>  新增 fibo.js 文件，用来处理复杂计算任务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; workerData, parentPort &#125; = <span class="built_in">require</span>(<span class="string">'worker_threads'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; num &#125; = workerData</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> start = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="comment">// 斐波那契数列</span></span><br><span class="line"><span class="keyword">const</span> fibo = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n &gt; <span class="number">1</span> ? fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>) : <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">fibo(num)</span><br><span class="line"></span><br><span class="line">parentPort.postMessage(&#123;</span><br><span class="line">    pid: process.pid,</span><br><span class="line">    duration: <span class="built_in">Date</span>.now() - start</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>  执行上文的 axios.js，此时将 app.js 中的 fibo 计算次数改为 43，用来模拟更复杂的计算任务：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/6.png" alt></p>
+<p>  可以看到，将 CPU 密集型的计算任务交给子线程处理时，主线程不再被阻塞，只需等待子线程处理完成后，主线程接收子线程返回的结果即可，其他请求不再受影响。<br>
+  上述代码是演示创建 worker 线程的过程和效果，实际开发中，请使用线程池来代替上述操作，因为频繁创建线程也会有资源的开销。</p>
+<blockquote>
+<p>线程是 CPU 调度的一个基本单位，只能同时执行一个线程的任务，同一个线程也只能被一个 CPU 调用。</p>
+</blockquote>
+<p>  我们再回味下，本小节开头提到的线程和 CPU 的描述，此时由于是新的线程，可以在其他 CPU 核心上执行，可以更充分的利用多核 CPU。</p>
+<h4 id="2-4-多进程"><a class="header-anchor" href="#2-4-多进程">¶</a>2.4、多进程</h4>
+<p>  Node.js 为了能充分利用 CPU 的多核能力，提供了 cluster 模块，cluster 可以通过一个父进程管理多个子进程的方式来实现集群的功能。</p>
+<ul>
+<li><a href="http://nodejs.cn/api-v14/child_process.html" target="_black">child_process 子进程</a>，衍生新的 Node.js 进程并使用建立的 IPC 通信通道调用指定的模块。</li>
+<li><a href="http://nodejs.cn/api-v14/cluster.html" target="_black">cluster 集群</a>，可以创建共享服务器端口的子进程，工作进程使用 child_process 的 fork 方法衍生。</li>
+</ul>
+<p>  cluster 底层就是 child_process，master 进程做总控，启动 1 个 agent 进程和 n 个 worker 进程，agent 进程处理一些公共事务，比如日志等；worker 进程使用建立的 IPC（Inter-Process Communication）通信通道和 master 进程通信，和 master 进程共享服务端口。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/7.png" alt></p>
+<p>  新增 fibo-10.js，模拟发送 10 次请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fibo-10.js</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">`http://127.0.0.1:9000/fibo?num=38`</span></span><br><span class="line"><span class="keyword">const</span> start = <span class="built_in">Date</span>.now()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    axios.get(url).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res.data, <span class="string">`耗时: <span class="subst">$&#123; <span class="built_in">Date</span>.now() - start &#125;</span>ms`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  可以看到，只使用了一个进程，10 个请求慢慢阻塞，累计耗时 15 秒：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/8.png" alt></p>
+<p>  接下来，将 app.js 稍微改动下，引入 cluster 模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> numCPUs = <span class="built_in">require</span>(<span class="string">'os'</span>).cpus().length</span><br><span class="line"><span class="comment">// const numCPUs = 10 // worker 进程的数量一般和 CPU 核心数相同</span></span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)()</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用来测试是否被阻塞</span></span><br><span class="line">router.get(<span class="string">'/test'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        pid: process.pid,</span><br><span class="line">        msg: <span class="string">'Hello World'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">router.get(<span class="string">'/fibo'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; num = <span class="number">38</span> &#125; = ctx.query</span><br><span class="line">    <span class="keyword">const</span> start = <span class="built_in">Date</span>.now()</span><br><span class="line">    <span class="comment">// 斐波那契数列</span></span><br><span class="line">    <span class="keyword">const</span> fibo = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n &gt; <span class="number">1</span> ? fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>) : <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    fibo(num)</span><br><span class="line"></span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        pid: process.pid,</span><br><span class="line">        duration: <span class="built_in">Date</span>.now() - start</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">app.use(router.routes())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Master <span class="subst">$&#123;process.pid&#125;</span> is running`</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 衍生 worker 进程</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numCPUs; i++) &#123;</span><br><span class="line">        cluster.fork()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, (worker, code, signal) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`worker <span class="subst">$&#123;worker.process.pid&#125;</span> died`</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    app.listen(<span class="number">9000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Worker <span class="subst">$&#123;process.pid&#125;</span> started`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  执行<code>node app.js</code>启动服务，可以看到，cluster 帮我们创建了 1 个 master 进程和 4 个 worker 进程：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/9.png" alt><br>
+<img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/10.png" alt></p>
+<p>  通过 fibo-10.js  模拟发送 10 次请求，可以看到，四个进程处理 10 个请求耗时近 9 秒：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/11.png" alt></p>
+<p>  当启动 10 个 worker 进程时，看看效果：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/node-process-thread/12.png" alt></p>
+<p>  仅需不到 3 秒，不过进程的数量也不是无限的。在日常开发中，worker 进程的数量一般和 CPU 核心数相同。</p>
+<h4 id="2-5-多进程说明"><a class="header-anchor" href="#2-5-多进程说明">¶</a>2.5、多进程说明</h4>
+<p>  开启多进程不全是为了处理高并发，而是为了解决 Node.js 对于多核 CPU 利用率不足的问题。<br>
+  由父进程通过 fork 方法衍生出来的子进程拥有和父进程一样的资源，但是各自独立，互相之间资源不共享。通常根据 CPU 核心数来设置进程数量，因为系统资源是有限的。</p>
+<h3 id="三-总结"><a class="header-anchor" href="#三-总结">¶</a>三、总结</h3>
+<p>  1、大部分通过多线程解决 CPU 密集型计算任务的方案都可以通过多进程方案来替代；<br>
+  2、Node.js 虽然异步，但是不代表不会阻塞，CPU 密集型任务最好不要在主线程处理，保证主线程的畅通；<br>
+  3、不要一味的追求高性能和高并发，达到系统需要即可，高效、敏捷才是项目需要的，这也是 Node.js 轻量的特点。<br>
+  4、Node.js 中的进程和线程还有很多概念在文章中提到了但没展开细讲或没提到的，比如：Node.js 底层 I/O 的 libuv、IPC 通信通道、多进程如何守护、进程间资源不共享如何处理定时任务、agent 进程等；<br>
+  5、以上代码可在 <a href="https://github.com/liuxy0551/node-process-thread" target="_black">https://github.com/liuxy0551/node-process-thread</a> 查看。</p>
+
+      
+    </div>
+
+    <div>
+        
+            <div style="color:#555;font-size:16px;font-weight:600;margin:40px 0 20px">以上</div>
+        
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+  <script type="text/javascript" src="https://wise-job.oss-cn-zhangjiakou.aliyuncs.com/webjs/libs/jquery/3.2.1.min.js"></script>
+  <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
+
+  <p><span>随笔标题:</span>Node.js 中的进程和线程</p>
+  <p><span>随笔作者:</span>刘先玉</p>
+  <p><span>发布时间:</span>2022年02月22日 - 20:43:37</p>
+  <p><span>最后更新:</span>2022年02月22日 - 20:43:37</p>
+  <p><span>原文链接:</span><a href="/article/node-process-thread.html" title="Node.js 中的进程和线程">https://liuxianyu.cn/article/node-process-thread.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://liuxianyu.cn/article/node-process-thread.html" aria-label="复制成功！"></i></span>
+  </p>
+  <!-- <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> -->
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 2000,
+          icon: "success"
+        });
+      });
+    }));
+</script>
+
+
+        
+    </div>
+
+    
+      
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"><i class="fa fa-envira"></i> node</a>
+            <!--<a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>-->
+          
+        </div>
+      
+
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/article/apache-bench.html" rel="next" title="Apache Bench(ab) 的使用方法">
+                <i class="fa fa-chevron-left"></i> Apache Bench(ab) 的使用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/article/iframe-postMessage.html" rel="prev" title="iframe 跨域时的通信方式 postMessage">
+                iframe 跨域时的通信方式 postMessage <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            
+              <a href="/">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="liuxy0551">
+              </a>
+            
+              <p class="site-author-name" itemprop="name">liuxy0551</p>
+              <div class="site-description motion-element" itemprop="description">Easier said than done</div>
+          </div>
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">189</span>
+                    <span class="site-state-item-name">随笔</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">82</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+
+              
+
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/liuxy0551" title="GitHub &rarr; https://github.com/liuxy0551" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=MFxZRUhJAAUFAXBBQR5TX10" title="E-Mail &rarr; http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=MFxZRUhJAAUFAXBBQR5TX10" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-进程和线程"><span class="nav-text">¶一、进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-专业性文字定义"><span class="nav-text">¶1.1、专业性文字定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-通俗理解"><span class="nav-text">¶1.2、通俗理解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-node-js-中的进程和线程"><span class="nav-text">¶二、Node.js 中的进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-node-js-阻塞"><span class="nav-text">¶2.1、Node.js 阻塞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-master-worker"><span class="nav-text">¶2.2、master-worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-多线程"><span class="nav-text">¶2.3、多线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-多进程"><span class="nav-text">¶2.4、多进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-多进程说明"><span class="nav-text">¶2.5、多进程说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-总结"><span class="nav-text">¶三、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+    </div>
+  </aside>
+
+  
+
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘先玉</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!-- 样式二（飘动的彩带） -->
+<script type="text/javascript" src="/js/src/piaodai.js"></script>
+
+<div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  Easier said than done.
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/05/2019 00:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</div>
+<!-- 网站底部字数统计 -->
+<div class="theme-info">
+  <i class="fa fa-pencil"></i>
+  <span class="post-count">博客全站共100.6k字</span>
+  <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
+</div>
+
+<!-- 不蒜字统计 -->
+<div>
+	<i class="fa fa-user-md"></i>
+	<span>
+	  本站访客数：<span id="busuanzi_value_site_uv"></span>
+	</span>&nbsp;|&nbsp;
+
+	<i class="fa fa-eye"></i>
+	<span>
+	  本站总访问量：<span id="busuanzi_value_site_pv"></span>
+	</span>
+</div>
+
+
+<!-- 评论框美化 -->
+<style>
+    #comments .veditor{
+        min-height: 10rem;
+        background-image: url(https://images-hosting.liuxianyu.cn/comment-bg.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: rgba(255,255,255,0);
+        resize: none;}
+</style>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v="></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v="></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  <script src="/js/src/js.cookie.js?v=7.0.1"></script>
+  <script src="/js/src/scroll-cookie.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/leancloud-storage@3.11.1/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine@1.4.18/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'EQ71ayACCXRNqBHxJTGnsUcU-gzGzoHsz',
+    appKey: 'HUTymkI2mBJhXVc9c0ULjaWe',
+    placeholder: '欢迎与我交流~',
+    avatar: 'retro',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  //新增以下代码即可，可以移除.info下所有子节点。
+  var infoEle = document.querySelector('#comments .info');
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+    infoEle.childNodes.forEach(function(item) {
+      item.parentNode.removeChild(item);
+    });
+   }
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<style>
+  .copy-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+    
+    user-select: none;
+    outline: 0;
+  }
+
+  .highlight-wrap .copy-btn {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    padding: 2px 6px;
+    position: absolute;
+    
+      right: 4px;
+      top: 8px;
+    
+  }
+
+  .highlight-wrap:hover .copy-btn,
+  .highlight-wrap .copy-btn:focus {
+    opacity: 1;
+  }
+
+  .highlight-wrap {
+    position: relative;
+  }
+</style>
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+</body>
+</html>

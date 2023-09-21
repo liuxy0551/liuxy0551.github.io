@@ -1,0 +1,11 @@
+
+      var money = {
+        getMoney: function (num) {
+          if (!num) return '0.00'
+          return Number(num).toFixed(2)
+        }
+      }
+
+      module.exports = {
+        getMoney: money.getMoney
+      }
