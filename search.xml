@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git 常用命令（十四）—— Git 批量删除分支</title>
-    <url>/article/git-order-n.html</url>
-    <content><![CDATA[<p>  在日常工作中，每个需求会单独切一个分支，通过 MR 合入公共分支的同时可以在 MR 勾选删除源分支，日积月累就会导致本地有很多分支且对应的远程分支已经被删除。这里记录下如何快速清理这些分支。</p>
-<a id="more"></a>
-<p><strong>清理前</strong></p>
-<p>  确认即将清理的本地分支是已经 merged 的分支，避免丢失分支。同时分支名有一定规律则方便批量删除。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/4.png" alt></p>
-<h3 id="批量删除本地分支"><a class="header-anchor" href="#批量删除本地分支">¶</a>批量删除本地分支</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch |grep <span class="string">'feat_5.2.x_'</span> |xargs git branch -D</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/5.png" alt></p>
-<h3 id="批量删除远程分支"><a class="header-anchor" href="#批量删除远程分支">¶</a>批量删除远程分支</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -r| grep <span class="string">'feat_5.2.x_'</span> | sed <span class="string">'s/origin\///g'</span> | xargs -I &#123;&#125; git push origin :&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/6.png" alt></p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在服务器上自建图床</title>
     <url>/article/images-hosting.html</url>
     <content><![CDATA[<p>  至此，博客的图片资源已经经历 github -&gt; 阿里云服务器(1M 带宽) -&gt; 七牛云 -&gt; gitee -&gt; 腾讯云服务器(4M 带宽)，一直没有一个稳定的方案，上一次使用的还是 Gitee 图床，可以点击 <a href="https://liuxianyu.cn/article/gitee-image-hosting.html" target="_black">Gitee 图床【已不可用】</a> 查看当时的过程。</p>
@@ -988,8 +966,8 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
         <category>微信小程序</category>
       </categories>
       <tags>
-        <tag>微信小程序</tag>
         <tag>加密解密</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -1429,6 +1407,48 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
       <tags>
         <tag>函数计算</tag>
         <tag>Serverless</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 常用命令（十五）—— Git 设置代理</title>
+    <url>/article/git-order-o.html</url>
+    <content><![CDATA[<p>  git clone github 仓库时常出现超时，设置下代理可以很好的解决问题。</p>
+<a id="more"></a>
+<h4 id="设置代理"><a class="header-anchor" href="#设置代理">¶</a>设置代理</h4>
+<p>  <code>https</code> 也可以改为 <code>http</code>；<code>7890</code> 是 clash 的代理服务端口。<code>--global</code> 表示全局设置。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy https://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<h4 id="取消代理"><a class="header-anchor" href="#取消代理">¶</a>取消代理</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+<h4 id="查看代理"><a class="header-anchor" href="#查看代理">¶</a>查看代理</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 常用命令（十四）—— Git 批量删除分支</title>
+    <url>/article/git-order-n.html</url>
+    <content><![CDATA[<p>  在日常工作中，每个需求会单独切一个分支，通过 MR 合入公共分支的同时可以在 MR 勾选删除源分支，日积月累就会导致本地有很多分支且对应的远程分支已经被删除。这里记录下如何快速清理这些分支。</p>
+<a id="more"></a>
+<p><strong>清理前</strong></p>
+<p>  确认即将清理的本地分支是已经 merged 的分支，避免丢失分支。同时分支名有一定规律则方便批量删除。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/4.png" alt></p>
+<h3 id="批量删除本地分支"><a class="header-anchor" href="#批量删除本地分支">¶</a>批量删除本地分支</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch |grep <span class="string">'feat_5.2.x_'</span> |xargs git branch -D</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/5.png" alt></p>
+<h3 id="批量删除远程分支"><a class="header-anchor" href="#批量删除远程分支">¶</a>批量删除远程分支</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -r| grep <span class="string">'feat_5.2.x_'</span> | sed <span class="string">'s/origin\///g'</span> | xargs -I &#123;&#125; git push origin :&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/git-order/6.png" alt></p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -3597,8 +3617,8 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>JavaScript</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -6110,8 +6130,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>Blog</tag>
-        <tag>Linux</tag>
         <tag>Hexo</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -6840,42 +6860,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </tags>
   </entry>
   <entry>
-    <title>在 macOS 中安装 Jekyll</title>
-    <url>/article/macos-jekyll.html</url>
-    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
-<a id="more"></a>
-<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<p>这一步可能会遇到一些问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
-<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
-</blockquote>
-<p>接下来进入到博客文件夹，启动服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p>此时出现了新的问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
-<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
-<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
-<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Jekyll</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue Mint-UI 省市区地址三级联动</title>
     <url>/article/vue-mintui-address.html</url>
     <content><![CDATA[<p>最近公司项目中用到收货地址的功能，遂采用这种联动的方式</p>
@@ -6910,6 +6894,42 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <tags>
         <tag>Vue</tag>
         <tag>Mint UI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 macOS 中安装 Jekyll</title>
+    <url>/article/macos-jekyll.html</url>
+    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
+<a id="more"></a>
+<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<p>这一步可能会遇到一些问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
+<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
+</blockquote>
+<p>接下来进入到博客文件夹，启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>此时出现了新的问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
+<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
+<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
+<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Jekyll</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
