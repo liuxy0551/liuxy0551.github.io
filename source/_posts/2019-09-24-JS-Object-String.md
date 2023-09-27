@@ -55,7 +55,16 @@ updated: 2019-11-07 10:53:08
   console.log(valueList.join('&'))         // page=1&pageSize=10&jobId=2
 ```
 
+### 三、路径 string 转为对象
 
-### 三、加密方法
+有没有问号结果都是一样的。
+
+``` javascript
+const str = Object.fromEntries(new URLSearchParams('?date=30&job=aaaa&status=8'))
+console.log(str);         // {date: '30', job: 'aaaa', status: '8'}
+```
+
+
+### 四、加密方法
 
 　　参考另一篇随笔：[Vue 项目中实现 RSA 加密](https://liuxianyu.cn/article/vue-rsa.html)
