@@ -6241,7 +6241,7 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
   <entry>
     <title>Vue 兼容 IE9（含） +</title>
     <url>/article/vue-ie9+.html</url>
-    <content><![CDATA[<p>最近有个项目在 IE9 中白屏，整理一下相关的资料。</p>
+    <content><![CDATA[<p>  最近有个项目在 IE9 中白屏，整理一下相关的资料。</p>
 <a id="more"></a>
 <h3 id="1-transpiledependencies"><a class="header-anchor" href="#1-transpiledependencies">¶</a>1、transpileDependencies</h3>
 <p>如果项目中使用了第三个组件，请在<code>vue.config.js</code>中添加：</p>
