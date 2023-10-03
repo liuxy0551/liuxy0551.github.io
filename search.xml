@@ -4366,6 +4366,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 <h4 id="4-可能用到的命令"><a class="header-anchor" href="#4-可能用到的命令">¶</a>4、可能用到的命令</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql_upgrade -u root -p --force</span><br></pre></td></tr></table></figure>
+<h4 id="5-mysql-修改密码"><a class="header-anchor" href="#5-mysql-修改密码">¶</a>5、mysql 修改密码</h4>
+<p>需要先进入 mysql 再执行：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'newPassword'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="三-linux-修改时间及时区"><a class="header-anchor" href="#三-linux-修改时间及时区">¶</a>三、Linux 修改时间及时区</h3>
 <h4 id="1-查看本机时间"><a class="header-anchor" href="#1-查看本机时间">¶</a>1、查看本机时间</h4>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">date</span><br></pre></td></tr></table></figure>
