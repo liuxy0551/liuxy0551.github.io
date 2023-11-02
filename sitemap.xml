@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
@@ -75,13 +75,6 @@
     <loc>https://liuxianyu.cn/article/images-hosting.html</loc>
     
     <lastmod>2023-03-10T22:37:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liuxianyu.cn/article/linux-clash.html</loc>
-    
-    <lastmod>2022-11-12T08:16:46.000Z</lastmod>
     
   </url>
   
@@ -1220,13 +1213,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/music/index.html</loc>
-    
-    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
@@ -1241,14 +1227,21 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/notes/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/music/index.html</loc>
+    
+    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/links/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/links/index.html</loc>
+    <loc>https://liuxianyu.cn/notes/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     

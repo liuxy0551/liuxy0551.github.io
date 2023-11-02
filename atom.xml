@@ -39,30 +39,6 @@
   </entry>
   
   <entry>
-    <title>Cent OS 安装使用 clash</title>
-    <link href="https://liuxianyu.cn/article/linux-clash.html"/>
-    <id>https://liuxianyu.cn/article/linux-clash.html</id>
-    <published>2022-11-12T08:16:46.000Z</published>
-    <updated>2022-11-12T08:16:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>  记录下在 Cent OS 中安装使用 clash 的过程。</p><a id="more"></a><h4 id="1-创建目录"><a class="header-anchor" href="#1-创建目录">¶</a>1、创建目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /mnt &amp;&amp; mkdir clash</span><br></pre></td></tr></table></figure><h4 id="2-下载-clash-并解压"><a class="header-anchor" href="#2-下载-clash-并解压">¶</a>2、下载 clash 并解压</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/Dreamacro/clash/releases/download/v1.11.12/clash-linux-amd64-v1.11.12.gz</span><br></pre></td></tr></table></figure><p>  最新版本可在 <a href="https://github.com/Dreamacro/clash/releases" target="_blank" rel="noopener">https://github.com/Dreamacro/clash</a> 查看，执行以下命令解压并将二进制文件重命名为 clash。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gzip -d clash-linux-amd64-v1.11.12.gz</span><br><span class="line">mv clash-linux-amd64-v1.11.12 clash</span><br></pre></td></tr></table></figure><h4 id="3-下载配置文件"><a class="header-anchor" href="#3-下载配置文件">¶</a>3、下载配置文件</h4><p>  在 clash 二进制文件的目录下执行以下命令下载你的 clash 配置文件。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -o config.yaml "配置文件的 url"</span><br></pre></td></tr></table></figure><h4 id="4-启动-clash"><a class="header-anchor" href="#4-启动-clash">¶</a>4、启动 clash</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./clash -d .</span><br></pre></td></tr></table></figure><p>  上述命令会启动 Clash，同时启动 HTTP 代理和 Socks5 代理；在上述命令后加上<code>&amp;</code>，可以后台运行。如果提示权限不足，请执行<code>chmod +x clash</code>。</p><blockquote><p><strong>注意</strong><br>当出现如下报错时，请执行以下命令下载文件并重命名为<code>Country.mmdb</code>，参考：<a href="https://github.com/Dreamacro/clash/issues/854" target="_blank" rel="noopener">clash issue 854</a><br>INFO[0000] Can’t find MMDB, start download</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget "https://raw.githubusercontent.com/wp-statistics/GeoLite2-Country/master/GeoLite2-Country.mmdb.gz"</span><br><span class="line">gzip -d GeoLite2-Country.mmdb.gz</span><br><span class="line">mv GeoLite2-Country.mmdb Country.mmdb</span><br></pre></td></tr></table></figure><h4 id="5-下载静态页面-可选"><a class="header-anchor" href="#5-下载静态页面-可选">¶</a>5、下载静态页面 可选</h4><ul><li>（1）第三方 <a href="https://github.com/haishanh/yacd" target="_blank" rel="noopener">https://github.com/haishanh/yacd</a></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/haishanh/yacd/archive/gh-pages.zip</span><br><span class="line">unzip gh-pages.zip</span><br><span class="line">rm -rf gh-pages.zip</span><br><span class="line">mv yacd-gh-pages/ clash-dashboard/</span><br></pre></td></tr></table></figure><ul><li>（2）<a href="https://github.com/Dreamacro/clash-dashboard" target="_blank" rel="noopener">https://github.com/Dreamacro/clash-dashboard</a></li></ul><p>  下载后自行 build，使用 dist 文件夹</p><figure class="highlight yaml"><figcaption><span>config.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">port:</span> <span class="number">7890</span></span><br><span class="line"><span class="attr">secret:</span> <span class="string">''</span> <span class="comment"># 访问密码</span></span><br><span class="line"><span class="attr">external-controller:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:7891</span> <span class="comment"># 静态页面地址</span></span><br><span class="line"><span class="attr">external-ui:</span> <span class="string">clash-dashboard</span> <span class="comment"># 静态页面文件夹</span></span><br></pre></td></tr></table></figure><p>访问<code>server ip:7891/ui</code>：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/linux-clash/1.png" alt></p><h4 id="6-启用-停用代理"><a class="header-anchor" href="#6-启用-停用代理">¶</a>6、启用/停用代理</h4><figure class="highlight shell"><figcaption><span>启用临时代理</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=127.0.0.1:7890</span><br><span class="line">export http_proxys=127.0.0.1:7890</span><br></pre></td></tr></table></figure><p>可以通过<code>cat $http_proxy</code>来查看是否启用了临时代理</p><figure class="highlight shell"><figcaption><span>停用临时代理</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unset http_proxy</span><br><span class="line">unset https_proxy</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  记录下在 Cent OS 中安装使用 clash 的过程。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/categories/Cent-OS/"/>
-    
-    
-      <category term="Linux" scheme="https://liuxianyu.cn/tags/Linux/"/>
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>安装 on-my-zsh 和常用插件</title>
     <link href="https://liuxianyu.cn/article/on-my-zsh.html"/>
     <id>https://liuxianyu.cn/article/on-my-zsh.html</id>
@@ -493,6 +469,30 @@
       <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
     
       <category term="Gotty" scheme="https://liuxianyu.cn/tags/Gotty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端学习 Docker 之旅（六）—— Docker 中安装 Cent OS 并通过 SSH 连接</title>
+    <link href="https://liuxianyu.cn/article/docker-e.html"/>
+    <id>https://liuxianyu.cn/article/docker-e.html</id>
+    <published>2021-06-07T10:51:23.000Z</published>
+    <updated>2021-06-07T10:51:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>  最近有个 <a href="https://liuxianyu.cn/article/cent-os-gotty.html" target="_black">Web Terminal</a> 的想法，可能需要多次测试，所以准备个 Cent OS 的环境还是很重要的，记录下在 Docker 中安装 Cent OS 的过程。</p><a id="more"></a><h3 id="一-安装-cent-os"><a class="header-anchor" href="#一-安装-cent-os">¶</a>一、安装 Cent OS</h3><h4 id="1-1-查找镜像"><a class="header-anchor" href="#1-1-查找镜像">¶</a>1.1、查找镜像</h4><p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/centos?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/centos?tab=tags</a></p><h4 id="1-2-下载镜像"><a class="header-anchor" href="#1-2-下载镜像">¶</a>1.2、下载镜像</h4><p>  我选择的是 7.9.2009 版本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos:centos7.9.2009</span><br></pre></td></tr></table></figure><p>  下载完成后使用<code>docker images</code>命令查看镜像列表。</p><h3 id="二-启动容器"><a class="header-anchor" href="#二-启动容器">¶</a>二、启动容器</h3><h4 id="2-1-使用镜像创建容器并运行"><a class="header-anchor" href="#2-1-使用镜像创建容器并运行">¶</a>2.1、使用镜像创建容器并运行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 10000:22 -p 9000:9000 -itd --name centos7.9 --privileged=true centos:centos7.9.2009 /usr/sbin/init</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 10000:22 -itd --name centos7.9 centos:centos7.9.2009 /bin/bash</span><br></pre></td></tr></table></figure><p>指令解释：</p><ul><li><code>-p</code> 表示端口映射，<code>-p 宿主机port:容器port</code></li><li><code>--name</code> 表示给容器指定的名称</li><li><code>centos:centos7.9.2009</code> 表示运行的镜像名称</li><li><code>--privileged=true</code> 表示以特权模式运行容器，且不能使用默认的 bash，得换成 init</li></ul><p>后续可通过以下命令启动/停止容器：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start/stop centos7.9</span><br></pre></td></tr></table></figure><h4 id="2-2-进入容器"><a class="header-anchor" href="#2-2-进入容器">¶</a>2.2、进入容器</h4><p>  以后台模式运行容器，再进入容器：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it centos7.9 /bin/bash</span><br></pre></td></tr></table></figure><p>指令解释：</p><ul><li><code>centos7.9</code> 容器名称</li></ul><p>  进入 centos7.9，出现下图红框部分的容器 id 则表示进入成功：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/docker-e/1.png" alt></p><h4 id="2-3-开启-ssh-连接"><a class="header-anchor" href="#2-3-开启-ssh-连接">¶</a>2.3、开启 ssh 连接</h4><p>  安装工具：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server</span><br></pre></td></tr></table></figure><p>  启动 ssh 服务：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd.service</span><br></pre></td></tr></table></figure><p>  设置系统 root 用户密码，输入两次密码设置成功：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><h4 id="2-4-连接-centos7-9"><a class="header-anchor" href="#2-4-连接-centos7-9">¶</a>2.4、连接 centos7.9</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.106.119 -p 10000</span><br></pre></td></tr></table></figure><p>  因为是很多操作是尝试着进行的，所以很多次在连接 Cent OS 后，删除镜像、容器后再次尝试连接的时候就会报错了<code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code>，根据提示编辑<code>~/.ssh/known_hosts</code>文件，删除服务器的记录即可。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure><p><img src="https://images-hosting.liuxianyu.cn/posts/docker-e/2.gif" alt></p><p>附：<a href="https://liuxianyu.cn/article/docker-b.html" target="_black">前端学习 Docker 之旅（二）—— 常用指令</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  最近有个 &lt;a href=&quot;https://liuxianyu.cn/article/cent-os-gotty.html&quot; target=&quot;_black&quot;&gt;Web Terminal&lt;/a&gt; 的想法，可能需要多次测试，所以准备个 Cent OS 的环境还是很重要的，记录下在 Docker 中安装 Cent OS 的过程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Docker" scheme="https://liuxianyu.cn/categories/Docker/"/>
+    
+    
+      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
+    
+      <category term="Docker" scheme="https://liuxianyu.cn/tags/Docker/"/>
     
   </entry>
   

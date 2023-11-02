@@ -54,54 +54,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cent OS 安装使用 clash</title>
-    <url>/article/linux-clash.html</url>
-    <content><![CDATA[<p>  记录下在 Cent OS 中安装使用 clash 的过程。</p>
-<a id="more"></a>
-<h4 id="1-创建目录"><a class="header-anchor" href="#1-创建目录">¶</a>1、创建目录</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /mnt &amp;&amp; mkdir clash</span><br></pre></td></tr></table></figure>
-<h4 id="2-下载-clash-并解压"><a class="header-anchor" href="#2-下载-clash-并解压">¶</a>2、下载 clash 并解压</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://github.com/Dreamacro/clash/releases/download/v1.11.12/clash-linux-amd64-v1.11.12.gz</span><br></pre></td></tr></table></figure>
-<p>  最新版本可在 <a href="https://github.com/Dreamacro/clash/releases" target="_blank" rel="noopener">https://github.com/Dreamacro/clash</a> 查看，执行以下命令解压并将二进制文件重命名为 clash。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip -d clash-linux-amd64-v1.11.12.gz</span><br><span class="line">mv clash-linux-amd64-v1.11.12 clash</span><br></pre></td></tr></table></figure>
-<h4 id="3-下载配置文件"><a class="header-anchor" href="#3-下载配置文件">¶</a>3、下载配置文件</h4>
-<p>  在 clash 二进制文件的目录下执行以下命令下载你的 clash 配置文件。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget -o config.yaml "配置文件的 url"</span><br></pre></td></tr></table></figure>
-<h4 id="4-启动-clash"><a class="header-anchor" href="#4-启动-clash">¶</a>4、启动 clash</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./clash -d .</span><br></pre></td></tr></table></figure>
-<p>  上述命令会启动 Clash，同时启动 HTTP 代理和 Socks5 代理；在上述命令后加上<code>&amp;</code>，可以后台运行。如果提示权限不足，请执行<code>chmod +x clash</code>。</p>
-<blockquote>
-<p><strong>注意</strong><br>
-当出现如下报错时，请执行以下命令下载文件并重命名为<code>Country.mmdb</code>，参考：<a href="https://github.com/Dreamacro/clash/issues/854" target="_blank" rel="noopener">clash issue 854</a><br>
-INFO[0000] Can’t find MMDB, start download</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget "https://raw.githubusercontent.com/wp-statistics/GeoLite2-Country/master/GeoLite2-Country.mmdb.gz"</span><br><span class="line">gzip -d GeoLite2-Country.mmdb.gz</span><br><span class="line">mv GeoLite2-Country.mmdb Country.mmdb</span><br></pre></td></tr></table></figure>
-<h4 id="5-下载静态页面-可选"><a class="header-anchor" href="#5-下载静态页面-可选">¶</a>5、下载静态页面 可选</h4>
-<ul>
-<li>（1）第三方 <a href="https://github.com/haishanh/yacd" target="_blank" rel="noopener">https://github.com/haishanh/yacd</a></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://github.com/haishanh/yacd/archive/gh-pages.zip</span><br><span class="line">unzip gh-pages.zip</span><br><span class="line">rm -rf gh-pages.zip</span><br><span class="line">mv yacd-gh-pages/ clash-dashboard/</span><br></pre></td></tr></table></figure>
-<ul>
-<li>（2）<a href="https://github.com/Dreamacro/clash-dashboard" target="_blank" rel="noopener">https://github.com/Dreamacro/clash-dashboard</a></li>
-</ul>
-<p>  下载后自行 build，使用 dist 文件夹</p>
-<figure class="highlight yaml"><figcaption><span>config.yaml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">port:</span> <span class="number">7890</span></span><br><span class="line"><span class="attr">secret:</span> <span class="string">''</span> <span class="comment"># 访问密码</span></span><br><span class="line"><span class="attr">external-controller:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:7891</span> <span class="comment"># 静态页面地址</span></span><br><span class="line"><span class="attr">external-ui:</span> <span class="string">clash-dashboard</span> <span class="comment"># 静态页面文件夹</span></span><br></pre></td></tr></table></figure>
-<p>访问<code>server ip:7891/ui</code>：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/linux-clash/1.png" alt></p>
-<h4 id="6-启用-停用代理"><a class="header-anchor" href="#6-启用-停用代理">¶</a>6、启用/停用代理</h4>
-<figure class="highlight shell"><figcaption><span>启用临时代理</span></figcaption><table><tr><td class="code"><pre><span class="line">export http_proxy=127.0.0.1:7890</span><br><span class="line">export http_proxys=127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-<p>可以通过<code>cat $http_proxy</code>来查看是否启用了临时代理</p>
-<figure class="highlight shell"><figcaption><span>停用临时代理</span></figcaption><table><tr><td class="code"><pre><span class="line">unset http_proxy</span><br><span class="line">unset https_proxy</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Cent OS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Cent OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安装 on-my-zsh 和常用插件</title>
     <url>/article/on-my-zsh.html</url>
     <content><![CDATA[<p>  最近之前买的三年服务器到期了，新买了腾讯云的服务器，Cent OS 7.6，记录下安装<code>oh-my-zsh</code>及常用插件的过程，MacOS 通用。</p>
