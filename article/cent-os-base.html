@@ -700,11 +700,18 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
 <h3 id="二-添加本机的-ssh-公钥到服务器"><a class="header-anchor" href="#二-添加本机的-ssh-公钥到服务器">¶</a>二、 添加本机的 SSH 公钥到服务器</h3>
 <p>以后连接服务器不用每次都输入用户名和密码</p>
-<p>1、本地执行以下命令并输入对应密码完成自动写入到远程服务器的<code>~/.ssh/authorized_keys</code>文件，没有公钥可通过<code>ssh-keygen -t rsa</code>一路回车生成公钥</p>
+<p>1、在本地生成公私钥对</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>2、本地执行以下命令并输入对应密码完成自动写入到远程服务器的<code>~/.ssh/authorized_keys</code>文件，没有公钥可通过<code>ssh-keygen -t rsa</code>一路回车生成公钥</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
 <p>或</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i .ssh/id_rsa_liuxy0551 deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
-<p>2、再使用<code>ssh deploy@47.65.55.62</code>连接服务器就可以免密登录了</p>
+<p>3、windows 执行以下操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type $env:USERPROFILE\.ssh\id_rsa.pub | ssh &#123;user-name&#125;@&#123;user-ip&#125; "cat &gt;&gt; .ssh/authorized_keys"</span><br></pre></td></tr></table></figure>
+<p>deploy 用户可能没有 .ssh 文件夹，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.ssh</span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">touch ~/.ssh/authorized_keys</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>4、再使用<code>ssh deploy@47.65.55.62</code>连接服务器就可以免密登录了</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <ul>
@@ -712,7 +719,7 @@ window.onload = function() {
 <li><strong>authorized_keys 权限一定要为600</strong></li>
 </ul>
 </blockquote>
-<p>3、在远程服务器配置相应的权限：<br>
+<p>5、【可选】在远程服务器配置相应的权限：<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 700 /home/deploy</span><br><span class="line">chmod 700 /home/deploy/.ssh</span><br><span class="line">chmod 600 /home/deploy/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
 <p><code>chmod 777 -R /mnt</code>将 mnt 目录下所有文件都给予 777 权限</p>
 <h3 id="三-安装-git-vim-wget-lsof"><a class="header-anchor" href="#三-安装-git-vim-wget-lsof">¶</a>三、安装 git，vim、wget、lsof</h3>
@@ -723,12 +730,11 @@ window.onload = function() {
 <h4 id="一-安装与常见命令"><a class="header-anchor" href="#一-安装与常见命令">¶</a>（一）、安装与常见命令</h4>
 <p>1、安装 nginx 并查看版本号，安装完成后就启动 nginx 查看是否有问题<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br><span class="line">nginx -v</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
-<p>2、配置对应的 nginx<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx/conf.d</span><br><span class="line">vim exapmle.conf</span><br></pre></td></tr></table></figure></p>
-<p>3、nginx 常用命令<br>
+<p>2、nginx 常用命令<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure></p>
-<p>重新加载 nginx 配置</p>
+<pre><code>重新加载 nginx 配置
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+</code></pre>
 <h4 id="二-多配置文件"><a class="header-anchor" href="#二-多配置文件">¶</a>（二）、多配置文件</h4>
 <p>这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：<code>/etc/nginx/nginx.conf</code>。</p>
 <p>1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的<code>include</code>指向。<br>
@@ -763,9 +769,7 @@ window.onload = function() {
 <p>8、查看版本号<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
 <h3 id="六-其他安装"><a class="header-anchor" href="#六-其他安装">¶</a>六、其他安装</h3>
-<figure class="highlight shell"><figcaption><span>设置淘宝源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><figcaption><span>设置 npm 源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2 yarn pnpm -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i nrm pm2 yarn pnpm -g</span><br></pre></td></tr></table></figure>
 <h3 id="七-服务器生成-ssh-key"><a class="header-anchor" href="#七-服务器生成-ssh-key">¶</a>七、服务器生成 ssh key</h3>
 <p>服务器拉取一些私有仓库的 git 代码时无需输入用户名密码</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C "liuxy0551@qq.com"</span><br></pre></td></tr></table></figure>

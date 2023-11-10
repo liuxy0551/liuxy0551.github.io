@@ -88,10 +88,10 @@
 -P 显示进度条</p>
 </blockquote>
 <h4 id="9-编辑配置文件"><a class="header-anchor" href="#9-编辑配置文件">¶</a>9、编辑配置文件</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim .zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
 <p>  我常用的主题是 ys，日常配置如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export ZSH=&quot;/Users/liuxy/.oh-my-zsh&quot;</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;ys&quot;</span><br><span class="line">plugins=(git z cp zsh-autosuggestions zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line">source $ZSH/oh-my-zsh.sh</span><br><span class="line">source ~/.bash_profile</span><br><span class="line"></span><br><span class="line"># node n taobao 镜像</span><br><span class="line">export N_NODE_MIRROR=https://npm.taobao.org/dist/</span><br><span class="line"></span><br><span class="line"># pnpm</span><br><span class="line">alias p=&quot;pnpm&quot;</span><br></pre></td></tr></table></figure>
-<p>  可能执行<code>source .zshrc</code>后会报错：<code>/etc/bashrc &quot;command not found: shopt&quot;</code>，编辑<code>.bashrc</code>，将<code>. /etc/bashrc</code>替换成<code>bash -c &quot;. /etc/bashrc&quot;</code>，保存后退出，再次执行<code>source .zshrc</code>即可。</p>
+<p>  可能执行<code>source ~/.zshrc</code>后会报错：<code>/etc/bashrc &quot;command not found: shopt&quot;</code>，编辑<code>~/.bashrc</code>，将<code>. /etc/bashrc</code>替换成<code>bash -c &quot;. /etc/bashrc&quot;</code>，保存后退出，再次执行<code>source ~/.zshrc</code>即可。</p>
 <h4 id="10-卸载-oh-my-zsh"><a class="header-anchor" href="#10-卸载-oh-my-zsh">¶</a>10、卸载 oh-my-zsh</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -112,13 +112,13 @@
 <h4 id="1-查找镜像"><a class="header-anchor" href="#1-查找镜像">¶</a>1、查找镜像</h4>
 <p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/mongo?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/mongo?tab=tags</a></p>
 <h4 id="2-下载镜像"><a class="header-anchor" href="#2-下载镜像">¶</a>2、下载镜像</h4>
-<p>  我选择的是最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo</span><br></pre></td></tr></table></figure>
+<p>  我选择的是 6.0.2：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mongo:6.0.2</span><br></pre></td></tr></table></figure>
 <h4 id="3-创建挂载文件夹"><a class="header-anchor" href="#3-创建挂载文件夹">¶</a>3、创建挂载文件夹</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/docker/mongo</span><br><span class="line">cd /mnt/docker/mongo</span><br></pre></td></tr></table></figure>
 <h3 id="二-运行-mongodb"><a class="header-anchor" href="#二-运行-mongodb">¶</a>二、运行 MongoDB</h3>
 <h4 id="1-使用镜像创建容器并运行"><a class="header-anchor" href="#1-使用镜像创建容器并运行">¶</a>1、使用镜像创建容器并运行</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -v /mnt/docker/mongo:/data/db --name mongodb -p 27019:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD='123456' -d mongo --auth</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -v /mnt/docker/mongo:/data/db --name mongodb -p 27019:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD='123456' -d mongo:6.0.2 --auth</span><br></pre></td></tr></table></figure>
 <p>指令解释：</p>
 <ul>
 <li><code>-v</code> 挂载本地文件夹，存储数据</li>
@@ -129,13 +129,12 @@
 <li><code>--auth</code> MongoDB 进行权限校验</li>
 </ul>
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it mongodb mongo admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it mongodb mongosh admin</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong><br>
-如果出现以下报错，可能是你的 mongodb 镜像版本比较高，mongodb 5.0 以上的版本需要使用<code>mongosh</code>来代替原来的<code>mongo</code><br>
+使用 <code>docker exec -it mongodb mongo admin</code> 可能如果出现以下报错，mongodb 5.0 以上的版本需要使用<code>mongosh</code>来代替<code>mongo</code><br>
 rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:235: starting container process caused “exec: “mongo”: executable file not found in $PATH”</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it mongodb mongosh admin</span><br></pre></td></tr></table></figure>
 <h4 id="3-验证用户名密码登录"><a class="header-anchor" href="#3-验证用户名密码登录">¶</a>3、验证用户名密码登录</h4>
 <p>  返回 1 代表登录成功。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">db.auth('root', '123456')</span><br></pre></td></tr></table></figure>
@@ -1785,14 +1784,14 @@ cnpm 不受 package-lock 的影响，所以建议使用<code>更换 npm 源</cod
 <h4 id="1-查找镜像"><a class="header-anchor" href="#1-查找镜像">¶</a>1、查找镜像</h4>
 <p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/redis?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/redis?tab=tags</a></p>
 <h4 id="2-下载镜像"><a class="header-anchor" href="#2-下载镜像">¶</a>2、下载镜像</h4>
-<p>  我选择的是最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull redis:latest</span><br></pre></td></tr></table></figure>
+<p>  我选择的是 7.0.5：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull redis:7.0.5</span><br></pre></td></tr></table></figure>
 <h4 id="3-创建项目文件夹并进入"><a class="header-anchor" href="#3-创建项目文件夹并进入">¶</a>3、创建项目文件夹并进入</h4>
 <p>  本地创建一个文件夹用来存放 Redis 的配置文件、日志以及数据等（挂载目录，作用是将此目录中的文件或文件夹覆盖掉容器内部的文件或文件夹），<code>可跳过</code>。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/docker/redis/conf</span><br><span class="line">cd /mnt/docker/redis/conf</span><br><span class="line">touch redis.conf</span><br></pre></td></tr></table></figure>
 <h3 id="二-运行-redis"><a class="header-anchor" href="#二-运行-redis">¶</a>二、运行 Redis</h3>
 <h4 id="1-使用镜像创建容器并运行"><a class="header-anchor" href="#1-使用镜像创建容器并运行">¶</a>1、使用镜像创建容器并运行</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -v $PWD/conf/redis.conf:/etc/redis/redis.conf -v $PWD/logs:/logs -v $PWD/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -v $PWD/conf/redis.conf:/etc/redis/redis.conf -v $PWD/logs:/logs -v $PWD/data:/data -d redis:7.0.5 redis-server /etc/redis/redis.conf --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
 <p>指令解释：</p>
 <ul>
 <li><code>-p</code> 表示端口映射，<code>-p 宿主机port:容器port</code></li>
@@ -1807,7 +1806,7 @@ cnpm 不受 package-lock 的影响，所以建议使用<code>更换 npm 源</cod
 <blockquote>
 <p>可以不挂载文件夹</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -d redis redis-server --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -d redis:7.0.5 redis-server --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it docker-redis redis-cli</span><br></pre></td></tr></table></figure>
 <h4 id="3-输入密码"><a class="header-anchor" href="#3-输入密码">¶</a>3、输入密码</h4>
@@ -2643,7 +2642,7 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <p>查看每个物理CPU中core的个数(即核数)</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq</span><br></pre></td></tr></table></figure>
 <p>查看内存信息</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /proc/meminfo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
 <p>查看磁盘空间</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 <h4 id="11-tar-压缩"><a class="header-anchor" href="#11-tar-压缩">¶</a>11、tar 压缩</h4>
@@ -3569,8 +3568,8 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>HTML</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -4362,12 +4361,12 @@ localhost 表示允许本机的连接</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/cent-os-docker/1.png" alt></p>
-<h3 id="二-安装-docker"><a class="header-anchor" href="#二-安装-docker">¶</a>二、安装 Docker</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install docker -y</span><br></pre></td></tr></table></figure>
-<h3 id="三-设置-yum-源-可选"><a class="header-anchor" href="#三-设置-yum-源-可选">¶</a>三、设置 yum 源 <code>可选</code></h3>
-<p>  选择其中一个：阿里仓库<code>推荐</code>、中央仓库</p>
+<h3 id="二-设置-yum-源-可选"><a class="header-anchor" href="#二-设置-yum-源-可选">¶</a>二、设置 yum 源 <code>可选</code></h3>
+<p>  选择其中一个：阿里仓库<code>【推荐】</code>、中央仓库</p>
 <figure class="highlight shell"><figcaption><span>阿里仓库</span></figcaption><table><tr><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><figcaption><span>中央仓库</span></figcaption><table><tr><td class="code"><pre><span class="line">yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<h3 id="三-安装-docker"><a class="header-anchor" href="#三-安装-docker">¶</a>三、安装 Docker</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install docker-ce -y</span><br></pre></td></tr></table></figure>
 <h3 id="四-启动-docker"><a class="header-anchor" href="#四-启动-docker">¶</a>四、启动 Docker</h3>
 <p>  1、root 用户操作：</p>
 <figure class="highlight shell"><figcaption><span>开机自启动 Docker</span></figcaption><table><tr><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
@@ -5627,11 +5626,18 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deploy ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
 <h3 id="二-添加本机的-ssh-公钥到服务器"><a class="header-anchor" href="#二-添加本机的-ssh-公钥到服务器">¶</a>二、 添加本机的 SSH 公钥到服务器</h3>
 <p>以后连接服务器不用每次都输入用户名和密码</p>
-<p>1、本地执行以下命令并输入对应密码完成自动写入到远程服务器的<code>~/.ssh/authorized_keys</code>文件，没有公钥可通过<code>ssh-keygen -t rsa</code>一路回车生成公钥</p>
+<p>1、在本地生成公私钥对</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>2、本地执行以下命令并输入对应密码完成自动写入到远程服务器的<code>~/.ssh/authorized_keys</code>文件，没有公钥可通过<code>ssh-keygen -t rsa</code>一路回车生成公钥</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-copy-id deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
 <p>或</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-copy-id -i .ssh/id_rsa_liuxy0551 deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
-<p>2、再使用<code>ssh deploy@47.65.55.62</code>连接服务器就可以免密登录了</p>
+<p>3、windows 执行以下操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">type $env:USERPROFILE\.ssh\id_rsa.pub | ssh &#123;user-name&#125;@&#123;user-ip&#125; "cat &gt;&gt; .ssh/authorized_keys"</span><br></pre></td></tr></table></figure>
+<p>deploy 用户可能没有 .ssh 文件夹，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir ~/.ssh</span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">touch ~/.ssh/authorized_keys</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>4、再使用<code>ssh deploy@47.65.55.62</code>连接服务器就可以免密登录了</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <ul>
@@ -5639,7 +5645,7 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <li><strong>authorized_keys 权限一定要为600</strong></li>
 </ul>
 </blockquote>
-<p>3、在远程服务器配置相应的权限：<br>
+<p>5、【可选】在远程服务器配置相应的权限：<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 700 /home/deploy</span><br><span class="line">chmod 700 /home/deploy/.ssh</span><br><span class="line">chmod 600 /home/deploy/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
 <p><code>chmod 777 -R /mnt</code>将 mnt 目录下所有文件都给予 777 权限</p>
 <h3 id="三-安装-git-vim-wget-lsof"><a class="header-anchor" href="#三-安装-git-vim-wget-lsof">¶</a>三、安装 git，vim、wget、lsof</h3>
@@ -5650,12 +5656,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <h4 id="一-安装与常见命令"><a class="header-anchor" href="#一-安装与常见命令">¶</a>（一）、安装与常见命令</h4>
 <p>1、安装 nginx 并查看版本号，安装完成后就启动 nginx 查看是否有问题<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install nginx -y</span><br><span class="line">nginx -v</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
-<p>2、配置对应的 nginx<br>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /etc/nginx/conf.d</span><br><span class="line">vim exapmle.conf</span><br></pre></td></tr></table></figure></p>
-<p>3、nginx 常用命令<br>
+<p>2、nginx 常用命令<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure></p>
-<p>重新加载 nginx 配置</p>
+<pre><code>重新加载 nginx 配置
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+</code></pre>
 <h4 id="二-多配置文件"><a class="header-anchor" href="#二-多配置文件">¶</a>（二）、多配置文件</h4>
 <p>这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：<code>/etc/nginx/nginx.conf</code>。</p>
 <p>1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的<code>include</code>指向。<br>
@@ -5690,9 +5695,7 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <p>8、查看版本号<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
 <h3 id="六-其他安装"><a class="header-anchor" href="#六-其他安装">¶</a>六、其他安装</h3>
-<figure class="highlight shell"><figcaption><span>设置淘宝源</span></figcaption><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><figcaption><span>设置 npm 源</span></figcaption><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i pm2 yarn pnpm -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i nrm pm2 yarn pnpm -g</span><br></pre></td></tr></table></figure>
 <h3 id="七-服务器生成-ssh-key"><a class="header-anchor" href="#七-服务器生成-ssh-key">¶</a>七、服务器生成 ssh key</h3>
 <p>服务器拉取一些私有仓库的 git 代码时无需输入用户名密码</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C "liuxy0551@qq.com"</span><br></pre></td></tr></table></figure>

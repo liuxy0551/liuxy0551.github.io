@@ -690,12 +690,12 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/cent-os-docker/1.png" alt></p>
-<h3 id="二-安装-docker"><a class="header-anchor" href="#二-安装-docker">¶</a>二、安装 Docker</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker -y</span><br></pre></td></tr></table></figure>
-<h3 id="三-设置-yum-源-可选"><a class="header-anchor" href="#三-设置-yum-源-可选">¶</a>三、设置 yum 源 <code>可选</code></h3>
-<p>  选择其中一个：阿里仓库<code>推荐</code>、中央仓库</p>
+<h3 id="二-设置-yum-源-可选"><a class="header-anchor" href="#二-设置-yum-源-可选">¶</a>二、设置 yum 源 <code>可选</code></h3>
+<p>  选择其中一个：阿里仓库<code>【推荐】</code>、中央仓库</p>
 <figure class="highlight shell"><figcaption><span>阿里仓库</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><figcaption><span>中央仓库</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<h3 id="三-安装-docker"><a class="header-anchor" href="#三-安装-docker">¶</a>三、安装 Docker</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-ce -y</span><br></pre></td></tr></table></figure>
 <h3 id="四-启动-docker"><a class="header-anchor" href="#四-启动-docker">¶</a>四、启动 Docker</h3>
 <p>  1、root 用户操作：</p>
 <figure class="highlight shell"><figcaption><span>开机自启动 Docker</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
@@ -1314,7 +1314,7 @@ window.onload = function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-cent-os-版本"><span class="nav-text">¶一、Cent OS 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-安装-docker"><span class="nav-text">¶二、安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-设置-yum-源-可选"><span class="nav-text">¶三、设置 yum 源 可选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-启动-docker"><span class="nav-text">¶四、启动 Docker</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-cent-os-版本"><span class="nav-text">¶一、Cent OS 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-设置-yum-源-可选"><span class="nav-text">¶二、设置 yum 源 可选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-安装-docker"><span class="nav-text">¶三、安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-启动-docker"><span class="nav-text">¶四、启动 Docker</span></a></li></ol></div>
             
 
           </div>

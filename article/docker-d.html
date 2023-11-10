@@ -682,14 +682,14 @@ window.onload = function() {
 <h4 id="1-查找镜像"><a class="header-anchor" href="#1-查找镜像">¶</a>1、查找镜像</h4>
 <p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/redis?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/redis?tab=tags</a></p>
 <h4 id="2-下载镜像"><a class="header-anchor" href="#2-下载镜像">¶</a>2、下载镜像</h4>
-<p>  我选择的是最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis:latest</span><br></pre></td></tr></table></figure>
+<p>  我选择的是 7.0.5：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis:7.0.5</span><br></pre></td></tr></table></figure>
 <h4 id="3-创建项目文件夹并进入"><a class="header-anchor" href="#3-创建项目文件夹并进入">¶</a>3、创建项目文件夹并进入</h4>
 <p>  本地创建一个文件夹用来存放 Redis 的配置文件、日志以及数据等（挂载目录，作用是将此目录中的文件或文件夹覆盖掉容器内部的文件或文件夹），<code>可跳过</code>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /mnt/docker/redis/conf</span><br><span class="line">cd /mnt/docker/redis/conf</span><br><span class="line">touch redis.conf</span><br></pre></td></tr></table></figure>
 <h3 id="二-运行-redis"><a class="header-anchor" href="#二-运行-redis">¶</a>二、运行 Redis</h3>
 <h4 id="1-使用镜像创建容器并运行"><a class="header-anchor" href="#1-使用镜像创建容器并运行">¶</a>1、使用镜像创建容器并运行</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -v $PWD/conf/redis.conf:/etc/redis/redis.conf -v $PWD/logs:/logs -v $PWD/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -v $PWD/conf/redis.conf:/etc/redis/redis.conf -v $PWD/logs:/logs -v $PWD/data:/data -d redis:7.0.5 redis-server /etc/redis/redis.conf --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
 <p>指令解释：</p>
 <ul>
 <li><code>-p</code> 表示端口映射，<code>-p 宿主机port:容器port</code></li>
@@ -704,7 +704,7 @@ window.onload = function() {
 <blockquote>
 <p>可以不挂载文件夹</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -d redis redis-server --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9736:6379 -d --name docker-redis -d redis:7.0.5 redis-server --appendonly yes --requirepass 123456</span><br></pre></td></tr></table></figure>
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it docker-redis redis-cli</span><br></pre></td></tr></table></figure>
 <h4 id="3-输入密码"><a class="header-anchor" href="#3-输入密码">¶</a>3、输入密码</h4>

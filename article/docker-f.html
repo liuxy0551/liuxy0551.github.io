@@ -685,13 +685,13 @@ window.onload = function() {
 <h4 id="1-查找镜像"><a class="header-anchor" href="#1-查找镜像">¶</a>1、查找镜像</h4>
 <p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/mongo?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/mongo?tab=tags</a></p>
 <h4 id="2-下载镜像"><a class="header-anchor" href="#2-下载镜像">¶</a>2、下载镜像</h4>
-<p>  我选择的是最新版本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo</span><br></pre></td></tr></table></figure>
+<p>  我选择的是 6.0.2：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo:6.0.2</span><br></pre></td></tr></table></figure>
 <h4 id="3-创建挂载文件夹"><a class="header-anchor" href="#3-创建挂载文件夹">¶</a>3、创建挂载文件夹</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /mnt/docker/mongo</span><br><span class="line">cd /mnt/docker/mongo</span><br></pre></td></tr></table></figure>
 <h3 id="二-运行-mongodb"><a class="header-anchor" href="#二-运行-mongodb">¶</a>二、运行 MongoDB</h3>
 <h4 id="1-使用镜像创建容器并运行"><a class="header-anchor" href="#1-使用镜像创建容器并运行">¶</a>1、使用镜像创建容器并运行</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /mnt/docker/mongo:/data/db --name mongodb -p 27019:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD='123456' -d mongo --auth</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /mnt/docker/mongo:/data/db --name mongodb -p 27019:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD='123456' -d mongo:6.0.2 --auth</span><br></pre></td></tr></table></figure>
 <p>指令解释：</p>
 <ul>
 <li><code>-v</code> 挂载本地文件夹，存储数据</li>
@@ -702,13 +702,12 @@ window.onload = function() {
 <li><code>--auth</code> MongoDB 进行权限校验</li>
 </ul>
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mongodb mongo admin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mongodb mongosh admin</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong><br>
-如果出现以下报错，可能是你的 mongodb 镜像版本比较高，mongodb 5.0 以上的版本需要使用<code>mongosh</code>来代替原来的<code>mongo</code><br>
+使用 <code>docker exec -it mongodb mongo admin</code> 可能如果出现以下报错，mongodb 5.0 以上的版本需要使用<code>mongosh</code>来代替<code>mongo</code><br>
 rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:235: starting container process caused “exec: “mongo”: executable file not found in $PATH”</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mongodb mongosh admin</span><br></pre></td></tr></table></figure>
 <h4 id="3-验证用户名密码登录"><a class="header-anchor" href="#3-验证用户名密码登录">¶</a>3、验证用户名密码登录</h4>
 <p>  返回 1 代表登录成功。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.auth('root', '123456')</span><br></pre></td></tr></table></figure>
