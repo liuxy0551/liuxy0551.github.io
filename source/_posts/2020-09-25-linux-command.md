@@ -125,7 +125,7 @@ cat /proc/cpuinfo| grep "cpu cores"| uniq
 
 查看内存信息
 ```
-cat /proc/meminfo
+free -m
 ```
 
 查看磁盘空间

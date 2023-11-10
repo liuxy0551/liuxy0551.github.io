@@ -48,7 +48,13 @@ updated: 2019-11-05 09:52:45
 
 　　以后连接服务器不用每次都输入用户名和密码
 
-　　1、本地执行以下命令并输入对应密码完成自动写入到远程服务器的`~/.ssh/authorized_keys`文件，没有公钥可通过`ssh-keygen -t rsa`一路回车生成公钥
+　　1、在本地生成公私钥对
+
+```shell
+ssh-keygen -t rsa
+```
+
+　　2、本地执行以下命令并输入对应密码完成自动写入到远程服务器的`~/.ssh/authorized_keys`文件，没有公钥可通过`ssh-keygen -t rsa`一路回车生成公钥
 
 ```shell
 ssh-copy-id deploy@47.65.55.62
@@ -58,13 +64,29 @@ ssh-copy-id deploy@47.65.55.62
 ssh-copy-id -i .ssh/id_rsa_liuxy0551 deploy@47.65.55.62
 ```
 
-　　2、再使用`ssh deploy@47.65.55.62`连接服务器就可以免密登录了
+　　3、windows 执行以下操作
+
+```shell
+ type $env:USERPROFILE\.ssh\id_rsa.pub | ssh {user-name}@{user-ip} "cat >> .ssh/authorized_keys"
+```
+　　deploy 用户可能没有 .ssh 文件夹，执行以下命令：
+```shell
+su deploy
+```
+```shell
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+　　4、再使用`ssh deploy@47.65.55.62`连接服务器就可以免密登录了
 
 >**注意**
 >* **如果还不能免密登录，就进行第 3 步设置权限**
 >* **authorized_keys 权限一定要为600**
 
-　　3、在远程服务器配置相应的权限：
+　　5、【可选】在远程服务器配置相应的权限：
     ```shell
     chmod 700 /home/deploy
     chmod 700 /home/deploy/.ssh
@@ -95,20 +117,14 @@ yum install vim wget lsof -y
     systemctl start nginx
     ```
 
-　　2、配置对应的 nginx
-    ```shell
-    cd /etc/nginx/conf.d
-    vim exapmle.conf
-    ```
-
-　　3、nginx 常用命令
+　　2、nginx 常用命令
     ```shell
     systemctl start/stop/reload/restart/status nginx
     ```
-重新加载 nginx 配置
-```shell
-nginx -s reload
-```
+    重新加载 nginx 配置
+    ```shell
+    nginx -s reload
+    ```
 
 #### （二）、多配置文件
 
@@ -206,15 +222,8 @@ server {
 
 ### 六、其他安装
 
-```shell 设置淘宝源
-npm config set registry https://registry.npmmirror.com
-```
-```shell 设置 npm 源
-npm config set registry https://registry.npmjs.org
-```
-
 ```shell
-npm i pm2 yarn pnpm -g
+npm i nrm pm2 yarn pnpm -g
 ```
 
 

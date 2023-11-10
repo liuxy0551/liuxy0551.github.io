@@ -32,22 +32,22 @@ uname -r
 ![](https://images-hosting.liuxianyu.cn/posts/cent-os-docker/1.png)
 
 
-### 二、安装 Docker
+### 二、设置 yum 源 `可选`
 
-``` shell
-yum install docker -y
-```
-
-
-### 三、设置 yum 源 `可选`
-
-&emsp;&emsp;选择其中一个：阿里仓库`推荐`、中央仓库
+&emsp;&emsp;选择其中一个：阿里仓库`【推荐】`、中央仓库
 
 ``` shell 阿里仓库
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 ``` shell 中央仓库
 yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo
+```
+
+
+### 三、安装 Docker
+
+``` shell
+yum install docker-ce -y
 ```
 
 
