@@ -41,13 +41,13 @@ updated: 2019-11-05 09:52:45
 
 　　需要进行的操作：创建 deploy 用户、添加本机的 SSH 公钥到服务器、安装 git、安装 nginx 并配置等
 
-　　1、创建 deploy 用户并设置密码，把 deploy 用户添加到 sudo 用户组中 - 参考 [Cent OS 基础环境搭建 - 添加 deploy 用户](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
+　　1、创建 deploy 用户并设置密码，把 deploy 用户添加到 sudo 用户组中 - 参考 [Cent OS 基础环境搭建 - 添加 deploy 用户](https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%80-%E6%B7%BB%E5%8A%A0-deploy-%E7%94%A8%E6%88%B7)
 
-　　2、添加本机的 SSH 公钥到服务器 - 参考 [Cent OS 基础环境搭建 - 添加本机的 SSH 到服务器](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
+　　2、添加本机的 SSH 公钥到服务器 - 参考 [Cent OS 基础环境搭建 - 添加本机的 SSH 到服务器](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%85%AC%E9%92%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 　　3、切换到 deploy 用户，安装 git、nginx
-　　参考 [Cent OS 基础环境搭建 - 安装 git](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
-　　参考 [Cent OS 基础环境搭建 - 安装 nginx](https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8)
+　　参考 [Cent OS 基础环境搭建 - 安装 git](https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git-vim-wget-lsof)
+　　参考 [Cent OS 基础环境搭建 - 安装 nginx](https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git-vim-wget-lsof)
 
 　　4、在服务器上新建一个`blog`文件夹，用来存储`hexo d`后的静态文件，并授权给 deploy 用户。
     ```shell
@@ -66,7 +66,7 @@ updated: 2019-11-05 09:52:45
     ```shell
     sudo vim blog.git/hooks/post-receive
     ```
-　　然后在该文件中输入以下内容，将分支导出到`blog`文件夹下。
+　　然后在该文件中输入以下内容，表示将分支导出到`blog`文件夹下。
     ```shell
     git --work-tree=/mnt/projects/hexo-blog/blog --git-dir=/mnt/projects/hexo-blog/blog.git checkout -f
     ```

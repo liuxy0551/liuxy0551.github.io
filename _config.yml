@@ -116,7 +116,7 @@ deploy:
     github: git@github.com:liuxy0551/liuxy0551.github.io.git,master
     # coding: https://git.dev.tencent.com/liuxianyu/liuxy0551.coding.me.git,master
     gitee: git@gitee.com:liuxy0551/liuxy0551.git,master
-    server: deploy@43.139.150.206:/mnt/projects/hexo-blog/blog.git,master
+    server: deploy@124.220.208.138:/mnt/projects/hexo-blog/blog.git,master
 
 admin:
   username: liuxy0551
