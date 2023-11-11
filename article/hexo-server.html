@@ -712,18 +712,18 @@ window.onload = function() {
 <p>1、参考 <a href="https://liuxianyu.cn/article/cent-os-base.html">Cent OS 基础环境搭建</a></p>
 <h4 id="二-hexo-的部署"><a class="header-anchor" href="#二-hexo-的部署">¶</a>（二）、Hexo 的部署</h4>
 <p>需要进行的操作：创建 deploy 用户、添加本机的 SSH 公钥到服务器、安装 git、安装 nginx 并配置等</p>
-<p>1、创建 deploy 用户并设置密码，把 deploy 用户添加到 sudo 用户组中 - 参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Cent OS 基础环境搭建 - 添加 deploy 用户</a></p>
-<p>2、添加本机的 SSH 公钥到服务器 - 参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Cent OS 基础环境搭建 - 添加本机的 SSH 到服务器</a></p>
+<p>1、创建 deploy 用户并设置密码，把 deploy 用户添加到 sudo 用户组中 - 参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%80-%E6%B7%BB%E5%8A%A0-deploy-%E7%94%A8%E6%88%B7">Cent OS 基础环境搭建 - 添加 deploy 用户</a></p>
+<p>2、添加本机的 SSH 公钥到服务器 - 参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%85%AC%E9%92%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Cent OS 基础环境搭建 - 添加本机的 SSH 到服务器</a></p>
 <p>3、切换到 deploy 用户，安装 git、nginx<br>
-　　参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Cent OS 基础环境搭建 - 安装 git</a><br>
-　　参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%BA%8C-%E6%B7%BB%E5%8A%A0%E6%9C%AC%E6%9C%BA%E7%9A%84-ssh-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Cent OS 基础环境搭建 - 安装 nginx</a></p>
+　　参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git-vim-wget-lsof">Cent OS 基础环境搭建 - 安装 git</a><br>
+　　参考 <a href="https://liuxianyu.cn/article/cent-os-base.html#%E4%B8%89-%E5%AE%89%E8%A3%85-git-vim-wget-lsof">Cent OS 基础环境搭建 - 安装 nginx</a></p>
 <p>4、在服务器上新建一个<code>blog</code>文件夹，用来存储<code>hexo d</code>后的静态文件，并授权给 deploy 用户。<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /mnt/projects/hexo-blog/blog</span><br><span class="line">cd /mnt/projects/hexo-blog</span><br><span class="line">sudo chown -R deploy:deploy blog</span><br></pre></td></tr></table></figure></p>
 <p>5、在<code>hexo-blog</code>目录下初始化一个 git 裸库，服务器上的 git 仓库通常都以<code>.git</code>结尾，并把 git 仓库的 owner 改为 deploy 用户<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo git init --bare blog.git</span><br><span class="line">sudo chown -R deploy:deploy blog.git</span><br></pre></td></tr></table></figure></p>
 <p>6、新建一个 post-receive 文件<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure></p>
-<p>然后在该文件中输入以下内容，将分支导出到<code>blog</code>文件夹下。<br>
+<p>然后在该文件中输入以下内容，表示将分支导出到<code>blog</code>文件夹下。<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/mnt/projects/hexo-blog/blog --git-dir=/mnt/projects/hexo-blog/blog.git checkout -f</span><br></pre></td></tr></table></figure></p>
 <p>保存退出之后，再执行以下命令，赋予该文件可执行权限。<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x blog.git/hooks/post-receive</span><br></pre></td></tr></table></figure></p>
