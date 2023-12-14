@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuxianyu.cn/"/>
-  <updated>2023-03-10T22:37:22.000Z</updated>
+  <updated>2023-04-02T18:43:56.000Z</updated>
   <id>https://liuxianyu.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npm 包相关命令</title>
+    <link href="https://liuxianyu.cn/article/npm-commands.html"/>
+    <id>https://liuxianyu.cn/article/npm-commands.html</id>
+    <published>2023-04-02T18:43:56.000Z</published>
+    <updated>2023-04-02T18:43:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>  整理下 <code>npm</code> 包相关的一些命令，主要包括 <code>npm</code>、<code>yarn</code>、<code>pnpm</code>。</p><a id="more"></a><h3 id="一-npm"><a class="header-anchor" href="#一-npm">¶</a>一、npm</h3><h4 id="npm-publish"><a class="header-anchor" href="#npm-publish">¶</a>npm publish</h4><p>  可以通过 `nrm`` 管理源，方便切换。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm whoami</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure><p>  npm 包可以带上 tag 标识</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --tag=beta</span><br></pre></td></tr></table></figure><p>  npm 包切换 tag</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm dist-tag add my-package-demo@1.0.0 latest</span><br></pre></td></tr></table></figure><p>  npm 撤销某个包</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish my-package-demo -f</span><br></pre></td></tr></table></figure><h4 id="npm-link"><a class="header-anchor" href="#npm-link">¶</a>npm link</h4><p>  被依赖的包</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link</span><br></pre></td></tr></table></figure><p>  使用依赖的包</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link my-package-demo</span><br></pre></td></tr></table></figure><p>  区别依赖</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unlink</span><br></pre></td></tr></table></figure><p>  发布后的包可以同步到淘宝源，建议页面上点击 <code>进行同步</code> 按钮：<code>https://npmmirror.com/package/my-package-demo</code></p><h3 id="yarn"><a class="header-anchor" href="#yarn">¶</a>yarn</h3><p>  待补充</p><h3 id="pnpm"><a class="header-anchor" href="#pnpm">¶</a>pnpm</h3><h4 id="pnpm-link"><a class="header-anchor" href="#pnpm-link">¶</a>pnpm link</h4><p><a href="https://pnpm.io/zh/cli/link" target="_blank" rel="noopener">官方文档</a></p><blockquote><p><strong>注意</strong><br>　　如果使用的是 clashx pro，出现连接不上 npm 官方源时可以打开增强模式，如果本地联调中，记得开关增强模式前后重启联调服务</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  整理下 &lt;code&gt;npm&lt;/code&gt; 包相关的一些命令，主要包括 &lt;code&gt;npm&lt;/code&gt;、&lt;code&gt;yarn&lt;/code&gt;、&lt;code&gt;pnpm&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="npm" scheme="https://liuxianyu.cn/categories/npm/"/>
+    
+    
+      <category term="npm" scheme="https://liuxianyu.cn/tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>在服务器上自建图床</title>
@@ -469,30 +491,6 @@
       <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
     
       <category term="Gotty" scheme="https://liuxianyu.cn/tags/Gotty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端学习 Docker 之旅（六）—— Docker 中安装 Cent OS 并通过 SSH 连接</title>
-    <link href="https://liuxianyu.cn/article/docker-e.html"/>
-    <id>https://liuxianyu.cn/article/docker-e.html</id>
-    <published>2021-06-07T10:51:23.000Z</published>
-    <updated>2021-06-07T10:51:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>  最近有个 <a href="https://liuxianyu.cn/article/cent-os-gotty.html" target="_black">Web Terminal</a> 的想法，可能需要多次测试，所以准备个 Cent OS 的环境还是很重要的，记录下在 Docker 中安装 Cent OS 的过程。</p><a id="more"></a><h3 id="一-安装-cent-os"><a class="header-anchor" href="#一-安装-cent-os">¶</a>一、安装 Cent OS</h3><h4 id="1-1-查找镜像"><a class="header-anchor" href="#1-1-查找镜像">¶</a>1.1、查找镜像</h4><p>  在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/centos?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/centos?tab=tags</a></p><h4 id="1-2-下载镜像"><a class="header-anchor" href="#1-2-下载镜像">¶</a>1.2、下载镜像</h4><p>  我选择的是 7.9.2009 版本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos:centos7.9.2009</span><br></pre></td></tr></table></figure><p>  下载完成后使用<code>docker images</code>命令查看镜像列表。</p><h3 id="二-启动容器"><a class="header-anchor" href="#二-启动容器">¶</a>二、启动容器</h3><h4 id="2-1-使用镜像创建容器并运行"><a class="header-anchor" href="#2-1-使用镜像创建容器并运行">¶</a>2.1、使用镜像创建容器并运行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 10000:22 -p 9000:9000 -itd --name centos7.9 --privileged=true centos:centos7.9.2009 /usr/sbin/init</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 10000:22 -itd --name centos7.9 centos:centos7.9.2009 /bin/bash</span><br></pre></td></tr></table></figure><p>指令解释：</p><ul><li><code>-p</code> 表示端口映射，<code>-p 宿主机port:容器port</code></li><li><code>--name</code> 表示给容器指定的名称</li><li><code>centos:centos7.9.2009</code> 表示运行的镜像名称</li><li><code>--privileged=true</code> 表示以特权模式运行容器，且不能使用默认的 bash，得换成 init</li></ul><p>后续可通过以下命令启动/停止容器：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start/stop centos7.9</span><br></pre></td></tr></table></figure><h4 id="2-2-进入容器"><a class="header-anchor" href="#2-2-进入容器">¶</a>2.2、进入容器</h4><p>  以后台模式运行容器，再进入容器：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it centos7.9 /bin/bash</span><br></pre></td></tr></table></figure><p>指令解释：</p><ul><li><code>centos7.9</code> 容器名称</li></ul><p>  进入 centos7.9，出现下图红框部分的容器 id 则表示进入成功：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/docker-e/1.png" alt></p><h4 id="2-3-开启-ssh-连接"><a class="header-anchor" href="#2-3-开启-ssh-连接">¶</a>2.3、开启 ssh 连接</h4><p>  安装工具：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssh-server</span><br></pre></td></tr></table></figure><p>  启动 ssh 服务：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd.service</span><br></pre></td></tr></table></figure><p>  设置系统 root 用户密码，输入两次密码设置成功：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure><h4 id="2-4-连接-centos7-9"><a class="header-anchor" href="#2-4-连接-centos7-9">¶</a>2.4、连接 centos7.9</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.106.119 -p 10000</span><br></pre></td></tr></table></figure><p>  因为是很多操作是尝试着进行的，所以很多次在连接 Cent OS 后，删除镜像、容器后再次尝试连接的时候就会报错了<code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code>，根据提示编辑<code>~/.ssh/known_hosts</code>文件，删除服务器的记录即可。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure><p><img src="https://images-hosting.liuxianyu.cn/posts/docker-e/2.gif" alt></p><p>附：<a href="https://liuxianyu.cn/article/docker-b.html" target="_black">前端学习 Docker 之旅（二）—— 常用指令</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  最近有个 &lt;a href=&quot;https://liuxianyu.cn/article/cent-os-gotty.html&quot; target=&quot;_black&quot;&gt;Web Terminal&lt;/a&gt; 的想法，可能需要多次测试，所以准备个 Cent OS 的环境还是很重要的，记录下在 Docker 中安装 Cent OS 的过程。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="https://liuxianyu.cn/categories/Docker/"/>
-    
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
-    
-      <category term="Docker" scheme="https://liuxianyu.cn/tags/Docker/"/>
     
   </entry>
   
