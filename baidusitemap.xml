@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://liuxianyu.cn/article/docker-b.html</loc>
+    <lastmod>2024-01-08</lastmod>
+  </url>
+  <url>
+    <loc>https://liuxianyu.cn/article/mysqldump.html</loc>
+    <lastmod>2024-01-07</lastmod>
+  </url>
+  <url>
     <loc>https://liuxianyu.cn/article/npm-commands.html</loc>
     <lastmod>2023-04-02</lastmod>
   </url>
@@ -446,10 +454,6 @@
   </url>
   <url>
     <loc>https://liuxianyu.cn/article/cent-os-docker.html</loc>
-    <lastmod>2020-02-05</lastmod>
-  </url>
-  <url>
-    <loc>https://liuxianyu.cn/article/docker-b.html</loc>
     <lastmod>2020-02-05</lastmod>
   </url>
   <url>

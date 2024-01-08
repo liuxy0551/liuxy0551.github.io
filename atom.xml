@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuxianyu.cn/"/>
-  <updated>2023-04-02T18:43:56.000Z</updated>
+  <updated>2024-01-07T21:46:05.000Z</updated>
   <id>https://liuxianyu.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql 备份 —— 导出导入 sql 文件</title>
+    <link href="https://liuxianyu.cn/article/mysqldump.html"/>
+    <id>https://liuxianyu.cn/article/mysqldump.html</id>
+    <published>2024-01-07T21:46:05.000Z</published>
+    <updated>2024-01-07T21:46:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>  最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。</p><a id="more"></a><p>  我的 mysql 是通过 docker 安装的，所以先进入 docker 容器；可以通过 <code>ls -lhS</code> 命令在目录下查看是否已存在文件。下方实例中的 <code>123456</code> 为数据库密码，<code>my-database</code> 是数据库名。</p><h3 id="一-数据备份"><a class="header-anchor" href="#一-数据备份">¶</a>一、数据备份</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p123456 my-database &gt; /tmp/my-database.sql</span><br></pre></td></tr></table></figure><blockquote><p><strong>注意</strong><br>　　<code>-p</code> 后面跟密码，加空格会被识别为 database；也可以不跟密码，回车后输入密码</p></blockquote><p>  导出后的文件还在 docker 容器中，可以通过 <code>docker cp</code> 命令将备份的 sql 文件拷贝到宿主机，便于后面在其他 docker 容器内使用。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp mysql-5.7:/tmp/my-database.sql /opt/</span><br></pre></td></tr></table></figure><p>  同时备份多个数据库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u username -p --databases dbname2 dbname2 &gt; Backup.sql</span><br></pre></td></tr></table></figure><h3 id="二-数据还原"><a class="header-anchor" href="#二-数据还原">¶</a>二、数据还原</h3><p>  还原使用 <code>mysqldump</code> 命令备份的数据库，先将导出的 sql 文件通过 <code>docker cp</code> 命令拷贝到备份的 mysql 容器内。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp /opt/my-database.sql mysql-5.7-backup:/tmp/</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p123456 my-database &lt; /tmp/my-database.sql</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://liuxianyu.cn/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://liuxianyu.cn/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>npm 包相关命令</title>
@@ -465,32 +487,6 @@
       <category term="函数计算" scheme="https://liuxianyu.cn/tags/%E5%87%BD%E6%95%B0%E8%AE%A1%E7%AE%97/"/>
     
       <category term="Serverless" scheme="https://liuxianyu.cn/tags/Serverless/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在 Cent OS 中部署 Gotty 并提供给项目使用</title>
-    <link href="https://liuxianyu.cn/article/cent-os-gotty.html"/>
-    <id>https://liuxianyu.cn/article/cent-os-gotty.html</id>
-    <published>2021-06-08T09:31:45.000Z</published>
-    <updated>2021-06-08T09:31:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>  <a href="https://github.com/yudai/gotty" target="_black">Gotty</a> 是一个能在浏览器打开的终端（Web Terminal），可以用于执行命令，也可以用于 SSH。通过把部署的主机作为跳板机，登录主机列表中的某一台机器。利用 <a href="https://liuxianyu.cn/article/docker-e.html" target="_black">前端学习 Docker 之旅（六）—— Docker 中安装 Cent OS 并通过 SSH 连接</a> 搭建的 Cent OS 环境来尝试部署并使用。</p><a id="more"></a><h3 id="一-实现效果"><a class="header-anchor" href="#一-实现效果">¶</a>一、实现效果</h3><p><img src="https://images-hosting.liuxianyu.cn/posts/cent-os-gotty/1.gif" alt></p><h3 id="二-安装运行"><a class="header-anchor" href="#二-安装运行">¶</a>二、安装运行</h3><h4 id="2-1-安装工具"><a class="header-anchor" href="#2-1-安装工具">¶</a>2.1 安装工具</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget</span><br></pre></td></tr></table></figure><h4 id="2-2-拉取对应的文件"><a class="header-anchor" href="#2-2-拉取对应的文件">¶</a>2.2 拉取对应的文件</h4><p>  从 <a href="https://github.com/yudai/gotty/releases" target="_black">Release</a> 页面下载对应的文件，建议下载最新版，当前最新版 v1.0.1。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P /mnt/gotty https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure><p>指令解释：</p><ul><li>wget -P <code>/保存文件的目录</code> <code>文件下载地址</code></li></ul><h4 id="2-3-解压文件"><a class="header-anchor" href="#2-3-解压文件">¶</a>2.3 解压文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf /mnt/gotty/gotty_linux_amd64.tar.gz -C /mnt/gotty</span><br></pre></td></tr></table></figure><h4 id="2-4-运行"><a class="header-anchor" href="#2-4-运行">¶</a>2.4 运行</h4><h5 id="2-4-1-前台运行"><a class="header-anchor" href="#2-4-1-前台运行">¶</a>2.4.1 前台运行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/gotty/gotty -p 9000 -w --max-connection 50 --permit-arguments bash</span><br></pre></td></tr></table></figure><h5 id="2-4-2-后台运行推荐"><a class="header-anchor" href="#2-4-2-后台运行推荐">¶</a>2.4.2 后台运行<code>推荐</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/gotty/gotty -p 9000 -w --permit-arguments bash &gt;/mnt/gotty/log.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure><p><code>&gt;/mnt/gotty/log.file 2&gt;&amp;1 &amp;</code>是将产生的文件存到指定文件中，可搜索<code>Linux 后台运行</code>；上述命令会返回对应进程的 PID。服务启动后可在 MAC 上访问 <a href="http://localhost:9000" target="_black">http://localhost:9000</a> 查看效果。</p><p>更多选项可参考：<a href="https://github.com/yudai/gotty#options" target="_black">https://github.com/yudai/gotty#options</a></p><p>指令解释：</p><ul><li><code>-p 9000</code> 表示运行在 9000 端口</li><li><code>-w</code> 表示允许客户端写入</li><li><code>--max-connection 50</code> 表示 socket 最大连接数</li><li><code>--permit-arguments</code> 表示运行 url 携带参数，<code>?arg=aaa</code></li><li><code>bash</code> 表示进入 bash 终端</li><li><code>-r</code> 表示会在 url 后添加随机字符串路径</li><li><code>-c admin:1234</code> 表示需要用户名密码进行访问</li></ul><h4 id="2-5-停止后台运行"><a class="header-anchor" href="#2-5-停止后台运行">¶</a>2.5 停止后台运行</h4><p>  <strong>方法一：</strong></p><p>  可参考：<a href="https://liuxianyu.cn/article/linux-command.html" target="_black">Linux 中的一些命令</a></p><ul><li>通过<code>lsof</code>查看对应端口的程序，会返回对应进程的 PID，假设 PID 是 1476：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lsof</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:9000</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 1476</span><br></pre></td></tr></table></figure><p>  <strong>方法二：</strong></p><ul><li>常用任务管理命令：</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jobs      // 查看任务，返回任务编号n和进程号</span><br><span class="line">fg %n     // 将编号为n的任务转前台运行</span><br><span class="line">bg %n     // 将编号为n的任务转后台运行</span><br><span class="line">ctrl + c  // 结束当前任务</span><br><span class="line">ctrl + z  // 挂起当前任务</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  &lt;a href=&quot;https://github.com/yudai/gotty&quot; target=&quot;_black&quot;&gt;Gotty&lt;/a&gt; 是一个能在浏览器打开的终端（Web Terminal），可以用于执行命令，也可以用于 SSH。通过把部署的主机作为跳板机，登录主机列表中的某一台机器。利用 &lt;a href=&quot;https://liuxianyu.cn/article/docker-e.html&quot; target=&quot;_black&quot;&gt;前端学习 Docker 之旅（六）—— Docker 中安装 Cent OS 并通过 SSH 连接&lt;/a&gt; 搭建的 Cent OS 环境来尝试部署并使用。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://liuxianyu.cn/categories/Linux/"/>
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/categories/Linux/Cent-OS/"/>
-    
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
-    
-      <category term="Gotty" scheme="https://liuxianyu.cn/tags/Gotty/"/>
     
   </entry>
   
