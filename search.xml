@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux 定时备份 mysql (内有 docker 版)</title>
+    <url>/article/linux-crontab.html</url>
+    <content><![CDATA[<p>  Linux 中的定时任务一般通过 <code>crontab</code> 命令来管理，这里记录下常用的一些任务。</p>
+<a id="more"></a>
+<h3 id="一-常用命令"><a class="header-anchor" href="#一-常用命令">¶</a>一、常用命令</h3>
+<ul>
+<li><code>crontab -l</code> 查看当前用户的定时任务列表</li>
+<li><code>crontab -e</code> 编辑当前用户的定时任务列表</li>
+<li><code>service crond status</code>  查看服务状态</li>
+<li><code>service crond start</code>   启动服务</li>
+<li><code>service crond stop</code>    关闭服务</li>
+<li><code>service crond restart</code> 重启服务</li>
+<li><code>service crond reload</code>  重新载入配置</li>
+</ul>
+<h3 id="二-命令脚本"><a class="header-anchor" href="#二-命令脚本">¶</a>二、命令脚本</h3>
+<p>  先创建存放脚本的文件夹：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /mnt/mysqldump</span><br></pre></td></tr></table></figure>
+<p>  再编辑脚本文件(<code>docker 版</code> 在下方)：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /mnt/mysqldump/my-database.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库用户名</span></span><br><span class="line">username=root</span><br><span class="line"><span class="comment"># 数据库密码</span></span><br><span class="line">password=123456</span><br><span class="line"><span class="comment"># 要备份的数据库名称</span></span><br><span class="line">database_name=my-database</span><br><span class="line"><span class="comment"># 保存备份个数，备份30天数据</span></span><br><span class="line">number=30</span><br><span class="line"><span class="comment"># 备份保存路径</span></span><br><span class="line">backup_dir=/mnt/mysqldump/<span class="variable">$database_name</span></span><br><span class="line"><span class="comment"># 日期格式</span></span><br><span class="line">dd=`date +%Y%m%d%H%M%S`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果文件夹不存在则创建</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$backup_dir</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    mkdir -p <span class="variable">$backup_dir</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 简单写法 mysqldump -u root -p123456 my-database &gt; /mnt/my-database.sql</span></span><br><span class="line">mysqldump -u <span class="variable">$username</span> -p<span class="variable">$password</span> <span class="variable">$database_name</span> &gt; <span class="variable">$backup_dir</span>/<span class="variable">$database_name</span>-<span class="variable">$dd</span>.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写创建备份日志</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"create <span class="variable">$backup_dir</span>/<span class="variable">$database_name</span>-<span class="variable">$dd</span>.dump"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超期的备份</span></span><br><span class="line">delfile=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | head -1`</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断现在的备份数量是否大于 $number</span></span><br><span class="line">count=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | wc -l`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$count</span> -gt <span class="variable">$number</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 删除更早生成的备份，只保留 $number 数量的备份</span></span><br><span class="line">  rm <span class="variable">$delfile</span></span><br><span class="line">  <span class="comment"># 写删除文件日志</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"delete <span class="variable">$delfile</span>"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>  上述脚本仅需关注 <code>username</code>、<code>password</code>、<code>database_name</code>、<code>number</code> 等变量；通过 ls 命令获取第 9 列（文件名列），再通过实现定义操作时间最晚的那个需要删除的文件。</p>
+<blockquote>
+<p><strong>注意</strong><br>
+　　执行命令可能提示 <code>You have new mail.</code>，输入 <code>mail</code> 查看 crontab 返回的信息，输入数字查看对应的信息</p>
+</blockquote>
+<p>  <code>mail</code> 交互式界面中的常用命令：</p>
+<ul>
+<li><code>n</code> 查看下一封邮件</li>
+<li><code>p</code> 查看上一封邮件</li>
+<li><code>d 1 2</code> 按编号删除邮件，不填编号时删除当前邮件</li>
+<li><code>d *</code> 删除所有邮件</li>
+<li><code>u 1 2</code> 按编号恢复删除的邮件</li>
+<li><code>q</code> 退出 mail 界面</li>
+<li><code>h</code> 显示邮件列表的头部信息，包括邮件的发件人、主题等</li>
+<li><code>?</code> 显示帮助信息</li>
+</ul>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/linux-crontab/1.png" alt></p>
+<p>  给脚本文件授权，否则会在 mail 中看到 <code>Permission denied</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod +x /mnt/mysqldump/*.sh</span><br></pre></td></tr></table></figure>
+<h3 id="crontab"><a class="header-anchor" href="#crontab">¶</a>crontab</h3>
+<p>  cron 读取一个或多个配置文件，这些配置文件中包含了命令行及其调用时间。cron 的配置文件称为 <code>crontab</code>，是 <code>cron table</code> 的简写。</p>
+<h4 id="crontab-语法"><a class="header-anchor" href="#crontab-语法">¶</a>crontab 语法</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">        minute  hour   day-of-month  month-of-year  day-of-week commands</span><br><span class="line">合法值   00-59  00-23      01-31          01-12         0-6     (0 is sunday)</span><br></pre></td></tr></table></figure>
+<p>  除了数字还有几个个特殊的符号就是 <code>*</code> <code>/</code> 和 <code>-</code> <code>,</code>，<code>*</code> 代表所有的取值范围内的数字，<code>/</code> 代表每的意思，<code>/5</code> 表示每 5 个单位，<code>-</code> 代表从某个数字到某个数字，<code>,</code> 分开几个离散的数字。</p>
+<h4 id="添加-cron-定时任务"><a class="header-anchor" href="#添加-cron-定时任务">¶</a>添加 cron 定时任务</h4>
+<p>  <code>crontab -e</code> 编辑任务文件，添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">50 23 * * * /mnt/mysqldump/my-database.sh</span><br></pre></td></tr></table></figure>
+<p>  可以使用 <code>crontab -l</code> 查看任务是否已添加成功。</p>
+<h3 id="docker-版"><a class="header-anchor" href="#docker-版">¶</a>docker 版</h3>
+<p>  当通过 docker 安装 mysql 时，也可以进行备份，比常规版新增了 <code>container_name</code>、<code>container_tmp_dir</code> 参数，需要注意 <code>container_name</code> 的值。使用下方脚本：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库用户名</span></span><br><span class="line">username=root</span><br><span class="line"><span class="comment"># 数据库密码</span></span><br><span class="line">password=123456</span><br><span class="line"><span class="comment"># 要备份的数据库名称</span></span><br><span class="line">database_name=my-database</span><br><span class="line"><span class="comment"># docker 容器名</span></span><br><span class="line">container_name=mysql-5.7</span><br><span class="line"><span class="comment"># 容器内临时存放的路径</span></span><br><span class="line">container_tmp_dir=/tmp</span><br><span class="line"><span class="comment"># 保存备份个数，备份30天数据</span></span><br><span class="line">number=30</span><br><span class="line"><span class="comment"># 宿主机备份保存路径</span></span><br><span class="line">backup_dir=/mnt/mysqldump/<span class="variable">$database_name</span></span><br><span class="line"><span class="comment"># 日期格式</span></span><br><span class="line">dd=`date +%Y%m%d%H%M%S`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果文件夹不存在则创建</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$backup_dir</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    mkdir -p <span class="variable">$backup_dir</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">container_sql_name=<span class="variable">$container_tmp_dir</span>/<span class="variable">$database_name</span>-<span class="variable">$dd</span>.sql</span><br><span class="line"><span class="comment"># docker exec mysql-5.7 bash -c "mysqldump -u root -pMysql..1234 $database_name &gt; /tmp/my-database.sql"</span></span><br><span class="line">docker <span class="built_in">exec</span> <span class="variable">$container_name</span> bash -c <span class="string">"mysqldump -u <span class="variable">$username</span> -p<span class="variable">$password</span> <span class="variable">$database_name</span> &gt; <span class="variable">$container_sql_name</span>"</span></span><br><span class="line"><span class="comment"># 查看是否导出成功</span></span><br><span class="line">docker <span class="built_in">exec</span> <span class="variable">$container_name</span> ls <span class="variable">$container_tmp_dir</span></span><br><span class="line"><span class="comment"># 将容器内的文件挪到宿主机</span></span><br><span class="line">docker cp <span class="variable">$container_name</span>:<span class="variable">$container_sql_name</span> <span class="variable">$backup_dir</span></span><br><span class="line"><span class="comment"># 删除容器内的临时文件</span></span><br><span class="line">docker <span class="built_in">exec</span> <span class="variable">$container_name</span> rm -rf <span class="variable">$container_sql_name</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写创建备份日志</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"create <span class="variable">$backup_dir</span>/<span class="variable">$database_name</span>-<span class="variable">$dd</span>.dump"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超期的备份</span></span><br><span class="line">delfile=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | head -1`</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断现在的备份数量是否大于 $number</span></span><br><span class="line">count=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | wc -l`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$count</span> -gt <span class="variable">$number</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 删除更早生成的备份，只保留 $number 数量的备份</span></span><br><span class="line">  rm <span class="variable">$delfile</span></span><br><span class="line">  <span class="comment"># 写删除文件日志</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"delete <span class="variable">$delfile</span>"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h3 id="参考资料："><a class="header-anchor" href="#参考资料：">¶</a>参考资料：</h3>
+<p>  <a href="https://segmentfault.com/a/1190000040642688#item-4" target="_black">编写BASH维护固定数量备份文件</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mysql 备份 —— 导出导入 sql 文件</title>
     <url>/article/mysqldump.html</url>
     <content><![CDATA[<p>  最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。</p>
@@ -6161,8 +6223,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>Blog</tag>
-        <tag>Hexo</tag>
         <tag>Linux</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -8095,26 +8157,6 @@ categories: tag标签的分类，如：categories: 随笔</p>
       </tags>
   </entry>
   <entry>
-    <title>优易口</title>
-    <url>/article/you.html</url>
-    <content><![CDATA[<p>小思</p>
-<a id="more"></a>
-<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
-<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
-<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
-<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
-<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
-<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
-<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
-]]></content>
-      <categories>
-        <category>小思</category>
-      </categories>
-      <tags>
-        <tag>小思</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小思</title>
     <url>/article/thinking.html</url>
     <content><![CDATA[<p>小思</p>
@@ -8128,6 +8170,26 @@ categories: tag标签的分类，如：categories: 随笔</p>
 <p>  终会懂得，人的成长，注定是一场孤独的旅途。学会在生命里那个寒冷的冬天，一个人孤独的过冬。不奢求别人，不依赖别人，自己温暖自己，自己给自己力量和勇气。我们都一样，要学会承受生命的孤独与无助，挺过去才能看见美好和繁华。也许永远，实在是太远了，也许人生真的无法十全十美吧！我的一个朋友说她自己很自私，与男朋友相处时也是，但我感觉似乎不是如此。当她没有那种感觉后，什么都对，但是，感觉不对。我知道，这种只要感觉的人是相处中是最难成功的，我也想过去逼问她，到底是怎样的感觉呢？</p>
 <p>  终究还是没问，我想她也是不想说，或者她自己也说不清。或许她只是希望，在她不开心的时候，他可以让她觉得他会一直在她身边，去深深地理解。我忽然觉得有一丝感动，在这个心里的光无法穿越的城市里，感觉到了一丝温情的光。</p>
 <p>  我想，终有一天，我的生命里也会出现这么一个人，她接受我波澜不惊的爱情，陪着我去看世界的风景，许给我一世的欢颜。</p>
+]]></content>
+      <categories>
+        <category>小思</category>
+      </categories>
+      <tags>
+        <tag>小思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优易口</title>
+    <url>/article/you.html</url>
+    <content><![CDATA[<p>小思</p>
+<a id="more"></a>
+<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
+<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
+<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
+<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
+<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
+<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
+<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
 ]]></content>
       <categories>
         <category>小思</category>
