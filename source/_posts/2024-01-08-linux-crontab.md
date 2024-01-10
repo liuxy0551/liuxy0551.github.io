@@ -51,10 +51,10 @@ password=123456
 database_name=my-database
 # 保存备份个数，备份30天数据
 number=30
-# 备份保存路径
-backup_dir=/mnt/mysqldump/$database_name
 # 日期格式
-dd=`date +%Y%m%d%H%M%S`
+day=`date +%Y%m%d`
+# 备份保存路径
+backup_dir=/mnt/mysqldump/$day
 
 
 # 如果文件夹不存在则创建
@@ -64,10 +64,10 @@ then
 fi
 
 # 简单写法 mysqldump -u root -p123456 my-database > /mnt/my-database.sql
-mysqldump -u $username -p$password $database_name > $backup_dir/$database_name-$dd.sql
+mysqldump -u $username -p$password $database_name > $backup_dir/$database_name.sql
 
 # 写创建备份日志
-echo "create $backup_dir/$database_name-$dd.dump" >> $backup_dir/log.txt
+echo "create $backup_dir/$database_name.dump" >> $backup_dir/log.txt
 
 # 删除超期的备份
 delfile=`ls -l -crt $backup_dir/*.sql | awk '{print $9 }' | head -1`
@@ -152,10 +152,10 @@ container_name=mysql-5.7
 container_tmp_dir=/tmp
 # 保存备份个数，备份30天数据
 number=30
-# 宿主机备份保存路径
-backup_dir=/mnt/mysqldump/$database_name
 # 日期格式
-dd=`date +%Y%m%d%H%M%S`
+day=`date +%Y%m%d`
+# 宿主机备份保存路径
+backup_dir=/mnt/mysqldump/$day
 
 
 # 如果文件夹不存在则创建
@@ -164,15 +164,13 @@ then
     mkdir -p $backup_dir;
 fi
 
-container_sql_name=$container_tmp_dir/$database_name-$dd.sql
+container_sql_path=$container_tmp_dir/$database_name.sql
 # docker exec mysql-5.7 bash -c "mysqldump -u root -pMysql..1234 $database_name > /tmp/my-database.sql"
-docker exec $container_name bash -c "mysqldump -u $username -p$password $database_name > $container_sql_name"
-# 查看是否导出成功
-docker exec $container_name ls $container_tmp_dir
+docker exec $container_name bash -c "mysqldump -u $username -p$password $database_name > $container_sql_path"
 # 将容器内的文件挪到宿主机
-docker cp $container_name:$container_sql_name $backup_dir
+docker cp $container_name:$container_sql_path $backup_dir
 # 删除容器内的临时文件
-docker exec $container_name rm -rf $container_sql_name
+docker exec $container_name rm -rf $container_sql_path
 
 # 写创建备份日志
 echo "create $backup_dir/$database_name-$dd.dump" >> $backup_dir/log.txt
