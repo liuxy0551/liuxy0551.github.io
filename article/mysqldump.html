@@ -691,6 +691,7 @@ window.onload = function() {
 <h3 id="二-数据还原"><a class="header-anchor" href="#二-数据还原">¶</a>二、数据还原</h3>
 <p>  还原使用 <code>mysqldump</code> 命令备份的数据库，先将导出的 sql 文件通过 <code>docker cp</code> 命令拷贝到备份的 mysql 容器内。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp /opt/my-database.sql mysql-5.7-backup:/tmp/</span><br></pre></td></tr></table></figure>
+<p>  再在容器内执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p123456 my-database &lt; /tmp/my-database.sql</span><br></pre></td></tr></table></figure>
 
       
