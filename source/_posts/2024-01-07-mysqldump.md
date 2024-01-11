@@ -47,6 +47,8 @@ mysqldump -u username -p --databases dbname2 dbname2 > Backup.sql
 docker cp /opt/my-database.sql mysql-5.7-backup:/tmp/
 ```
 
+&emsp;&emsp;再在容器内执行：
+
 ```shell
 mysql -u root -p123456 my-database < /tmp/my-database.sql
 ```
