@@ -141,7 +141,7 @@
 
 
   <meta name="description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 mysql 并启动、连接的过程。">
-<meta name="keywords" content="mysql,Docker">
+<meta name="keywords" content="Docker,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区">
 <meta property="og:url" content="https://liuxianyu.cn/article/docker-c.html">
@@ -724,7 +724,7 @@ window.onload = function() {
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-5.7 bash</span><br></pre></td></tr></table></figure>
 <h4 id="3-进入-mysql"><a class="header-anchor" href="#3-进入-mysql">¶</a>3、进入 mysql</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
 <h4 id="4-可能用到的命令"><a class="header-anchor" href="#4-可能用到的命令">¶</a>4、可能用到的命令</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_upgrade -u root -p --force</span><br></pre></td></tr></table></figure>
 <h4 id="5-mysql-修改密码"><a class="header-anchor" href="#5-mysql-修改密码">¶</a>5、mysql 修改密码</h4>
@@ -742,7 +742,7 @@ window.onload = function() {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;Asia/Shanghai&apos; &gt;/etc/timezone</span><br></pre></td></tr></table></figure>
 <h3 id="四-mysql-修改时间"><a class="header-anchor" href="#四-mysql-修改时间">¶</a>四、mysql 修改时间</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select now();</span><br></pre></td></tr></table></figure>
-<p><code>vim /etc/my.cnf</code> 然后在 <code>[mysqld]</code> 区域中加上 <code>default-time_zone = '+8:00'</code></p>
+<p>执行 <code>yum install vim -y</code> 然后执行 <code>vim /etc/my.cnf</code> 在 <code>[mysqld]</code> 区域中加上 <code>default-time_zone = '+8:00'</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop mysql-5.7</span><br><span class="line">docker start mysql-5.7</span><br></pre></td></tr></table></figure>
 <h3 id="五-egg-中连接-mysql-的-docker-容器报错"><a class="header-anchor" href="#五-egg-中连接-mysql-的-docker-容器报错">¶</a>五、egg 中连接 mysql 的 docker 容器报错</h3>
 <p>  egg 连接 mysql 的 docker 容器，报错：Client does not support authentication protocol requested by server; consider upgrading MySQL client</p>
@@ -822,11 +822,11 @@ localhost 表示允许本机的连接</p>
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-envira"></i> mysql</a>
-            <!--<a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>-->
-          
             <a href="/tags/Docker/" rel="tag"><i class="fa fa-envira"></i> Docker</a>
             <!--<a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>-->
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-envira"></i> mysql</a>
+            <!--<a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>-->
           
         </div>
       
@@ -1445,7 +1445,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共102k字</span>
+  <span class="post-count">博客全站共102.1k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
