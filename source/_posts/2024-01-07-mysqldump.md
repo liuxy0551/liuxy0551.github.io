@@ -15,12 +15,12 @@ updated: 2024-01-07 21:46:05
 
 <!--more-->
 
-&emsp;&emsp;我的 mysql 是通过 docker 安装的，所以先进入 docker 容器；可以通过 `ls -lhS` 命令在目录下查看是否已存在文件。下方实例中的 `123456` 为数据库密码，`my-database` 是数据库名。
+&emsp;&emsp;我的 mysql 是通过 docker 安装的，非容器的可以执行双引号中的命令；可以通过 `ls -lhS` 命令在目录下查看是否已存在文件。下方实例中的 `123456` 为数据库密码，`my-database` 是数据库名。
 
 ### 一、数据备份
 
 ```shell
-mysqldump -u root -p123456 my-database > /tmp/my-database.sql
+docker exec mysql-5.7-backup bash -c "mysqldump -uroot -p123456 my-database > /tmp/my-database.sql"
 ```
 
 > **注意**
@@ -35,7 +35,7 @@ docker cp mysql-5.7:/tmp/my-database.sql /opt/
 &emsp;&emsp;同时备份多个数据库
 
 ```shell
-mysqldump -u username -p --databases dbname2 dbname2 > Backup.sql
+docker exec mysql-5.7-backup bash -c "mysqldump -uroot -p123456 --databases dbname2 dbname2 > Backup.sql"
 ```
 
 
@@ -47,8 +47,8 @@ mysqldump -u username -p --databases dbname2 dbname2 > Backup.sql
 docker cp /opt/my-database.sql mysql-5.7-backup:/tmp/
 ```
 
-&emsp;&emsp;再在容器内执行：
+&emsp;&emsp;再进行导入：
 
 ```shell
-mysql -u root -p123456 my-database < /tmp/my-database.sql
+docker exec mysql-5.7-backup bash -c "mysql -uroot -p123456 my-database < /tmp/my-database.sql"
 ```

@@ -63,8 +63,8 @@ then
     mkdir -p $backup_dir;
 fi
 
-# 简单写法 mysqldump -u root -p123456 my-database > /mnt/my-database.sql
-mysqldump -u $username -p$password $database_name > $backup_dir/$database_name.sql
+# 简单写法 mysqldump -uroot -p123456 my-database > /mnt/my-database.sql
+mysqldump -u$username -p$password $database_name > $backup_dir/$database_name.sql
 
 # 写创建备份日志
 echo "create $backup_dir/$database_name.dump" >> $backup_dir/log.txt
@@ -165,8 +165,8 @@ then
 fi
 
 container_sql_path=$container_tmp_dir/$database_name.sql
-# docker exec mysql-5.7 bash -c "mysqldump -u root -pMysql..1234 $database_name > /tmp/my-database.sql"
-docker exec $container_name bash -c "mysqldump -u $username -p$password $database_name > $container_sql_path"
+# docker exec mysql-5.7 bash -c "mysqldump -uroot -pMysql..1234 $database_name > /tmp/my-database.sql"
+docker exec $container_name bash -c "mysqldump -u$username -p$password $database_name > $container_sql_path"
 # 将容器内的文件挪到宿主机
 docker cp $container_name:$container_sql_path $backup_dir
 # 删除容器内的临时文件
