@@ -5222,8 +5222,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>Vue</tag>
-        <tag>项目优化</tag>
         <tag>Vant</tag>
+        <tag>项目优化</tag>
       </tags>
   </entry>
   <entry>
@@ -6975,42 +6975,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </tags>
   </entry>
   <entry>
-    <title>在 macOS 中安装 Jekyll</title>
-    <url>/article/macos-jekyll.html</url>
-    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
-<a id="more"></a>
-<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<p>这一步可能会遇到一些问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
-<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
-</blockquote>
-<p>接下来进入到博客文件夹，启动服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p>此时出现了新的问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
-<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
-<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
-<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Jekyll</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue Mint-UI 省市区地址三级联动</title>
     <url>/article/vue-mintui-address.html</url>
     <content><![CDATA[<p>最近公司项目中用到收货地址的功能，遂采用这种联动的方式</p>
@@ -7045,6 +7009,42 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <tags>
         <tag>Vue</tag>
         <tag>Mint UI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 macOS 中安装 Jekyll</title>
+    <url>/article/macos-jekyll.html</url>
+    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
+<a id="more"></a>
+<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<p>这一步可能会遇到一些问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
+<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
+</blockquote>
+<p>接下来进入到博客文件夹，启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>此时出现了新的问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
+<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
+<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
+<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Jekyll</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -8179,6 +8179,26 @@ categories: tag标签的分类，如：categories: 随笔</p>
       </tags>
   </entry>
   <entry>
+    <title>优易口</title>
+    <url>/article/you.html</url>
+    <content><![CDATA[<p>小思</p>
+<a id="more"></a>
+<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
+<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
+<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
+<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
+<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
+<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
+<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
+]]></content>
+      <categories>
+        <category>小思</category>
+      </categories>
+      <tags>
+        <tag>小思</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小思</title>
     <url>/article/thinking.html</url>
     <content><![CDATA[<p>小思</p>
@@ -8192,26 +8212,6 @@ categories: tag标签的分类，如：categories: 随笔</p>
 <p>  终会懂得，人的成长，注定是一场孤独的旅途。学会在生命里那个寒冷的冬天，一个人孤独的过冬。不奢求别人，不依赖别人，自己温暖自己，自己给自己力量和勇气。我们都一样，要学会承受生命的孤独与无助，挺过去才能看见美好和繁华。也许永远，实在是太远了，也许人生真的无法十全十美吧！我的一个朋友说她自己很自私，与男朋友相处时也是，但我感觉似乎不是如此。当她没有那种感觉后，什么都对，但是，感觉不对。我知道，这种只要感觉的人是相处中是最难成功的，我也想过去逼问她，到底是怎样的感觉呢？</p>
 <p>  终究还是没问，我想她也是不想说，或者她自己也说不清。或许她只是希望，在她不开心的时候，他可以让她觉得他会一直在她身边，去深深地理解。我忽然觉得有一丝感动，在这个心里的光无法穿越的城市里，感觉到了一丝温情的光。</p>
 <p>  我想，终有一天，我的生命里也会出现这么一个人，她接受我波澜不惊的爱情，陪着我去看世界的风景，许给我一世的欢颜。</p>
-]]></content>
-      <categories>
-        <category>小思</category>
-      </categories>
-      <tags>
-        <tag>小思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优易口</title>
-    <url>/article/you.html</url>
-    <content><![CDATA[<p>小思</p>
-<a id="more"></a>
-<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
-<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
-<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
-<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
-<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
-<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
-<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
 ]]></content>
       <categories>
         <category>小思</category>
