@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuxianyu.cn/"/>
-  <updated>2024-01-08T14:02:17.000Z</updated>
+  <updated>2024-01-24T15:58:58.000Z</updated>
   <id>https://liuxianyu.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React 中使用 AntD Upload 组件时手动触发文件选择框</title>
+    <link href="https://liuxianyu.cn/article/react-antd-upload.html"/>
+    <id>https://liuxianyu.cn/article/react-antd-upload.html</id>
+    <published>2024-01-24T15:58:58.000Z</published>
+    <updated>2024-01-24T15:58:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>  最近有个需求，需要在点击上传按钮时先调用接口判断是否满足上传的条件，而不是在上传后校验失败后进行报错，将校验前置。过程中没查到其他有用的资料，这里记录下。</p><a id="more"></a><h3 id="一-实现效果"><a class="header-anchor" href="#一-实现效果">¶</a>一、实现效果</h3><p><img src="https://images-hosting.liuxianyu.cn/posts/react-antd-upload/1.gif" alt></p><h3 id="二-实现代码"><a class="header-anchor" href="#二-实现代码">¶</a>二、实现代码</h3><h4 id="html"><a class="header-anchor" href="#html">¶</a>html</h4><p>  先将 <code>Upload</code> 组件的 <code>openFileDialogOnClick</code> 属性置为 false，点击不打开文件对话框；<code>Upload</code> 的父级 div 加上 ref。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&#123;(el:</span> <span class="attr">any</span>) =&gt;</span> (this.uploadEle = el)&#125;&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">Upload</span> &#123;<span class="attr">...upLoadProps</span>&#125; <span class="attr">openFileDialogOnClick</span>=<span class="string">&#123;false&#125;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">          <span class="attr">type</span>=<span class="string">"primary"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">loading</span>=<span class="string">&#123;loading&#125;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">onClick</span>=<span class="string">&#123;this.handleImport&#125;</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">          导入文件</span><br><span class="line">      <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Upload</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="javascript"><a class="header-anchor" href="#javascript">¶</a>JavaScript</h4><p>  点击按钮，先进行接口校验，校验成功则弹出文件选择框，失败则弹提示。通过父级 div 去拿文件上传 input 的 dom，然后手动触发 <code>click</code> 事件。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handleImport = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">true</span> &#125;);</span><br><span class="line">    API.checkImport().then(<span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            (<span class="keyword">this</span>.uploadEle <span class="keyword">as</span> <span class="built_in">any</span>)?.querySelector(<span class="string">'input[type=file]'</span>)?.click?.();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            message.warning(<span class="string">'校验失败'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">false</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  最近有个需求，需要在点击上传按钮时先调用接口判断是否满足上传的条件，而不是在上传后校验失败后进行报错，将校验前置。过程中没查到其他有用的资料，这里记录下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端" scheme="https://liuxianyu.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="AntD" scheme="https://liuxianyu.cn/tags/AntD/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 定时备份 mysql (内有 docker 版)</title>
@@ -463,28 +485,6 @@
     
     
       <category term="微信小程序" scheme="https://liuxianyu.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用 canvas 实现简单图片滤镜</title>
-    <link href="https://liuxianyu.cn/article/canvas-image-filter.html"/>
-    <id>https://liuxianyu.cn/article/canvas-image-filter.html</id>
-    <published>2021-07-16T10:37:40.000Z</published>
-    <updated>2021-07-16T10:37:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>  最近会做一次周分享，主题是 canvas 图片滤镜，记录下为此写的 demo。在线访问：<a href="https://liuxy0551.github.io/canvas-image-filter/index.html" target="_black">https://liuxy0551.github.io/canvas-image-filter/index.html</a></p><a id="more"></a><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/normal.png" alt></p><h3 id="一-什么是-canvas"><a class="header-anchor" href="#一-什么是-canvas">¶</a>一、什么是 canvas</h3><p>  <code>canvas</code>是一个 HTML 元素，也叫 canvas 画布。Canvas API 主要绘制 2D 图形，而同样使用<code>canvas</code>元素的 WebGL API 一般用于绘制硬件加速的 2D 和 3D 图形。</p><h3 id="二-常用图像-api-接口"><a class="header-anchor" href="#二-常用图像-api-接口">¶</a>二、常用图像 API 接口</h3><p>  关于图像处理的 API，主要有 4 个：</p><h4 id="2-1-绘制图片"><a class="header-anchor" href="#2-1-绘制图片">¶</a>2.1、绘制图片</h4><p>  <code>drawImage(image, x, y, dwidth, dheight)</code></p><p>  其中<code>image</code>是 image 或 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标，<code>dwidth</code>和<code>dheight</code>是生成图像的宽高。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> img = <span class="keyword">new</span> Image() <span class="comment">// 声明新的Image对象</span></span><br><span class="line">img.src = <span class="string">"./img/photo.png"</span></span><br><span class="line"><span class="comment">// 图片加载后</span></span><br><span class="line">img.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  canvas = <span class="built_in">document</span>.querySelector(<span class="string">"#my-canvas"</span>)</span><br><span class="line">  ctx = canvas.getContext(<span class="string">"2d"</span>)</span><br><span class="line">  <span class="comment">// 根据image大小，指定canvas大小</span></span><br><span class="line">  canvas.width = img.width</span><br><span class="line">  canvas.height = img.height</span><br><span class="line">  <span class="comment">// 绘制图像</span></span><br><span class="line">  ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="2-2-获取图像数据"><a class="header-anchor" href="#2-2-获取图像数据">¶</a>2.2、获取图像数据</h4><p>  <code>getImageData(x, y, width, height)</code></p><p>  其中<code>x</code>和<code>y</code>是将要被提取图像区域的左上角坐标，<code>width</code>和<code>height</code>是将要被提取图像区域的宽高。返回一个<code>ImageData</code>对象，包含 canvas 给定矩形区域的图像数据。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> imageData = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height)</span><br></pre></td></tr></table></figure><h4 id="2-3-重写图像数据"><a class="header-anchor" href="#2-3-重写图像数据">¶</a>2.3、重写图像数据</h4><p>  <code>putImageData(imageData, x, y)</code></p><p>  其中<code>imageData</code>是<code>getImageData</code>方法返回的<code>ImageData</code>对象，<code>x</code>和<code>y</code>分别是源图像数据在目标画布中 x 轴 和 y 轴的偏移量。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.putImageData(imageData, <span class="number">0</span>, <span class="number">0</span>) <span class="comment">// 重绘图像</span></span><br></pre></td></tr></table></figure><h4 id="2-4-导出图像"><a class="header-anchor" href="#2-4-导出图像">¶</a>2.4、导出图像</h4><p>  <code>toDataURL([type, encoderOptions])</code></p><p>  其中<code>type</code>代表图片格式，默认为 image/png，<code>encoderOptions</code>是指在<code>type</code>设置为 image/jpeg 或 image/webp 时，可以从 0 到 1 设置图片的质量，默认 0.92。</p><p>更详细的 API 和参数说明请参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D" target="_black">MDN CanvasRenderingContext2D</a></p><h3 id="三-常见滤镜效果"><a class="header-anchor" href="#三-常见滤镜效果">¶</a>三、常见滤镜效果</h3><p>  实现滤镜主要借用<code>getImageData</code>方法，返回每个像素的 RGBA 值，操作像素进行不同的运算即可得到不同的滤镜效果。</p><h4 id="3-1-去色效果"><a class="header-anchor" href="#3-1-去色效果">¶</a>3.1、去色效果</h4><p>  相当于黑白照片，定义以下公式：<code>gray = red * 0.3 + green * 0.59 + blue * 0.11</code></p><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/1.png" alt></p><h4 id="3-2-底片效果"><a class="header-anchor" href="#3-2-底片效果">¶</a>3.2、底片效果</h4><p>  底片效果就是 RGB 最大值减去当前值，即 255 - 当前值：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/2.png" alt></p><h4 id="3-3-单色效果"><a class="header-anchor" href="#3-3-单色效果">¶</a>3.3、单色效果</h4><p>  单色效果是将当前像素的其他色值去除，比如显示红色时将 green、blue 可以设置为 0：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/3.png" alt></p><h4 id="3-4-黑白效果"><a class="header-anchor" href="#3-4-黑白效果">¶</a>3.4、黑白效果</h4><p>  通过判断当前像素的色值是否超过某一个标定值，大于则显示黑色，否则显示白色，即可达到效果。这个标定值可以设定为 RGB 最大值的一半，也就是 128：</p><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/4.png" alt></p><h4 id="3-5-荧光效果"><a class="header-anchor" href="#3-5-荧光效果">¶</a>3.5、荧光效果</h4><p><img src="https://images-hosting.liuxianyu.cn/posts/canvas-image-filter/5.png" alt></p><h3 id="四-代码"><a class="header-anchor" href="#四-代码">¶</a>四、代码</h3><p>[1] <a href="https://github.com/liuxy0551/canvas-image-filter" target="_black">https://github.com/liuxy0551/canvas-image-filter</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  最近会做一次周分享，主题是 canvas 图片滤镜，记录下为此写的 demo。在线访问：&lt;a href=&quot;https://liuxy0551.github.io/canvas-image-filter/index.html&quot; target=&quot;_black&quot;&gt;https://liuxy0551.github.io/canvas-image-filter/index.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="https://liuxianyu.cn/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="canvas" scheme="https://liuxianyu.cn/tags/canvas/"/>
     
   </entry>
   
