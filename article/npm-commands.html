@@ -695,13 +695,19 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link</span><br></pre></td></tr></table></figure>
 <p>  使用依赖的包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link my-package-demo</span><br></pre></td></tr></table></figure>
-<p>  区别依赖</p>
+<p>  去除依赖</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unlink</span><br></pre></td></tr></table></figure>
 <p>  发布后的包可以同步到淘宝源，建议页面上点击 <code>进行同步</code> 按钮：<code>https://npmmirror.com/package/my-package-demo</code></p>
 <h3 id="yarn"><a class="header-anchor" href="#yarn">¶</a>yarn</h3>
 <p>  待补充</p>
 <h3 id="pnpm"><a class="header-anchor" href="#pnpm">¶</a>pnpm</h3>
 <h4 id="pnpm-link"><a class="header-anchor" href="#pnpm-link">¶</a>pnpm link</h4>
+<p>  被依赖的包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm link --global</span><br></pre></td></tr></table></figure>
+<p>  使用依赖的包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm link --global my-package-demo</span><br></pre></td></tr></table></figure>
+<p>  去除依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm unlink</span><br></pre></td></tr></table></figure>
 <p><a href="https://pnpm.io/zh/cli/link" target="_blank" rel="noopener">官方文档</a></p>
 <blockquote>
 <p><strong>注意</strong><br>
@@ -1396,7 +1402,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共102.3k字</span>
+  <span class="post-count">博客全站共102.4k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
