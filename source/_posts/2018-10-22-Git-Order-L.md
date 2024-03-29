@@ -21,13 +21,13 @@ updated: 2021-04-29 16:10:20
 &emsp;&emsp;公司电脑可以全局设置 Git 的用户名和密码：
 
 ```
-git config –global user.name "git repository userName"
-git config –global user.email "git repository email"
+git config --global user.name "git repository userName"
+git config --global user.email "git repository email"
 ```
 
 ```
-git config –global user.name "liuyi"
-git config –global user.email "liuyi@dtstack.com"
+git config --global user.name "liuyi"
+git config --global user.email "liuyi@dtstack.com"
 ```
 
 ```

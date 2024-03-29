@@ -69,7 +69,7 @@ npm link
 npm link my-package-demo
 ```
 
-&emsp;&emsp;区别依赖
+&emsp;&emsp;去除依赖
 
 ```shell
 npm unlink
@@ -84,6 +84,24 @@ npm unlink
 ### pnpm
 
 #### pnpm link
+
+&emsp;&emsp;被依赖的包
+
+```shell
+pnpm link --global
+```
+
+&emsp;&emsp;使用依赖的包
+
+```shell
+pnpm link --global my-package-demo
+```
+
+&emsp;&emsp;去除依赖
+
+```shell
+pnpm unlink
+```
 
 [官方文档](https://pnpm.io/zh/cli/link)
 
