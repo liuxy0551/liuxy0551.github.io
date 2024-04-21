@@ -36,7 +36,7 @@ indexDown () {
 }
 ```
 
-[在线 Demo](http://my-vue.liuxianyu.cn/#/array)
+[在线 Demo](https://my-vue.liuxianyu.cn/array)
 
 实现效果中的代码 [Github](https://github.com/liuxy0551/my-vue/blob/master/src/pages/array.vue#L34)
 
