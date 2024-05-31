@@ -732,10 +732,9 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br><span class="line">nginx -v</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
 <p>2、nginx 常用命令</p>
 <pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure>
-
-重新加载 nginx 配置
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>  重新加载 nginx 配置</p>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 </code></pre>
 <h4 id="二-多配置文件"><a class="header-anchor" href="#二-多配置文件">¶</a>（二）、多配置文件</h4>
 <p>这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：<code>/etc/nginx/nginx.conf</code>。</p>
