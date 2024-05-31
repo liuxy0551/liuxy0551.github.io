@@ -730,9 +730,11 @@ window.onload = function() {
 <h4 id="一-安装与常见命令"><a class="header-anchor" href="#一-安装与常见命令">¶</a>（一）、安装与常见命令</h4>
 <p>1、安装 nginx 并查看版本号，安装完成后就启动 nginx 查看是否有问题<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br><span class="line">nginx -v</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
-<p>2、nginx 常用命令<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure></p>
-<pre><code>重新加载 nginx 配置
+<p>2、nginx 常用命令</p>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure>
+
+重新加载 nginx 配置
+
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 </code></pre>
 <h4 id="二-多配置文件"><a class="header-anchor" href="#二-多配置文件">¶</a>（二）、多配置文件</h4>
