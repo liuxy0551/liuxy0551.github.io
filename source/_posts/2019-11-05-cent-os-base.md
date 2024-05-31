@@ -118,10 +118,13 @@ yum install vim wget lsof -y
     ```
 
 　　2、nginx 常用命令
+
     ```shell
     systemctl start/stop/reload/restart/status nginx
     ```
+
     重新加载 nginx 配置
+
     ```shell
     nginx -s reload
     ```
