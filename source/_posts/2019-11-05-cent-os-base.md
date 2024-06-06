@@ -123,7 +123,7 @@ yum install vim wget lsof -y
     systemctl start/stop/reload/restart/status nginx
     ```
 
-    重新加载 nginx 配置
+&emsp;&emsp;重新加载 nginx 配置
 
     ```shell
     nginx -s reload
