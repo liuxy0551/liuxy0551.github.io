@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://liuxianyu.cn/article/on-my-zsh.html</loc>
+    <lastmod>2024-06-06</lastmod>
+  </url>
+  <url>
     <loc>https://liuxianyu.cn/article/inquirer-script.html</loc>
     <lastmod>2024-05-29</lastmod>
   </url>
@@ -39,10 +43,6 @@
   <url>
     <loc>https://liuxianyu.cn/article/images-hosting.html</loc>
     <lastmod>2023-03-10</lastmod>
-  </url>
-  <url>
-    <loc>https://liuxianyu.cn/article/on-my-zsh.html</loc>
-    <lastmod>2022-11-11</lastmod>
   </url>
   <url>
     <loc>https://liuxianyu.cn/article/docker-f.html</loc>
@@ -693,11 +693,11 @@
     <lastmod>2018-11-19</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
+    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
     <lastmod>2018-11-18</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
+    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
     <lastmod>2018-11-18</lastmod>
   </url>
   <url>
@@ -773,11 +773,11 @@
     <lastmod>2016-10-14</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/you.html</loc>
+    <loc>https://liuxianyu.cn/article/thinking.html</loc>
     <lastmod>2014-11-30</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/thinking.html</loc>
+    <loc>https://liuxianyu.cn/article/you.html</loc>
     <lastmod>2014-11-30</lastmod>
   </url>
 </urlset> 
