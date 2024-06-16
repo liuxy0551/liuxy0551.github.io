@@ -49,7 +49,7 @@ sudo chown -R deploy:deploy images-hosting
 
 ```
 # 腾讯云服务器
-export serverIP="43.139.139.139"
+export tencent="43.139.139.139"
 ```
 
 #### 5、本地图床仓库
@@ -62,11 +62,11 @@ gtar -czf images-hosting.tar.gz *
 
 
 echo -e '2、上传压缩包到远程服务器'
-scp -P 22 -r images-hosting.tar.gz deploy@$serverIP:/mnt/projects/images-hosting/
+scp -P 22 -r images-hosting.tar.gz deploy@$tencent:/mnt/projects/images-hosting/
 
 
 echo -e '3、在远程服务器解压中...'
-ssh deploy@$serverIP "cd /mnt/projects/images-hosting/; tar -xzf images-hosting.tar.gz; rm -rf images-hosting.tar.gz; ls"
+ssh deploy@$tencent "cd /mnt/projects/images-hosting/; tar -xzf images-hosting.tar.gz; rm -rf images-hosting.tar.gz; ls"
 
 
 echo -e '4、删除本地压缩包'
