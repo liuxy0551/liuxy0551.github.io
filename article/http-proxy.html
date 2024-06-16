@@ -150,6 +150,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/http-proxy/1.png">
 <meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png">
+<meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/http-proxy/3.png">
 <meta property="og:updated_time" content="2024-06-16T23:07:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程服务器使用本地代理">
@@ -681,11 +682,12 @@ window.onload = function() {
         <p>  在服务器端经常遇到下载速度慢的问题，在服务端安装 clash 或者 v2ray 等又比较麻烦，可以临时使用本地的代理达到科学上网的目的。这里<strong>需要区分 <code>局域网内服务器</code> 和 <code>公网服务器</code></strong>，记录下细节。</p>
 <a id="more"></a>
 <h3 id="一-局域网内服务器"><a class="header-anchor" href="#一-局域网内服务器">¶</a>一、局域网内服务器</h3>
-<p>  之前将一台放在家里旧笔记本电脑安装了 CentOS 作为服务器学习用，属于局域网内的机器，原则上公网无法访问。家里还有一台 Windows 台式机，可以通过 clash 科学上网，安装了远程开机卡和 ToDesk 自启动，方便在公司远程开机。笔记本和 Windows 台式机都是通过 WiFi 接入网络的，因此处于同一个局域网。公司的 Mac 偶尔带回家，这里也设置下。</p>
+<p>  之前将一台放在家里旧笔记本电脑安装了 CentOS 作为服务器学习用，属于局域网内的机器，原则上公网无法访问。家里还有一台 Windows 台式机，可以通过 clash 科学上网，安装了远程开机卡和 ToDesk 自启动，方便在公司远程开机。笔记本和 Windows 台式机都是通过 WiFi 接入网络的，因此处于同一个局域网。公司的 Mac 偶尔带回家，这里也设置下。需要开启 clash 的 <code>允许局域网连接</code>：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/1.png" alt></p>
 <p>  将旧笔记本电脑的别名改为 <code>lenovo</code>，在 <code>lenovo</code> 上 <code>vim ~/.zshrc</code> 添加以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用代理服务器(MacOS)</span></span><br><span class="line">alias proxym='export https_proxy=http://192.168.31.23:7890;export http_proxy=http://192.168.31.23:7890;export all_proxy=socks5://192.168.31.23:7890'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用代理服务器(Windows)</span></span><br><span class="line">alias proxyw='export https_proxy=http://192.168.31.108:7890;export http_proxy=http://192.168.31.108:7890;export all_proxy=socks5://192.168.31.108:7890'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消使用代理服务器</span></span><br><span class="line">alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试服务器是否可用</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
 <p>  在 <code>lenovo</code> 上添加完上述命令后执行 <code>source ~/.zshrc</code> 就可以生效了。此时可以执行 <code>proxy_test</code> 测试代理是否可用，发现一直是 Trying；执行 <code>proxy</code> 后再执行 <code>proxy_test</code> 就发现有具体内容返回了；可以通过执行 <code>unproxy</code> 取消代理。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/1.png" alt></p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png" alt></p>
 <h3 id="二-公网服务器"><a class="header-anchor" href="#二-公网服务器">¶</a>二、公网服务器</h3>
 <p>  公网服务器可以借助 <code>ssh -R</code> 命令创建一个反向代理通道（<strong>下方 ssh 命令在本地机器执行，本地机器需要能科学上网</strong>）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 6990:localhost:7890 root@47.65.55.62 -N</span><br></pre></td></tr></table></figure>
@@ -702,7 +704,7 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts yes</span><br></pre></td></tr></table></figure>
 <p>  类似的，在公网服务器上也添加下方的 <code>proxy</code> 命令，然后执行 <code>source ~/.zshrc</code> 就可以生效了。在公网服务器执行 <code>proxy_test</code> 测试代理是否可用，发现一直是 Trying；执行 <code>proxy</code> 后再执行 <code>proxy_test</code> 就发现有具体内容返回了；可以通过执行 <code>unproxy</code> 取消代理。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 代理到本机的指定端口（公网服务器）</span></span><br><span class="line">alias proxy='export https_proxy=http://localhost:6990;export http_proxy=http://localhost:6990;export all_proxy=socks5://localhost:6990'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消使用代理服务器</span></span><br><span class="line">alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试服务器是否可用</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png" alt></p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/3.png" alt></p>
 <blockquote>
 <p><strong>注意</strong></p>
 <ul>
