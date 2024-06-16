@@ -429,7 +429,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">195</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">196</span></a>
 
   </li>
         
@@ -754,14 +754,15 @@ window.onload = function() {
 <p>% 表示允许来自任何 ip 的连接<br>
 localhost 表示允许本机的连接</p>
 </blockquote>
-<h4 id="only-full-group-by"><a class="header-anchor" href="#only-full-group-by">¶</a>only_full_group_by</h4>
+<h4 id="only-full-group-by-不建议"><a class="header-anchor" href="#only-full-group-by-不建议">¶</a>only_full_group_by (不建议)</h4>
 <p>  在 MySQL 5.7 后，默认开启了 SQL_MODE 严格模式，对数据进行严格校验。如果代码中含有 <code>group by</code> 聚合操作，那么 <code>select</code> 中的列，除了使用聚合函数之外的，如 max()、min() 等，都必须出现在 <code>group by</code> 中。比如以下语句就会报错：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, age <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
 <p>  需要修改为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, age <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>, age;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
 <p>  不过这样可能会缺失想要的信息。我们可以进入数据库执行 <code>select @@global.sql_mode;</code> 查询 <code>sql_mode</code> 的值，编辑<code>/etc/my.cnf</code>，将 <code>sql_mode</code> 的值修改为去除 <code>ONLY_FULL_GROUP_BY</code> 后的值，然后重启 mysql 即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql-5.7 bash</span><br></pre></td></tr></table></figure>
-<p>  <code>vim /etc/my.cnf</code>，添加一行 <code>sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</code>，保存后重启 mysql。</p>
+<p>  <code>vim /etc/my.cnf</code>，添加一行，保存后重启 mysql。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart mysql-5.7</span><br></pre></td></tr></table></figure>
 
       
@@ -938,7 +939,7 @@ localhost 表示允许本机的连接</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">195</span>
+                    <span class="site-state-item-count">196</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1380,7 +1381,7 @@ localhost 表示允许本机的连接</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装-mysql"><span class="nav-text">¶一、安装 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查找镜像"><span class="nav-text">¶1、查找镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载镜像"><span class="nav-text">¶2、下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建项目文件夹并进入"><span class="nav-text">¶3、创建项目文件夹并进入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-运行-mysql"><span class="nav-text">¶二、运行 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用镜像创建容器并运行"><span class="nav-text">¶1、使用镜像创建容器并运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-进入容器"><span class="nav-text">¶2、进入容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进入-mysql"><span class="nav-text">¶3、进入 mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可能用到的命令"><span class="nav-text">¶4、可能用到的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-mysql-修改密码"><span class="nav-text">¶5、mysql 修改密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-linux-修改时间及时区"><span class="nav-text">¶三、Linux 修改时间及时区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看本机时间"><span class="nav-text">¶1、查看本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改本机时间"><span class="nav-text">¶2、修改本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改本机时区"><span class="nav-text">¶3、修改本机时区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-mysql-修改时间"><span class="nav-text">¶四、mysql 修改时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-部分问题"><span class="nav-text">¶五、部分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#egg-中连接-mysql-的-docker-容器报错"><span class="nav-text">¶egg 中连接 mysql 的 docker 容器报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-text">¶解决办法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#only-full-group-by"><span class="nav-text">¶only_full_group_by</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装-mysql"><span class="nav-text">¶一、安装 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查找镜像"><span class="nav-text">¶1、查找镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载镜像"><span class="nav-text">¶2、下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建项目文件夹并进入"><span class="nav-text">¶3、创建项目文件夹并进入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-运行-mysql"><span class="nav-text">¶二、运行 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用镜像创建容器并运行"><span class="nav-text">¶1、使用镜像创建容器并运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-进入容器"><span class="nav-text">¶2、进入容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进入-mysql"><span class="nav-text">¶3、进入 mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可能用到的命令"><span class="nav-text">¶4、可能用到的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-mysql-修改密码"><span class="nav-text">¶5、mysql 修改密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-linux-修改时间及时区"><span class="nav-text">¶三、Linux 修改时间及时区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看本机时间"><span class="nav-text">¶1、查看本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改本机时间"><span class="nav-text">¶2、修改本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改本机时区"><span class="nav-text">¶3、修改本机时区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-mysql-修改时间"><span class="nav-text">¶四、mysql 修改时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-部分问题"><span class="nav-text">¶五、部分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#egg-中连接-mysql-的-docker-容器报错"><span class="nav-text">¶egg 中连接 mysql 的 docker 容器报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-text">¶解决办法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#only-full-group-by-不建议"><span class="nav-text">¶only_full_group_by (不建议)</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1457,7 +1458,7 @@ setInterval("createtime()",250);
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共103.7k字</span>
+  <span class="post-count">博客全站共105k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
 </div>
 
