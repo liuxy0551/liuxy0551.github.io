@@ -20,7 +20,9 @@ updated: 2024-06-16 23:07:39
 
 ### 一、局域网内服务器
 
-&emsp;&emsp;之前将一台放在家里旧笔记本电脑安装了 CentOS 作为服务器学习用，属于局域网内的机器，原则上公网无法访问。家里还有一台 Windows 台式机，可以通过 clash 科学上网，安装了远程开机卡和 ToDesk 自启动，方便在公司远程开机。笔记本和 Windows 台式机都是通过 WiFi 接入网络的，因此处于同一个局域网。公司的 Mac 偶尔带回家，这里也设置下。
+&emsp;&emsp;之前将一台放在家里旧笔记本电脑安装了 CentOS 作为服务器学习用，属于局域网内的机器，原则上公网无法访问。家里还有一台 Windows 台式机，可以通过 clash 科学上网，安装了远程开机卡和 ToDesk 自启动，方便在公司远程开机。笔记本和 Windows 台式机都是通过 WiFi 接入网络的，因此处于同一个局域网。公司的 Mac 偶尔带回家，这里也设置下。需要开启 clash 的 `允许局域网连接`：
+
+![](https://images-hosting.liuxianyu.cn/posts/http-proxy/1.png)
 
 &emsp;&emsp;将旧笔记本电脑的别名改为 `lenovo`，在 `lenovo` 上 `vim ~/.zshrc` 添加以下命令：
 
@@ -37,7 +39,7 @@ alias proxy_test='curl -v google.com'
 
 &emsp;&emsp;在 `lenovo` 上添加完上述命令后执行 `source ~/.zshrc` 就可以生效了。此时可以执行 `proxy_test` 测试代理是否可用，发现一直是 Trying；执行 `proxy` 后再执行 `proxy_test` 就发现有具体内容返回了；可以通过执行 `unproxy` 取消代理。
 
-![](https://images-hosting.liuxianyu.cn/posts/http-proxy/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png)
 
 
 
@@ -76,7 +78,7 @@ alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'
 alias proxy_test='curl -v google.com'
 ```
 
-![](https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png)
+![](https://images-hosting.liuxianyu.cn/posts/http-proxy/3.png)
 
 >**注意**
 >* **先在本地机器执行 `ssh -R` 命令，再在公网服务器执行 `proxy` 使用代理**
