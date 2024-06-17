@@ -1120,12 +1120,12 @@ mylinks:
   - nickname: 青果先生  #友链名称
     avatar: https://avatars.githubusercontent.com/u/35834667?v=4  #友链头像
     site: https://github.com/wugenqiang  #友链地址
-    info: Sometimes your whole life boils down to one insame move.  #友链说明
+    info: 做一个眼中有梁木的人，记录一路走来学习的计算机专业知识 ，力求完美构建 AI & CS & SE 知识体系  #友链说明
 
-  - nickname: 刘洋博客  #友链名称
-    avatar: https://www.itliuyang.com/_nuxt/logo.039c02e6.png  #友链头像
-    site: https://www.itliuyang.com  #友链地址
-    info: 越努力越幸运  #友链说明
+  - nickname: FBB  #友链名称
+    avatar: https://luckyfbb.github.io/blog/logo.png  #友链头像
+    site: https://luckyfbb.github.io/blog  #友链地址
+    info: FBB 的更博日常  #友链说明
 
 # Hide single post
 hide:
