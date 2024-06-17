@@ -39,7 +39,7 @@ const request = require('request')
 const appConfig = require('../../app.config')
 
 const fileName = path.resolve(__dirname, './access_token.json')
-let validTime = 7200 // access_token 的默认有效时间
+let validTime = 7200 // access_token 的默认有效时间，单位秒
 
 /**
  * 通过 appId 和 appSecret 获取 access_token
@@ -50,7 +50,7 @@ const getAccessToken = async () => {
     let readRes = fs.readFileSync(fileName, 'utf8')
     readRes = JSON.parse(readRes)
 
-    // 如果创建的时间超过现在时间默认 7200ms
+    // 如果创建的时间超过现在时间默认 7200 秒
     const createTime = new Date(readRes.createTime).getTime()
     const nowTime = new Date().getTime()
     if ((nowTime - createTime) / 1000 >= validTime) {
@@ -77,7 +77,7 @@ const updateAccessToken = async () => {
   }
 }
 
-// 从微信获取新的 access_token，有效时间默认是 7200ms
+// 从微信获取新的 access_token，有效时间默认是 7200 秒
 const getNewAccessToken = async () => {
   console.log('从微信服务器获取 access_token 啦')
   return new Promise((resolve, reject) => {
@@ -90,7 +90,7 @@ const getNewAccessToken = async () => {
   })
 }
 
-// access_token 默认有效时间 7200ms，五分钟交替时间
+// access_token 默认有效时间 7200 秒，五分钟交替时间
 setInterval(async () => {
   await updateAccessToken()
 }, (validTime - 300) * 1000)

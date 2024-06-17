@@ -69,29 +69,30 @@
 <div>
 <!-- 网站运行时间的设置 -->
 <span id="timeDate">载入天数...</span>
-<span id="times">载入时分秒...</span>  Easier said than done.
+<span id="times">载入时分秒...</span> |  Easier said than done.
 <script>
     var now = new Date();
     function createtime() {
         var grt= new Date("04/05/2019 00:00:00");//此处修改你的建站时间或者网站上线时间
         now.setTime(now.getTime()+250);
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        years = dnum / 365; ynum = Math.floor(years);
+        dayNum = dnum - (ynum * 365);
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
         if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
         mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+ynum+" 年 "+dayNum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 ";
     }
-setInterval("createtime()",250);
+    createtime()
 </script>
 </div>
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
   <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
-  <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/">&nbsp;|&nbsp;浙ICP备19046839号</a>
+  <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/"> | 浙ICP备19046839号</a>
 </div>
 
 <!-- 不蒜字统计 -->
