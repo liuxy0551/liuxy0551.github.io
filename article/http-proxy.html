@@ -689,7 +689,7 @@ window.onload = function() {
 <p>  在 <code>lenovo</code> 上添加完上述命令后执行 <code>source ~/.zshrc</code> 就可以生效了。此时可以执行 <code>proxy_test</code> 测试代理是否可用，发现一直是 Trying；执行 <code>proxy</code> 后再执行 <code>proxy_test</code> 就发现有具体内容返回了；可以通过执行 <code>unproxy</code> 取消代理。</p>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png" alt></p>
 <h3 id="二-公网服务器"><a class="header-anchor" href="#二-公网服务器">¶</a>二、公网服务器</h3>
-<p>  公网服务器可以借助 <code>ssh -R</code> 命令创建一个反向代理通道（<strong>下方 ssh 命令在本地机器执行，本地机器需要能科学上网</strong>）：</p>
+<p>  公网服务器可以借助 <code>ssh -R</code> 命令创建一个反向代理通道（<strong>下方 ssh 命令在本地机器执行，本地机器需要科学上网</strong>）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 6990:localhost:7890 root@47.65.55.62 -N</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>ssh -R</code> 表示建立一个反向 SSH 隧道</li>
