@@ -45,7 +45,7 @@ alias proxy_test='curl -v google.com'
 
 ### 二、公网服务器
 
-&emsp;&emsp;公网服务器可以借助 `ssh -R` 命令创建一个反向代理通道（**下方 ssh 命令在本地机器执行，本地机器需要能科学上网**）：
+&emsp;&emsp;公网服务器可以借助 `ssh -R` 命令创建一个反向代理通道（**下方 ssh 命令在本地机器执行，本地机器需要科学上网**）：
 
 ``` shell
 ssh -R 6990:localhost:7890 root@47.65.55.62 -N
