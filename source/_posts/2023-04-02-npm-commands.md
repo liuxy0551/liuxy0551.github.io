@@ -43,6 +43,12 @@ npm publish
 npm publish --tag=beta
 ```
 
+&emsp;&emsp;当发布私有包（如 `@liuxy0551/dt-sql-parser`）时，npm 会要求付费，报错：`You must sign up for private package`，此时需要带上 `--access public` 标识
+
+```shell
+npm publish --tag=beta --access public
+```
+
 &emsp;&emsp;npm 包切换 tag
 
 ```shell
@@ -82,6 +88,18 @@ npm unlink
 &emsp;&emsp;待补充
 
 ### pnpm
+
+#### pnpm pack
+
+&emsp;&emsp;当你本地开发一个 npm 包需要验证效果时，在开发的 npm 包路径下执行 `pnpm pack` 命令，会生成一个 tgz 的压缩文件，这和 npm publish 发布的包内容相同，使用下方的命令安装，`-w` 是 workspace 的标识，可以忽略，安装前最好删除 node_modules。
+
+```shell
+pnpm pack
+```
+
+```shell
+pnpm install /Users/liuyi/Desktop/Projects/dtstack/my-package-demo/my-package-demo-0.0.1-beta.0.tgz -w
+```
 
 #### pnpm link
 
