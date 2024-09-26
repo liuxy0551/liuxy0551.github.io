@@ -688,10 +688,14 @@ window.onload = function() {
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --tag=beta</span><br></pre></td></tr></table></figure>
 <p>  当发布私有包（如 <code>@liuxy0551/dt-sql-parser</code>）时，npm 会要求付费，报错：<code>You must sign up for private package</code>，此时需要带上 <code>--access public</code> 标识</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --tag=beta --access public</span><br></pre></td></tr></table></figure>
-<p>  npm 包切换 tag</p>
+<p>  npm 包版本切换 tag</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm dist-tag add my-package-demo@1.0.0 latest</span><br></pre></td></tr></table></figure>
-<p>  npm 撤销某个包</p>
+<p>  npm 包撤销某个版本，仅在发布 24 小时内有效，撤销后该版本不可再用。如果非必须撤销，可以考虑废弃该版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish my-package-demo@1.0.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm deprecate my-package-demo@1.0.0 'This version is deprecated. Please upgrade to later.'</span><br></pre></td></tr></table></figure>
+<p>  npm 撤销某个包，也可以废弃某个包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish my-package-demo -f</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm deprecate my-package-demo 'This version is deprecated. Please use other packages to instead.'</span><br></pre></td></tr></table></figure>
 <h4 id="npm-link"><a class="header-anchor" href="#npm-link">¶</a>npm link</h4>
 <p>  被依赖的包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link</span><br></pre></td></tr></table></figure>
@@ -703,10 +707,6 @@ window.onload = function() {
 <h3 id="yarn"><a class="header-anchor" href="#yarn">¶</a>yarn</h3>
 <p>  待补充</p>
 <h3 id="pnpm"><a class="header-anchor" href="#pnpm">¶</a>pnpm</h3>
-<h4 id="pnpm-pack"><a class="header-anchor" href="#pnpm-pack">¶</a>pnpm pack</h4>
-<p>  当你本地开发一个 npm 包需要验证效果时，在开发的 npm 包路径下执行 <code>pnpm pack</code> 命令，会生成一个 tgz 的压缩文件，这和 npm publish 发布的包内容相同，使用下方的命令安装，<code>-w</code> 是 workspace 的标识，可以忽略，安装前最好删除 node_modules。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm pack</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install /Users/liuyi/Desktop/Projects/dtstack/my-package-demo/my-package-demo-0.0.1-beta.0.tgz -w</span><br></pre></td></tr></table></figure>
 <h4 id="pnpm-link"><a class="header-anchor" href="#pnpm-link">¶</a>pnpm link</h4>
 <p>  被依赖的包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm link --global</span><br></pre></td></tr></table></figure>
@@ -1333,7 +1333,7 @@ window.onload = function() {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-npm"><span class="nav-text">¶一、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-publish"><span class="nav-text">¶npm publish</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-link"><span class="nav-text">¶npm link</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn"><span class="nav-text">¶yarn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pnpm"><span class="nav-text">¶pnpm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pnpm-pack"><span class="nav-text">¶pnpm pack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pnpm-link"><span class="nav-text">¶pnpm link</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-npm"><span class="nav-text">¶一、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-publish"><span class="nav-text">¶npm publish</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-link"><span class="nav-text">¶npm link</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yarn"><span class="nav-text">¶yarn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pnpm"><span class="nav-text">¶pnpm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pnpm-link"><span class="nav-text">¶pnpm link</span></a></li></ol></li></ol></div>
             
 
           </div>

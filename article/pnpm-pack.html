@@ -141,7 +141,7 @@
 
 
   <meta name="description" content="最近本地开发 npm 包，发现 pnpm pack 可以很方便的验证效果，比 pnpm link 好用点，不需要频繁的发 beta 包，记录一下。">
-<meta name="keywords" content="pnpm">
+<meta name="keywords" content="npm,pnpm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 pnpm pack 命令本地调试 npm 包">
 <meta property="og:url" content="https://liuxianyu.cn/article/pnpm-pack.html">
@@ -681,9 +681,10 @@ window.onload = function() {
         <p>  最近本地开发 npm 包，发现 <code>pnpm pack</code> 可以很方便的验证效果，比 <code>pnpm link</code> 好用点，不需要频繁的发 beta 包，记录一下。</p>
 <a id="more"></a>
 <h3 id="一-npm-包"><a class="header-anchor" href="#一-npm-包">¶</a>一、npm 包</h3>
-<p>  在 npm 包的根目录执行 <code>pnpm pack</code> 命令，执行完成后会出现一个包名加版本的一个 tgz 文件。建议执行命令前修改下 <code>package.json</code> 文件的 <code>version</code> 属性，方便区分。</p>
+<p>  在 npm 包的根目录执行 <code>pnpm pack</code> 命令，会出现一个包名加版本号的 tgz 压缩文件，压缩包的内容和 npm publish 发布的包内容一致，这样就可以更准确的验证效果了。建议执行命令前修改下 npm 包 <code>package.json</code> 文件的 <code>version</code> 属性，方便区分。</p>
 <h3 id="二-目标项目"><a class="header-anchor" href="#二-目标项目">¶</a>二、目标项目</h3>
-<p>  复制这个 tgz 文件的绝对路径，粘贴到目标项目的 <code>package.json</code> 文件这个 npm 包的版本号处，删除 node_modules 中这个包的目录，重新执行 <code>pnpm i</code> 进行安装，或者直接删除 node_modules 再重新安装。</p>
+<p>  删除 node_modules，复制上述 tgz 压缩文件的绝对路径，在目标项目的根目录执行下方命令，建议执行后再补一次 <code>pnpm i</code>。<code>-w</code> 是 workspace 的标识，可以忽略。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install /Users/liuyi/Desktop/Projects/dtstack/monaco-sql-languages/monaco-sql-languages-0.12.3-beta.0.tgz -w</span><br></pre></td></tr></table></figure>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/pnpm-pack/1.png" alt></p>
 <h3 id="三-其他"><a class="header-anchor" href="#三-其他">¶</a>三、其他</h3>
 <p>  推荐一个好用的 VSCode 插件 <code>Search node_modules</code>，自行设置快捷键后，可以快速的找到 node_modules 中依赖的目录结构和路径。</p>
@@ -756,6 +757,9 @@ window.onload = function() {
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"><i class="fa fa-envira"></i> npm</a>
+            <!--<a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>-->
           
             <a href="/tags/pnpm/" rel="tag"><i class="fa fa-envira"></i> pnpm</a>
             <!--<a href="/tags/pnpm/" rel="tag"><i class="fa fa-tag"></i> pnpm</a>-->
