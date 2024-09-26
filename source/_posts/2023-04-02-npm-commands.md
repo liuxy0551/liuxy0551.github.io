@@ -49,16 +49,29 @@ npm publish --tag=beta
 npm publish --tag=beta --access public
 ```
 
-&emsp;&emsp;npm 包切换 tag
+&emsp;&emsp;npm 包版本切换 tag
 
 ```shell
 npm dist-tag add my-package-demo@1.0.0 latest
 ```
 
-&emsp;&emsp;npm 撤销某个包
+&emsp;&emsp;npm 包撤销某个版本，仅在发布 24 小时内有效，撤销后该版本不可再用。如果非必须撤销，可以考虑废弃该版本
+
+```shell
+npm unpublish my-package-demo@1.0.0
+```
+```shell
+npm deprecate my-package-demo@1.0.0 'This version is deprecated. Please upgrade to later.'
+```
+
+&emsp;&emsp;npm 撤销某个包，也可以废弃某个包
 
 ```shell
 npm unpublish my-package-demo -f
+```
+
+```shell
+npm deprecate my-package-demo 'This version is deprecated. Please use other packages to instead.'
 ```
 
 #### npm link
@@ -88,18 +101,6 @@ npm unlink
 &emsp;&emsp;待补充
 
 ### pnpm
-
-#### pnpm pack
-
-&emsp;&emsp;当你本地开发一个 npm 包需要验证效果时，在开发的 npm 包路径下执行 `pnpm pack` 命令，会生成一个 tgz 的压缩文件，这和 npm publish 发布的包内容相同，使用下方的命令安装，`-w` 是 workspace 的标识，可以忽略，安装前最好删除 node_modules。
-
-```shell
-pnpm pack
-```
-
-```shell
-pnpm install /Users/liuyi/Desktop/Projects/dtstack/my-package-demo/my-package-demo-0.0.1-beta.0.tgz -w
-```
 
 #### pnpm link
 

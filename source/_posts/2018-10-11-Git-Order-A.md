@@ -72,3 +72,8 @@ updated: 2019-12-13 11:26:22
     ``` shell
     git push origin --tags
     ```
+
+　　9、将本地的某个 tag 推到远程仓库
+    ``` shell
+    git push origin v0.0.1-beta.0
+    ```
