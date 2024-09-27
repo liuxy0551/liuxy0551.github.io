@@ -681,7 +681,7 @@ window.onload = function() {
         <p>  最近本地开发 npm 包，发现 <code>pnpm pack</code> 可以很方便的验证效果，比 <code>pnpm link</code> 好用点，不需要频繁的发 beta 包，记录一下。</p>
 <a id="more"></a>
 <h3 id="一-npm-包"><a class="header-anchor" href="#一-npm-包">¶</a>一、npm 包</h3>
-<p>  在 npm 包的根目录执行 <code>pnpm pack</code> 命令，会出现一个包名加版本号的 tgz 压缩文件，压缩包的内容和 npm publish 发布的包内容一致，这样就可以更准确的验证效果了。建议执行命令前修改下 npm 包 <code>package.json</code> 文件的 <code>version</code> 属性，方便区分。</p>
+<p>  在 npm 包的根目录<strong>先执行构建命令</strong>，一般是 <code>pnpm build</code>，再执行 <code>pnpm pack</code> 命令，会出现一个包名加版本号的 tgz 压缩文件，压缩包的内容和 npm publish 发布的包内容一致，这样就可以更准确的验证效果了。建议执行命令前修改下 npm 包 <code>package.json</code> 文件的 <code>version</code> 属性，方便区分。</p>
 <h3 id="二-目标项目"><a class="header-anchor" href="#二-目标项目">¶</a>二、目标项目</h3>
 <p>  删除 node_modules，复制上述 tgz 压缩文件的绝对路径，在目标项目的根目录执行下方命令，建议执行后再补一次 <code>pnpm i</code>。<code>-w</code> 是 workspace 的标识，可以忽略。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install /Users/liuyi/Desktop/Projects/dtstack/monaco-sql-languages/monaco-sql-languages-0.12.3-beta.0.tgz -w</span><br></pre></td></tr></table></figure>
@@ -1384,7 +1384,7 @@ window.onload = function() {
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共107.1k字</span>
+  <span class="post-count">博客全站共107.2k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/"> | 浙ICP备19046839号</a>
 </div>
 
