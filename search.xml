@@ -530,7 +530,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/themes</span><br><span class="line">cp ys.zsh-theme ys1.zsh-theme</span><br><span class="line">vim ys1.zsh-theme</span><br></pre></td></tr></table></figure>
 <p>  进入 <code>~/.oh-my-zsh/themes</code> 目录，以 <code>ys</code> 主题为模板复制一个自定义的主题文件，暂且命名为 <code>ys1</code>，文件名以<code>.zsh-theme</code>结尾，内容如下：</p>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/on-my-zsh/1.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Clean, simple, compatible and meaningful.</span><br><span class="line"># Tested on Linux, Unix and Windows under ANSI colors.</span><br><span class="line"># It is recommended to use with a dark background.</span><br><span class="line"># Colors: black, red, green, yellow, *blue, magenta, cyan, and white.</span><br><span class="line">#</span><br><span class="line"># Mar 2013 Yad Smood</span><br><span class="line"></span><br><span class="line"># VCS</span><br><span class="line">YS_VCS_PROMPT_PREFIX1=&quot; %&#123;$reset_color%&#125;on%&#123;$fg[blue]%&#125; &quot;</span><br><span class="line">YS_VCS_PROMPT_PREFIX2=&quot;:%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_DIRTY=&quot; %&#123;$fg[red]%&#125;x&quot;</span><br><span class="line"># YS_VCS_PROMPT_CLEAN=&quot; %&#123;$fg[green]%&#125;o&quot;</span><br><span class="line">YS_VCS_PROMPT_CLEAN=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># node version</span><br><span class="line">local node_info=&apos;$(ys_node_prompt_info)&apos;</span><br><span class="line">ys_node_prompt_info() &#123;</span><br><span class="line">	if command -v node &amp;&gt; /dev/null; then</span><br><span class="line">		echo &quot; %&#123;$fg[green]%&#125;$(node -v)&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Git info</span><br><span class="line">local git_info=&apos;$(git_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;git$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># SVN info</span><br><span class="line">local svn_info=&apos;$(svn_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;svn$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># HG info</span><br><span class="line">local hg_info=&apos;$(ys_hg_prompt_info)&apos;</span><br><span class="line">ys_hg_prompt_info() &#123;</span><br><span class="line">	# make sure this is a hg dir</span><br><span class="line">	if [ -d &apos;.hg&apos; ]; then</span><br><span class="line">		echo -n &quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;hg$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">		echo -n $(hg branch 2&gt;/dev/null)</span><br><span class="line">		if [[ &quot;$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)&quot; != &quot;1&quot; ]]; then</span><br><span class="line">			if [ -n &quot;$(hg status 2&gt;/dev/null)&quot; ]; then</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">			else</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		echo -n &quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Virtualenv</span><br><span class="line">local venv_info=&apos;$(virtenv_prompt)&apos;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_PREFIX=&quot; %&#123;$fg[green]%&#125;&quot;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_SUFFIX=&quot; %&#123;$reset_color%&#125;%&quot;</span><br><span class="line">virtenv_prompt() &#123;</span><br><span class="line">	[[ -n &quot;$&#123;VIRTUAL_ENV:-&#125;&quot; ]] || return</span><br><span class="line">	echo &quot;$&#123;YS_THEME_VIRTUALENV_PROMPT_PREFIX&#125;$&#123;VIRTUAL_ENV:t&#125;$&#123;YS_THEME_VIRTUALENV_PROMPT_SUFFIX&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local time=&quot; %&#123;$reset_color%&#125;[%*]&quot;</span><br><span class="line">local exit_code=&quot;%(?,,C:%&#123;$fg[red]%&#125;%?%&#123;$reset_color%&#125;)&quot;</span><br><span class="line"></span><br><span class="line"># Prompt format:</span><br><span class="line">#</span><br><span class="line"># PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE</span><br><span class="line"># $ COMMAND</span><br><span class="line">#</span><br><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line"># % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0</span><br><span class="line"># $</span><br><span class="line">PROMPT=&quot;</span><br><span class="line">%&#123;$terminfo[bold]$fg[blue]%&#125;#%&#123;$reset_color%&#125; \</span><br><span class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</span><br><span class="line">%&#123;$reset_color%&#125;@ \</span><br><span class="line">%&#123;$fg[green]%&#125;%m \</span><br><span class="line">%&#123;$reset_color%&#125;in \</span><br><span class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</span><br><span class="line">$&#123;hg_info&#125;\</span><br><span class="line">$&#123;git_info&#125;\</span><br><span class="line">$&#123;svn_info&#125;\</span><br><span class="line">$&#123;venv_info&#125;\</span><br><span class="line">$&#123;node_info&#125;\</span><br><span class="line">$&#123;time&#125;\</span><br><span class="line"> \</span><br><span class="line">$exit_code</span><br><span class="line">%&#123;$terminfo[bold]$fg[red]%&#125;$ %&#123;$reset_color%&#125;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Clean, simple, compatible and meaningful.</span><br><span class="line"># Tested on Linux, Unix and Windows under ANSI colors.</span><br><span class="line"># It is recommended to use with a dark background.</span><br><span class="line"># Colors: black, red, green, yellow, *blue, magenta, cyan, and white.</span><br><span class="line">#</span><br><span class="line"># Mar 2013 Yad Smood</span><br><span class="line"></span><br><span class="line"># VCS</span><br><span class="line">YS_VCS_PROMPT_PREFIX1=&quot; %&#123;$reset_color%&#125;on%&#123;$fg[blue]%&#125; &quot;</span><br><span class="line">YS_VCS_PROMPT_PREFIX2=&quot;:%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_DIRTY=&quot; %&#123;$fg[red]%&#125;x&quot;</span><br><span class="line"># YS_VCS_PROMPT_CLEAN=&quot; %&#123;$fg[green]%&#125;o&quot;</span><br><span class="line">YS_VCS_PROMPT_CLEAN=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># node version</span><br><span class="line">local node_info=&apos;$(ys_node_prompt_info)&apos;</span><br><span class="line">ys_node_prompt_info() &#123;</span><br><span class="line">	if command -v node &amp;&gt;/dev/null; then</span><br><span class="line">		echo &quot; %&#123;$fg[green]%&#125;$(node -v)&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Git info</span><br><span class="line">local git_info=&apos;$(git_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># SVN info</span><br><span class="line">local svn_info=&apos;$(svn_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;svn$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># HG info</span><br><span class="line">local hg_info=&apos;$(ys_hg_prompt_info)&apos;</span><br><span class="line">ys_hg_prompt_info() &#123;</span><br><span class="line">	# make sure this is a hg dir</span><br><span class="line">	if [ -d &apos;.hg&apos; ]; then</span><br><span class="line">		echo -n &quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;hg$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">		echo -n $(hg branch 2&gt;/dev/null)</span><br><span class="line">		if [[ &quot;$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)&quot; != &quot;1&quot; ]]; then</span><br><span class="line">			if [ -n &quot;$(hg status 2&gt;/dev/null)&quot; ]; then</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">			else</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		echo -n &quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Virtualenv</span><br><span class="line">local venv_info=&apos;$(virtenv_prompt)&apos;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_PREFIX=&quot; %&#123;$fg[green]%&#125;&quot;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_SUFFIX=&quot; %&#123;$reset_color%&#125;%&quot;</span><br><span class="line">virtenv_prompt() &#123;</span><br><span class="line">	[[ -n &quot;$&#123;VIRTUAL_ENV:-&#125;&quot; ]] || return</span><br><span class="line">	echo &quot;$&#123;YS_THEME_VIRTUALENV_PROMPT_PREFIX&#125;$&#123;VIRTUAL_ENV:t&#125;$&#123;YS_THEME_VIRTUALENV_PROMPT_SUFFIX&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local time=&quot; %&#123;$reset_color%&#125;[%*]&quot;</span><br><span class="line">local exit_code=&quot;%(?,,C:%&#123;$fg[red]%&#125;%?%&#123;$reset_color%&#125;)&quot;</span><br><span class="line"></span><br><span class="line"># Prompt format:</span><br><span class="line">#</span><br><span class="line"># PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE</span><br><span class="line"># $ COMMAND</span><br><span class="line">#</span><br><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line"># % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0</span><br><span class="line"># $</span><br><span class="line">PROMPT=&quot;</span><br><span class="line">%&#123;$terminfo[bold]$fg[blue]%&#125;#%&#123;$reset_color%&#125; \</span><br><span class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</span><br><span class="line">%&#123;$reset_color%&#125;@ \</span><br><span class="line">%&#123;$fg[green]%&#125;%m \</span><br><span class="line">%&#123;$reset_color%&#125;in \</span><br><span class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</span><br><span class="line">$&#123;hg_info&#125;\</span><br><span class="line">$&#123;git_info&#125;\</span><br><span class="line">$&#123;svn_info&#125;\</span><br><span class="line">$&#123;venv_info&#125;\</span><br><span class="line">$&#123;node_info&#125;\</span><br><span class="line">$&#123;time&#125;\</span><br><span class="line"> \</span><br><span class="line">$exit_code</span><br><span class="line">%&#123;$terminfo[bold]$fg[red]%&#125;$ %&#123;$reset_color%&#125;&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Cent OS</category>
@@ -1354,8 +1354,8 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
         <category>微信小程序</category>
       </categories>
       <tags>
-        <tag>微信小程序</tag>
         <tag>加密解密</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -6535,8 +6535,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>Blog</tag>
-        <tag>Linux</tag>
         <tag>Hexo</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -7265,42 +7265,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </tags>
   </entry>
   <entry>
-    <title>在 macOS 中安装 Jekyll</title>
-    <url>/article/macos-jekyll.html</url>
-    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
-<a id="more"></a>
-<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<p>这一步可能会遇到一些问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
-<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
-</blockquote>
-<p>接下来进入到博客文件夹，启动服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p>此时出现了新的问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
-<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
-<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
-<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-        <category>Jekyll</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue Mint-UI 省市区地址三级联动</title>
     <url>/article/vue-mintui-address.html</url>
     <content><![CDATA[<p>最近公司项目中用到收货地址的功能，遂采用这种联动的方式</p>
@@ -7335,6 +7299,42 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <tags>
         <tag>Vue</tag>
         <tag>Mint UI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 macOS 中安装 Jekyll</title>
+    <url>/article/macos-jekyll.html</url>
+    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
+<a id="more"></a>
+<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<p>这一步可能会遇到一些问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
+<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
+</blockquote>
+<p>接下来进入到博客文件夹，启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>此时出现了新的问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
+<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
+<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
+<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
+]]></content>
+      <categories>
+        <category>Blog</category>
+        <category>Jekyll</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
