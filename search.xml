@@ -200,12 +200,13 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&#123;(el:</span> <span class="attr">any</span>) =&gt;</span> (this.uploadEle = el)&#125;&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">Upload</span> &#123;<span class="attr">...upLoadProps</span>&#125; <span class="attr">openFileDialogOnClick</span>=<span class="string">&#123;false&#125;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">          <span class="attr">type</span>=<span class="string">"primary"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">loading</span>=<span class="string">&#123;loading&#125;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">onClick</span>=<span class="string">&#123;this.handleImport&#125;</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">          导入文件</span><br><span class="line">      <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Upload</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="javascript"><a class="header-anchor" href="#javascript">¶</a>JavaScript</h4>
 <p>  点击按钮，先进行接口校验，校验成功则弹出文件选择框，失败则弹提示。通过父级 div 去拿文件上传 input 的 dom，然后手动触发 <code>click</code> 事件。</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">handleImport = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">true</span> &#125;);</span><br><span class="line">    API.checkImport().then(<span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            (<span class="keyword">this</span>.uploadEle <span class="keyword">as</span> <span class="built_in">any</span>)?.querySelector(<span class="string">'input[type=file]'</span>)?.click?.();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            message.warning(<span class="string">'校验失败'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">false</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">handleImport = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">true</span> &#125;);</span><br><span class="line">    API.checkImport().then(<span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            (<span class="keyword">this</span>.uploadEle <span class="keyword">as</span> <span class="built_in">any</span>)?.querySelector(<span class="string">'input[type=file]'</span>)?.click?.();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            message.warning(<span class="string">'校验失败'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">false</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>AntD</tag>
+        <tag>antd</tag>
       </tags>
   </entry>
   <entry>
@@ -401,10 +402,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -533,11 +534,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Clean, simple, compatible and meaningful.</span><br><span class="line"># Tested on Linux, Unix and Windows under ANSI colors.</span><br><span class="line"># It is recommended to use with a dark background.</span><br><span class="line"># Colors: black, red, green, yellow, *blue, magenta, cyan, and white.</span><br><span class="line">#</span><br><span class="line"># Mar 2013 Yad Smood</span><br><span class="line"></span><br><span class="line"># VCS</span><br><span class="line">YS_VCS_PROMPT_PREFIX1=&quot; %&#123;$reset_color%&#125;on%&#123;$fg[blue]%&#125; &quot;</span><br><span class="line">YS_VCS_PROMPT_PREFIX2=&quot;:%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_DIRTY=&quot; %&#123;$fg[red]%&#125;x&quot;</span><br><span class="line"># YS_VCS_PROMPT_CLEAN=&quot; %&#123;$fg[green]%&#125;o&quot;</span><br><span class="line">YS_VCS_PROMPT_CLEAN=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># node version</span><br><span class="line">local node_info=&apos;$(ys_node_prompt_info)&apos;</span><br><span class="line">ys_node_prompt_info() &#123;</span><br><span class="line">	if command -v node &amp;&gt;/dev/null; then</span><br><span class="line">		echo &quot; %&#123;$fg[green]%&#125;$(node -v)&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Git info</span><br><span class="line">local git_info=&apos;$(git_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># SVN info</span><br><span class="line">local svn_info=&apos;$(svn_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;svn$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># HG info</span><br><span class="line">local hg_info=&apos;$(ys_hg_prompt_info)&apos;</span><br><span class="line">ys_hg_prompt_info() &#123;</span><br><span class="line">	# make sure this is a hg dir</span><br><span class="line">	if [ -d &apos;.hg&apos; ]; then</span><br><span class="line">		echo -n &quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;hg$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">		echo -n $(hg branch 2&gt;/dev/null)</span><br><span class="line">		if [[ &quot;$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)&quot; != &quot;1&quot; ]]; then</span><br><span class="line">			if [ -n &quot;$(hg status 2&gt;/dev/null)&quot; ]; then</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">			else</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		echo -n &quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Virtualenv</span><br><span class="line">local venv_info=&apos;$(virtenv_prompt)&apos;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_PREFIX=&quot; %&#123;$fg[green]%&#125;&quot;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_SUFFIX=&quot; %&#123;$reset_color%&#125;%&quot;</span><br><span class="line">virtenv_prompt() &#123;</span><br><span class="line">	[[ -n &quot;$&#123;VIRTUAL_ENV:-&#125;&quot; ]] || return</span><br><span class="line">	echo &quot;$&#123;YS_THEME_VIRTUALENV_PROMPT_PREFIX&#125;$&#123;VIRTUAL_ENV:t&#125;$&#123;YS_THEME_VIRTUALENV_PROMPT_SUFFIX&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local time=&quot; %&#123;$reset_color%&#125;[%*]&quot;</span><br><span class="line">local exit_code=&quot;%(?,,C:%&#123;$fg[red]%&#125;%?%&#123;$reset_color%&#125;)&quot;</span><br><span class="line"></span><br><span class="line"># Prompt format:</span><br><span class="line">#</span><br><span class="line"># PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE</span><br><span class="line"># $ COMMAND</span><br><span class="line">#</span><br><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line"># % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0</span><br><span class="line"># $</span><br><span class="line">PROMPT=&quot;</span><br><span class="line">%&#123;$terminfo[bold]$fg[blue]%&#125;#%&#123;$reset_color%&#125; \</span><br><span class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</span><br><span class="line">%&#123;$reset_color%&#125;@ \</span><br><span class="line">%&#123;$fg[green]%&#125;%m \</span><br><span class="line">%&#123;$reset_color%&#125;in \</span><br><span class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</span><br><span class="line">$&#123;hg_info&#125;\</span><br><span class="line">$&#123;git_info&#125;\</span><br><span class="line">$&#123;svn_info&#125;\</span><br><span class="line">$&#123;venv_info&#125;\</span><br><span class="line">$&#123;node_info&#125;\</span><br><span class="line">$&#123;time&#125;\</span><br><span class="line"> \</span><br><span class="line">$exit_code</span><br><span class="line">%&#123;$terminfo[bold]$fg[red]%&#125;$ %&#123;$reset_color%&#125;&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Cent OS</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Cent OS</tag>
       </tags>
   </entry>
   <entry>
@@ -598,7 +598,6 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
         <category>Docker</category>
       </categories>
       <tags>
-        <tag>Cent OS</tag>
         <tag>Docker</tag>
       </tags>
   </entry>
@@ -854,7 +853,6 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
       </categories>
       <tags>
         <tag>eslint</tag>
-        <tag>Lerna</tag>
       </tags>
   </entry>
   <entry>
@@ -1149,7 +1147,7 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
         <category>前端</category>
       </categories>
       <tags>
-        <tag>AntD</tag>
+        <tag>antd</tag>
       </tags>
   </entry>
   <entry>
@@ -1526,7 +1524,6 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
         <category>Serverless</category>
       </categories>
       <tags>
-        <tag>函数计算</tag>
         <tag>Serverless</tag>
       </tags>
   </entry>
@@ -1587,7 +1584,6 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
       </categories>
       <tags>
         <tag>Cent OS</tag>
-        <tag>Gotty</tag>
       </tags>
   </entry>
   <entry>
@@ -1793,7 +1789,6 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
         <category>Serverless</category>
       </categories>
       <tags>
-        <tag>函数计算</tag>
         <tag>Serverless</tag>
       </tags>
   </entry>
@@ -2006,7 +2001,7 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
         <category>Sass</category>
       </categories>
       <tags>
@@ -2033,11 +2028,11 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
         <category>Sass</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -2064,10 +2059,10 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>钉钉</category>
+        <category>钉钉开发</category>
       </categories>
       <tags>
-        <tag>钉钉</tag>
+        <tag>钉钉开发</tag>
       </tags>
   </entry>
   <entry>
@@ -2127,7 +2122,6 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
       <tags>
         <tag>微信小程序</tag>
         <tag>node</tag>
-        <tag>记账啦</tag>
       </tags>
   </entry>
   <entry>
@@ -2149,7 +2143,6 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
       <tags>
         <tag>微信小程序</tag>
         <tag>node</tag>
-        <tag>记账啦</tag>
       </tags>
   </entry>
   <entry>
@@ -2176,10 +2169,10 @@ HttpClient 是发送 HTTP 请求的，而 timeout 和 keepAliveTimeout 是要设
 <p><img src="https://images-hosting.liuxianyu.cn/posts/gitee-image-hosting/2.png" alt></p>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -2327,10 +2320,10 @@ cnpm 不受 package-lock 的影响，所以建议使用<code>更换 npm 源</cod
 ]]></content>
       <categories>
         <category>数据库</category>
-        <category>SQL 语句</category>
+        <category>SQL</category>
       </categories>
       <tags>
-        <tag>SQL 语句</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -2580,10 +2573,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信公众号</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>微信公众号</tag>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2607,10 +2599,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信公众号</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>微信公众号</tag>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2628,10 +2619,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信公众号</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>微信公众号</tag>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2668,10 +2658,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信公众号</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>微信公众号</tag>
         <tag>node</tag>
       </tags>
   </entry>
@@ -2825,7 +2814,6 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>Serverless</category>
       </categories>
       <tags>
-        <tag>函数计算</tag>
         <tag>Serverless</tag>
       </tags>
   </entry>
@@ -2903,7 +2891,7 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>前端</category>
       </categories>
       <tags>
-        <tag>导出pdf</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -3031,8 +3019,6 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
       </categories>
       <tags>
         <tag>node</tag>
-        <tag>LaTeX</tag>
-        <tag>yUML</tag>
       </tags>
   </entry>
   <entry>
@@ -3264,7 +3250,6 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
       </categories>
       <tags>
         <tag>nuxt</tag>
-        <tag>图片懒加载</tag>
       </tags>
   </entry>
   <entry>
@@ -3303,10 +3288,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -3476,14 +3461,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>脚手架</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>node</tag>
+        <tag>vue</tag>
         <tag>npm</tag>
-        <tag>脚手架</tag>
       </tags>
   </entry>
   <entry>
@@ -3503,10 +3485,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -3524,11 +3506,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Vuex</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -3603,10 +3584,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>钉钉</category>
+        <category>钉钉开发</category>
       </categories>
       <tags>
-        <tag>钉钉</tag>
+        <tag>钉钉开发</tag>
       </tags>
   </entry>
   <entry>
@@ -3667,11 +3648,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
         <category>自动化部署</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
         <tag>node</tag>
         <tag>npm</tag>
         <tag>自动化部署</tag>
@@ -3706,8 +3687,7 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>CDN</category>
+        <category>vue</category>
       </categories>
       <tags>
         <tag>Element UI</tag>
@@ -3742,11 +3722,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
         <category>埋点</category>
       </categories>
       <tags>
-        <tag>埋点</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -3767,10 +3747,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <p><img src="https://images-hosting.liuxianyu.cn/posts/ps-img-round/6.png" alt></p>
 ]]></content>
       <categories>
-        <category>PhotoShop</category>
+        <category>其他</category>
       </categories>
       <tags>
-        <tag>PhotoShop</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -3795,11 +3775,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>nginx</category>
-        <category>Vue</category>
+        <category>前端</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
         <tag>nginx</tag>
       </tags>
   </entry>
@@ -3825,11 +3805,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>CDN</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>项目优化</tag>
         <tag>CDN</tag>
       </tags>
   </entry>
@@ -3861,10 +3840,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>微信</tag>
+        <tag>h5</tag>
       </tags>
   </entry>
   <entry>
@@ -3934,10 +3913,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>钉钉</category>
+        <category>钉钉开发</category>
       </categories>
       <tags>
-        <tag>钉钉</tag>
+        <tag>钉钉开发</tag>
       </tags>
   </entry>
   <entry>
@@ -4005,8 +3984,8 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>JavaScript</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -4035,7 +4014,6 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
       </categories>
       <tags>
         <tag>git</tag>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -4067,11 +4045,9 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>CDN</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Element UI</tag>
         <tag>CDN</tag>
       </tags>
   </entry>
@@ -4300,10 +4276,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <p>  navigator.geolocation.getCurrentPosition</p>
 ]]></content>
       <categories>
+        <category>其他</category>
         <category>高德地图</category>
       </categories>
       <tags>
-        <tag>高德地图</tag>
+        <tag>h5</tag>
       </tags>
   </entry>
   <entry>
@@ -4360,12 +4337,11 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>CDN</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>项目优化</tag>
+        <tag>vue</tag>
         <tag>CDN</tag>
       </tags>
   </entry>
@@ -4382,10 +4358,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -4401,11 +4377,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># github avatar</span><br><span class="line">199.232.28.133 assets-cdn.github.com</span><br><span class="line">199.232.28.133 raw.githubusercontent.com</span><br><span class="line">199.232.28.133 gist.githubusercontent.com</span><br><span class="line">199.232.28.133 cloud.githubusercontent.com</span><br><span class="line">199.232.28.133 camo.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars0.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars1.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars2.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars3.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars4.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars5.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars6.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars7.githubusercontent.com</span><br><span class="line">199.232.28.133 avatars8.githubusercontent.com</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Hosts</category>
+        <category>其他</category>
       </categories>
       <tags>
         <tag>github</tag>
-        <tag>Hosts</tag>
       </tags>
   </entry>
   <entry>
@@ -4420,10 +4395,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -4443,10 +4418,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -4459,10 +4434,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -4637,11 +4612,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Hosts</category>
+        <category>其他</category>
       </categories>
       <tags>
         <tag>github</tag>
-        <tag>Hosts</tag>
       </tags>
   </entry>
   <entry>
@@ -4704,11 +4678,10 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>钉钉小程序</category>
+        <category>钉钉开发</category>
       </categories>
       <tags>
-        <tag>钉钉</tag>
-        <tag>钉钉小程序</tag>
+        <tag>钉钉开发</tag>
       </tags>
   </entry>
   <entry>
@@ -5257,9 +5230,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <categories>
         <category>小思</category>
       </categories>
-      <tags>
-        <tag>小思</tag>
-      </tags>
   </entry>
   <entry>
     <title>H5 中的 Audio</title>
@@ -5385,7 +5355,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>VMware</tag>
-        <tag>UOS</tag>
       </tags>
   </entry>
   <entry>
@@ -5411,12 +5380,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>路由懒加载</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>项目优化</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -5444,13 +5412,12 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Element UI</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
         <tag>Element UI</tag>
-        <tag>项目优化</tag>
       </tags>
   </entry>
   <entry>
@@ -5475,12 +5442,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Lodash</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>项目优化</tag>
+        <tag>vue</tag>
         <tag>Lodash</tag>
       </tags>
   </entry>
@@ -5513,12 +5479,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Vant</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>项目优化</tag>
+        <tag>vue</tag>
         <tag>Vant</tag>
       </tags>
   </entry>
@@ -5550,11 +5515,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
+        <category>项目优化</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>项目优化</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -5946,10 +5911,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <categories>
         <category>前端</category>
         <category>加密解密</category>
-        <category>AES</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>加密解密</tag>
       </tags>
   </entry>
@@ -6055,10 +6018,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <categories>
         <category>前端</category>
         <category>加密解密</category>
-        <category>RSA</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>加密解密</tag>
       </tags>
   </entry>
@@ -6272,7 +6233,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 </table>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
         <category>算法</category>
       </categories>
       <tags>
@@ -6354,12 +6314,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>随机头像</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>随机头像</tag>
-        <tag>MD5</tag>
+        <tag>md5</tag>
       </tags>
   </entry>
   <entry>
@@ -6421,12 +6379,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>父子组件</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>父子组件</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -6491,7 +6447,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <tags>
         <tag>VMware</tag>
         <tag>Linux</tag>
-        <tag>Cent OS</tag>
       </tags>
   </entry>
   <entry>
@@ -6541,9 +6496,9 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
         <category>Cent OS</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
-        <tag>Hexo</tag>
+        <tag>blog</tag>
         <tag>Linux</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -6673,12 +6628,11 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
         <category>兼容性</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>兼容性</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -6844,9 +6798,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
         <category>前端</category>
         <category>跨域</category>
       </categories>
-      <tags>
-        <tag>跨域</tag>
-      </tags>
   </entry>
   <entry>
     <title>前端开发中的 vscode</title>
@@ -7020,9 +6971,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
         <category>微信小程序</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
         <tag>微信小程序</tag>
-        <tag>wepy</tag>
       </tags>
   </entry>
   <entry>
@@ -7048,11 +6998,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Element UI</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Element UI</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7070,7 +7019,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       <categories>
         <category>前端</category>
         <category>加密解密</category>
-        <category>Base64</category>
       </categories>
       <tags>
         <tag>加密解密</tag>
@@ -7098,11 +7046,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
         <category>ECharts</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
         <tag>ECharts</tag>
       </tags>
   </entry>
@@ -7132,11 +7079,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>UI 库</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7222,11 +7168,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>微信公众号</category>
+        <category>微信开发</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>微信公众号</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7263,12 +7208,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Mint UI</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>Mint UI</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7300,12 +7243,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>Mint UI</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>Mint UI</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7336,12 +7277,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
 ]]></content>
       <categories>
-        <category>Blog</category>
-        <category>Jekyll</category>
+        <category>blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
-        <tag>Jekyll</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -7724,12 +7663,10 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
-        <category>生命周期</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>生命周期</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7766,7 +7703,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>vConsole</category>
       </categories>
       <tags>
         <tag>vConsole</tag>
@@ -7810,12 +7746,10 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 <p>因为发布需要软著登记，所有暂时不发布了，先玩玩单机版的吧。</p>
 ]]></content>
       <categories>
-        <category>前端</category>
-        <category>微信小游戏</category>
+        <category>微信开发</category>
       </categories>
       <tags>
         <tag>Egret</tag>
-        <tag>微信小游戏</tag>
       </tags>
   </entry>
   <entry>
@@ -7840,11 +7774,10 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>倒计时</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7880,11 +7813,10 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>父子组件</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7931,10 +7863,10 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -7976,11 +7908,10 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Vue</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
-        <tag>父子组件</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -8012,7 +7943,6 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
 ]]></content>
       <categories>
         <category>前端</category>
-        <category>Mock</category>
       </categories>
       <tags>
         <tag>Mock</tag>
@@ -8220,7 +8150,7 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
         <category>大学</category>
       </categories>
       <tags>
-        <tag>勒索病毒</tag>
+        <tag>其他</tag>
       </tags>
   </entry>
   <entry>
@@ -8260,7 +8190,6 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
       <categories>
         <category>大学</category>
         <category>Arduino</category>
-        <category>DHT11</category>
       </categories>
       <tags>
         <tag>Arduino</tag>
@@ -8300,7 +8229,6 @@ game 文件夹用于存放自己的游戏文件，右击game 文件夹选择 新
       <categories>
         <category>大学</category>
         <category>Arduino</category>
-        <category>ESP8266</category>
       </categories>
       <tags>
         <tag>Arduino</tag>
@@ -8469,32 +8397,10 @@ categories: tag标签的分类，如：categories: 随笔</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>Blog</category>
-        <category>Jekyll</category>
+        <category>blog</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优易口</title>
-    <url>/article/you.html</url>
-    <content><![CDATA[<p>小思</p>
-<a id="more"></a>
-<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
-<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
-<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
-<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
-<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
-<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
-<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
-]]></content>
-      <categories>
-        <category>小思</category>
-      </categories>
-      <tags>
-        <tag>小思</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -8515,8 +8421,22 @@ categories: tag标签的分类，如：categories: 随笔</p>
       <categories>
         <category>小思</category>
       </categories>
-      <tags>
-        <tag>小思</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>优易口</title>
+    <url>/article/you.html</url>
+    <content><![CDATA[<p>小思</p>
+<a id="more"></a>
+<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
+<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
+<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
+<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
+<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
+<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
+<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
+]]></content>
+      <categories>
+        <category>小思</category>
+      </categories>
   </entry>
 </search>

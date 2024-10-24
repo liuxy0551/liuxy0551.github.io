@@ -141,7 +141,7 @@
 
 
   <meta name="description" content="最近有个需求，需要在点击上传按钮时先调用接口判断是否满足上传的条件，而不是在上传后校验失败后进行报错，将校验前置。过程中没查到其他有用的资料，这里记录下。">
-<meta name="keywords" content="AntD">
+<meta name="keywords" content="antd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React 中使用 AntD Upload 组件时手动触发文件选择框">
 <meta property="og:url" content="https://liuxianyu.cn/article/react-antd-upload.html">
@@ -393,7 +393,7 @@ window.onload = function() {
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">83</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">56</span></a>
 
   </li>
         
@@ -412,7 +412,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">86</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">63</span></a>
 
   </li>
         
@@ -688,6 +688,7 @@ window.onload = function() {
 <h4 id="javascript"><a class="header-anchor" href="#javascript">¶</a>JavaScript</h4>
 <p>  点击按钮，先进行接口校验，校验成功则弹出文件选择框，失败则弹提示。通过父级 div 去拿文件上传 input 的 dom，然后手动触发 <code>click</code> 事件。</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">handleImport = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">true</span> &#125;);</span><br><span class="line">    API.checkImport().then(<span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            (<span class="keyword">this</span>.uploadEle <span class="keyword">as</span> <span class="built_in">any</span>)?.querySelector(<span class="string">'input[type=file]'</span>)?.click?.();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            message.warning(<span class="string">'校验失败'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123; loading: <span class="literal">false</span> &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -756,8 +757,8 @@ window.onload = function() {
       
         <div class="post-tags">
           
-            <a href="/tags/AntD/" rel="tag"><i class="fa fa-envira"></i> AntD</a>
-            <!--<a href="/tags/AntD/" rel="tag"><i class="fa fa-tag"></i> AntD</a>-->
+            <a href="/tags/antd/" rel="tag"><i class="fa fa-envira"></i> antd</a>
+            <!--<a href="/tags/antd/" rel="tag"><i class="fa fa-tag"></i> antd</a>-->
           
         </div>
       
@@ -1002,53 +1003,7 @@ window.onload = function() {
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">86</span>
+                    <span class="site-state-item-count">63</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1177,61 +1132,7 @@ window.onload = function() {
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

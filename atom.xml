@@ -128,7 +128,7 @@
       <category term="前端" scheme="https://liuxianyu.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="AntD" scheme="https://liuxianyu.cn/tags/AntD/"/>
+      <category term="antd" scheme="https://liuxianyu.cn/tags/antd/"/>
     
   </entry>
   
@@ -213,10 +213,10 @@
     
     </summary>
     
-      <category term="Blog" scheme="https://liuxianyu.cn/categories/Blog/"/>
+      <category term="blog" scheme="https://liuxianyu.cn/categories/blog/"/>
     
     
-      <category term="Blog" scheme="https://liuxianyu.cn/tags/Blog/"/>
+      <category term="blog" scheme="https://liuxianyu.cn/tags/blog/"/>
     
   </entry>
   
@@ -259,12 +259,10 @@
     
     </summary>
     
-      <category term="Cent OS" scheme="https://liuxianyu.cn/categories/Cent-OS/"/>
+      <category term="Linux" scheme="https://liuxianyu.cn/categories/Linux/"/>
     
     
       <category term="Linux" scheme="https://liuxianyu.cn/tags/Linux/"/>
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
     
   </entry>
   
@@ -285,8 +283,6 @@
     
       <category term="Docker" scheme="https://liuxianyu.cn/categories/Docker/"/>
     
-    
-      <category term="Cent OS" scheme="https://liuxianyu.cn/tags/Cent-OS/"/>
     
       <category term="Docker" scheme="https://liuxianyu.cn/tags/Docker/"/>
     
@@ -333,8 +329,6 @@
     
     
       <category term="eslint" scheme="https://liuxianyu.cn/tags/eslint/"/>
-    
-      <category term="Lerna" scheme="https://liuxianyu.cn/tags/Lerna/"/>
     
   </entry>
   
@@ -453,7 +447,7 @@
       <category term="前端" scheme="https://liuxianyu.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="AntD" scheme="https://liuxianyu.cn/tags/AntD/"/>
+      <category term="antd" scheme="https://liuxianyu.cn/tags/antd/"/>
     
   </entry>
   
