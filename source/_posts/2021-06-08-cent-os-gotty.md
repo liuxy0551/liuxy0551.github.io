@@ -3,7 +3,6 @@ title: 在 Cent OS 中部署 Gotty 并提供给项目使用
 urlname: cent-os-gotty
 tags:
   - Cent OS
-  - Gotty
 categories:
   - Linux
   - Cent OS

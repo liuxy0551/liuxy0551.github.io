@@ -5,7 +5,7 @@ tags:
   - CSS
 categories:
   - 前端
-  - Vue
+  - vue
   - Sass
 author: liuxy0551
 copyright: true

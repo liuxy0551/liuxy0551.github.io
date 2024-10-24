@@ -2,10 +2,10 @@
 title: SQL 按日期分组统计数量
 urlname: sql-group-by-day
 tags:
-  - SQL 语句
+  - SQL
 categories:
   - 数据库
-  - SQL 语句
+  - SQL
 author: liuxy0551
 date: 2021-01-07 16:35:17
 updated: 2021-01-07 16:35:17

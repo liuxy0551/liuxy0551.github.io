@@ -2,12 +2,11 @@
 title: Vue 项目打包时自动把所有图片的本地路径改为 CDN 路径
 urlname: vue-build-img-cdn
 tags:
-  - 项目优化
   - CDN
 categories:
   - 前端
-  - Vue
-  - CDN
+  - vue
+  - 项目优化
 author: liuxy0551
 copyright: true
 date: 2020-07-11 17:09:56

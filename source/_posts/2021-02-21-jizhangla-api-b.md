@@ -3,7 +3,6 @@ title: 记账啦开发系列（二）—— 微信小程序
 urlname: jizhangla-api-b
 tags:
   - 微信小程序
-  - 记账啦
   - node
 categories:
   - 前端

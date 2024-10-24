@@ -2,11 +2,10 @@
 title: Vue 编程之路（一）——父子组件之间的数据传递
 urlname: data-father-child
 tags:
-  - Vue
-  - 父子组件
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
 author: liuxy0551
 copyright: true
 date: 2018-07-26 20:29:30

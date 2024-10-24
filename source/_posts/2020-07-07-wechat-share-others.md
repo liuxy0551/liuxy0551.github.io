@@ -2,10 +2,10 @@
 title: 微信分享第三方页面时设置标题和缩略图（非微信开发）
 urlname: wechat-share-others
 tags:
-  - 微信
+  - h5
 categories:
   - 前端
-  - 微信
+  - 微信开发
 author: liuxy0551
 copyright: true
 date: 2020-07-07 16:51:17

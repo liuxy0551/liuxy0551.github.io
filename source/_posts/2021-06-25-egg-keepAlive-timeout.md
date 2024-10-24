@@ -3,7 +3,6 @@ title: egg 设置 keepAliveTimeout 超时时间
 urlname: egg-keepAlive-timeout
 tags:
   - Serverless
-  - 函数计算
 categories:
   - Serverless
 author: liuxy0551

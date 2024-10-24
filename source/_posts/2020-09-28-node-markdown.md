@@ -3,8 +3,6 @@ title: node 服务渲染支持 Markdown 中的数字公式 LaTeX、yUML 流程�
 urlname: node-markdown
 tags:
   - node
-  - LaTeX
-  - yUML
 categories:
   - node
 author: liuxy0551

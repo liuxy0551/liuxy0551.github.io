@@ -2,7 +2,7 @@
 title: 勒索（比特币）病毒的预防
 urlname: lesuobingdu
 tags:
-  - 勒索病毒
+  - 其他
 categories:
   - 大学
 author: liuxy0551

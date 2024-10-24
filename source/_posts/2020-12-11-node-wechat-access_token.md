@@ -3,10 +3,9 @@ title: node 微信公众号开发（三）—— 获取并缓存 access_token
 urlname: node-wechat-access_token
 tags:
   - node
-  - 微信公众号
 categories:
   - 前端
-  - 微信公众号
+  - 微信开发
 author: liuxy0551
 copyright: true
 date: 2020-12-11 11:05:48

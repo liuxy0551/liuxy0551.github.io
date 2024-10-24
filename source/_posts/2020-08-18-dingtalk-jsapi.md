@@ -2,10 +2,10 @@
 title: 基于钉钉 JSAPI 封装 DingTalk 类
 urlname: dingtalk-jsapi
 tags:
-  - 钉钉
+  - 钉钉开发
 categories:
   - 前端
-  - 钉钉
+  - 钉钉开发
 author: liuxy0551
 copyright: true
 date: 2020-08-18 10:35:32

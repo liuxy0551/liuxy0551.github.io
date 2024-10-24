@@ -1,8 +1,6 @@
 ---
 title: 前端项目跨域问题的几种解决方案
 urlname: access-control-allow-origin
-tags:
-  - 跨域
 categories:
   - 前端
   - 跨域

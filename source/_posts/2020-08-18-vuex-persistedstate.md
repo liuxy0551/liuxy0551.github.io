@@ -2,11 +2,10 @@
 title: 使用 vuex-persistedstate 持久化 vuex
 urlname: vuex-persistedstate
 tags:
-  - Vue
+  - vue
 categories:
   - 前端
-  - Vue
-  - Vuex
+  - vue
 author: liuxy0551
 copyright: true
 date: 2020-08-18 13:25:29

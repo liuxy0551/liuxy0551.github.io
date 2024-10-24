@@ -2,11 +2,10 @@
 title: Vue 编程之路（三）—— Vue 中子组件在父组件的 v-for 循环里，父组件调取子组件的事件
 urlname: v-for-father-children
 tags:
-  - Vue
-  - 父子组件
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
 author: liuxy0551
 copyright: true
 date: 2018-07-30 18:12:22

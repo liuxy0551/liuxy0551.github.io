@@ -2,11 +2,10 @@
 title: Vue 中实现验证码倒计时功能
 urlname: code-setInterval
 tags:
-  - Vue
-  - 倒计时
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
 author: liuxy0551
 copyright: true
 date: 2018-08-19 20:29:30

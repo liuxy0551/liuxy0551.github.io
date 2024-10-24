@@ -2,9 +2,9 @@
 title: Gitee 图床【已不可用】
 urlname: gitee-image-hosting
 tags:
-  - Blog
+  - blog
 categories:
-  - Blog
+  - blog
 author: liuxy0551
 copyright: true
 date: 2021-02-01 12:00:39

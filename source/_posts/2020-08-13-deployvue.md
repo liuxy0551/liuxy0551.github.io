@@ -4,11 +4,11 @@ urlname: deploy-vue
 tags:
   - npm
   - node
-  - Vue
+  - vue
   - 自动化部署
 categories:
   - 前端
-  - Vue
+  - vue
   - 自动化部署
 author: liuxy0551
 copyright: true

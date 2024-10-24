@@ -3,7 +3,6 @@ title: 阿里云函数计算介绍与实践
 urlname: aliyun-function-compute
 tags:
   - Serverless
-  - 函数计算
 categories:
   - Serverless
 author: liuxy0551

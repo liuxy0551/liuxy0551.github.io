@@ -2,13 +2,12 @@
 title: 前端项目优化之旅（四）—— Element 按需引入组件
 urlname: vue-cli3-element-load-on-demand
 tags:
-  - Vue
+  - vue
   - Element UI
-  - 项目优化
 categories:
   - 前端
-  - Vue
-  - Element UI
+  - vue
+  - 项目优化
 author: liuxy0551
 copyright: true
 date: 2019-12-05 19:04:17

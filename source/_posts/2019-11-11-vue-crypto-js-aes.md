@@ -2,12 +2,10 @@
 title: Vue 项目中借助 crypto-js 实现 AES 加密
 urlname: vue-crypto-js-aes
 tags:
-  - Vue
   - 加密解密
 categories:
   - 前端
   - 加密解密
-  - AES
 author: liuxy0551
 copyright: true
 date: 2019-11-11 22:23:08

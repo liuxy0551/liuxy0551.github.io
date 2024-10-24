@@ -2,7 +2,6 @@
 title: 阿里云函数计算初接触
 urlname: fc-serverless
 tags:
-  - 函数计算
   - Serverless
 categories:
   - Serverless

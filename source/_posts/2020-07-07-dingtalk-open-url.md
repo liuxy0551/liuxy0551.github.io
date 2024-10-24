@@ -2,10 +2,10 @@
 title: 跳到钉钉并打开指定 URL
 urlname: dingtalk-open-url
 tags:
-  - 钉钉
+  - 钉钉开发
 categories:
   - 前端
-  - 钉钉
+  - 钉钉开发
 author: liuxy0551
 copyright: true
 date: 2020-07-07 16:40:23

@@ -2,12 +2,10 @@
 title: 通过 CDN 引入 element-ui 时，如何改变其主题色
 urlname: build-element-ui
 tags:
-  - Element UI
   - CDN
 categories:
   - 前端
-  - Vue
-  - CDN
+  - vue
 author: liuxy0551
 copyright: true
 date: 2020-06-05 19:03:48

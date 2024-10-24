@@ -2,12 +2,10 @@
 title: Vue Mint-UI Datetime picker 中的起始时间和结束时间
 urlname: data-time-picker
 tags:
-  - Vue
-  - Mint UI
+  - vue
 categories:
   - 前端
-  - Vue
-  - Mint UI
+  - vue
 author: liuxy0551
 copyright: true
 date: 2018-11-19 20:29:30

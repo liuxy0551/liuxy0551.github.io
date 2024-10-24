@@ -3,10 +3,9 @@ title: node 微信公众号开发（一）—— 基础框架
 urlname: node-wechat-base-koa
 tags:
   - node
-  - 微信公众号
 categories:
   - 前端
-  - 微信公众号
+  - 微信开发
 author: liuxy0551
 copyright: true
 date: 2020-12-11 09:50:43

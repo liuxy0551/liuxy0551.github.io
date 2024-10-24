@@ -2,9 +2,9 @@
 title: 在服务器上自建图床
 urlname: images-hosting
 tags:
-  - Blog
+  - blog
 categories:
-  - Blog
+  - blog
 author: liuxy0551
 copyright: true
 date: 2023-03-10 22:37:22

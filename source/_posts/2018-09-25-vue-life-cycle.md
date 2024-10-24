@@ -2,12 +2,10 @@
 title: Vue 生命周期的理解
 urlname: vue-life-cycle
 tags:
-  - Vue
-  - 生命周期
+  - vue
 categories:
   - 前端
-  - Vue
-  - 生命周期
+  - vue
 author: liuxy0551
 copyright: true
 date: 2018-09-25 20:29:30

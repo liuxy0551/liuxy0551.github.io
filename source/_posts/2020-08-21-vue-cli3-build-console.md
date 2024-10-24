@@ -2,10 +2,10 @@
 title: vue-cli3 打包时去除 console.log
 urlname: vue-cli3-build-console
 tags:
-  - Vue
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
 author: liuxy0551
 copyright: true
 date: 2020-08-21 11:39:22

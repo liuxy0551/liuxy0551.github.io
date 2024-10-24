@@ -2,9 +2,9 @@
 title: 使用 PhotoShop 把图片裁剪成圆形
 urlname: ps-img-round
 tags:
-  - PhotoShop
+  - 其他
 categories:
-  - PhotoShop
+  - 其他
 author: liuxy0551
 copyright: true
 date: 2020-07-28 11:49:29

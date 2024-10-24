@@ -5,7 +5,6 @@ tags:
   - JavaScript
   - 算法
 categories:
-  - JavaScript
   - 算法
 author: liuxy0551
 copyright: true

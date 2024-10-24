@@ -2,10 +2,10 @@
 title: node-sass 安装失败，使用 dart-sass 替代
 urlname: node-sass-failed
 tags:
-  - Vue
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
   - Sass
 author: liuxy0551
 copyright: true

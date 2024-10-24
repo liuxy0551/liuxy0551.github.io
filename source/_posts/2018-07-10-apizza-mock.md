@@ -5,7 +5,6 @@ tags:
   - Mock
 categories:
   - 前端
-  - Mock
 author: liuxy0551
 copyright: true
 date: 2018-07-10 21:39:30

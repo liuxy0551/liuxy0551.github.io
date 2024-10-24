@@ -2,10 +2,10 @@
 title: vue 项目在 360 浏览器中设置默认内核
 urlname: 360-browser-default-kernel
 tags:
-  - Vue
+  - vue
 categories:
   - 前端
-  - Vue
+  - vue
 author: liuxy0551
 copyright: true
 date: 2020-04-18 13:13:11

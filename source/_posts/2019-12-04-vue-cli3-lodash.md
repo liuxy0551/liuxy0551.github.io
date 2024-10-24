@@ -2,13 +2,12 @@
 title: 前端项目优化之旅（三）—— Lodash 单独引入函数
 urlname: vue-cli3-lodash
 tags:
-  - Vue
+  - vue
   - Lodash
-  - 项目优化
 categories:
   - 前端
-  - Vue
-  - Lodash
+  - vue
+  - 项目优化
 author: liuxy0551
 copyright: true
 date: 2019-12-04 20:39:58

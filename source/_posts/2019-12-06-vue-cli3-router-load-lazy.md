@@ -2,12 +2,11 @@
 title: 前端项目优化之旅（五）—— Vue 路由懒加载、组件懒加载
 urlname: vue-cli3-router-load-lazy
 tags:
-  - Vue
-  - 项目优化
+  - vue
 categories:
   - 前端
-  - Vue
-  - 路由懒加载
+  - vue
+  - 项目优化
 author: liuxy0551
 copyright: true
 date: 2019-12-06 11:34:19

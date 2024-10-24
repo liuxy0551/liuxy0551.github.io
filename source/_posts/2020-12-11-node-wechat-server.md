@@ -3,10 +3,9 @@ title: node 微信公众号开发（二）—— 服务器配置
 urlname: node-wechat-server
 tags:
   - node
-  - 微信公众号
 categories:
   - 前端
-  - 微信公众号
+  - 微信开发
 author: liuxy0551
 copyright: true
 date: 2020-12-11 10:36:43

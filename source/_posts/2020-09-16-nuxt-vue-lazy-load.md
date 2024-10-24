@@ -3,7 +3,6 @@ title: nuxt 中使用 vue-lazyload 进行图片懒加载
 urlname: nuxt-vue-lazy-load
 tags:
   - nuxt
-  - 图片懒加载
 categories:
   - 前端
   - nuxt

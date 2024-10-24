@@ -2,10 +2,10 @@
 title: 钉钉定制工作台自定义组件开发
 urlname: dingtalk-workbench-plugin
 tags:
-  - 钉钉
+  - 钉钉开发
 categories:
   - 前端
-  - 钉钉
+  - 钉钉开发
 author: liuxy0551
 copyright: true
 date: 2021-03-02 18:22:43

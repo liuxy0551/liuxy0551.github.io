@@ -3,7 +3,6 @@ title: 通过 Lerna 创建自己的 eslint 配置包
 urlname: my-eslint-config-by-lerna
 tags:
   - eslint
-  - Lerna
 categories:
   - 前端
 author: liuxy0551

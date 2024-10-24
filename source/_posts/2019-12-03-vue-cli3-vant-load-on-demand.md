@@ -2,13 +2,12 @@
 title: 前端项目优化之旅（二）—— Vant 自动按需引入组件
 urlname: vue-cli3-vant-load-on-demand
 tags:
-  - Vue
+  - vue
   - Vant
-  - 项目优化
 categories:
   - 前端
-  - Vue
-  - Vant
+  - vue
+  - 项目优化
 author: liuxy0551
 copyright: true
 date: 2019-12-03 11:21:21

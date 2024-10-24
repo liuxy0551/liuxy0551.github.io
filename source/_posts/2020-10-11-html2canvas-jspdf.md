@@ -2,7 +2,7 @@
 title: html2canvas 配合 jspdf 导出含有 echarts 图表的 pdf
 urlname: html2canvas-jspdf
 tags:
-  - 导出pdf
+  - 其他
 categories:
   - 前端
 author: liuxy0551

@@ -2,7 +2,7 @@
 title: React 中使用 AntD Upload 组件时手动触发文件选择框
 urlname: react-antd-upload
 tags:
-  - AntD
+  - antd
 categories:
   - 前端
 author: liuxy0551

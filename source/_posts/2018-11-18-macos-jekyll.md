@@ -2,11 +2,9 @@
 title: 在 macOS 中安装 Jekyll
 urlname: macos-jekyll
 tags:
-  - Blog
-  - Jekyll
+  - blog
 categories:
-  - Blog
-  - Jekyll
+  - blog
 author: liuxy0551
 copyright: true
 date: 2018-11-18 20:29:30

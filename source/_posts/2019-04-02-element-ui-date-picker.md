@@ -2,11 +2,10 @@
 title: Element UI 日期选择器时间选择范围限制
 urlname: element-ui-date-picker
 tags:
-  - Element UI
+  - vue
 categories:
   - 前端
-  - Vue
-  - Element UI
+  - vue
 author: liuxy0551
 copyright: true
 date: 2019-04-02 20:29:30

@@ -3,10 +3,8 @@ title: 微信小游戏跳坑之旅 —— 使用白鹭引擎开发之创建项�
 urlname: egret-red-hat
 tags:
   - Egret
-  - 微信小游戏
 categories:
-  - 前端
-  - 微信小游戏
+  - 微信开发
 author: liuxy0551
 copyright: true
 date: 2018-08-22 20:29:30

@@ -2,7 +2,7 @@
 title: React 项目中同时引入 antd3.x 和 antd4.x
 urlname: antd3-antd4-together
 tags:
-  - AntD
+  - antd
 categories:
   - 前端
 author: liuxy0551

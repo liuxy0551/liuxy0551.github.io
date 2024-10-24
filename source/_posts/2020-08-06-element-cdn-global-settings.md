@@ -6,8 +6,7 @@ tags:
   - CDN
 categories:
   - 前端
-  - Vue
-  - CDN
+  - vue
 author: liuxy0551
 copyright: true
 date: 2020-08-06 13:17:54
