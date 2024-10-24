@@ -53,7 +53,7 @@ jizhangla-api
 ├─model —— 模型
 | ├─user.js
 | └─wechat.js
-├─mysql —— mysql 执行 sql 文件相关方法
+├─mysql —— MySQL 执行 sql 文件相关方法
 | ├─README.md
 | ├─index.js
 | ├─util

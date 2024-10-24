@@ -22,7 +22,7 @@ updated: 2020-12-18 11:43:31
 
 ### 一、安装依赖
 
-&emsp;&emsp;项目中使用的 Mysql 5.7，安装`sequelize-auto`和`mysql`依赖：
+&emsp;&emsp;项目中使用的 Mysql 5.7，安装`sequelize-auto`和`MySQL`依赖：
 
 ```
 npm i mysql -S

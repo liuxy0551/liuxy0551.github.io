@@ -1,21 +1,21 @@
 ---
-title: mysql 备份 —— 导出导入 sql 文件
+title: MySQL 备份 —— 导出导入 sql 文件
 urlname: mysqldump
 tags:
-    - mysql
+    - MySQL
 categories:
-    - mysql
+    - MySQL
 author: liuxy0551
 copyright: true
 date: 2024-01-07 21:46:05
 updated: 2024-01-07 21:46:05
 ---
 
-&emsp;&emsp;最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。
+&emsp;&emsp;最近在学习 MySQL 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。
 
 <!--more-->
 
-&emsp;&emsp;我的 mysql 是通过 docker 安装的，非容器的可以执行双引号中的命令；可以通过 `ls -lhS` 命令在目录下查看是否已存在文件。下方实例中的 `123456` 为数据库密码，`my-database` 是数据库名。
+&emsp;&emsp;我的 MySQL 是通过 docker 安装的，非容器的可以执行双引号中的命令；可以通过 `ls -lhS` 命令在目录下查看是否已存在文件。下方实例中的 `123456` 为数据库密码，`my-database` 是数据库名。
 
 ### 一、数据备份
 

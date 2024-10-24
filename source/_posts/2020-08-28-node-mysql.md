@@ -1,18 +1,18 @@
 ---
-title: 通过 node 将本地 json 文件中的数据存储到 mysql
+title: 通过 node 将本地 json 文件中的数据存储到 MySQL
 urlname: node-mysql
 tags:
   - node
 categories:
   - node
-  - mysql
+  - MySQL
 author: liuxy0551
 copyright: true
 date: 2020-08-28 17:39:40
 updated: 2020-08-28 17:39:40
 ---
 
-&emsp;&emsp;最近从 <a href="https://github.com/Tencent/wepy#%E5%93%AA%E4%BA%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%98%AF%E7%94%A8-wepy-%E5%BC%80%E5%8F%91%E7%9A%84" target="_black">wepy 的案例</a> 中看到了一款`诗词墨客`的小程序，风格很喜欢，在这个小程序的`README.md`中又发现了中华古诗词数据库 <a href="https://github.com/chinese-poetry/chinese-poetry" target="_black">chinese-poetry</a>，便想着拿这些数据通过 node 导入 mysql 练练手，<a href="https://github.com/liuxy0551/node-chinese-poetry" target="_black">https://github.com/liuxy0551/node-chinese-poetry</a>，<a href="https://github.com/liuxy0551/chinese-poetry/tree/master/node-mysql" target="_black">node 代码：node-mysql</a>。
+&emsp;&emsp;最近从 <a href="https://github.com/Tencent/wepy#%E5%93%AA%E4%BA%9B%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%98%AF%E7%94%A8-wepy-%E5%BC%80%E5%8F%91%E7%9A%84" target="_black">wepy 的案例</a> 中看到了一款`诗词墨客`的小程序，风格很喜欢，在这个小程序的`README.md`中又发现了中华古诗词数据库 <a href="https://github.com/chinese-poetry/chinese-poetry" target="_black">chinese-poetry</a>，便想着拿这些数据通过 node 导入 MySQL 练练手，<a href="https://github.com/liuxy0551/node-chinese-poetry" target="_black">https://github.com/liuxy0551/node-chinese-poetry</a>，<a href="https://github.com/liuxy0551/chinese-poetry/tree/master/node-mysql" target="_black">node 代码：node-mysql</a>。
 
 <!--more-->
 
@@ -29,20 +29,20 @@ updated: 2020-08-28 17:39:40
 &emsp;&emsp;拼接路径和文件名，读取本地的 json 文件：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/file.js" target="_black">/node-mysql/file.js</a>
 
 
-### 三、mysql
+### 三、MySQL
 
-&emsp;&emsp;存储到 mysql 数据库主要使用`sequelize`模块：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/mysql.js" target="_black">/node-mysql/mysql.js</a>
+&emsp;&emsp;存储到 MySQL 数据库主要使用`sequelize`模块：<a href="https://github.com/liuxy0551/chinese-poetry/blob/master/node-mysql/mysql.js" target="_black">/node-mysql/mysql.js</a>
 &emsp;&emsp;`sequelize`模块有一些注意事项，如下：
 
 #### 1、区分版本
 
-注意 sequelize 的版本和 mysql 版本的对应关系：<a href="https://github.com/demopark/sequelize-docs-Zh-CN#v6" target="_black">sequelize 版本</a>
+注意 sequelize 的版本和 MySQL 版本的对应关系：<a href="https://github.com/demopark/sequelize-docs-Zh-CN#v6" target="_black">sequelize 版本</a>
 
 v6 版本
 |  引擎 |  支持的最低版本 |
 | :------------: | :------------: |
 |  Postgre | [9.5 ](https://www.postgresql.org/docs/9.5/ ) |
-|  `mysql` |  `5.7` |
+|  `MySQL` |  `5.7` |
 |  MariaDB |  [10.1](https://mariadb.com/kb/en/changes-improvements-in-mariadb-101/) |
 |  Microsoft SQL |  12.0.2000 |
 |  SQLite |  [3.0](https://www.sqlite.org/version3.html) 

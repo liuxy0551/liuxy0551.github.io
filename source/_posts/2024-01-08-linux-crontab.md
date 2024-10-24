@@ -1,5 +1,5 @@
 ---
-title: Linux 定时备份 mysql (内有 docker 版)
+title: Linux 定时备份 MySQL (内有 docker 版)
 urlname: linux-crontab
 tags:
     - Linux
@@ -135,7 +135,7 @@ chmod +x /mnt/mysqldump/*.sh
 
 ### docker 版
 
-&emsp;&emsp;当通过 docker 安装 mysql 时，也可以进行备份，比常规版新增了 `container_name`、`container_tmp_dir` 参数，需要注意 `container_name` 的值。使用下方脚本：
+&emsp;&emsp;当通过 docker 安装 MySQL 时，也可以进行备份，比常规版新增了 `container_name`、`container_tmp_dir` 参数，需要注意 `container_name` 的值。使用下方脚本：
 
 ``` sh
 #!/bin/bash
