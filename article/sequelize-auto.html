@@ -686,7 +686,7 @@ window.onload = function() {
 <a id="more"></a>
 <p>  <a href="https://github.com/sequelize/sequelize-auto" target="_black">GitHub：sequelize-auto</a></p>
 <h3 id="一-安装依赖"><a class="header-anchor" href="#一-安装依赖">¶</a>一、安装依赖</h3>
-<p>  项目中使用的 Mysql 5.7，安装<code>sequelize-auto</code>和<code>mysql</code>依赖：</p>
+<p>  项目中使用的 Mysql 5.7，安装<code>sequelize-auto</code>和<code>MySQL</code>依赖：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i mysql -S</span><br><span class="line">npm i sequelize-auto -D</span><br></pre></td></tr></table></figure>
 <p>  在<code>package.json</code>中的<code>script</code>添加命令：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "dev": "export NODE_ENV=development &amp;&amp; nodemon app.js",</span><br><span class="line">  "models": "export NODE_ENV=development &amp;&amp; node utils/mysql/sequelize-auto/auto.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

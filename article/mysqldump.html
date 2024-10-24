@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="最近在学习 MySQL 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql 备份 —— 导出导入 sql 文件">
+<meta property="og:title" content="MySQL 备份 —— 导出导入 sql 文件">
 <meta property="og:url" content="https://liuxianyu.cn/article/mysqldump.html">
 <meta property="og:site_name" content="刘先玉">
-<meta property="og:description" content="最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
+<meta property="og:description" content="最近在学习 MySQL 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2024-01-07T21:46:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql 备份 —— 导出导入 sql 文件">
-<meta name="twitter:description" content="最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
+<meta name="twitter:title" content="MySQL 备份 —— 导出导入 sql 文件">
+<meta name="twitter:description" content="最近在学习 MySQL 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。">
 
 
 
@@ -181,7 +181,7 @@
     })();
 </script>
 
-  <title>mysql 备份 —— 导出导入 sql 文件 | 刘先玉</title>
+  <title>MySQL 备份 —— 导出导入 sql 文件 | 刘先玉</title>
   
 
 
@@ -565,7 +565,7 @@ window.onload = function() {
 
         
         
-          <h2 class="post-title" itemprop="name headline">mysql 备份 —— 导出导入 sql 文件
+          <h2 class="post-title" itemprop="name headline">MySQL 备份 —— 导出导入 sql 文件
 
               
             
@@ -609,7 +609,7 @@ window.onload = function() {
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a></span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a></span>
 
                 
                 
@@ -637,7 +637,7 @@ window.onload = function() {
 
           
           
-            <span id="/article/mysqldump.html" class="leancloud_visitors" data-flag-title="mysql 备份 —— 导出导入 sql 文件">
+            <span id="/article/mysqldump.html" class="leancloud_visitors" data-flag-title="MySQL 备份 —— 导出导入 sql 文件">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -675,9 +675,9 @@ window.onload = function() {
       
 
       
-        <p>  最近在学习 mysql 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。</p>
+        <p>  最近在学习 MySQL 的备份和恢复，我的实际应用场景是正式服数据同步到测试服用于测试、备份生产环境的数据库。</p>
 <a id="more"></a>
-<p>  我的 mysql 是通过 docker 安装的，非容器的可以执行双引号中的命令；可以通过 <code>ls -lhS</code> 命令在目录下查看是否已存在文件。下方实例中的 <code>123456</code> 为数据库密码，<code>my-database</code> 是数据库名。</p>
+<p>  我的 MySQL 是通过 docker 安装的，非容器的可以执行双引号中的命令；可以通过 <code>ls -lhS</code> 命令在目录下查看是否已存在文件。下方实例中的 <code>123456</code> 为数据库密码，<code>my-database</code> 是数据库名。</p>
 <h3 id="一-数据备份"><a class="header-anchor" href="#一-数据备份">¶</a>一、数据备份</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec mysql-5.7-backup bash -c "mysqldump -uroot -p123456 my-database &gt; /tmp/my-database.sql"</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -721,11 +721,11 @@ window.onload = function() {
   <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
 
-  <p><span>随笔标题:</span>mysql 备份 —— 导出导入 sql 文件</p>
+  <p><span>随笔标题:</span>MySQL 备份 —— 导出导入 sql 文件</p>
   <p><span>随笔作者:</span>刘先玉</p>
   <p><span>发布时间:</span>2024年01月07日 - 21:46:05</p>
   <p><span>最后更新:</span>2024年01月07日 - 21:46:05</p>
-  <p><span>原文链接:</span><a href="/article/mysqldump.html" title="mysql 备份 —— 导出导入 sql 文件">https://liuxianyu.cn/article/mysqldump.html</a>
+  <p><span>原文链接:</span><a href="/article/mysqldump.html" title="MySQL 备份 —— 导出导入 sql 文件">https://liuxianyu.cn/article/mysqldump.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://liuxianyu.cn/article/mysqldump.html" aria-label="复制成功！"></i></span>
   </p>
   <!-- <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> -->
@@ -762,8 +762,8 @@ window.onload = function() {
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-envira"></i> mysql</a>
-            <!--<a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>-->
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-envira"></i> MySQL</a>
+            <!--<a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>-->
           
         </div>
       
@@ -787,8 +787,8 @@ window.onload = function() {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/article/linux-crontab.html" rel="prev" title="Linux 定时备份 mysql (内有 docker 版)">
-                Linux 定时备份 mysql (内有 docker 版) <i class="fa fa-chevron-right"></i>
+              <a href="/article/linux-crontab.html" rel="prev" title="Linux 定时备份 MySQL (内有 docker 版)">
+                Linux 定时备份 MySQL (内有 docker 版) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

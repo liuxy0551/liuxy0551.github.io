@@ -140,18 +140,18 @@
 
 
 
-  <meta name="description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 mysql 并启动、连接的过程。">
-<meta name="keywords" content="mysql,Docker">
+  <meta name="description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 MySQL 并启动、连接的过程。">
+<meta name="keywords" content="MySQL,Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区">
+<meta property="og:title" content="前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区">
 <meta property="og:url" content="https://liuxianyu.cn/article/docker-c.html">
 <meta property="og:site_name" content="刘先玉">
-<meta property="og:description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 mysql 并启动、连接的过程。">
+<meta property="og:description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 MySQL 并启动、连接的过程。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2020-12-15T14:21:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区">
-<meta name="twitter:description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 mysql 并启动、连接的过程。">
+<meta name="twitter:title" content="前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区">
+<meta name="twitter:description" content="这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 MySQL 并启动、连接的过程。">
 
 
 
@@ -181,7 +181,7 @@
     })();
 </script>
 
-  <title>前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区 | 刘先玉</title>
+  <title>前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区 | 刘先玉</title>
   
 
 
@@ -565,7 +565,7 @@ window.onload = function() {
 
         
         
-          <h2 class="post-title" itemprop="name headline">前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区
+          <h2 class="post-title" itemprop="name headline">前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区
 
               
             
@@ -653,7 +653,7 @@ window.onload = function() {
 
           
           
-            <span id="/article/docker-c.html" class="leancloud_visitors" data-flag-title="前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区">
+            <span id="/article/docker-c.html" class="leancloud_visitors" data-flag-title="前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -691,19 +691,19 @@ window.onload = function() {
       
 
       
-        <p>  这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 mysql 并启动、连接的过程。</p>
+        <p>  这两年 Docker 比较火，很多大厂都在使用。这里记录一下 Cent OS 中使用 Docker 安装 MySQL 并启动、连接的过程。</p>
 <a id="more"></a>
 <p>  <strong>建议切换 root 用户进行以下操作</strong></p>
-<h3 id="一-安装-mysql"><a class="header-anchor" href="#一-安装-mysql">¶</a>一、安装 mysql</h3>
+<h3 id="一-安装-mysql"><a class="header-anchor" href="#一-安装-mysql">¶</a>一、安装 MySQL</h3>
 <h4 id="1-查找镜像"><a class="header-anchor" href="#1-查找镜像">¶</a>1、查找镜像</h4>
 <p>在 Docker Hub 官网查找自己需要的版本 <a href="https://hub.docker.com/_/mysql?tab=tags" target="_blank" rel="noopener">https://hub.docker.com/_/mysql?tab=tags</a></p>
 <h4 id="2-下载镜像"><a class="header-anchor" href="#2-下载镜像">¶</a>2、下载镜像</h4>
 <p>我选择的是 5.7 版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
 <h4 id="3-创建项目文件夹并进入"><a class="header-anchor" href="#3-创建项目文件夹并进入">¶</a>3、创建项目文件夹并进入</h4>
-<p>  <code>仅限服务器端</code>本地创建一个文件夹用来存放 mysql 的配置文件、日志以及数据等（也就是挂载目录，作用是将此目录中的文件或文件夹覆盖掉容器内部的文件或文件夹）</p>
+<p>  <code>仅限服务器端</code>本地创建一个文件夹用来存放 MySQL 的配置文件、日志以及数据等（也就是挂载目录，作用是将此目录中的文件或文件夹覆盖掉容器内部的文件或文件夹）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /mnt/docker/mysql</span><br><span class="line">cd /mnt/docker/mysql</span><br></pre></td></tr></table></figure>
-<h3 id="二-运行-mysql"><a class="header-anchor" href="#二-运行-mysql">¶</a>二、运行 mysql</h3>
+<h3 id="二-运行-mysql"><a class="header-anchor" href="#二-运行-mysql">¶</a>二、运行 MySQL</h3>
 <h4 id="1-使用镜像创建容器并运行"><a class="header-anchor" href="#1-使用镜像创建容器并运行">¶</a>1、使用镜像创建容器并运行</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6033:3306 -d --name mysql-5.7 -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</span><br></pre></td></tr></table></figure>
 <p>指令解释：</p>
@@ -718,17 +718,17 @@ window.onload = function() {
 </ul>
 <blockquote>
 <p><strong>注意</strong><br>
-　　本地 Docker 安装 mysql 时可以不使用 -v 挂载文件夹，如下：</p>
+　　本地 Docker 安装 MySQL 时可以不使用 -v 挂载文件夹，如下：</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 -d --name mysql-5.7 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.7</span><br></pre></td></tr></table></figure>
 <h4 id="2-进入容器"><a class="header-anchor" href="#2-进入容器">¶</a>2、进入容器</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql-5.7 bash</span><br></pre></td></tr></table></figure>
-<h4 id="3-进入-mysql"><a class="header-anchor" href="#3-进入-mysql">¶</a>3、进入 mysql</h4>
+<h4 id="3-进入-mysql"><a class="header-anchor" href="#3-进入-mysql">¶</a>3、进入 MySQL</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
 <h4 id="4-可能用到的命令"><a class="header-anchor" href="#4-可能用到的命令">¶</a>4、可能用到的命令</h4>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_upgrade -u root -p --force</span><br></pre></td></tr></table></figure>
 <h4 id="5-mysql-修改密码"><a class="header-anchor" href="#5-mysql-修改密码">¶</a>5、mysql 修改密码</h4>
-<p>需要先进入 mysql 再执行：</p>
+<p>需要先进入 MySQL 再执行：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'newPassword'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="三-linux-修改时间及时区"><a class="header-anchor" href="#三-linux-修改时间及时区">¶</a>三、Linux 修改时间及时区</h3>
 <h4 id="1-查看本机时间"><a class="header-anchor" href="#1-查看本机时间">¶</a>1、查看本机时间</h4>
@@ -740,15 +740,22 @@ window.onload = function() {
 <h4 id="3-修改本机时区"><a class="header-anchor" href="#3-修改本机时区">¶</a>3、修改本机时区</h4>
 <p>  在 Linux 中，有一些程序会自己计算时间，不会直接采用带有时区的本机时间格式，会根据 UTC 时间和本机所属的时区等计算出当前的时间，new 出来的时间还是 UTC 时间，所以必须得修正本机的时区。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;Asia/Shanghai&apos; &gt;/etc/timezone</span><br></pre></td></tr></table></figure>
-<h3 id="四-mysql-修改时间"><a class="header-anchor" href="#四-mysql-修改时间">¶</a>四、mysql 修改时间</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select now();</span><br></pre></td></tr></table></figure>
+<h3 id="四-mysql-配置"><a class="header-anchor" href="#四-mysql-配置">¶</a>四、MySQL 配置</h3>
+<h4 id="1-修改时间"><a class="header-anchor" href="#1-修改时间">¶</a>1、修改时间</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">now</span>();</span><br></pre></td></tr></table></figure>
 <p>执行 <code>yum install vim -y</code> 然后执行 <code>vim /etc/my.cnf</code> 在 <code>[mysqld]</code> 区域中加上 <code>default-time_zone = '+8:00'</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart mysql-5.7</span><br></pre></td></tr></table></figure>
+<h4 id="2-最大连接数"><a class="header-anchor" href="#2-最大连接数">¶</a>2、最大连接数</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'max_connections'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="3-当前连接数"><a class="header-anchor" href="#3-当前连接数">¶</a>3、当前连接数</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">STATUS</span> <span class="keyword">LIKE</span> <span class="string">'Threads_connected'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="4-设置最大连接数"><a class="header-anchor" href="#4-设置最大连接数">¶</a>4、设置最大连接数</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> max_connections = <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="五-部分问题"><a class="header-anchor" href="#五-部分问题">¶</a>五、部分问题</h3>
-<h4 id="egg-中连接-mysql-的-docker-容器报错"><a class="header-anchor" href="#egg-中连接-mysql-的-docker-容器报错">¶</a>egg 中连接 mysql 的 docker 容器报错</h4>
-<p>  egg 连接 mysql 的 docker 容器，报错：Client does not support authentication protocol requested by server; consider upgrading MySQL client</p>
+<h4 id="eggjs-中连接-mysql-的-docker-容器报错"><a class="header-anchor" href="#eggjs-中连接-mysql-的-docker-容器报错">¶</a>eggjs 中连接 MySQL 的 docker 容器报错</h4>
+<p>  eggjs 连接 MySQL 的 docker 容器，报错：Client does not support authentication protocol requested by server; consider upgrading MySQL client</p>
 <h5 id="解决办法"><a class="header-anchor" href="#解决办法">¶</a>解决办法</h5>
-<p>  mysql 中执行如下语句：</p>
+<p>  MySQL 中执行如下语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;%&apos; IDENTIFIED WITH mysql_native_password BY &apos;你的密码&apos;;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>% 表示允许来自任何 ip 的连接<br>
@@ -759,7 +766,7 @@ localhost 表示允许本机的连接</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, age <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
 <p>  需要修改为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span>, age <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>, age;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> student <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>;</span><br></pre></td></tr></table></figure>
-<p>  不过这样可能会缺失想要的信息。我们可以进入数据库执行 <code>select @@global.sql_mode;</code> 查询 <code>sql_mode</code> 的值，编辑<code>/etc/my.cnf</code>，将 <code>sql_mode</code> 的值修改为去除 <code>ONLY_FULL_GROUP_BY</code> 后的值，然后重启 mysql 即可。</p>
+<p>  不过这样可能会缺失想要的信息。我们可以进入数据库执行 <code>select @@global.sql_mode;</code> 查询 <code>sql_mode</code> 的值，编辑<code>/etc/my.cnf</code>，将 <code>sql_mode</code> 的值修改为去除 <code>ONLY_FULL_GROUP_BY</code> 后的值，然后重启 MySQL 即可。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql-5.7 bash</span><br></pre></td></tr></table></figure>
 <p>  <code>vim /etc/my.cnf</code>，添加一行，保存后重启 mysql。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
@@ -792,11 +799,11 @@ localhost 表示允许本机的连接</p>
   <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
 
-  <p><span>随笔标题:</span>前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区</p>
+  <p><span>随笔标题:</span>前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区</p>
   <p><span>随笔作者:</span>刘先玉</p>
   <p><span>发布时间:</span>2020年02月06日 - 12:04:22</p>
   <p><span>最后更新:</span>2020年12月15日 - 14:21:12</p>
-  <p><span>原文链接:</span><a href="/article/docker-c.html" title="前端学习 Docker 之旅（四）—— 安装 mysql 并启动、连接，修改时区">https://liuxianyu.cn/article/docker-c.html</a>
+  <p><span>原文链接:</span><a href="/article/docker-c.html" title="前端学习 Docker 之旅（四）—— 安装 MySQL 并启动、连接，修改时区">https://liuxianyu.cn/article/docker-c.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://liuxianyu.cn/article/docker-c.html" aria-label="复制成功！"></i></span>
   </p>
   <!-- <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> -->
@@ -833,8 +840,8 @@ localhost 表示允许本机的连接</p>
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-envira"></i> mysql</a>
-            <!--<a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>-->
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-envira"></i> MySQL</a>
+            <!--<a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>-->
           
             <a href="/tags/Docker/" rel="tag"><i class="fa fa-envira"></i> Docker</a>
             <!--<a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>-->
@@ -1381,7 +1388,7 @@ localhost 表示允许本机的连接</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装-mysql"><span class="nav-text">¶一、安装 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查找镜像"><span class="nav-text">¶1、查找镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载镜像"><span class="nav-text">¶2、下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建项目文件夹并进入"><span class="nav-text">¶3、创建项目文件夹并进入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-运行-mysql"><span class="nav-text">¶二、运行 mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用镜像创建容器并运行"><span class="nav-text">¶1、使用镜像创建容器并运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-进入容器"><span class="nav-text">¶2、进入容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进入-mysql"><span class="nav-text">¶3、进入 mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可能用到的命令"><span class="nav-text">¶4、可能用到的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-mysql-修改密码"><span class="nav-text">¶5、mysql 修改密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-linux-修改时间及时区"><span class="nav-text">¶三、Linux 修改时间及时区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看本机时间"><span class="nav-text">¶1、查看本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改本机时间"><span class="nav-text">¶2、修改本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改本机时区"><span class="nav-text">¶3、修改本机时区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-mysql-修改时间"><span class="nav-text">¶四、mysql 修改时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-部分问题"><span class="nav-text">¶五、部分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#egg-中连接-mysql-的-docker-容器报错"><span class="nav-text">¶egg 中连接 mysql 的 docker 容器报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-text">¶解决办法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#only-full-group-by-不建议"><span class="nav-text">¶only_full_group_by (不建议)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装-mysql"><span class="nav-text">¶一、安装 MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查找镜像"><span class="nav-text">¶1、查找镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下载镜像"><span class="nav-text">¶2、下载镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建项目文件夹并进入"><span class="nav-text">¶3、创建项目文件夹并进入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-运行-mysql"><span class="nav-text">¶二、运行 MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用镜像创建容器并运行"><span class="nav-text">¶1、使用镜像创建容器并运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-进入容器"><span class="nav-text">¶2、进入容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-进入-mysql"><span class="nav-text">¶3、进入 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-可能用到的命令"><span class="nav-text">¶4、可能用到的命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-mysql-修改密码"><span class="nav-text">¶5、mysql 修改密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-linux-修改时间及时区"><span class="nav-text">¶三、Linux 修改时间及时区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看本机时间"><span class="nav-text">¶1、查看本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-修改本机时间"><span class="nav-text">¶2、修改本机时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改本机时区"><span class="nav-text">¶3、修改本机时区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-mysql-配置"><span class="nav-text">¶四、MySQL 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-修改时间"><span class="nav-text">¶1、修改时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-最大连接数"><span class="nav-text">¶2、最大连接数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-当前连接数"><span class="nav-text">¶3、当前连接数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-设置最大连接数"><span class="nav-text">¶4、设置最大连接数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-部分问题"><span class="nav-text">¶五、部分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eggjs-中连接-mysql-的-docker-容器报错"><span class="nav-text">¶eggjs 中连接 MySQL 的 docker 容器报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决办法"><span class="nav-text">¶解决办法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#only-full-group-by-不建议"><span class="nav-text">¶only_full_group_by (不建议)</span></a></li></ol></li></ol></div>
             
 
           </div>

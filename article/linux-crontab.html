@@ -143,7 +143,7 @@
   <meta name="description" content="Linux 中的定时任务一般通过 crontab 命令来管理，这里记录下常用的一些任务。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 定时备份 mysql (内有 docker 版)">
+<meta property="og:title" content="Linux 定时备份 MySQL (内有 docker 版)">
 <meta property="og:url" content="https://liuxianyu.cn/article/linux-crontab.html">
 <meta property="og:site_name" content="刘先玉">
 <meta property="og:description" content="Linux 中的定时任务一般通过 crontab 命令来管理，这里记录下常用的一些任务。">
@@ -151,7 +151,7 @@
 <meta property="og:image" content="https://images-hosting.liuxianyu.cn/posts/linux-crontab/1.png">
 <meta property="og:updated_time" content="2024-01-08T14:02:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 定时备份 mysql (内有 docker 版)">
+<meta name="twitter:title" content="Linux 定时备份 MySQL (内有 docker 版)">
 <meta name="twitter:description" content="Linux 中的定时任务一般通过 crontab 命令来管理，这里记录下常用的一些任务。">
 <meta name="twitter:image" content="https://images-hosting.liuxianyu.cn/posts/linux-crontab/1.png">
 
@@ -183,7 +183,7 @@
     })();
 </script>
 
-  <title>Linux 定时备份 mysql (内有 docker 版) | 刘先玉</title>
+  <title>Linux 定时备份 MySQL (内有 docker 版) | 刘先玉</title>
   
 
 
@@ -567,7 +567,7 @@ window.onload = function() {
 
         
         
-          <h2 class="post-title" itemprop="name headline">Linux 定时备份 mysql (内有 docker 版)
+          <h2 class="post-title" itemprop="name headline">Linux 定时备份 MySQL (内有 docker 版)
 
               
             
@@ -639,7 +639,7 @@ window.onload = function() {
 
           
           
-            <span id="/article/linux-crontab.html" class="leancloud_visitors" data-flag-title="Linux 定时备份 mysql (内有 docker 版)">
+            <span id="/article/linux-crontab.html" class="leancloud_visitors" data-flag-title="Linux 定时备份 MySQL (内有 docker 版)">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -724,7 +724,7 @@ window.onload = function() {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 23 * * * /mnt/mysqldump/my-database.sh</span><br></pre></td></tr></table></figure>
 <p>  可以使用 <code>crontab -l</code> 查看任务是否已添加成功。</p>
 <h3 id="docker-版"><a class="header-anchor" href="#docker-版">¶</a>docker 版</h3>
-<p>  当通过 docker 安装 mysql 时，也可以进行备份，比常规版新增了 <code>container_name</code>、<code>container_tmp_dir</code> 参数，需要注意 <code>container_name</code> 的值。使用下方脚本：</p>
+<p>  当通过 docker 安装 MySQL 时，也可以进行备份，比常规版新增了 <code>container_name</code>、<code>container_tmp_dir</code> 参数，需要注意 <code>container_name</code> 的值。使用下方脚本：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库用户名</span></span><br><span class="line">username=root</span><br><span class="line"><span class="comment"># 数据库密码</span></span><br><span class="line">password=123456</span><br><span class="line"><span class="comment"># 要备份的数据库名称</span></span><br><span class="line">database_name=my-database</span><br><span class="line"><span class="comment"># docker 容器名</span></span><br><span class="line">container_name=mysql-5.7</span><br><span class="line"><span class="comment"># 容器内临时存放的路径</span></span><br><span class="line">container_tmp_dir=/tmp</span><br><span class="line"><span class="comment"># 保存备份个数，备份30天数据</span></span><br><span class="line">number=30</span><br><span class="line"><span class="comment"># 日期格式</span></span><br><span class="line">day=`date +%Y%m%d`</span><br><span class="line"><span class="comment"># 宿主机备份保存路径</span></span><br><span class="line">backup_dir=/mnt/mysqldump/<span class="variable">$day</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果文件夹不存在则创建</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$backup_dir</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    mkdir -p <span class="variable">$backup_dir</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">container_sql_path=<span class="variable">$container_tmp_dir</span>/<span class="variable">$database_name</span>.sql</span><br><span class="line"><span class="comment"># docker exec mysql-5.7 bash -c "mysqldump -uroot -pMysql..1234 $database_name &gt; /tmp/my-database.sql"</span></span><br><span class="line">docker <span class="built_in">exec</span> <span class="variable">$container_name</span> bash -c <span class="string">"mysqldump -u<span class="variable">$username</span> -p<span class="variable">$password</span> <span class="variable">$database_name</span> &gt; <span class="variable">$container_sql_path</span>"</span></span><br><span class="line"><span class="comment"># 将容器内的文件挪到宿主机</span></span><br><span class="line">docker cp <span class="variable">$container_name</span>:<span class="variable">$container_sql_path</span> <span class="variable">$backup_dir</span></span><br><span class="line"><span class="comment"># 删除容器内的临时文件</span></span><br><span class="line">docker <span class="built_in">exec</span> <span class="variable">$container_name</span> rm -rf <span class="variable">$container_sql_path</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写创建备份日志</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"create <span class="variable">$backup_dir</span>/<span class="variable">$database_name</span>-<span class="variable">$dd</span>.dump"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除超期的备份</span></span><br><span class="line">delfile=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | head -1`</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断现在的备份数量是否大于 $number</span></span><br><span class="line">count=`ls -l -crt <span class="variable">$backup_dir</span>/*.sql | awk <span class="string">'&#123;print $9 &#125;'</span> | wc -l`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$count</span> -gt <span class="variable">$number</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 删除更早生成的备份，只保留 $number 数量的备份</span></span><br><span class="line">  rm <span class="variable">$delfile</span></span><br><span class="line">  <span class="comment"># 写删除文件日志</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"delete <span class="variable">$delfile</span>"</span> &gt;&gt; <span class="variable">$backup_dir</span>/log.txt</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <h3 id="参考资料："><a class="header-anchor" href="#参考资料：">¶</a>参考资料：</h3>
 <p>  <a href="https://segmentfault.com/a/1190000040642688#item-4" target="_black">编写BASH维护固定数量备份文件</a></p>
@@ -756,11 +756,11 @@ window.onload = function() {
   <script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css">
 
-  <p><span>随笔标题:</span>Linux 定时备份 mysql (内有 docker 版)</p>
+  <p><span>随笔标题:</span>Linux 定时备份 MySQL (内有 docker 版)</p>
   <p><span>随笔作者:</span>刘先玉</p>
   <p><span>发布时间:</span>2024年01月08日 - 14:02:17</p>
   <p><span>最后更新:</span>2024年01月08日 - 14:02:17</p>
-  <p><span>原文链接:</span><a href="/article/linux-crontab.html" title="Linux 定时备份 mysql (内有 docker 版)">https://liuxianyu.cn/article/linux-crontab.html</a>
+  <p><span>原文链接:</span><a href="/article/linux-crontab.html" title="Linux 定时备份 MySQL (内有 docker 版)">https://liuxianyu.cn/article/linux-crontab.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://liuxianyu.cn/article/linux-crontab.html" aria-label="复制成功！"></i></span>
   </p>
   <!-- <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> -->
@@ -812,8 +812,8 @@ window.onload = function() {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/article/mysqldump.html" rel="next" title="mysql 备份 —— 导出导入 sql 文件">
-                <i class="fa fa-chevron-left"></i> mysql 备份 —— 导出导入 sql 文件
+              <a href="/article/mysqldump.html" rel="next" title="MySQL 备份 —— 导出导入 sql 文件">
+                <i class="fa fa-chevron-left"></i> MySQL 备份 —— 导出导入 sql 文件
               </a>
             
           </div>
