@@ -27,10 +27,12 @@ updated: 2024-06-16 23:07:38
 &emsp;&emsp;将旧笔记本电脑的别名改为 `lenovo`，在 `lenovo` 上 `vim ~/.zshrc` 添加以下命令：
 
 ``` shell
+MACIP='192.168.31.23'
+WINIP='192.168.31.108'
 # 使用代理服务器(MacOS)
-alias proxym='export https_proxy=http://192.168.31.23:7890;export http_proxy=http://192.168.31.23:7890;export all_proxy=socks5://192.168.31.23:7890'
+alias proxym='export https_proxy=http://$MACIP:7890;export http_proxy=http://$MACIP:7890;export all_proxy=socks5://$MACIP:7890'
 # 使用代理服务器(Windows)
-alias proxyw='export https_proxy=http://192.168.31.108:7890;export http_proxy=http://192.168.31.108:7890;export all_proxy=socks5://192.168.31.108:7890'
+alias proxyw='export https_proxy=http://$WINIP:7890;export http_proxy=http://$WINIP:7890;export all_proxy=socks5://$WINIP:7890'
 # 取消使用代理服务器
 alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'
 # 测试服务器是否可用
