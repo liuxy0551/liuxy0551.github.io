@@ -1283,13 +1283,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
-    
-    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
@@ -1297,14 +1290,21 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/notes/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
+    
+    <lastmod>2019-03-17T12:18:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/links/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/links/index.html</loc>
+    <loc>https://liuxianyu.cn/notes/index.html</loc>
     
     <lastmod>2019-03-16T22:21:04.000Z</lastmod>
     
@@ -1367,14 +1367,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
+    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
+    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     
