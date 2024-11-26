@@ -41,7 +41,7 @@ updated: 2018-09-25 20:29:30
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>vue生命周期学习</title>
-      <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.4.2/dist/vue.min.js"></script>
     </head>
     <body>
       <div id="app">

@@ -125,9 +125,9 @@ yum install vim wget lsof -y
 
 &emsp;&emsp;重新加载 nginx 配置
 
-    ```shell
-    nginx -s reload
-    ```
+```shell
+nginx -s reload
+```
 
 #### （二）、多配置文件
 

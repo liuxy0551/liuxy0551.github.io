@@ -33,7 +33,7 @@
       height: 42px;
     {% else %}
       right: 4px;
-      top: 8px;
+      top: 3px;
     {% endif %}
   }
 
