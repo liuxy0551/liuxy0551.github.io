@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuxianyu.cn/article/immich-docker.html</loc>
+    
+    <lastmod>2024-11-26T09:42:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuxianyu.cn/about/index.html</loc>
     
     <lastmod>2024-06-17T03:55:56.792Z</lastmod>
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
@@ -1283,14 +1290,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/laboratory/trainingCamp/index.html</loc>
+    <loc>https://liuxianyu.cn/laboratory/toolBox/index.html</loc>
     
     <lastmod>2019-03-17T12:18:28.000Z</lastmod>
     
