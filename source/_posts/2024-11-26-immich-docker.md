@@ -66,9 +66,7 @@ mkdir -p /mnt/docker/immich-app
 cd /mnt/docker/immich-app
 ```
 
-&emsp;&emsp;官网的安装步骤在这里：https://immich.app/docs/install/docker-compose/
-
-&emsp;&emsp;下载 `docker-compose.yml` 和配置文件 `.env`，如果有硬件加速的能力（N 卡之类的硬件）可以点开官网文档查看，这里不进行。
+&emsp;&emsp;官网的安装步骤在这里：https://immich.app/docs/install/docker-compose/。下载 `docker-compose.yml` 和配置文件 `.env`，如果有硬件加速的能力（N 卡之类的硬件）可以点开官网文档查看，这里不进行。
 
 ``` shell
 wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
@@ -93,16 +91,9 @@ cd /mnt/docker/immich-app
 mkdir -p model-cache/clip model-cache/facial-recognition
 ```
 
-&emsp;&emsp;这里我们会用到两个大模型 [XLM-Roberta-Large-Vit-B-16Plus](https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus/tree/main) 和 [buffalo_l](https://huggingface.co/immich-app/buffalo_l/tree/main)，分布用于中文搜索和人脸识别。我们需要分别下载并解压到 `model-cache/clip` 和 `model-cache/facial-recognition` 目录下。
+&emsp;&emsp;这里我们会用到两个大模型 [XLM-Roberta-Large-Vit-B-16Plus](https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus/tree/main) 和 [buffalo_l](https://huggingface.co/immich-app/buffalo_l/tree/main)，分布用于中文搜索（以文搜图）和人脸识别。用到的的相关文件我都放到了 [夸克云盘 immich-docker](https://pan.quark.cn/s/f623f75acd2a)，也可以自行下载。
 
-> **注意：** 大模型的路径是有讲究的
-
-![](https://images-hosting.liuxianyu.cn/posts/immich-docker/2.png)
-![](https://images-hosting.liuxianyu.cn/posts/immich-docker/3.png)
-
-&emsp;&emsp;需要的相关文件我都放到了 [阿里云盘 immich-docker]()，不过由于 zip 文件不支持分享，下载后请将文件夹后缀名的 `.doc` 去除。
-
-&emsp;&emsp;因为仓库文件较大，需要借助 [`git-fls`](https://github.com/git-lfs/git-lfs/releases)：
+&emsp;&emsp;我们需要分别下载并解压到 `model-cache/clip` 和 `model-cache/facial-recognition` 目录下。因为仓库文件较大，需要借助 [git-fls](https://github.com/git-lfs/git-lfs/releases)：
 
 ``` shell
 tar -zxvf git-lfs-linux-amd64-v3.6.0.tar.gz
@@ -110,6 +101,8 @@ cd git-lfs-3.6.0
 sudo ./install.sh
 git lfs install
 ```
+
+> **注意：** 大模型的路径是有讲究的。
 
 ``` shell
 cd /mnt/docker/immich-app/model-cache/clip
@@ -120,6 +113,7 @@ cd /mnt/docker/immich-app/model-cache/facial-recognition
 git clone https://huggingface.co/immich-app/buffalo_l
 ```
 
+![](https://images-hosting.liuxianyu.cn/posts/immich-docker/1.png)
 
 &emsp;&emsp; `vim .env` 定义大模型的路径：
 
@@ -130,16 +124,30 @@ MODEL_CACHE=./model-cache
 
 &emsp;&emsp;`vim docker-compose.yml` 使用大模型的路径：
 
-![](https://images-hosting.liuxianyu.cn/posts/immich-docker/1.png)
+![](https://images-hosting.liuxianyu.cn/posts/immich-docker/2.png)
 
+&emsp;&emsp;分别使用两个大模型，然后 [在服务器端重启 immich](https://liuxianyu.cn/article/immich-docker.html#2-4-重启-immich)。
 
-&emsp;&emsp;分别使用两个大模型，然后 [在服务器端重启 immich](https://liuxianyu.cn/article/immich-docker.html#2-5-%E9%87%8D%E5%90%AF-immich)。
-
+![](https://images-hosting.liuxianyu.cn/posts/immich-docker/3.png)
 ![](https://images-hosting.liuxianyu.cn/posts/immich-docker/4.png)
+
+#### 2.4 重启 immich
+
+``` shell
+docker stop immich_server immich_machine_learning immich_redis immich_postgres
+docker compose up -d
+```
+
+&emsp;&emsp;重启完成后，重新拉起相关的任务。
+
 ![](https://images-hosting.liuxianyu.cn/posts/immich-docker/5.png)
 
+&emsp;&emsp;等待运行完成，搜索功能就有人脸分组了。
 
-#### 2.4 更新 immich
+![](https://images-hosting.liuxianyu.cn/posts/immich-docker/6.png)
+
+
+#### 2.5 更新 immich
 
 &emsp;&emsp;进入 immich 时如果有更新提示，可以在服务器端执行：
 
@@ -148,20 +156,9 @@ docker compose pull && docker compose up -d
 ```
 
 
-#### 2.5 重启 immich
-
-``` shell
-docker stop immich_server immich_machine_learning immich_redis immich_postgres
-docker compose up -d
-```
-
-&emsp;&emsp;重启完成后，重新拉起相关的任务，等待运行完成，搜索功能就有人脸分组了。
-
-![](https://images-hosting.liuxianyu.cn/posts/immich-docker/5.png)
-
-
-
 ### 三、卸载
+
+&emsp;&emsp;如果体验后不想使用，可以按以下方式卸载：
 
 ``` shell
 docker stop immich_server immich_machine_learning immich_redis immich_postgres
