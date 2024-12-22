@@ -66,7 +66,7 @@ mkdir -p /mnt/docker/immich-app
 cd /mnt/docker/immich-app
 ```
 
-&emsp;&emsp;官网的安装步骤在这里：https://immich.app/docs/install/docker-compose/。下载 `docker-compose.yml` 和配置文件 `.env`，如果有硬件加速的能力（N 卡之类的硬件）可以点开官网文档查看，这里不进行。
+&emsp;&emsp;官网的安装步骤在这里：https://immich.app/docs/install/docker-compose/。 下载 `docker-compose.yml` 和配置文件 `.env`，如果有硬件加速的能力（N 卡之类的硬件）可以点开官网文档查看，这里不进行。
 
 ``` shell
 wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
