@@ -133,11 +133,11 @@
     <lastmod>2021-06-07</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/aliyun-function-compute.html</loc>
+    <loc>https://liuxianyu.cn/article/fc-serverless.html</loc>
     <lastmod>2021-05-16</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/fc-serverless.html</loc>
+    <loc>https://liuxianyu.cn/article/aliyun-function-compute.html</loc>
     <lastmod>2021-05-16</lastmod>
   </url>
   <url>
@@ -269,11 +269,11 @@
     <lastmod>2020-10-21</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
+    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
     <lastmod>2020-10-21</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/js-const-var-let.html</loc>
+    <loc>https://liuxianyu.cn/article/js-prototype.html</loc>
     <lastmod>2020-10-21</lastmod>
   </url>
   <url>
@@ -609,19 +609,19 @@
     <lastmod>2019-11-10</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/vue-rsa.html</loc>
-    <lastmod>2019-11-07</lastmod>
-  </url>
-  <url>
     <loc>https://liuxianyu.cn/article/js-object-string.html</loc>
     <lastmod>2019-11-07</lastmod>
   </url>
   <url>
-    <loc>https://liuxianyu.cn/article/cent-os-base.html</loc>
-    <lastmod>2019-11-05</lastmod>
+    <loc>https://liuxianyu.cn/article/vue-rsa.html</loc>
+    <lastmod>2019-11-07</lastmod>
   </url>
   <url>
     <loc>https://liuxianyu.cn/article/hexo-server.html</loc>
+    <lastmod>2019-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://liuxianyu.cn/article/cent-os-base.html</loc>
     <lastmod>2019-11-05</lastmod>
   </url>
   <url>
