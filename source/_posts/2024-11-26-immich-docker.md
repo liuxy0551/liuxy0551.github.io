@@ -76,7 +76,7 @@ wget -O .env https://github.com/immich-app/immich/releases/latest/download/examp
 &emsp;&emsp;`vim .env` 追加时区：`TZ=Asia/Shanghai`
 
 ``` shell
-docker compose up -d
+docker compose -p immich up -d
 ```
 
 &emsp;&emsp;稍等片刻即可访问，默认端口是 `2283`。我这里是在局域网其他电脑访问的：http://192.168.31.101:2283。第一次进入会有一些初始化的设置。
