@@ -702,7 +702,7 @@ window.onload = function() {
 <p>  官网的安装步骤在这里：<a href="https://immich.app/docs/install/docker-compose/%E3%80%82" target="_blank" rel="noopener">https://immich.app/docs/install/docker-compose/。</a> 下载 <code>docker-compose.yml</code> 和配置文件 <code>.env</code>，如果有硬件加速的能力（N 卡之类的硬件）可以点开官网文档查看，这里不进行。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml</span><br><span class="line">wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env</span><br></pre></td></tr></table></figure>
 <p>  <code>vim .env</code> 追加时区：<code>TZ=Asia/Shanghai</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose -p immich up -d</span><br></pre></td></tr></table></figure>
 <p>  稍等片刻即可访问，默认端口是 <code>2283</code>。我这里是在局域网其他电脑访问的：<a href="http://192.168.31.101:2283" target="_blank" rel="noopener">http://192.168.31.101:2283</a>。第一次进入会有一些初始化的设置。</p>
 <h4 id="2-3-大模型"><a class="header-anchor" href="#2-3-大模型">¶</a>2.3 大模型</h4>
 <p>  immich 强大在可以支持大模型处理，能够标注人脸和按文字搜索照片。上传一定量图片后，如果左侧 探索 功能中还是没有人脸，可能是由于服务器端存在网络问题，此时需要在服务器端准备好大模型。在 <code>docker-compose.yaml</code> 文件同级新建 <code>model_cache</code> 文件夹，然后执行：</p>
@@ -1324,7 +1324,7 @@ window.onload = function() {
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共108.2k字</span>
+  <span class="post-count">博客全站共108.3k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/"> | 浙ICP备19046839号</a>
 </div>
 
