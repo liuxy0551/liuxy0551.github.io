@@ -134,8 +134,8 @@ MODEL_CACHE=./model-cache
 #### 2.4 重启 immich
 
 ``` shell
-docker stop immich_server immich_machine_learning immich_redis immich_postgres
-docker compose up -d
+docker compose down
+docker compose -p immich up -d
 ```
 
 &emsp;&emsp;重启完成后，重新拉起相关的任务。
@@ -152,7 +152,7 @@ docker compose up -d
 &emsp;&emsp;进入 immich 时如果有更新提示，可以在服务器端执行：
 
 ``` shell
-docker compose pull && docker compose up -d
+docker compose pull && docker compose -p immich up -d
 ```
 
 
