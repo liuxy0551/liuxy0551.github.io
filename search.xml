@@ -4049,8 +4049,8 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>HTML</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -6561,8 +6561,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>blog</tag>
-        <tag>Hexo</tag>
         <tag>Linux</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
