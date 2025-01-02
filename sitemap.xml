@@ -107,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/photos/data.json</loc>
-    
-    <lastmod>2023-09-21T07:28:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuxianyu.cn/thank/index.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
@@ -121,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
+    <loc>https://liuxianyu.cn/photos/data.json</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
@@ -129,6 +122,13 @@
   
   <url>
     <loc>https://liuxianyu.cn/lib/jquery_lazyload/bower.json</loc>
+    
+    <lastmod>2023-09-21T07:28:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/lib/jquery_lazyload/README.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
