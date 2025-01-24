@@ -4049,8 +4049,8 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>HTML</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -7279,6 +7279,40 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </tags>
   </entry>
   <entry>
+    <title>在 macOS 中安装 Jekyll</title>
+    <url>/article/macos-jekyll.html</url>
+    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
+<a id="more"></a>
+<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<p>这一步可能会遇到一些问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
+<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
+</blockquote>
+<p>接下来进入到博客文件夹，启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>此时出现了新的问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
+<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
+<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
+<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue Mint-UI 省市区地址三级联动</title>
     <url>/article/vue-mintui-address.html</url>
     <content><![CDATA[<p>最近公司项目中用到收货地址的功能，遂采用这种联动的方式</p>
@@ -7311,40 +7345,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 macOS 中安装 Jekyll</title>
-    <url>/article/macos-jekyll.html</url>
-    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
-<a id="more"></a>
-<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<p>这一步可能会遇到一些问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
-<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
-</blockquote>
-<p>接下来进入到博客文件夹，启动服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p>此时出现了新的问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
-<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
-<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
-<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
