@@ -129,6 +129,7 @@
   {% include '_third-party/pdf.swig' %}
   {% include '_third-party/mermaid.swig' %}
   {% include '_third-party/baidu-push.swig' %}
+  {% include '_third-party/umami-data.swig' %}
   {% include '_third-party/schedule.swig' %}
   {% include '_third-party/needsharebutton.swig' %}
   {% include '_third-party/rating.swig' %}
