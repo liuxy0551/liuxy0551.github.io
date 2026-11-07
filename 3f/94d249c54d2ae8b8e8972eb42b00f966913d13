@@ -1,0 +1,17 @@
+source/_posts/2023-03-10-images-hosting.md
+  h_3070dc1062bb3b 46,48,50-100,111-117,122,124,162,166
+  h_3070dc1062bb3b 47,49,107-110,118
+source/_posts/2024-01-08-linux-crontab.md
+  h_3070dc1062bb3b 133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3f94d249c54d2ae8b8e8972eb42b00f966913d13",
+  "prompts": {},
+  "humans": {
+    "h_3070dc1062bb3b": {
+      "author": "liuxy0551 <liuxy0551@qq.com>"
+    }
+  }
+}
