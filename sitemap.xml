@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuxianyu.cn/recruit/index.html</loc>
+    
+    <lastmod>2025-02-15T07:04:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuxianyu.cn/article/immich-docker.html</loc>
     
     <lastmod>2024-11-26T09:42:38.000Z</lastmod>
@@ -11,7 +18,7 @@
   <url>
     <loc>https://liuxianyu.cn/about/index.html</loc>
     
-    <lastmod>2024-06-17T03:55:56.792Z</lastmod>
+    <lastmod>2024-06-17T03:55:56.000Z</lastmod>
     
   </url>
   
@@ -45,6 +52,13 @@
   
   <url>
     <loc>https://liuxianyu.cn/article/node-n.html</loc>
+    
+    <lastmod>2024-05-29T19:59:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/article/node-nvm.html</loc>
     
     <lastmod>2024-05-29T19:59:43.000Z</lastmod>
     
@@ -100,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/recruit/index.html</loc>
+    <loc>https://liuxianyu.cn/thank/index.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
@@ -108,13 +122,6 @@
   
   <url>
     <loc>https://liuxianyu.cn/photos/data.json</loc>
-    
-    <lastmod>2023-09-21T07:28:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liuxianyu.cn/thank/index.html</loc>
     
     <lastmod>2023-09-21T07:28:56.000Z</lastmod>
     
@@ -180,6 +187,13 @@
     <loc>https://liuxianyu.cn/article/git-commit-version-changelog.html</loc>
     
     <lastmod>2022-04-12T15:49:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuxianyu.cn/article/ubuntu24-base.html</loc>
+    
+    <lastmod>2022-04-05T09:52:45.000Z</lastmod>
     
   </url>
   
@@ -1374,14 +1388,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
+    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/macos-jekyll.html</loc>
+    <loc>https://liuxianyu.cn/article/vue-mintui-address.html</loc>
     
     <lastmod>2018-11-18T20:29:30.000Z</lastmod>
     
@@ -1514,14 +1528,14 @@
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/you.html</loc>
+    <loc>https://liuxianyu.cn/article/thinking.html</loc>
     
     <lastmod>2014-11-30T22:00:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://liuxianyu.cn/article/thinking.html</loc>
+    <loc>https://liuxianyu.cn/article/you.html</loc>
     
     <lastmod>2014-11-30T22:00:00.000Z</lastmod>
     

@@ -141,7 +141,7 @@
 
 
   <meta name="description" content="最近拿到一个服务器，尝试着把基于 Hexo 搭建的个人空间放到服务器上，用 Nginx 进行转发，顺便再熟悉一下 Linux 下的一些操作，同时会将部署、git 备份、上传服务器等一系列操作自动化。">
-<meta name="keywords" content="blog,Hexo,Linux">
+<meta name="keywords" content="blog,Linux,Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将 Hexo 个人空间放到服务器上">
 <meta property="og:url" content="https://liuxianyu.cn/article/hexo-server.html">
@@ -393,7 +393,7 @@ window.onload = function() {
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">56</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">57</span></a>
 
   </li>
         
@@ -412,7 +412,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">63</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">65</span></a>
 
   </li>
         
@@ -431,7 +431,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">199</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">201</span></a>
 
   </li>
         
@@ -730,7 +730,9 @@ window.onload = function() {
 <p>7、修改博客根目录下的<code>_config.yml</code>文件：<br>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https://github.com/liuxy0551/liuxy0551.github.io.git,master</span><br><span class="line">    coding: https://git.dev.tencent.com/liuxianyu/liuxy0551.coding.me.git,master</span><br><span class="line">    gitee: git@gitee.com:liuxy0551/liuxy0551.git,master</span><br><span class="line">    server: deploy@47.65.55.62:/mnt/projects/hexo-blog/blog.git,master</span><br></pre></td></tr></table></figure></p>
 <p>8、在博客根目录下输入以下命令：<br>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</code></pre>
 <p>9、配置 nginx<br>
 <img src="https://images-hosting.liuxianyu.cn/posts/hexo-server/1.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/hexo-blog.conf</span><br></pre></td></tr></table></figure>
@@ -810,11 +812,11 @@ window.onload = function() {
             <a href="/tags/blog/" rel="tag"><i class="fa fa-envira"></i> blog</a>
             <!--<a href="/tags/blog/" rel="tag"><i class="fa fa-tag"></i> blog</a>-->
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-envira"></i> Hexo</a>
-            <!--<a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>-->
-          
             <a href="/tags/Linux/" rel="tag"><i class="fa fa-envira"></i> Linux</a>
             <!--<a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>-->
+          
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-envira"></i> Hexo</a>
+            <!--<a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>-->
           
         </div>
       
@@ -916,7 +918,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">199</span>
+                    <span class="site-state-item-count">201</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1059,7 +1061,11 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">65</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1188,7 +1194,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">56</span>
+                      
+                    
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1287,7 +1295,7 @@ window.onload = function() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2025</span>
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1336,7 +1344,7 @@ window.onload = function() {
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共108.3k字</span>
+  <span class="post-count">博客全站共110k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/"> | 浙ICP备19046839号</a>
 </div>
 

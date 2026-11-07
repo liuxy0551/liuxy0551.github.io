@@ -79,20 +79,22 @@
 <p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png" alt></p>
 <h3 id="二-公网服务器"><a class="header-anchor" href="#二-公网服务器">¶</a>二、公网服务器</h3>
 <p>  公网服务器可以借助 <code>ssh -R</code> 命令创建一个反向代理通道（<strong>下方 ssh 命令在本地机器执行，本地机器需要科学上网</strong>）：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -R 6990:localhost:7890 root@47.65.55.62 -N</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -N -T \</span><br><span class="line">  -o ExitOnForwardFailure=yes \</span><br><span class="line">  -o ServerAliveInterval=30 \</span><br><span class="line">  -o ServerAliveCountMax=3 \</span><br><span class="line">  -R 6990:127.0.0.1:7890 \</span><br><span class="line">  root@47.65.55.62</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>ssh -R</code> 表示建立一个反向 SSH 隧道</li>
 <li><code>6990</code> 是在公网服务器上监听的端口</li>
-<li><code>localhost</code> 本地机器的地址</li>
-<li><code>7890</code> 本地机器代理服务的地址，这里使用的是 clash</li>
-<li><code>root@47.65.55.62</code> 公网服务器的用户名和 IP 地址</li>
-<li><code>-N</code> 表示不执行远程命令，仅建立隧道连接，这里必需</li>
+<li><code>127.0.0.1</code> 表示本地机器的回环地址（SSH 客户端所在机器）</li>
+<li><code>7890</code> 是本地机器代理服务的端口，这里使用的是 Clash</li>
+<li><code>root@47.65.55.62</code> 表示公网服务器的用户名和 IP 地址</li>
+<li><code>-N</code> 表示不执行远程命令，仅建立隧道连接</li>
+<li><code>-T</code> 表示不分配伪终端，适用于纯端口转发场景</li>
+<li><code>-o ExitOnForwardFailure=yes</code> 表示如果端口转发建立失败（例如远程 6990 端口被占用），SSH 立即退出</li>
+<li><code>-o ServerAliveInterval=30</code> 表示每隔 30 秒向服务器发送一次保活消息</li>
+<li><code>-o ServerAliveCountMax=3</code> 表示连续 3 次未收到服务器响应后，断开 SSH 连接</li>
 </ul>
 <p>  因此上述命令的作用是：将本地的 <code>7890</code> 端口映射到公网服务器 <code>47.65.55.62</code> 的 <code>6990</code> 端口，当公网服务器有请求发送到公网服务器的 <code>6990</code> 端口时，它会通过 SSH 隧道转发到本地机器的 <code>7890</code> 端口。</p>
-<p>  在本地机器执行上述命令前先在公网服务器上确认配置了允许端口转发，我这里的机器是 CentOS7.6，使用 <code>cat /etc/os-release</code> 可以查看系统信息。<code>vim /etc/ssh/sshd_config</code> 后找到 <code>AllowTcpForwarding</code> 和 <code>GatewayPorts</code>，这两个配置需要都设置为 <code>yes</code>，一般是注释了，可以在这两者的下方添加如下配置，并执行 <code>systemctl restart sshd</code> 命令重启 SSH 服务：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts yes</span><br></pre></td></tr></table></figure>
 <p>  类似的，在公网服务器上也添加下方的 <code>proxy</code> 命令，然后执行 <code>source ~/.zshrc</code> 就可以生效了。在公网服务器执行 <code>proxy_test</code> 测试代理是否可用，发现一直是 Trying；执行 <code>proxy</code> 后再执行 <code>proxy_test</code> 就发现有具体内容返回了；可以通过执行 <code>unproxy</code> 取消代理。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 代理到本机的指定端口（公网服务器）</span></span><br><span class="line">alias proxy='export https_proxy=http://localhost:6990;export http_proxy=http://localhost:6990;export all_proxy=socks5://localhost:6990'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消使用代理服务器</span></span><br><span class="line">alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试服务器是否可用</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启代理（通过 SSH 反向隧道连接 Mac 本机 Clash）</span></span><br><span class="line">alias proxy='export HTTP_PROXY=http://127.0.0.1:6990; export HTTPS_PROXY=http://127.0.0.1:6990; export ALL_PROXY=http://127.0.0.1:6990; export http_proxy=$HTTP_PROXY; export https_proxy=$HTTPS_PROXY; export all_proxy=$ALL_PROXY'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消代理</span></span><br><span class="line">alias unproxy='unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试代理</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/3.png" alt></p>
 <blockquote>
 <p><strong>注意</strong></p>
@@ -534,20 +536,22 @@
   <entry>
     <title>安装 on-my-zsh 和常用插件，配置常用命令</title>
     <url>/article/on-my-zsh.html</url>
-    <content><![CDATA[<p>  最近之前买的三年服务器到期了，新买了腾讯云的服务器，Cent OS 7.6，记录下安装<code>oh-my-zsh</code>及常用插件的过程，MacOS 通用。</p>
+    <content><![CDATA[<p>  最近之前买的三年服务器到期了，新买了阿里云的服务器 Ubuntu 24.04，99 块每年续费同价，活动到 2029年3月，记录下安装<code>oh-my-zsh</code>及常用插件的过程，MacOS 通用。</p>
 <a id="more"></a>
 <h3 id="一-安装"><a class="header-anchor" href="#一-安装">¶</a>一、安装</h3>
 <h4 id="1-查看当前-shell"><a class="header-anchor" href="#1-查看当前-shell">¶</a>1、查看当前 shell</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
 <h4 id="2-安装-zsh"><a class="header-anchor" href="#2-安装-zsh">¶</a>2、安装 zsh</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install zsh -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install zsh -y</span><br></pre></td></tr></table></figure>
 <h4 id="3-查看已经安装的-shell"><a class="header-anchor" href="#3-查看已经安装的-shell">¶</a>3、查看已经安装的 shell</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
-<h4 id="4-切换-zsh"><a class="header-anchor" href="#4-切换-zsh">¶</a>4、切换 zsh</h4>
+<h4 id="4-查看安装的-zsh-版本"><a class="header-anchor" href="#4-查看安装的-zsh-版本">¶</a>4、查看安装的 zsh 版本</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zsh --version</span><br></pre></td></tr></table></figure>
+<h4 id="5-切换-zsh"><a class="header-anchor" href="#5-切换-zsh">¶</a>5、切换 zsh</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-<h4 id="5-安装-git"><a class="header-anchor" href="#5-安装-git">¶</a>5、安装 git</h4>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install git -y</span><br></pre></td></tr></table></figure>
-<h4 id="6-安装-oh-my-zsh"><a class="header-anchor" href="#6-安装-oh-my-zsh">¶</a>6、安装 oh-my-zsh</h4>
+<h4 id="6-安装-git"><a class="header-anchor" href="#6-安装-git">¶</a>6、安装 git</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt install git -y</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h4 id="7-安装-oh-my-zsh"><a class="header-anchor" href="#7-安装-oh-my-zsh">¶</a>7、安装 oh-my-zsh</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
 <p>  由于网络原因，上述命令可能无法执行，此时新建一个<code>install.sh</code>脚本文件，复制 <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" target="_blank" rel="noopener">ohmyzsh/install.sh</a> 的内容，然后执行<code>bash install.sh</code>命令即可。</p>
 <h3 id="二-配置"><a class="header-anchor" href="#二-配置">¶</a>二、配置</h3>
@@ -570,7 +574,7 @@
 <h4 id="2-编辑配置文件"><a class="header-anchor" href="#2-编辑配置文件">¶</a>2、编辑配置文件</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
 <p>  我常用的主题是 ys，日常配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export ZSH=&quot;$HOME/.oh-my-zsh&quot;</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;ys&quot;</span><br><span class="line">plugins=(git z cp zsh-autosuggestions zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line">source $ZSH/oh-my-zsh.sh</span><br><span class="line">source ~/.bash_profile</span><br><span class="line"></span><br><span class="line"># node n 第三方镜像</span><br><span class="line">export N_NODE_MIRROR=https://npmmirror.com/mirrors/node</span><br><span class="line"></span><br><span class="line"># pnpm</span><br><span class="line">alias p=&quot;pnpm&quot;</span><br><span class="line"></span><br><span class="line"># 腾讯云服务器地址</span><br><span class="line">tencent=&quot;122.122.122.122&quot;</span><br><span class="line"></span><br><span class="line"># 删除当前目录的 node_modules</span><br><span class="line">alias remove=&quot;pwd; echo &apos;Deleting all node_modules in the current directory ...&apos;; find . -name &apos;node_modules&apos; -type d -prune -exec rm -rf &apos;&#123;&#125;&apos; +; echo &apos;Delete done!&apos;; &quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export ZSH=&quot;$HOME/.oh-my-zsh&quot;</span><br><span class="line"></span><br><span class="line">ZSH_THEME=&quot;ys&quot;</span><br><span class="line">plugins=(git z cp zsh-autosuggestions zsh-syntax-highlighting node)</span><br><span class="line"></span><br><span class="line">source $ZSH/oh-my-zsh.sh</span><br><span class="line">source ~/.bash_profile</span><br><span class="line"></span><br><span class="line"># node n 第三方镜像</span><br><span class="line">export N_NODE_MIRROR=https://npmmirror.com/mirrors/node</span><br><span class="line"></span><br><span class="line"># pnpm</span><br><span class="line">alias p=&quot;pnpm&quot;</span><br><span class="line"></span><br><span class="line"># 腾讯云服务器地址</span><br><span class="line">tencent=&quot;122.122.122.122&quot;</span><br><span class="line"></span><br><span class="line"># nvm 下载 Node.js 镜像源</span><br><span class="line">export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node</span><br><span class="line"></span><br><span class="line"># 删除当前目录的 node_modules</span><br><span class="line">alias remove=&apos;start=$(date +%s%N); find . -name node_modules -type d -prune -print0 | xargs -0 -I&#123;&#125; sh -c &quot;echo Deleting &#123;&#125;; rm -rf \&quot;&#123;&#125;\&quot;&quot;; end=$(date +%s%N); diff=$((end - start)); echo Delete done! Took $(awk &quot;BEGIN &#123;printf \&quot;%.1fs\&quot;, $diff/1000000000&#125;&quot;)&apos;</span><br><span class="line"></span><br><span class="line">MACIP=&apos;192.168.31.16&apos;</span><br><span class="line"># 使用代理服务器(MacOS)</span><br><span class="line">alias proxy=&apos;export https_proxy=http://$MACIP:7890;export http_proxy=http://$MACIP:7890;export all_proxy=socks5://$MACIP:7890&apos;</span><br><span class="line"># 取消使用代理服务器</span><br><span class="line">alias unproxy=&apos;unset http_proxy;unset https_proxy;unset all_proxy&apos;</span><br><span class="line"># 测试服务器是否可用</span><br><span class="line">alias proxy_test=&apos;curl -v google.com&apos;</span><br><span class="line"></span><br><span class="line"># ClaudeCode</span><br><span class="line">alias cc=&apos;claude&apos;</span><br></pre></td></tr></table></figure>
 <p>  可能执行<code>source ~/.zshrc</code>后会报错：<code>/etc/bashrc &quot;command not found: shopt&quot;</code>，编辑<code>~/.bashrc</code>，将<code>. /etc/bashrc</code>替换成<code>bash -c &quot;. /etc/bashrc&quot;</code>，保存后退出，再次执行<code>source ~/.zshrc</code>即可。</p>
 <h4 id="3-卸载-oh-my-zsh"><a class="header-anchor" href="#3-卸载-oh-my-zsh">¶</a>3、卸载 oh-my-zsh</h4>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br></pre></td></tr></table></figure>
@@ -580,7 +584,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看笔记本电脑电量</span></span><br><span class="line">alias power='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'</span><br></pre></td></tr></table></figure>
 <h4 id="2-删除-node-modules"><a class="header-anchor" href="#2-删除-node-modules">¶</a>2、删除 node_modules</h4>
 <p>  使用 Monorepo 架构后，工程内很多地方都有了 <code>node_modules</code> 文件夹，在不希望有缓存干扰调试时，快速清理所有 node_modules 是有必要的，可以借助 <code>npkill</code> 这类工具包，可以配置下方的命令，通过执行 <code>remove</code> 命令快速删除当前路径下所有 node_modules。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除当前目录的 node_modules</span></span><br><span class="line">alias remove="pwd; echo 'Deleting all node_modules in the current directory ...'; find . -name 'node_modules' -type d -prune -exec rm -rf '&#123;&#125;' +; echo 'Delete done!'; "</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 删除当前目录的 node_modules</span></span><br><span class="line">alias remove="echo -n 'Deleting all node_modules in the '; pwd; find . -name 'node_modules' -type d -prune -exec rm -rf '&#123;&#125;' +; echo 'Delete done!'; "</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -name 'node_modules' -type d -prune -exec rm -rf '&#123;&#125;' +</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>find .</code> 表示从当前目录（<code>.</code>）开始搜索</li>
@@ -596,7 +600,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/themes</span><br><span class="line">cp ys.zsh-theme ys1.zsh-theme</span><br><span class="line">vim ys1.zsh-theme</span><br></pre></td></tr></table></figure>
 <p>  进入 <code>~/.oh-my-zsh/themes</code> 目录，以 <code>ys</code> 主题为模板复制一个自定义的主题文件，暂且命名为 <code>ys1</code>，文件名以<code>.zsh-theme</code>结尾，内容如下：</p>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/on-my-zsh/1.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Clean, simple, compatible and meaningful.</span><br><span class="line"># Tested on Linux, Unix and Windows under ANSI colors.</span><br><span class="line"># It is recommended to use with a dark background.</span><br><span class="line"># Colors: black, red, green, yellow, *blue, magenta, cyan, and white.</span><br><span class="line">#</span><br><span class="line"># Mar 2013 Yad Smood</span><br><span class="line"></span><br><span class="line"># VCS</span><br><span class="line">YS_VCS_PROMPT_PREFIX1=&quot; %&#123;$reset_color%&#125;on%&#123;$fg[blue]%&#125; &quot;</span><br><span class="line">YS_VCS_PROMPT_PREFIX2=&quot;:%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_DIRTY=&quot; %&#123;$fg[red]%&#125;x&quot;</span><br><span class="line"># YS_VCS_PROMPT_CLEAN=&quot; %&#123;$fg[green]%&#125;o&quot;</span><br><span class="line">YS_VCS_PROMPT_CLEAN=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># node version</span><br><span class="line">local node_info=&apos;$(ys_node_prompt_info)&apos;</span><br><span class="line">ys_node_prompt_info() &#123;</span><br><span class="line">	if command -v node &amp;&gt;/dev/null; then</span><br><span class="line">		echo &quot; %&#123;$fg[green]%&#125;$(node -v)&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Git info</span><br><span class="line">local git_info=&apos;$(git_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># SVN info</span><br><span class="line">local svn_info=&apos;$(svn_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;svn$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># HG info</span><br><span class="line">local hg_info=&apos;$(ys_hg_prompt_info)&apos;</span><br><span class="line">ys_hg_prompt_info() &#123;</span><br><span class="line">	# make sure this is a hg dir</span><br><span class="line">	if [ -d &apos;.hg&apos; ]; then</span><br><span class="line">		echo -n &quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;hg$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">		echo -n $(hg branch 2&gt;/dev/null)</span><br><span class="line">		if [[ &quot;$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)&quot; != &quot;1&quot; ]]; then</span><br><span class="line">			if [ -n &quot;$(hg status 2&gt;/dev/null)&quot; ]; then</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">			else</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		echo -n &quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Virtualenv</span><br><span class="line">local venv_info=&apos;$(virtenv_prompt)&apos;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_PREFIX=&quot; %&#123;$fg[green]%&#125;&quot;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_SUFFIX=&quot; %&#123;$reset_color%&#125;%&quot;</span><br><span class="line">virtenv_prompt() &#123;</span><br><span class="line">	[[ -n &quot;$&#123;VIRTUAL_ENV:-&#125;&quot; ]] || return</span><br><span class="line">	echo &quot;$&#123;YS_THEME_VIRTUALENV_PROMPT_PREFIX&#125;$&#123;VIRTUAL_ENV:t&#125;$&#123;YS_THEME_VIRTUALENV_PROMPT_SUFFIX&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local time=&quot; %&#123;$reset_color%&#125;[%*]&quot;</span><br><span class="line">local exit_code=&quot;%(?,,C:%&#123;$fg[red]%&#125;%?%&#123;$reset_color%&#125;)&quot;</span><br><span class="line"></span><br><span class="line"># Prompt format:</span><br><span class="line">#</span><br><span class="line"># PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE</span><br><span class="line"># $ COMMAND</span><br><span class="line">#</span><br><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line"># % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0</span><br><span class="line"># $</span><br><span class="line">PROMPT=&quot;</span><br><span class="line">%&#123;$terminfo[bold]$fg[blue]%&#125;#%&#123;$reset_color%&#125; \</span><br><span class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</span><br><span class="line">%&#123;$reset_color%&#125;@ \</span><br><span class="line">%&#123;$fg[green]%&#125;%m \</span><br><span class="line">%&#123;$reset_color%&#125;in \</span><br><span class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</span><br><span class="line">$&#123;hg_info&#125;\</span><br><span class="line">$&#123;git_info&#125;\</span><br><span class="line">$&#123;svn_info&#125;\</span><br><span class="line">$&#123;venv_info&#125;\</span><br><span class="line">$&#123;node_info&#125;\</span><br><span class="line">$&#123;time&#125;\</span><br><span class="line"> \</span><br><span class="line">$exit_code</span><br><span class="line">%&#123;$terminfo[bold]$fg[red]%&#125;$ %&#123;$reset_color%&#125;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Clean, simple, compatible and meaningful.</span><br><span class="line"># Tested on Linux, Unix and Windows under ANSI colors.</span><br><span class="line"># It is recommended to use with a dark background.</span><br><span class="line"># Colors: black, red, green, yellow, *blue, magenta, cyan, and white.</span><br><span class="line">#</span><br><span class="line"># Mar 2013 Yad Smood</span><br><span class="line"></span><br><span class="line"># VCS</span><br><span class="line">YS_VCS_PROMPT_PREFIX1=&quot; %&#123;$reset_color%&#125;%&#123;$fg[blue]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_PREFIX2=&quot;:%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;&quot;</span><br><span class="line">YS_VCS_PROMPT_DIRTY=&quot; %&#123;$fg[red]%&#125;x&quot;</span><br><span class="line"># YS_VCS_PROMPT_CLEAN=&quot; %&#123;$fg[green]%&#125;o&quot;</span><br><span class="line">YS_VCS_PROMPT_CLEAN=&quot;&quot;</span><br><span class="line"></span><br><span class="line"># node version</span><br><span class="line">local node_info=&apos;$(ys_node_prompt_info)&apos;</span><br><span class="line">ys_node_prompt_info() &#123;</span><br><span class="line">	if command -v node &amp;&gt;/dev/null &amp;&amp; [[ -f package.json ]]; then</span><br><span class="line">		echo &quot; %&#123;$fg[green]%&#125;$(node -v)&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Git info</span><br><span class="line">local git_info=&apos;$(git_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_PREFIX=&quot;(%&#123;$fg[cyan]%&#125;&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_SUFFIX=&quot;%&#123;$reset_color%&#125;)&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_GIT_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># SVN info</span><br><span class="line">local svn_info=&apos;$(svn_prompt_info)&apos;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_PREFIX=&quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;svn$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_SUFFIX=&quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_DIRTY=&quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">ZSH_THEME_SVN_PROMPT_CLEAN=&quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line"></span><br><span class="line"># HG info</span><br><span class="line">local hg_info=&apos;$(ys_hg_prompt_info)&apos;</span><br><span class="line">ys_hg_prompt_info() &#123;</span><br><span class="line">	# make sure this is a hg dir</span><br><span class="line">	if [ -d &apos;.hg&apos; ]; then</span><br><span class="line">		echo -n &quot;$&#123;YS_VCS_PROMPT_PREFIX1&#125;hg$&#123;YS_VCS_PROMPT_PREFIX2&#125;&quot;</span><br><span class="line">		echo -n $(hg branch 2&gt;/dev/null)</span><br><span class="line">		if [[ &quot;$(hg config oh-my-zsh.hide-dirty 2&gt;/dev/null)&quot; != &quot;1&quot; ]]; then</span><br><span class="line">			if [ -n &quot;$(hg status 2&gt;/dev/null)&quot; ]; then</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_DIRTY&quot;</span><br><span class="line">			else</span><br><span class="line">				echo -n &quot;$YS_VCS_PROMPT_CLEAN&quot;</span><br><span class="line">			fi</span><br><span class="line">		fi</span><br><span class="line">		echo -n &quot;$YS_VCS_PROMPT_SUFFIX&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Virtualenv</span><br><span class="line">local venv_info=&apos;$(virtenv_prompt)&apos;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_PREFIX=&quot; %&#123;$fg[green]%&#125;&quot;</span><br><span class="line">YS_THEME_VIRTUALENV_PROMPT_SUFFIX=&quot; %&#123;$reset_color%&#125;%&quot;</span><br><span class="line">virtenv_prompt() &#123;</span><br><span class="line">	[[ -n &quot;$&#123;VIRTUAL_ENV:-&#125;&quot; ]] || return</span><br><span class="line">	echo &quot;$&#123;YS_THEME_VIRTUALENV_PROMPT_PREFIX&#125;$&#123;VIRTUAL_ENV:t&#125;$&#123;YS_THEME_VIRTUALENV_PROMPT_SUFFIX&#125;&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">local time=&quot; %&#123;$reset_color%&#125;%*&quot;</span><br><span class="line">local exit_code=&quot;%(?,,C:%&#123;$fg[red]%&#125;%?%&#123;$reset_color%&#125;)&quot;</span><br><span class="line"></span><br><span class="line"># Prompt format:</span><br><span class="line">#</span><br><span class="line"># PRIVILEGES USER @ MACHINE in DIRECTORY on git:BRANCH STATE [TIME] C:LAST_EXIT_CODE</span><br><span class="line"># $ COMMAND</span><br><span class="line">#</span><br><span class="line"># For example:</span><br><span class="line">#</span><br><span class="line"># % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0</span><br><span class="line"># $</span><br><span class="line">PROMPT=&quot;</span><br><span class="line">%&#123;$terminfo[bold]$fg[blue]%&#125;#%&#123;$reset_color%&#125; \</span><br><span class="line">%(#,%&#123;$bg[yellow]%&#125;%&#123;$fg[black]%&#125;%n%&#123;$reset_color%&#125;,%&#123;$fg[cyan]%&#125;%n) \</span><br><span class="line">%&#123;$terminfo[bold]$fg[yellow]%&#125;%~%&#123;$reset_color%&#125;\</span><br><span class="line">$&#123;hg_info&#125;\</span><br><span class="line">$&#123;git_info&#125;\</span><br><span class="line">$&#123;svn_info&#125;\</span><br><span class="line">$&#123;venv_info&#125;\</span><br><span class="line">$&#123;node_info&#125;\</span><br><span class="line">$&#123;time&#125;\</span><br><span class="line"> \</span><br><span class="line">$exit_code</span><br><span class="line">%&#123;$terminfo[bold]$fg[red]%&#125;$ %&#123;$reset_color%&#125;&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -799,6 +803,111 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 24.04 基础环境搭建</title>
+    <url>/article/ubuntu24-base.html</url>
+    <content><![CDATA[<p>记录下 Ubuntu 24.04 服务器基础环境的搭建。</p>
+<a id="more"></a>
+<h3 id="一-添加-deploy-用户"><a class="header-anchor" href="#一-添加-deploy-用户">¶</a>一、 添加 deploy 用户</h3>
+<p>购买服务器后在实例详情 -&gt; 基本信息 -&gt; 更多 -&gt; 重置实例密码，重启服务器后就可以使用<code>ssh root@47.65.55.62</code>来连接服务器了。</p>
+<p>1、创建用户，一路回车<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adduser deploy</span><br></pre></td></tr></table></figure></p>
+<p>2、将 deploy 加入 sudo 组<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">usermod -aG sudo deploy</span><br></pre></td></tr></table></figure></p>
+<pre><code>3、验证，应该看到 sudo
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">groups deploy</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>4、修改 deploy 的密码<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">passwd deploy</span><br></pre></td></tr></table></figure></p>
+<p>5、配置 sudo 免密码<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/sudoers.d/deploy</span><br></pre></td></tr></table></figure></p>
+<pre><code>填入以下内容，使用独立配置文件更安全
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+
+保存后设置权限
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 440 /etc/sudoers.d/deploy</span><br></pre></td></tr></table></figure>
+
+验证
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su - deploy</span><br><span class="line">sudo whoami</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h3 id="二-添加本机的-ssh-公钥到服务器"><a class="header-anchor" href="#二-添加本机的-ssh-公钥到服务器">¶</a>二、 添加本机的 SSH 公钥到服务器</h3>
+<p>以后连接服务器不用每次都输入用户名和密码</p>
+<p>1、在本地生成公私钥对</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>2、本地执行以下命令并输入对应密码完成自动写入到远程服务器的<code>~/.ssh/authorized_keys</code>文件，没有公钥可通过<code>ssh-keygen -t rsa</code>一路回车生成公钥</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-copy-id deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-copy-id -i .ssh/id_rsa_liuxy0551 deploy@47.65.55.62</span><br></pre></td></tr></table></figure>
+<p>3、windows 执行以下操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">type $env:USERPROFILE\.ssh\id_rsa.pub | ssh &#123;user-name&#125;@&#123;user-ip&#125; "cat &gt;&gt; .ssh/authorized_keys"</span><br></pre></td></tr></table></figure>
+<p>deploy 用户可能没有 .ssh 文件夹，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir ~/.ssh</span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">touch ~/.ssh/authorized_keys</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>4、再使用<code>ssh deploy@47.65.55.62</code>连接服务器就可以免密登录了</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li><strong>如果还不能免密登录，就进行第 3 步设置权限</strong></li>
+<li><strong>authorized_keys 权限一定要为600</strong></li>
+</ul>
+</blockquote>
+<p>5、【可选】在远程服务器配置相应的权限：<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 700 /home/deploy</span><br><span class="line">chmod 700 /home/deploy/.ssh</span><br><span class="line">chmod 600 /home/deploy/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p><code>chmod 777 -R /mnt</code>将 mnt 目录下所有文件都给予 777 权限</p>
+<h3 id="三-安装-git-vim-wget-lsof"><a class="header-anchor" href="#三-安装-git-vim-wget-lsof">¶</a>三、安装 git，vim、wget、lsof</h3>
+<p>-y 代表需要输入 y 的地方自动输入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt install git -y</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt install vim wget lsof -y</span><br></pre></td></tr></table></figure>
+<h3 id="四-安装-nginx"><a class="header-anchor" href="#四-安装-nginx">¶</a>四、安装 nginx</h3>
+<h4 id="一-安装与常见命令"><a class="header-anchor" href="#一-安装与常见命令">¶</a>（一）、安装与常见命令</h4>
+<p>1、安装 nginx 并查看版本号，安装完成后就启动 nginx 查看是否有问题<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt install nginx -y</span><br><span class="line">nginx -v</span><br><span class="line">systemctl start nginx</span><br></pre></td></tr></table></figure></p>
+<p>2、nginx 常用命令</p>
+<pre><code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start/stop/reload/restart/status nginx</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>  重新加载 nginx 配置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<h4 id="二-多配置文件"><a class="header-anchor" href="#二-多配置文件">¶</a>（二）、多配置文件</h4>
+<p>这个服务器之后可能会部署很多学习的项目，为了避免混乱，准备每个项目单独配置。默认配置文件为：<code>/etc/nginx/nginx.conf</code>。</p>
+<p>1、如果没有域名且想要使用 80 端口，需要将 nginx 默认配置中的 server 删除，注意保留文件中的<code>include</code>指向。<br>
+<img src="https://images-hosting.liuxianyu.cn/posts/cent-os-base/1.png" alt></p>
+<p>2、在<code>/etc/nginx/conf.d</code>文件夹下创建配置文件，以<code>.conf</code>结尾，配置内容可以参考百度或 <a href="https://github.com/wuyuedefeng/blogs/issues/16" target="_blank" rel="noopener">Nginx - Vue单页面应用配置(Vue部署)</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/hexo-blog.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name liuxianyu.cn;</span><br><span class="line"></span><br><span class="line">    root /mnt/projects/hexo-blog/blog;</span><br><span class="line">    index index.html;</span><br><span class="line">    location ^~ /static|img|js|css/ &#123;</span><br><span class="line">      gzip_static on;</span><br><span class="line">      expires max;</span><br><span class="line">      add_header Cache-Control public;</span><br><span class="line">    &#125;</span><br><span class="line">    location / &#123;</span><br><span class="line">      try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~* \.(css|js|gif|jpe?g|png)$ &#123;</span><br><span class="line">      expires 50d;</span><br><span class="line">      access_log off;</span><br><span class="line">      add_header Pragma public;</span><br><span class="line">      add_header Cache-Control &quot;public&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动 nginx，并设置开机自启<br>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start nginx</span><br><span class="line">systemctl enable nginx</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li><strong>配置安全组规则, 这是个大坑。80 端口没打开的时候，无法通过 ip 直接访问，同事说 2018 年 80 端口还是默认打开的，欺负新人</strong></li>
+</ul>
+</blockquote>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/cent-os-base/2.png" alt></p>
+<h3 id="五-安装-node"><a class="header-anchor" href="#五-安装-node">¶</a>五、安装 node</h3>
+<p>参考 <a href="https://liuxianyu.cn/article/node-nvm.html">node 版本工具 —— nvm</a></p>
+<h3 id="六-其他安装"><a class="header-anchor" href="#六-其他安装">¶</a>六、其他安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i nrm pm2 yarn pnpm@9.7.1 -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nrm use taobao</span><br><span class="line">yarn config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<h3 id="七-服务器-git-clone"><a class="header-anchor" href="#七-服务器-git-clone">¶</a>七、服务器 git clone</h3>
+<p>服务器拉取一些私有仓库的 git 代码时每次都需要输入用户名密码，参考 <a href="https://liuxianyu.cn/article/git-order-k.html">Git 常用命令（十一）—— 解决每次拉代码都需要输入用户名和密码</a>。</p>
+<h3 id="八-写在后面"><a class="header-anchor" href="#八-写在后面">¶</a>八、写在后面</h3>
+<p>如果是第一次在服务器上操作，很多操作都是尝试着进行的，有点强迫症的可以很多不太合适的操作过后会重置一下服务器。<br>
+操作步骤为：阿里云控制台 -&gt; 云服务器 ECS -&gt; 选择实例 -&gt; 实例详情 -&gt; 右上角 停止实例 -&gt; 左侧 本实例磁盘 -&gt; 重新初始化磁盘。<br>
+但是下次再连接服务器的时候就会报错了<code>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code>，根据错误提示编辑对应的文件，删除服务器的记录即可。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/cent-os-base/3.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.ssh/known_hosts</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1417,8 +1526,8 @@ rpc error: code = 2 desc = oci runtime error: exec failed: container_linux.go:23
         <category>微信小程序</category>
       </categories>
       <tags>
-        <tag>微信小程序</tag>
         <tag>加密解密</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -2786,7 +2895,7 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
 <a id="more"></a>
 <h3 id="全局配置"><a class="header-anchor" href="#全局配置">¶</a>全局配置</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config credential.helper store</span><br></pre></td></tr></table></figure>
-<p>  上述命令会在拉取时记录用户名和密码，下次再执行 git pull 时就不用再输入了。</p>
+<p>  上述命令会在拉取时记录用户名和密码，下次执行 git pull 时输入一次用户名密码后就不用再输入了。</p>
 <p>  <strong>也可以使用 ssh 链接 clone 项目</strong></p>
 ]]></content>
       <categories>
@@ -4203,6 +4312,43 @@ jssha 建议与官方 demo 使用的版本一致，即1.5.0版本，可输入如
       </tags>
   </entry>
   <entry>
+    <title>node 版本工具 —— nvm</title>
+    <url>/article/node-nvm.html</url>
+    <content><![CDATA[<p>  有时候项目中需要老版本的 node 支持，所以记录一下如何通过<code>nvm</code>管理多个 node 版本。</p>
+<a id="more"></a>
+<p>  <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">node 以往的版本</a></p>
+<h3 id="一-安装"><a class="header-anchor" href="#一-安装">¶</a>一、安装</h3>
+<h4 id="1-安装-nvm："><a class="header-anchor" href="#1-安装-nvm：">¶</a>1、安装 nvm：</h4>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash</span><br></pre></td></tr></table></figure>
+<h4 id="2-配置-zsh："><a class="header-anchor" href="#2-配置-zsh：">¶</a>2、配置 zsh：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat &gt;&gt; ~/.zshrc &lt;&lt;'EOF'</span><br><span class="line"></span><br><span class="line">export NVM_DIR="$HOME/.nvm"</span><br><span class="line">[ -s "$NVM_DIR/nvm.sh" ] &amp;&amp; \. "$NVM_DIR/nvm.sh"</span><br><span class="line">[ -s "$NVM_DIR/bash_completion" ] &amp;&amp; \. "$NVM_DIR/bash_completion"</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h4 id="3-重新加载-zsh："><a class="header-anchor" href="#3-重新加载-zsh：">¶</a>3、重新加载 zsh：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="二-常用命令"><a class="header-anchor" href="#二-常用命令">¶</a>二、常用命令</h3>
+<h4 id="1-查看已安装版本："><a class="header-anchor" href="#1-查看已安装版本：">¶</a>1、查看已安装版本：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
+<h4 id="2-安装指定版本："><a class="header-anchor" href="#2-安装指定版本：">¶</a>2、安装指定版本：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm install 22</span><br></pre></td></tr></table></figure>
+<h4 id="3-切换到指定版本："><a class="header-anchor" href="#3-切换到指定版本：">¶</a>3、切换到指定版本：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm use 22</span><br></pre></td></tr></table></figure>
+<h4 id="4-卸载指定版本："><a class="header-anchor" href="#4-卸载指定版本：">¶</a>4、卸载指定版本：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm uninstall 18</span><br></pre></td></tr></table></figure>
+<h4 id="5-设置默认版本："><a class="header-anchor" href="#5-设置默认版本：">¶</a>5、设置默认版本：</h4>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm alias default 22</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a class="header-anchor" href="#参考资料">¶</a>参考资料</h3>
+<p>  以下两篇结合着看：<br>
+  <a href="https://blog.csdn.net/wmzy1067111110/article/details/52963856" target="_black">linux 下使用&quot;n&quot;配置使用淘宝镜像</a></p>
+]]></content>
+      <categories>
+        <category>node</category>
+        <category>版本管理</category>
+      </categories>
+      <tags>
+        <tag>node</tag>
+        <tag>Mac OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WebStorm、vscode 配置识别 vue 项目的别名 alias @</title>
     <url>/article/webstorm-vscode-alias.html</url>
     <content><![CDATA[<p>  记录一下如何配置可以让 WebStorm 和 vscode 识别 Vue CLI 3 项目中的别名 alias @。</p>
@@ -4842,10 +4988,30 @@ localhost 表示允许本机的连接</p>
       </tags>
   </entry>
   <entry>
-    <title>前端学习 Docker 之旅（三）—— Cent OS 中安装 Docker</title>
+    <title>前端学习 Docker 之旅（三）—— Ubuntu 24.04、Cent OS 7.6 中安装 Docker</title>
     <url>/article/cent-os-docker.html</url>
     <content><![CDATA[<p>  Docker 官方要求 Linux 内核版本至少<code>3.8</code>以上。</p>
 <a id="more"></a>
+<h2 id="ubuntu-24-04"><a class="header-anchor" href="#ubuntu-24-04">¶</a>Ubuntu 24.04</h2>
+<h3 id="一-安装-docker"><a class="header-anchor" href="#一-安装-docker">¶</a>一、安装 Docker</h3>
+<p>  更新系统并安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y ca-certificates curl</span><br></pre></td></tr></table></figure>
+<p>  添加 Docker 官方 GPG 密钥</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo install -m 0755 -d /etc/apt/keyrings</span><br><span class="line">sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc</span><br><span class="line">sudo chmod a+r /etc/apt/keyrings/docker.asc</span><br></pre></td></tr></table></figure>
+<p>  添加 Docker 软件源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo tee /etc/apt/sources.list.d/docker.sources &gt; /dev/null &lt;&lt;EOF</span><br><span class="line">Types: deb</span><br><span class="line">URIs: https://download.docker.com/linux/ubuntu</span><br><span class="line">Suites: $(. /etc/os-release &amp;&amp; echo "$&#123;UBUNTU_CODENAME:-$VERSION_CODENAME&#125;")</span><br><span class="line">Components: stable</span><br><span class="line">Architectures: $(dpkg --print-architecture)</span><br><span class="line">Signed-By: /etc/apt/keyrings/docker.asc</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>  安装 Docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
+<h3 id="二-启动-docker"><a class="header-anchor" href="#二-启动-docker">¶</a>二、启动 Docker</h3>
+<p>  启动并设置开机自启</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<p>  查看 Docker 状态</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>
+<p>  可以让普通用户也能使用 Docker，把 deploy 加入 docker 用户组</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker deploy</span><br></pre></td></tr></table></figure>
+<h3 id="三-验证安装"><a class="header-anchor" href="#三-验证安装">¶</a>三、验证安装</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Docker 版本</span></span><br><span class="line">docker -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> Docker Compose 版本</span></span><br><span class="line">docker compose version</span><br></pre></td></tr></table></figure>
+<h2 id="cent-os-7-6"><a class="header-anchor" href="#cent-os-7-6">¶</a>Cent OS 7.6</h2>
 <h3 id="一-cent-os-版本"><a class="header-anchor" href="#一-cent-os-版本">¶</a>一、Cent OS 版本</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
@@ -4862,15 +5028,27 @@ localhost 表示允许本机的连接</p>
 <figure class="highlight shell"><figcaption><span>启动 Docker</span></figcaption><table><tr><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 <p>  2、查看 Docker 是否安装成功：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+<h2 id="创建-docker-代码"><a class="header-anchor" href="#创建-docker-代码">¶</a>创建 Docker 代码</h2>
+<p>  docker pull 实际下载镜像的是 Docker Daemon（后台服务），它不会自动继承当前 Shell 的代理配置。所以，即使服务器上的 curl 命令能通过 proxy 访问 Google，也不代表 docker pull 能走代理。</p>
+<p>  在 Ubuntu 24.04 上创建 Docker 的 systemd 配置目录：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/systemd/system/docker.service.d</span><br></pre></td></tr></table></figure>
+<p>  创建代理配置：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo tee /etc/systemd/system/docker.service.d/http-proxy.conf &gt; /dev/null &lt;&lt;'EOF'</span><br><span class="line">[Service]</span><br><span class="line">Environment="HTTP_PROXY=http://127.0.0.1:6990"</span><br><span class="line">Environment="HTTPS_PROXY=http://127.0.0.1:6990"</span><br><span class="line">Environment="NO_PROXY=localhost,127.0.0.1,::1"</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>  重新加载配置并重启 Docker：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+<p>  检查 Docker 代理是否生效：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl show --property=Environment docker</span><br></pre></td></tr></table></figure>
 <p>附：<a href="https://liuxianyu.cn/article/docker-b.html" target="_black">前端学习 Docker 之旅（二）—— 常用指令</a></p>
 ]]></content>
       <categories>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>Cent OS</category>
       </categories>
       <tags>
         <tag>Cent OS</tag>
         <tag>Docker</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -6546,7 +6724,9 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
 <p>7、修改博客根目录下的<code>_config.yml</code>文件：<br>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https://github.com/liuxy0551/liuxy0551.github.io.git,master</span><br><span class="line">    coding: https://git.dev.tencent.com/liuxianyu/liuxy0551.coding.me.git,master</span><br><span class="line">    gitee: git@gitee.com:liuxy0551/liuxy0551.git,master</span><br><span class="line">    server: deploy@47.65.55.62:/mnt/projects/hexo-blog/blog.git,master</span><br></pre></td></tr></table></figure></p>
 <p>8、在博客根目录下输入以下命令：<br>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<pre><code><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</code></pre>
 <p>9、配置 nginx<br>
 <img src="https://images-hosting.liuxianyu.cn/posts/hexo-server/1.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/hexo-blog.conf</span><br></pre></td></tr></table></figure>
@@ -6561,8 +6741,8 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>blog</tag>
-        <tag>Hexo</tag>
         <tag>Linux</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -7279,6 +7459,40 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </tags>
   </entry>
   <entry>
+    <title>在 macOS 中安装 Jekyll</title>
+    <url>/article/macos-jekyll.html</url>
+    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
+<a id="more"></a>
+<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<p>这一步可能会遇到一些问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
+<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
+</blockquote>
+<p>接下来进入到博客文件夹，启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p>此时出现了新的问题：</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
+<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
+<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
+<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
+<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue Mint-UI 省市区地址三级联动</title>
     <url>/article/vue-mintui-address.html</url>
     <content><![CDATA[<p>最近公司项目中用到收货地址的功能，遂采用这种联动的方式</p>
@@ -7311,40 +7525,6 @@ docker start 的作用是重新启动已存在的镜像。也就是说，如果�
       </categories>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 macOS 中安装 Jekyll</title>
-    <url>/article/macos-jekyll.html</url>
-    <content><![CDATA[<p>最近换了 macOS，所以把博客也迁移到了 macOS 上，这里做一些环境的准备，期间遇到了一些在 Windows 上没见过的问题，记录一下。</p>
-<a id="more"></a>
-<p>  电脑已经安装好 Git 环境，另外 macOS 自带有 Ruby，RubyGems 也需要，这个是我之前折腾 Consolas 字体时顺带安装的。首先打开 <a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">Jekyll 中文文档</a>，按照指令进行环境准备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<p>这一步可能会遇到一些问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/1.png" alt></p>
-<p>如上图所说，我对 /Library/Ruby/Gems/2.3.0 这个文件夹没有写权限，指令未完成，那就给文件夹权限呗。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd /Library/Ruby/Gems</span><br><span class="line">$ sudo chmod -R 777 2.3.0/</span><br><span class="line">Password:</span><br><span class="line">$ gem install jekyll</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意： 是 cd 到对应文件夹的父目录，然后执行 sudo chmod -R 777 后面跟上文件夹名称，然后输入密码，再执行一次，完成。</p>
-</blockquote>
-<p>接下来进入到博客文件夹，启动服务：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd *****.github.io</span><br><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p>此时出现了新的问题：</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/2.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Configuration file: /Users/czre/git/blog/_config.yml</span><br><span class="line">   Deprecation: The &apos;gems&apos; configuration option has been renamed to &apos;plugins&apos;. Please update your config file accordingly.</span><br><span class="line">Dependency Error: Yikes! It looks like you don&apos;t have jekyll-paginate or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;cannot load such file -- jekyll-paginate&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</span><br></pre></td></tr></table></figure>
-<p>这是因为没有 jekyll-paginate，使用如下指令安装一下就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gem install jekyll-paginate</span><br></pre></td></tr></table></figure>
-<p>另外也有可能出现没有 jekyll-gist 和 jekyll-sitemap 等错误，解决方法同上，这些错误取决于模板所采用的一些服务，需要安装好这些服务。</p>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/3.png" alt></p>
-<p>经过上述步骤，输入以下指令就可以在 <a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">http://127.0.0.1:4000/</a> 或者 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 见到博客了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ jekyll serve</span><br></pre></td></tr></table></figure>
-<p><img src="https://images-hosting.liuxianyu.cn/posts/macos-jekyll/4.png" alt></p>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -8468,23 +8648,6 @@ categories: tag标签的分类，如：categories: 随笔</p>
       </tags>
   </entry>
   <entry>
-    <title>优易口</title>
-    <url>/article/you.html</url>
-    <content><![CDATA[<p>小思</p>
-<a id="more"></a>
-<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
-<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
-<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
-<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
-<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
-<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
-<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
-]]></content>
-      <categories>
-        <category>小思</category>
-      </categories>
-  </entry>
-  <entry>
     <title>小思</title>
     <url>/article/thinking.html</url>
     <content><![CDATA[<p>小思</p>
@@ -8498,6 +8661,23 @@ categories: tag标签的分类，如：categories: 随笔</p>
 <p>  终会懂得，人的成长，注定是一场孤独的旅途。学会在生命里那个寒冷的冬天，一个人孤独的过冬。不奢求别人，不依赖别人，自己温暖自己，自己给自己力量和勇气。我们都一样，要学会承受生命的孤独与无助，挺过去才能看见美好和繁华。也许永远，实在是太远了，也许人生真的无法十全十美吧！我的一个朋友说她自己很自私，与男朋友相处时也是，但我感觉似乎不是如此。当她没有那种感觉后，什么都对，但是，感觉不对。我知道，这种只要感觉的人是相处中是最难成功的，我也想过去逼问她，到底是怎样的感觉呢？</p>
 <p>  终究还是没问，我想她也是不想说，或者她自己也说不清。或许她只是希望，在她不开心的时候，他可以让她觉得他会一直在她身边，去深深地理解。我忽然觉得有一丝感动，在这个心里的光无法穿越的城市里，感觉到了一丝温情的光。</p>
 <p>  我想，终有一天，我的生命里也会出现这么一个人，她接受我波澜不惊的爱情，陪着我去看世界的风景，许给我一世的欢颜。</p>
+]]></content>
+      <categories>
+        <category>小思</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>优易口</title>
+    <url>/article/you.html</url>
+    <content><![CDATA[<p>小思</p>
+<a id="more"></a>
+<p>  这是我 QQ 空间仅剩的两篇日志之一，那时候有好几篇日志都是转载的，但是渐渐不在 QQ 空间发什么内容了，这样，生活中的那些人就琢磨不到我的内心了。尽管如此，心里想说的话还是有的，在这里记录一下吧。</p>
+<p>  今天是 2015 年 1 月  19号，得空来写一些心里的想法和回忆，因为没有人说话。人是孤独的，没有人可以像你自己一样知道你所知道的一切，一些烦恼似乎在换了倾诉对象后就无法排除了。比如说，感情。</p>
+<p>  似乎我们现在谈爱情为时过早，所以予之为&quot;感情&quot;，但我们心里确实有那种令人愉悦的感觉，即便痛过，依旧不舍得丢弃。当你听到和你在一起的人对你说&quot;我不喜欢你&quot;，你觉得你的心很痛，对，很痛。可是，他只是在和你开一个玩笑，接下来他说的是&quot;因为我爱你！&quot;暂不谈我们能否承担起&quot;爱&quot;这个字，只知道你又喜笑颜开，你的喜怒哀乐全都被他掌控，但你依然发自内心的高兴。这是为什么？只是因为你喜欢他？不，也可以是他喜欢你，而你意在其他，只是为了不辜负他的一番好意，逢场作戏，却惹得大家分隔，该死。也算作是痛吧。</p>
+<p>  自此，你便是独来独往，在需要人帮助、哭诉之时，还是你一个人去面对，面对自己种下的因果。开心是短，痛苦为长。捧着常规来劝别人：忘记便得新生活，俨然一副人生导师的模样。殊不知，自己也尚未懂得，总是带着回忆过往的心情，不怕痛，不怕苦，走在令人伤感的地方。或许，明知如此只会更加痛苦，但，即便痛，也不愿意走出来。</p>
+<p>  也罢，痛苦不一定就是坏事，myself 说过 “What pains us trains us.”</p>
+<p>  明明带着伤，却还可以和你们说笑，不是忘却，而是铭记，铭记于心。面对再也回不去了，放弃挣扎，即使一个人生活，你也可以有欢声笑语，只不过不要憋坏了自己，空气也可以陪着你聊聊天。孤独是伤人利器，分别后怕起了热闹，怕起了喝酒。也并不是真的不想和大家一起玩，也有试过忘我的疯狂，可是曲终人散后呢，只有自己带着醉意晃荡在街头，偶尔拉人来陪，可是你说不出来，还是压在心头。你做错在先，承受吧，你一开始的选择就是错的，因为你还年轻。</p>
+<p>  不必说抱歉，这是我们成长中的经历，你也可以看之为财富。</p>
 ]]></content>
       <categories>
         <category>小思</category>

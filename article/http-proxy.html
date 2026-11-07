@@ -395,7 +395,7 @@ window.onload = function() {
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">56</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">57</span></a>
 
   </li>
         
@@ -414,7 +414,7 @@ window.onload = function() {
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">63</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">65</span></a>
 
   </li>
         
@@ -433,7 +433,7 @@ window.onload = function() {
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">199</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">201</span></a>
 
   </li>
         
@@ -690,20 +690,22 @@ window.onload = function() {
 <p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/2.png" alt></p>
 <h3 id="二-公网服务器"><a class="header-anchor" href="#二-公网服务器">¶</a>二、公网服务器</h3>
 <p>  公网服务器可以借助 <code>ssh -R</code> 命令创建一个反向代理通道（<strong>下方 ssh 命令在本地机器执行，本地机器需要科学上网</strong>）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 6990:localhost:7890 root@47.65.55.62 -N</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh -N -T \</span><br><span class="line">  -o ExitOnForwardFailure=yes \</span><br><span class="line">  -o ServerAliveInterval=30 \</span><br><span class="line">  -o ServerAliveCountMax=3 \</span><br><span class="line">  -R 6990:127.0.0.1:7890 \</span><br><span class="line">  root@47.65.55.62</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>ssh -R</code> 表示建立一个反向 SSH 隧道</li>
 <li><code>6990</code> 是在公网服务器上监听的端口</li>
-<li><code>localhost</code> 本地机器的地址</li>
-<li><code>7890</code> 本地机器代理服务的地址，这里使用的是 clash</li>
-<li><code>root@47.65.55.62</code> 公网服务器的用户名和 IP 地址</li>
-<li><code>-N</code> 表示不执行远程命令，仅建立隧道连接，这里必需</li>
+<li><code>127.0.0.1</code> 表示本地机器的回环地址（SSH 客户端所在机器）</li>
+<li><code>7890</code> 是本地机器代理服务的端口，这里使用的是 Clash</li>
+<li><code>root@47.65.55.62</code> 表示公网服务器的用户名和 IP 地址</li>
+<li><code>-N</code> 表示不执行远程命令，仅建立隧道连接</li>
+<li><code>-T</code> 表示不分配伪终端，适用于纯端口转发场景</li>
+<li><code>-o ExitOnForwardFailure=yes</code> 表示如果端口转发建立失败（例如远程 6990 端口被占用），SSH 立即退出</li>
+<li><code>-o ServerAliveInterval=30</code> 表示每隔 30 秒向服务器发送一次保活消息</li>
+<li><code>-o ServerAliveCountMax=3</code> 表示连续 3 次未收到服务器响应后，断开 SSH 连接</li>
 </ul>
 <p>  因此上述命令的作用是：将本地的 <code>7890</code> 端口映射到公网服务器 <code>47.65.55.62</code> 的 <code>6990</code> 端口，当公网服务器有请求发送到公网服务器的 <code>6990</code> 端口时，它会通过 SSH 隧道转发到本地机器的 <code>7890</code> 端口。</p>
-<p>  在本地机器执行上述命令前先在公网服务器上确认配置了允许端口转发，我这里的机器是 CentOS7.6，使用 <code>cat /etc/os-release</code> 可以查看系统信息。<code>vim /etc/ssh/sshd_config</code> 后找到 <code>AllowTcpForwarding</code> 和 <code>GatewayPorts</code>，这两个配置需要都设置为 <code>yes</code>，一般是注释了，可以在这两者的下方添加如下配置，并执行 <code>systemctl restart sshd</code> 命令重启 SSH 服务：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts yes</span><br></pre></td></tr></table></figure>
 <p>  类似的，在公网服务器上也添加下方的 <code>proxy</code> 命令，然后执行 <code>source ~/.zshrc</code> 就可以生效了。在公网服务器执行 <code>proxy_test</code> 测试代理是否可用，发现一直是 Trying；执行 <code>proxy</code> 后再执行 <code>proxy_test</code> 就发现有具体内容返回了；可以通过执行 <code>unproxy</code> 取消代理。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 代理到本机的指定端口（公网服务器）</span></span><br><span class="line">alias proxy='export https_proxy=http://localhost:6990;export http_proxy=http://localhost:6990;export all_proxy=socks5://localhost:6990'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消使用代理服务器</span></span><br><span class="line">alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试服务器是否可用</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启代理（通过 SSH 反向隧道连接 Mac 本机 Clash）</span></span><br><span class="line">alias proxy='export HTTP_PROXY=http://127.0.0.1:6990; export HTTPS_PROXY=http://127.0.0.1:6990; export ALL_PROXY=http://127.0.0.1:6990; export http_proxy=$HTTP_PROXY; export https_proxy=$HTTPS_PROXY; export all_proxy=$ALL_PROXY'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消代理</span></span><br><span class="line">alias unproxy='unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy'</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试代理</span></span><br><span class="line">alias proxy_test='curl -v google.com'</span><br></pre></td></tr></table></figure>
 <p><img src="https://images-hosting.liuxianyu.cn/posts/http-proxy/3.png" alt></p>
 <blockquote>
 <p><strong>注意</strong></p>
@@ -894,7 +896,7 @@ window.onload = function() {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">199</span>
+                    <span class="site-state-item-count">201</span>
                     <span class="site-state-item-name">随笔</span>
                   </a>
                 </div>
@@ -1037,7 +1039,11 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">65</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1166,7 +1172,9 @@ window.onload = function() {
                     
                       
                     
-                    <span class="site-state-item-count">56</span>
+                      
+                    
+                    <span class="site-state-item-count">57</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1265,7 +1273,7 @@ window.onload = function() {
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2025</span>
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -1314,7 +1322,7 @@ window.onload = function() {
 <!-- 网站底部字数统计 -->
 <div class="theme-info">
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共108.3k字</span>
+  <span class="post-count">博客全站共110k字</span>
   <a style="color: #999; border-bottom: none" target="_blank" href="https://beian.miit.gov.cn/"> | 浙ICP备19046839号</a>
 </div>
 
