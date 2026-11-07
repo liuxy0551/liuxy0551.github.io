@@ -130,7 +130,7 @@ chmod +x /mnt/mysqldump/*.sh
 50 23 * * * /mnt/mysqldump/my-database.sh
 ```
 
-&emsp;&emsp;可以使用 `crontab -l` 查看任务是否已添加成功。
+&emsp;&emsp;nano 时直接输入定时任务；Ctrl + O：保存文件，按 Enter：确认文件名，Ctrl + X：退出编辑器。可以使用 `crontab -l` 查看任务是否已添加成功。
 
 
 ### docker 版

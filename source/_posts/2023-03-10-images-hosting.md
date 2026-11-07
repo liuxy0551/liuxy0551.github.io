@@ -43,57 +43,85 @@ cd /mnt/projects/
 sudo chown -R deploy:deploy images-hosting
 ```
 
-#### 4、本地环境变量
+#### 4、本地图床仓库
 
-&emsp;&emsp;在本地添加远程服务器的环境变量，避免服务器 IP 暴露在公网。`vim ~/.zshrc` 添加以下内容后执行 `source ~/.zshrc`：
+&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。在本地图床仓库中添加 `deploy.mjs` 文件：
 
-```
-# 腾讯云服务器
-export tencent="43.139.139.139"
-```
+```js
+import { $, chalk, echo, question } from "zx";
 
-#### 5、本地图床仓库
+const infoLog = (str) => console.log(chalk.whiteBright(str));
+const doneLog = (str = "") => console.log(chalk.greenBright(str || "✔ DONE!\n"));
 
-&emsp;&emsp;在 gitee 新建了一个仓库用来做备份，但是由于包含图床内容，gitee 不允许公开仓库。在本地图床仓库中添加 `deploy.command` 文件：
+$.verbose = false;
 
-```
-echo -e '1、本地压缩资源中...'
-gtar -czf images-hosting.tar.gz *
+(async () => {
+    infoLog(`\n---------------- images-hosting 开始部署操作 ----------------\n`);
 
+    // gtar 是给 macos 使用的，和 tar 区别不大，可以通过 brew install gnu-tar 安装
+    infoLog("1. 本地压缩资源中...");
+    $.verbose = true;
+    echo(await $`rm -rf images-hosting.tar.gz && gtar -czf images-hosting.tar.gz --exclude=node_modules *`);
+    $.verbose = false;
+    doneLog();
 
-echo -e '2、上传压缩包到远程服务器'
-scp -P 22 -r images-hosting.tar.gz deploy@$tencent:/mnt/projects/images-hosting/
+    infoLog("2. 上传压缩包到远程服务器，请耐心等待...");
+    const serverIP = await question(`请输入远程服务器 ip: `);
+    $.verbose = true;
+    echo(await $`scp -P 22 -r images-hosting.tar.gz deploy@${serverIP}:/mnt/projects/images-hosting/`);
+    $.verbose = false;
+    doneLog();
 
+    infoLog("3. 在远程服务器解压中...");
+    $.verbose = true;
+    echo(
+        await $`ssh deploy@${serverIP} "cd /mnt/projects/images-hosting/; tar -xzf images-hosting.tar.gz; rm -rf images-hosting.tar.gz;"`
+    );
+    $.verbose = false;
+    doneLog();
 
-echo -e '3、在远程服务器解压中...'
-ssh deploy@$tencent "cd /mnt/projects/images-hosting/; tar -xzf images-hosting.tar.gz; rm -rf images-hosting.tar.gz; ls"
+    infoLog("4. 删除本地压缩包");
+    $.verbose = true;
+    echo(await $`rm -rf images-hosting.tar.gz`);
+    $.verbose = false;
+    doneLog();
 
+    infoLog("5. 备份到 gitee 远程仓库");
+    const message = await question(`请输入 git commit message: `);
+    $.verbose = true;
+    echo(await $`git add .`);
+    await $`git commit -m ${message}`;
+    await $`git push`;
+    $.verbose = false;
+    doneLog();
 
-echo -e '4、删除本地压缩包'
-rm -rf images-hosting.tar.gz
-
-
-echo -e '\n资源已经成功上传到远程服务器啦~'
+    infoLog(`---------------- images-hosting 部署操作结束 ----------------\n\n`);
+    doneLog(`DONE! 所有操作都已经完成啦，去浏览器看看效果吧~`);
+})();
 ```
 
 &emsp;&emsp;在本地图床仓库中添加 `package.json` 文件：
 
 ```
 {
-  "name": "images-hosting",
-  "version": "1.0.0",
-  "description": "在服务器上自建图床 https://liuxianyu.cn/article/images-hosting.html",
-  "scripts": {
-    "deploy": "bash deploy.command",
-    "push": "git add . && git commit -m 'new images' && git push"
-  }
+    "name": "images-hosting",
+    "version": "1.0.0",
+    "description": "在服务器上自建图床 https://liuxianyu.cn/article/images-hosting.html",
+    "scripts": {
+        "deploy": "zx deploy.mjs"
+    },
+    "devDependencies": {
+        "zx": "^7.2.3"
+    },
+    "engines": {
+        "node": ">= 16.0.0"
+    }
 }
 ```
 
-执行 `npm run deploy` 可将本地图床仓库中的图片等静态资源上传到远程服务器指定的地址了。  
-执行 `npm run push` 可以提交到远程 git 仓库。
+执行 `npm run deploy` 可将本地图床仓库中的图片等静态资源上传到远程服务器指定的地址了并提交到远程 git 仓库。
 
-#### 6、配置 nginx
+#### 5、配置 nginx
 
 &emsp;&emsp;配置完成后重启 nginx。
 
@@ -131,10 +159,10 @@ server {
 **图片资源可以访问啦**
 ![](https://images-hosting.liuxianyu.cn/comment-bg.png)
 
-#### 7、替换博客原有的链接地址
+#### 6、替换博客原有的链接地址
 
 &emsp;&emsp;全局替换 `https://gitee.com/liuxy0551/image-hosting/` -> `https://images-hosting.liuxianyu.cn/`，重新部署博客即可恢复图片资源的访问啦。
 
-#### 8、缺点
+#### 7、缺点
 
 - 每次都是上传全量资源，耗时较长
