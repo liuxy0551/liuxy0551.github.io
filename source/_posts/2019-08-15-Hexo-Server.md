@@ -88,6 +88,9 @@ updated: 2019-11-05 09:52:45
 
 　　8、在博客根目录下输入以下命令：
     ```shell
+    npm install -g hexo
+    ```
+    ```shell
     hexo clean
     hexo g
     hexo d

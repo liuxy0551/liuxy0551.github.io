@@ -20,6 +20,6 @@ updated: 2020-12-10 13:45:46
 ```
 git config credential.helper store
 ```
-&emsp;&emsp;上述命令会在拉取时记录用户名和密码，下次再执行 git pull 时就不用再输入了。
+&emsp;&emsp;上述命令会在拉取时记录用户名和密码，下次执行 git pull 时输入一次用户名密码后就不用再输入了。
 
 &emsp;&emsp;**也可以使用 ssh 链接 clone 项目**

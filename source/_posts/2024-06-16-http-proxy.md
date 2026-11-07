@@ -50,33 +50,36 @@ alias proxy_test='curl -v google.com'
 &emsp;&emsp;公网服务器可以借助 `ssh -R` 命令创建一个反向代理通道（**下方 ssh 命令在本地机器执行，本地机器需要科学上网**）：
 
 ``` shell
-ssh -R 6990:localhost:7890 root@47.65.55.62 -N
+ssh -N -T \
+  -o ExitOnForwardFailure=yes \
+  -o ServerAliveInterval=30 \
+  -o ServerAliveCountMax=3 \
+  -R 6990:127.0.0.1:7890 \
+  root@47.65.55.62
 ```
 
 - `ssh -R` 表示建立一个反向 SSH 隧道
 - `6990` 是在公网服务器上监听的端口
-- `localhost` 本地机器的地址
-- `7890` 本地机器代理服务的地址，这里使用的是 clash
-- `root@47.65.55.62` 公网服务器的用户名和 IP 地址
-- `-N` 表示不执行远程命令，仅建立隧道连接，这里必需
+- `127.0.0.1` 表示本地机器的回环地址（SSH 客户端所在机器）
+- `7890` 是本地机器代理服务的端口，这里使用的是 Clash
+- `root@47.65.55.62` 表示公网服务器的用户名和 IP 地址
+- `-N` 表示不执行远程命令，仅建立隧道连接
+- `-T` 表示不分配伪终端，适用于纯端口转发场景
+- `-o ExitOnForwardFailure=yes` 表示如果端口转发建立失败（例如远程 6990 端口被占用），SSH 立即退出
+- `-o ServerAliveInterval=30` 表示每隔 30 秒向服务器发送一次保活消息
+- `-o ServerAliveCountMax=3` 表示连续 3 次未收到服务器响应后，断开 SSH 连接
 
 &emsp;&emsp;因此上述命令的作用是：将本地的 `7890` 端口映射到公网服务器 `47.65.55.62` 的 `6990` 端口，当公网服务器有请求发送到公网服务器的 `6990` 端口时，它会通过 SSH 隧道转发到本地机器的 `7890` 端口。
 
-&emsp;&emsp;在本地机器执行上述命令前先在公网服务器上确认配置了允许端口转发，我这里的机器是 CentOS7.6，使用 `cat /etc/os-release` 可以查看系统信息。`vim /etc/ssh/sshd_config` 后找到 `AllowTcpForwarding` 和 `GatewayPorts`，这两个配置需要都设置为 `yes`，一般是注释了，可以在这两者的下方添加如下配置，并执行 `systemctl restart sshd` 命令重启 SSH 服务：
-
-``` shell
-AllowTcpForwarding yes
-GatewayPorts yes
-```
 
 &emsp;&emsp;类似的，在公网服务器上也添加下方的 `proxy` 命令，然后执行 `source ~/.zshrc` 就可以生效了。在公网服务器执行 `proxy_test` 测试代理是否可用，发现一直是 Trying；执行 `proxy` 后再执行 `proxy_test` 就发现有具体内容返回了；可以通过执行 `unproxy` 取消代理。
 
 ``` shell
-# 代理到本机的指定端口（公网服务器）
-alias proxy='export https_proxy=http://localhost:6990;export http_proxy=http://localhost:6990;export all_proxy=socks5://localhost:6990'
-# 取消使用代理服务器
-alias unproxy='unset http_proxy;unset https_proxy;unset all_proxy'
-# 测试服务器是否可用
+# 开启代理（通过 SSH 反向隧道连接 Mac 本机 Clash）
+alias proxy='export HTTP_PROXY=http://127.0.0.1:6990; export HTTPS_PROXY=http://127.0.0.1:6990; export ALL_PROXY=http://127.0.0.1:6990; export http_proxy=$HTTP_PROXY; export https_proxy=$HTTPS_PROXY; export all_proxy=$ALL_PROXY'
+# 取消代理
+alias unproxy='unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy'
+# 测试代理
 alias proxy_test='curl -v google.com'
 ```
 
