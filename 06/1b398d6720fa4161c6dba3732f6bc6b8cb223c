@@ -1,0 +1,14 @@
+source/_posts/2022-08-04-docker-f.md
+  h_3070dc1062bb3b 28,31,47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "061b398d6720fa4161c6dba3732f6bc6b8cb223c",
+  "prompts": {},
+  "humans": {
+    "h_3070dc1062bb3b": {
+      "author": "liuxy0551 <liuxy0551@qq.com>"
+    }
+  }
+}
